@@ -73,11 +73,11 @@
 					</div>
 					<div class="col-sm-8" style="margin-top: 10px;">
 
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1" disabled>
 						<label for="flexRadioDefault1"> 権限なし </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1"> <label
+							name="flexRadioDefault" id="flexRadioDefault1" disabled> <label
 							for="flexRadioDefault1"> 参照 </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1"> <label
+							name="flexRadioDefault" id="flexRadioDefault1" disabled> <label
 							for="flexRadioDefault1"> 更新 </label>
 
 					</div>
