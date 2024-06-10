@@ -38,21 +38,21 @@
 				<div class="form-check">
 					<input class="form-check-input" type="radio"
 						name="flexRadioDefault" id="flexRadioDefault2" checked> <label
-						class="form-check-label" for="flexRadioDefault1"> 権限なし </label>
+						class="form-check-label" for="flexRadioDefault1">権限なし</label>
 				</div>
 			</div>
 			<div class="col-2   width: 10%;">
 				<div class="form-check">
 					<input class="form-check-input" type="radio"
 						name="flexRadioDefault" id="flexRadioDefault1"> <label
-						class="form-check-label" for="flexRadioDefault2"> 売上登録 </label>
+						class="form-check-label" for="flexRadioDefault2">売上登録</label>
 				</div>
 			</div>
 			<div class="col-3">
 				<div class="form-check">
 					<input class="form-check-input" type="radio"
 						name="flexRadioDefault" id="flexRadioDefault3"> <label
-						class="form-check-label" for="flexRadioDefault3"> アカウント登録
+						class="form-check-label" for="flexRadioDefault3">アカウント登録
 					</label>
 				</div>
 			</div>
