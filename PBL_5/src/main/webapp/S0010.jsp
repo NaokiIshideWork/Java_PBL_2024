@@ -4,18 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <link rel="stylesheet" href="./css/bootstrap.min.css"  text="text/css">
 <title>売上登録画面</title>
 
-=======
-<title>Insert title here１</title>
->>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
+
 </head>
 <body>
-<<<<<<< HEAD
+
 <div class="container position-absolute">
         <h2 class="mt-5" style="margin-left: 30px;">売上登録</h2>
         <div class="" style="margin-left:100px">
@@ -97,8 +95,6 @@
         </form>
     </div>
 </div>
-=======
 
->>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
 </body>
 </html>
