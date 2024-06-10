@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./css/bootstrap.min.css" text="text/css">
 <title>売上詳細編集</title>
 </head>
 <body>
@@ -14,7 +16,7 @@
         <div class="" style="margin-left:100px">
         <form class="text-right">
             <div class="row ">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">販売日<span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8">
@@ -22,7 +24,7 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">担当<span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8 w-50" >
@@ -35,7 +37,7 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">商品カテゴリー<span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8 w-50" >
@@ -48,7 +50,7 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">商品名<span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8 w-50" >
@@ -56,7 +58,7 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">単価<span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8">
@@ -64,7 +66,7 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">個数<span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8">
@@ -72,7 +74,7 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">備考</h3>
                 </div>
                 <div class="col-sm-8">
@@ -81,7 +83,7 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-sm-2">    
+                <div class="col-sm-3">    
                 </div>
                 <div class="col-sm-8" style="margin-left: 30px;">
                     <button type="button" class="btn btn-primary">✔更 新</button>
