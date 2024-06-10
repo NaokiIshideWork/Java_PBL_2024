@@ -67,7 +67,7 @@
 					<td class="col-md-1">${obj.getNumber()}</td>
 					<td class="col-md-1">${obj.getName()}</td>
 					<td class="col-md-1">${obj.getMail()}</td>
-					<td class="col-md-2">${obj.getPermission()}</td>
+					<td class="col-md-2">${obj.getAuthority()}</td>
 				</tr>
 			</form>
 
