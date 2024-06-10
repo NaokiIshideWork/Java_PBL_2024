@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,7 +100,7 @@
           <div class="row mb-3 justify-content-center">
             <div class="col-sm-2"></div>
             <div class="col-sm-4">
-              <a type="submit" class="btn btn-primary btn-search">🔍検索</a>
+              <a type="submit" class="btn btn-primary btn-search me-2">🔍検索</a>
               <button type="reset" class="btn btn-secondary btn-clear">クリア</button>
             </div>
           </div>
