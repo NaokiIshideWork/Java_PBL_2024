@@ -4,23 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>アカウント登録確認</title>
 </head>
 <body>
-	<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>フォーム</title>
-</head>
-<body>
-	
-	
 	<div class="row ">
 		<div class="col-sm-2">
-			<h3 for="inputEmail" class="col-form-label" style="text-align: end;">氏名<span class="badge rounded-pill bg-secondary">必須</span></h3>
+			<h3 for="inputEmail" class="col-form-label" style="text-align: end;">氏名</h3>
 		</div>
 		<div class="col-sm-8">
 			<input type="text" name="#" class="form-control w-25"
@@ -30,7 +21,7 @@
 
 	<div class="row ">
 		<div class="col-sm-2">
-			<h3 for="inputEmail" class="col-form-label" style="text-align: end;">メールアドレス<span class="badge rounded-pill bg-secondary">必須</span></h3>
+			<h3 for="inputEmail" class="col-form-label" style="text-align: end;">メールアドレス</h3>
 		</div>
 		<div class="col-sm-8">
 			<input type="email" name="#" class="form-control w-25"
@@ -40,7 +31,7 @@
 
 	<div class="row ">
 		<div class="col-sm-2">
-			<h3 for="inputEmail" class="col-form-label" style="text-align: end;">パスワード<span class="badge rounded-pill bg-secondary">必須</span></h3>
+			<h3 for="inputEmail" class="col-form-label" style="text-align: end;">パスワード</h3>
 		</div>
 		<div class="col-sm-8">
 			<input type="password" name="#" class="form-control w-25"
@@ -50,7 +41,7 @@
 
 	<div class="row ">
 		<div class="col-sm-2">
-			<h3 for="inputEmail" class="col-form-label" style="text-align: end;">パスワード（確認）<span class="badge rounded-pill bg-secondary">必須</span></h3>
+			<h3 for="inputEmail" class="col-form-label" style="text-align: end;">パスワード（確認）</h3>
 		</div>
 		<div class="col-sm-8">
 			<input type="password" name="#" class="form-control w-25"
