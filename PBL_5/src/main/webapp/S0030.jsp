@@ -110,7 +110,7 @@
 					<div class="col-sm-3"></div>
 					<div class="col-sm-8">
 						<button type="button" class="btn btn-primary"
-							style="margin-left: 30px;" href="#">✓</button>
+							style="margin-left: 30px;" href="#">✓登録</button>
 					</div>
 				</div>
 			</form>
