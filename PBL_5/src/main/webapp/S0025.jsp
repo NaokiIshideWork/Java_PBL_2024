@@ -10,6 +10,8 @@
 <title>売上詳細削除確認</title>
 </head>
 <body>
+
+
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="ToDoServlet">物品売上管理システム</a>
