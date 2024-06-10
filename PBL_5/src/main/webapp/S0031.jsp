@@ -46,7 +46,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="text" name="#" class="form-control"
-							placeholder="メールアドレス">
+							placeholder="氏名" disabled>
 					</div>
 				</div>
 
@@ -60,7 +60,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="email" name="#" class="form-control"
-							placeholder="メールアドレス">
+							placeholder="メールアドレス" disabled>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -72,7 +72,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="password" name="#" class="form-control "
-							placeholder="パスワード">
+							placeholder="パスワード" disabled>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -84,7 +84,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="password" name="#" class="form-control "
-							placeholder="パスワード">
+							placeholder="パスワード" disabled>
 					</div>
 				</div>
 				<div class="row mt-3">
