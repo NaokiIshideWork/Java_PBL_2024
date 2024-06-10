@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>売上登録</title>
+<title>アカウント詳細編集確認</title>
 </head>
 <body>
 
