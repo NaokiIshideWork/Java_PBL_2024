@@ -9,6 +9,30 @@
 <title>アカウント検索条件入力</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="ToDoServlet">物品売上管理システム</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link active"
+                        aria-current="page" href="ToDoDelayServlet">ダッシュボード</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                        href="ToDoDoneServlet">売上登録</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="ToDoDoneServlet">売上検索</a></li>  
+                    <li class="nav-item"><a class="nav-link"
+                                href="ToDoDoneServlet">アカウント登録</a></li>  
+                    <li class="nav-item bg-dark-subtle"><a class="nav-link"
+                                    href="ToDoDoneServlet">アカウント検索</a></li>
+                </ul>
+            </div>
+            <ul class="navbar-nav justify-content-end">
+                <li class="nav-item"><a class="nav-link"
+                    href="ToDoDoneServlet">ログアウト</a></li>
+            </ul>
+        </div>
+    </nav>
+
 	<p class="fs-1">アカウント検索条件入力</p>
 	<form>
 		<div class="mb-3 row align-items-center">
