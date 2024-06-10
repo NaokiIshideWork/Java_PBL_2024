@@ -19,9 +19,9 @@
                     <li class="nav-item"><a class="nav-link"
                             href="ToDoDoneServlet">売上検索</a></li>  
                     <li class="nav-item"><a class="nav-link"
-                                href="ToDoDoneServlet" style="margin-left: 40px;">アカウント登録</a></li>  
+                                href="ToDoDoneServlet">アカウント登録</a></li>  
                     <li class="nav-item"><a class="nav-link"
-                                    href="ToDoDoneServlet"style="margin-left: 10px;">アカウント検索</a></li>
+                                    href="ToDoDoneServlet">アカウント検索</a></li>
                 </ul>
             </div>
             <ul class="navbar-nav justify-content-end">
