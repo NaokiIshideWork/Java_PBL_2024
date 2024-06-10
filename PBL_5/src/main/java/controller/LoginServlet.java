@@ -52,9 +52,22 @@ public class LoginServlet extends HttpServlet {
 			
 		}
 		//メールアドレス長さチェック
-				if() {
+		if() {
 					
-				}
+		}
+		//メールアドレス形式チェック
+		if() {
+			
+		}
+		
+		//パスワード必須入力チェック
+		if() {
+							
+		}
+		//パスワード長さチェック
+		if() {
+					
+		}
 		
 		
 //		sqlserv.insert(title, priority, term, contents);
