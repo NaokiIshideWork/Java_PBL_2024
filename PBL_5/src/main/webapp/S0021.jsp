@@ -34,6 +34,8 @@
                 <form action="#" method="post">
                     <tr>
                         <!-- <c:out value="${obj.getDate()}" /> -->
+                        
+                        <!-- 詳細ページに遷移 -->
                         <td class="col-md-1"><button type="button" class="btn btn-primary">✓ 詳細</button>
                         </td>
                         <td class="col-md-1">${obj.getNumber()}</td>
