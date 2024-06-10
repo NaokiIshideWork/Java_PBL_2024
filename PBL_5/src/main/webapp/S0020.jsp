@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>売上検索条件入力画面</title>
 </head>
 <body>
 
