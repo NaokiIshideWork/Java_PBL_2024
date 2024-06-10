@@ -77,7 +77,7 @@
 						<label for="flexRadioDefault1"> 権限なし </label> <input type="radio"
 							name="flexRadioDefault" id="flexRadioDefault1"> <label
 							for="flexRadioDefault1"> 売上登録 </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1"> <label
+							name="flexRadioDefault" id="flexRadioDefault1" checked> <label
 							for="flexRadioDefault1"> アカウント登録 </label>
 
 					</div>
