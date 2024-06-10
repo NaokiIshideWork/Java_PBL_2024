@@ -6,7 +6,7 @@
 <head>
 <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 <meta charset="UTF-8">
-<title>アカウント検索条件</title>
+<title>アカウント検索条件入力</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
