@@ -40,7 +40,7 @@
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							氏名<span class="badge rounded-pill bg-secondary">部分一致</span>
+							氏名  <span class="badge rounded-pill bg-secondary">部分一致</span>
 						</h3>
 					</div>
 					<div class="col-sm-8 w-75">
@@ -82,10 +82,9 @@
 					</div>
 				</div>
 				<div class="row mt-3">
-					<div class="col-sm-3"></div>
-					<div class="col-sm-8">
-						<button type="button" class="btn btn-primary"
-							style="margin-left: 30px;" href="#">🔍検 索</button>
+					<div class="col-sm-6"></div>
+					<div class="col-sm-3">
+						<button type="button" class="btn btn-primary me-3" href="#">🔍検 索</button>
 							<a class="btn btn-outline-secondary" href="#" role="button">クリア</a>
 					</div>
 				</div>
