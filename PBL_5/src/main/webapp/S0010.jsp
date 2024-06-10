@@ -5,11 +5,15 @@
 <head>
 <meta charset="UTF-8">
 
+<title>売上登録</title>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <link rel="stylesheet" href="./css/bootstrap.min.css"  text="text/css">
 <title>売上登録画面</title>
 
+
+<title>Insert title here１</title>
 
 </head>
 <body>

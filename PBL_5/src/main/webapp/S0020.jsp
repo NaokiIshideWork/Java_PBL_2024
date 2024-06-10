@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>売上検索条件入力</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
