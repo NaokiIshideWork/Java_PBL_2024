@@ -18,8 +18,8 @@
 		<h2>物品売上管理システム</h2>
 		<form action="#" method="post">
 			<input type="text" class="form-control w-50 mx-auto mb-1"
-				placeholder="メールアドレス" /> <input type="text"
-				class="form-control w-50 mx-auto" placeholder="パスワード" />
+				placeholder="メールアドレス" name="mail"/> <input type="text"
+				class="form-control w-50 mx-auto" placeholder="パスワード" name="password"/>
 
 			<button id="btn" class="btn btn-primary btn-rounded mt-1  w-50 ">ログイン</button>
 		</form>
