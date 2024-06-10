@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-<title>ログイン</title>
+<title>ログインaaa</title>
 </head>
 <body class="bg-secondary-subtle">
 	<div class="container text-center w-50" style="margin-top:150px">
