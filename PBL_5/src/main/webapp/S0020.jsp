@@ -1,8 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<<<<<<< HEAD
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+=======
+
+>>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="./css/bootstrap.min.css"  text="text/css">
 <title>売上検索条件入力</title>
 </head>
 <body>
@@ -97,7 +107,7 @@
           <div class="row mb-3 justify-content-center">
             <div class="col-sm-2"></div>
             <div class="col-sm-4">
-              <a type="submit" class="btn btn-primary btn-search">🔍検索</a>
+              <a type="submit" class="btn btn-primary btn-search me-2">🔍検索</a>
               <button type="reset" class="btn btn-secondary btn-clear">クリア</button>
             </div>
           </div>
