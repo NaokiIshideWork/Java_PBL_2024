@@ -55,7 +55,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">販売日  <span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="date" name="#" class="form-control w-25" placeholder="Last name" aria-label="Last name">
+                <input type="date" name="#" class="form-control w-25"  aria-label="Last name"placeholder="年/月/日">
                 </div>
             </div>
             <div class="row mt-3">

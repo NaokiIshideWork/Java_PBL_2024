@@ -41,9 +41,15 @@ public class AuthFilter extends HttpFilter implements Filter {
 		// TODO Auto-generated method stub
 		// place your code here
 		
+<<<<<<< HEAD
 //		/HttpServletRequest req = (HttpServletRequest) request;
 //		HttpServletResponse res = (HttpServletResponse) response;
 //		
+=======
+		HttpServletRequest req = (HttpServletRequest) request;
+		HttpServletResponse res = (HttpServletResponse) response;
+		
+>>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
 //		String path = req.getServletPath();
 //		if(!path.equals("/ToDoLoginServlet")) {
 //				var obj = req.getSession().getAttribute("person");		
