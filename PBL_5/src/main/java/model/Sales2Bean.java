@@ -20,6 +20,38 @@ public class Sales2Bean {
 		sale_number=sn;
 		note=n;
 	}
+
+	public int getSale_id() {
+		return sale_id;
+	}
+
+	public String getSale_date() {
+		return sale_date;
+	}
+
+	public int getAccount_id() {
+		return account_id;
+	}
+
+	public int getCategory_id() {
+		return category_id;
+	}
+
+	public String getTrade_name() {
+		return trade_name;
+	}
+
+	public int getUnit_price() {
+		return unit_price;
+	}
+
+	public int getSale_number() {
+		return sale_number;
+	}
+
+	public String getNote() {
+		return note;
+	}
 	
 
 }
