@@ -7,9 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.AccountsBean;
-import services.SQLservicesPBL;
-
 /**
  * Servlet implementation class LoginServlet
  */
@@ -40,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		request.setCharacterEncoding("UTF-8");
-		SQLservicesPBL sqlserv = new SQLservicesPBL();
+		// SQLservicesPBL sqlserv = new SQLservicesPBL();
 
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
@@ -72,15 +69,18 @@ public class LoginServlet extends HttpServlet {
   		if(mail.length() > 30) {
   			error_display += "パスワードが長すぎます";
   		}		
-				
-	
 		
-		AccountsBean ab = sqlserv.Login(password, password);
-		
+  		// 複数でるかも？　cでカウントして1以上ならそのたびに空白はいるようにしたい
+  		if(error_display != null) {
+  			request.setAttribute("error_display", error_display);
+  			request.getRequestDispatcher("/C0010.jsp").forward(request, response);
+  		} 
+  		
+		// AccountsBean ab = sqlserv.Login(password, password);
 //		sqlserv.insert(title, priority, term, contents);
-		if(ab != null) {
+		//if(ab != null) {
 			response.sendRedirect("DashboardServlet");
-		}
+		//}
 	}
 
 	}
