@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +55,7 @@
                 </div>
                 <div class="col-sm-8 w-50" >
                 <%--登録されている人--%>
-                    <select class="form-select" aria-label="Default select example" disabled>
+                    <select  class="form-select" aria-label="Default select example" disabled>
                         <option selected>選択してください</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -80,7 +81,7 @@
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">商品名</h3>
                 </div>
                 <div class="col-sm-8 w-50" >
-                    <input type="text" name="#" class="form-control" placeholder="商品名" disabled>
+                    <input type="text" value="${list.getTrade_name()}" class="form-control" placeholder="商品名" disabled>
                 </div>
             </div>
             <div class="row mt-3">
@@ -88,7 +89,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">単価</h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="text" name="#" class="form-control w-25" placeholder="単価" disabled>
+                <input type="text" value="${list.getUnit_price()}"class="form-control w-25" placeholder="単価" disabled>
                 </div>
             </div>
             <div class="row mt-3">
@@ -96,7 +97,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">個数</h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="text" name="#" class="form-control w-25" placeholder="個数" disabled>
+                <input type="text" value="${list.getSale_number()}" class="form-control w-25" placeholder="個数" disabled>
                 </div>
             </div>
             <div class="row mt-3">
@@ -104,7 +105,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">小計</h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="text" name="#" class="form-control w-25" placeholder="個数" disabled>
+                <input type="text" value="${list.getSubtotal()}" class="form-control w-25"  disabled>
                 </div>
             </div>
             <div class="row mt-3">
@@ -113,15 +114,18 @@
                 </div>
                 <div class="col-sm-8">
                 
-                <textarea name="#" class="form-control w-75" id="exampleFormControlTextarea1" rows="5"placeholder="備考" disabled></textarea>
+                <textarea  class="form-control w-75" id="exampleFormControlTextarea1" rows="5" disabled>
+                <c:out value="${list.getNote()}" />
+               
+                </textarea>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-sm-2">    
                 </div>
                 <div class="col-sm-8" style="margin-left: 30px;">
-                    <button type="button" class="btn btn-primary">✔OK</button>
-                    <a class="btn btn-outline-secondary" href="#" role="button">キャンセル</a>
+                    <button type="submit" class="btn btn-primary">✔OK</button>
+                    <a class="btn btn-outline-secondary" href="RegisterServlet" role="button">キャンセル</a>
                 </div>
             </div>
         </form>

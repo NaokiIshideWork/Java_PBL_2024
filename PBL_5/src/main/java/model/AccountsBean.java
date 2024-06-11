@@ -3,14 +3,14 @@ package model;
 public class AccountsBean {
 
 	private int account_id;
-	private String test;
+	private String name;
 	private String mail;
 	private String password;
 	private int authority;
 
-	public AccountsBean(int ai, String t, String m, String p, int au) {
+	public AccountsBean(int ai, String n, String m, String p, int au) {
 		account_id = ai;
-		test = t;
+		name = n;
 		mail = m;
 		password = p;
 		authority = au;
@@ -20,8 +20,8 @@ public class AccountsBean {
 		return account_id;
 	}
 
-	public String getTest() {
-		return test;
+	public String getName() {
+		return name;
 	}
 
 	public String getMail() {

@@ -46,18 +46,19 @@ public class RegisterSalesServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		SQLservicesPBL mts = new SQLservicesPBL();
 		SalesBean list = null;
-		String sales_date = request.getParameter("sale_date");
-	
 		
-		System.out.println(sales_date);
-		String responsible = request.getParameter("responsible");
-		String items = request.getParameter("items");
-		String item_name = request.getParameter("item_name");
-		String price = request.getParameter("price");
-		String number = request.getParameter("number");
+		String sales_date = request.getParameter("sale_date");
+		String account = request.getParameter("account");
+		String item_category = request.getParameter("item_category");
+		String trade_name = request.getParameter("trade_name");
+		String unit_price = request.getParameter("unit_price");
+		String sale_number = request.getParameter("sale_number");
 		String note = request.getParameter("note");
 		
-		list = new SalesBean(1,sales_date, 1, 1,item_name, Integer.parseInt(price),Integer.parseInt(number),note);
+		int subtotal = Integer.parseInt(unit_price)*Integer.parseInt(sale_number);
+		
+		list = new SalesBean(sales_date, account, item_category, trade_name,Integer.parseInt(unit_price),
+				Integer.parseInt(sale_number), subtotal, note);
 		request.setAttribute("list", list);
 		doGet(request, response);
 	}
