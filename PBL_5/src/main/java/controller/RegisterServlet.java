@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.AccountsBean;
-import services.SQLservicesPBL;
-
+import services.SQLServicesPBLreg;
 /**
  * Servlet implementation class RegisterServlet
  */
@@ -33,7 +32,7 @@ public class RegisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		SQLservicesPBL sqlserv = new SQLservicesPBL();
+		SQLServicesPBLreg sqlserv = new SQLServicesPBLreg();
 		ArrayList<AccountsBean> account_list = null;
 		account_list = sqlserv.SelectAllAcount();
 		request.setAttribute("accounts", account_list);
