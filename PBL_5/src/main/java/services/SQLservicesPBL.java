@@ -10,7 +10,7 @@ import model.CategoriesBean;
 import util.DbUtil;
 
 public class SQLservicesPBL {
-	
+
 	public AccountsBean Login(String in_mail, String in_password) {
 		String sql = "SELECT * FROM accounts WHERE mail = ? AND password = ?;";
 		AccountsBean person = null;
@@ -18,10 +18,10 @@ public class SQLservicesPBL {
 				Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
 			// PreparedStatementがクローズされるタイミングでクローズされる
-		
+
 			ps.setString(1, in_mail);
 			ps.setString(2, in_password);
-			
+
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				int account_id = rs.getInt("account_id");
@@ -29,7 +29,7 @@ public class SQLservicesPBL {
 				String mail = rs.getString("mail");
 				String password = rs.getString("password");
 				int authority = rs.getInt("authority");
-				
+
 				person = new AccountsBean(account_id, name, mail, password, authority);
 			}
 		} catch (SQLException e) {
@@ -37,26 +37,29 @@ public class SQLservicesPBL {
 		}
 		return person;
 	}
-	
 
-<<<<<<< HEAD
-	public  CategoriesBean SelectCategory() {
+	public AllayList<CategoriesBean> SelectAllCategory() {
 		String sql = "SELECT * FROM categories WHERE active_flg = 1;";
 		CategoriesBean categories_list = null;
-		try()
-=======
-	public  CategoriesBean Select(int in_id,String in_name) {
-		String sql2 = ""
->>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
-	}
-<<<<<<< HEAD
-	
-	
-	
-=======
+		try (
+				Connection con = DbUtil.open();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+			// PreparedStatementがクローズされるタイミングでクローズされる
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				int category_id = rs.getInt("category_id");
+				String category_name = rs.getString("category_name");
+				int active_flg = rs.getInt("active_flg");
 
->>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
-	public AccountsBean SelectAllAcount() {
+				categories_list = new CategoriesBean(category_id, category_name, active_flg);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return categories_list;
+	}
+
+	public AccountsBean SelectAllAccount() {
 		String sql = "SELECT * FROM accounts WHERE authority = 1 OR authority =11 ; ";
 		AccountsBean account_list = null;
 		try (
@@ -70,20 +73,13 @@ public class SQLservicesPBL {
 				String mail = rs.getString("mail");
 				String password = rs.getString("password");
 				int authority = rs.getInt("authority");
-		
-				
+
 				account_list = new AccountsBean(account_id, name, mail, password, authority);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return account_list ;
+		return account_list;
 	}
-	
-	
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
 
 }
