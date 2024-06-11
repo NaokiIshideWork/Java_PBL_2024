@@ -50,8 +50,8 @@
 					</div>
 					<div class="col-sm-8">
 						<input type="date" name="sale_date" value="${list.getSale_date()}"
-							class="form-control w-25" placeholder="Last name"
-							aria-label="Last name" readonly>
+							class="form-control w-25 bg-secondary-subtle" placeholder="Last name"
+							aria-label="Last name" readonly >
 					</div>
 				</div>
 				<div class="row mt-3">
