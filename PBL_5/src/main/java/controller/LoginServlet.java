@@ -1,5 +1,4 @@
 package controller;
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -48,30 +47,33 @@ public class LoginServlet extends HttpServlet {
 		String error_display = "";
 		
 		//メールアドレス未入力
-		if() {
-			
+		if(mail.isEmpty()) {
+			error_display +="メールアドレスを入力して下さい。"; 
 		}
 		//メールアドレス長さチェック
-		if() {
-					
+		if(mail.length() > 100) {
+			error_display += "メールアドレスが長すぎます";
 		}
+
 		//メールアドレス形式チェック
-		if() {
-			
-		}
+        String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+        boolean result = mail.matches(regex);
+        if(result==false) {
+        	error_display += "メールアドレスの形式ではありません";
+        }
 		
 		//パスワード必須入力チェック
-		if() {
-							
+        if(password.isEmpty()) {
+			error_display +="パスワードを入力して下さい。"; 
 		}
+		
 		//パスワード長さチェック
-		if() {
-					
-		}
-		
-		
+  		if(mail.length() > 30) {
+  			error_display += "パスワードが長すぎます";
+  		}
+        
 //		sqlserv.insert(title, priority, term, contents);
-		response.sendRedirect("ToDoServlet");
+		response.sendRedirect("/DashboardServlet");
 		doGet(request, response);
 	}
 
