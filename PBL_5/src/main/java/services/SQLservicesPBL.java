@@ -37,6 +37,8 @@ public class SQLservicesPBL {
 		return person;
 	}
 	
-	public 
+	public  CategoriesBean Select(int in_id,String in_name) {
+		String sql2 = ""
+	}
 
 }
