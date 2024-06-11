@@ -48,26 +48,26 @@ public class LoginServlet extends HttpServlet {
 		String error_display = "";
 		
 		//メールアドレス未入力
-		if() {
-			
+		if(mail.isEmpty()) {
+			error_display +="メールアドレスを入力して下さい。"; 
 		}
 		//メールアドレス長さチェック
-		if() {
-					
+		if(mail.length() < 101) {
+			error_display += "メールアドレスが長すぎます";
 		}
 		//メールアドレス形式チェック
-		if() {
-			
-		}
-		
-		//パスワード必須入力チェック
-		if() {
-							
-		}
-		//パスワード長さチェック
-		if() {
-					
-		}
+//		if() {
+//			
+//		}
+//		
+//		//パスワード必須入力チェック
+//		if() {
+//							
+//		}
+//		//パスワード長さチェック
+//		if() {
+//					
+//		}
 		
 		
 //		sqlserv.insert(title, priority, term, contents);

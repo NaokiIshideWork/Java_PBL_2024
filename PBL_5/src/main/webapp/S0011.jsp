@@ -53,6 +53,7 @@
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">担当</h3>
                 </div>
                 <div class="col-sm-8 w-50" >
+                <%--登録されている人--%>
                     <select class="form-select" aria-label="Default select example" disabled>
                         <option selected>選択してください</option>
                         <option value="1">One</option>

@@ -46,14 +46,14 @@ public class AuthFilter extends HttpFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		
-		String path = req.getServletPath();
-		if(!path.equals("/ToDoLoginServlet")) {
-				var obj = req.getSession().getAttribute("person");		
-				if(obj == null) {
-					res.sendRedirect("ToDoLoginServlet");
-				return;
-				}
-		}
+//		String path = req.getServletPath();
+//		if(!path.equals("/ToDoLoginServlet")) {
+//				var obj = req.getSession().getAttribute("person");		
+//				if(obj == null) {
+//					res.sendRedirect("ToDoLoginServlet");
+//				return;
+//				}
+//		}
 		chain.doFilter(request, response);
 		
 	}

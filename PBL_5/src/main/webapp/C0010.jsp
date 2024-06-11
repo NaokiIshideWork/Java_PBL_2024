@@ -16,7 +16,7 @@
 		role="alert">メールアドレスを入力して下さい</div>
 	<div class="container text-center w-50" style="margin-top: 150px">
 		<h2>物品売上管理システム</h2>
-		<form action="#" method="post">
+		<form action="LoginServlet" method="post">
 			<input type="text" class="form-control w-50 mx-auto mb-1"
 				placeholder="メールアドレス" name="mail"/> <input type="text"
 				class="form-control w-50 mx-auto" placeholder="パスワード" name="password"/>
