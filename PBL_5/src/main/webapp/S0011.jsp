@@ -124,7 +124,7 @@
                 <div class="col-sm-2">    
                 </div>
                 <div class="col-sm-8" style="margin-left: 30px;">
-                    <button type="button" class="btn btn-primary">✔OK</button>
+                    <button type="submit" class="btn btn-primary">✔OK</button>
                     <a class="btn btn-outline-secondary" href="RegisterServlet" role="button">キャンセル</a>
                 </div>
             </div>

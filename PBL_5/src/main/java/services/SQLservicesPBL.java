@@ -37,6 +37,11 @@ public class SQLservicesPBL {
 		return person;
 	}
 	
+<<<<<<< HEAD
+	public  CategoriesBean Select(int in_id,String in_name) {
+		String sql2 = ""
+	}
+=======
 	public AccountsBean SelectAllAcount() {
 		String sql = "SELECT * FROM accounts WHERE authority = 1 OR authority =11 ; ";
 		AccountsBean account_list = null;
@@ -62,5 +67,6 @@ public class SQLservicesPBL {
 	}
 	
 	
+>>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
 
 }
