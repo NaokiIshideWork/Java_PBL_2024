@@ -54,6 +54,7 @@ public class SalesBean {
 
 	public int getUnit_price() {
 		return unit_price;
+		
 	}
 
 	public int getSale_number() {
