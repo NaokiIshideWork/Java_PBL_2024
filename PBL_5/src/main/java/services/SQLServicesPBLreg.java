@@ -10,6 +10,7 @@ import model.AccountsBean;
 import util.DbUtil;
 
 public class SQLServicesPBLreg {
+//	ああ」
 	public ArrayList<AccountsBean> SelectAllAcount() {
 		String sql = "SELECT * FROM accounts WHERE authority = 1 OR authority =11 ; ";
 		ArrayList<AccountsBean> account_list = new ArrayList<AccountsBean>();
