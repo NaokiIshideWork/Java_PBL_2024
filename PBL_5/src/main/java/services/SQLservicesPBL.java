@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.AccountsBean;
+import model.CategoriesBean;
 import util.DbUtil;
 
 public class SQLservicesPBL {
@@ -37,11 +38,15 @@ public class SQLservicesPBL {
 		return person;
 	}
 	
-<<<<<<< HEAD
-	public  CategoriesBean Select(int in_id,String in_name) {
-		String sql2 = ""
+
+	public  CategoriesBean SelectCategory() {
+		String sql = "SELECT * FROM categories WHERE active_flg = 1;";
+		CategoriesBean categories_list = null;
+		try()
 	}
-=======
+	
+	
+	
 	public AccountsBean SelectAllAcount() {
 		String sql = "SELECT * FROM accounts WHERE authority = 1 OR authority =11 ; ";
 		AccountsBean categories_list = null;
@@ -67,6 +72,5 @@ public class SQLservicesPBL {
 	}
 	
 	
->>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
 
 }
