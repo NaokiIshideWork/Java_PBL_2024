@@ -51,7 +51,7 @@
 					<div class="col-sm-8">
 						<input type="date" name="sale_date" value="${list.getSale_date()}"
 							class="form-control w-25" placeholder="Last name"
-							aria-label="Last name" disabled>
+							aria-label="Last name" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -63,8 +63,8 @@
 
 
 						<select class="form-select" name="account_id"
-							aria-label="Default select example" disabled>
-							<option value="${list.getAccount_id() }"><c:out
+							aria-label="Default select example" readonly>
+							<option value="${list.getAccout_id()}"><c:out
 									value="${list.getAccout()}" /></option>
 
 
@@ -79,8 +79,8 @@
 					<div class="col-sm-8 w-50">
 
 						<select class="form-select" name="category_id"
-							aria-label="Default select example" disabled>
-							<option value="${list.getCategory_id() }"><c:out
+							aria-label="Default select example" readonly>
+							<option value="${list.getCategory_id()}"><c:out
 									value="${list.getItem_category()}" /></option>
 
 						</select>
@@ -94,7 +94,7 @@
 					<div class="col-sm-8 w-50">
 						<input type="text" name="trade_name"
 							value="${list.getTrade_name()}" class="form-control"
-							placeholder="商品名" disabled>
+							placeholder="商品名" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -105,7 +105,7 @@
 					<div class="col-sm-8">
 						<input type="text" name="unit_price"
 							value="${list.getUnit_price()}" class="form-control w-25"
-							placeholder="単価" disabled>
+							placeholder="単価" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -116,7 +116,7 @@
 					<div class="col-sm-8">
 						<input type="text" name="sale_number"
 							value="${list.getSale_number()}" class="form-control w-25"
-							placeholder="個数" disabled>
+							placeholder="個数" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -126,7 +126,7 @@
 					</div>
 					<div class="col-sm-8">
 						<input type="text" name="subtotal" value="${list.getSubtotal()}"
-							class="form-control w-25" disabled>
+							class="form-control w-25" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -137,7 +137,7 @@
 					<div class="col-sm-8">
 
 						<textarea class="form-control w-75" name="note"
-							id="exampleFormControlTextarea1" rows="5" disabled><c:out
+							id="exampleFormControlTextarea1" rows="5" readonly><c:out
 								value="${list.getNote()}" />
                 </textarea>
 					</div>

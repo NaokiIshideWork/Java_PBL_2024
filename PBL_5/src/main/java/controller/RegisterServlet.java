@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.AccountsBean;
 import model.CategoriesBean;
-import model.SalesBean;
 import services.SQLServicesPBLreg;
-import services.SQLservicesPBL;
 /**
  * Servlet implementation class RegisterServlet
  */
@@ -71,8 +69,10 @@ public class RegisterServlet extends HttpServlet {
 		String sale_number = request.getParameter("sale_number");
 		String note = request.getParameter("note");
 		
+		System.out.println(sales_date+account_id+category_id);
+		System.out.println(trade_name+unit_price+sale_number+note);
 		
-		mts.insert(sale_number, subtotal, subtotal, trade_name, subtotal, subtotal, note)
+		mts.insert(sales_date, Integer.parseInt(account_id), Integer.parseInt(category_id), trade_name, Integer.parseInt(unit_price), Integer.parseInt(sale_number), note);
 		doGet(request, response);
 	}
 
