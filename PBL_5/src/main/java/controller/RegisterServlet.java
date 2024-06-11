@@ -55,12 +55,19 @@ public class RegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		SQLservicesPBL mts = new SQLservicesPBL();
-		SalesBean list = null;
+		SQLServicesPBLreg mts = new SQLServicesPBLreg();
+		
 		
 		String sales_date = request.getParameter("sale_date");
+		
+		//account_id
 		String account = request.getParameter("account");
+		String account_id = 
+
+		//categori_id
 		String item_category = request.getParameter("item_category");
+		String item_category=
+		
 		String trade_name = request.getParameter("trade_name");
 		String unit_price = request.getParameter("unit_price");
 		String sale_number = request.getParameter("sale_number");
@@ -70,10 +77,9 @@ public class RegisterServlet extends HttpServlet {
 		
 		int subtotal = Integer.parseInt(unit_price)*Integer.parseInt(sale_number);
 		
-		list = new SalesBean(sales_date, account, item_category, trade_name,Integer.parseInt(unit_price),
-				Integer.parseInt(sale_number), subtotal, note);
+	
 		
-		request.setAttribute("list", list);
+		mts.insert(sale_number, subtotal, subtotal, trade_name, subtotal, subtotal, note)
 		doGet(request, response);
 	}
 

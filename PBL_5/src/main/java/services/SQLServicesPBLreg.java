@@ -96,4 +96,23 @@ public class SQLServicesPBLreg {
 		}
 		return category_name;
 	}
+	
+	public void insert(String sale_date, int account_id, int category_id, String trade_name, int unit_price, int sale_number, String note) {
+		String sql = "insert into sales(sale_date,account_id, category_id, trade_name, unit_price, sale_number, note) values(?, ?, ?, ?,?,?,?)";
+		try (Connection con = DbUtil.open();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+
+			ps.setString(1, sale_date);
+			ps.setInt(2,account_id);
+			ps.setInt(3, category_id);
+			ps.setString(4, trade_name);
+			ps.setInt(5, unit_price);
+			ps.setInt(6, sale_number);
+			ps.setString(7, note);
+					
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
