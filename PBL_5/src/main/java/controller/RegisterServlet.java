@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,9 +34,10 @@ public class RegisterServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		SQLservicesPBL sqlserv = new SQLservicesPBL();
-		AccountsBean account_list = null;
+		ArrayList<AccountsBean> account_list = null;
 		account_list = sqlserv.SelectAllAcount();
-		request.setAttribute("account", account_list);
+		request.setAttribute("accounts", account_list);
+		
 		this.getServletContext().getRequestDispatcher("/S0010.jsp").forward(request, response);
 	}
 

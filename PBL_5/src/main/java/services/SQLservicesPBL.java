@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import model.AccountsBean;
 import model.CategoriesBean;
@@ -62,23 +63,35 @@ public class SQLservicesPBL {
 
 
 
+<<<<<<< HEAD
 	public AccountsBean SelectAllAcount() {
 
+=======
+
+	public ArrayList<AccountsBean> SelectAllAcount() {
+>>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
 		String sql = "SELECT * FROM accounts WHERE authority = 1 OR authority =11 ; ";
-		AccountsBean account_list = null;
+		ArrayList<AccountsBean> account_list = new ArrayList<AccountsBean>();
 		try (
 				Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
 			// PreparedStatementがクローズされるタイミングでクローズされる
 			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				int account_id = rs.getInt("account_id");
 				String name = rs.getString("name");
 				String mail = rs.getString("mail");
 				String password = rs.getString("password");
 				int authority = rs.getInt("authority");
+<<<<<<< HEAD
 
 				account_list = new AccountsBean(account_id, name, mail, password, authority);
+=======
+//		あああ
+				
+				account_list.add(new AccountsBean(account_id, name, mail,
+						password, authority));
+>>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
