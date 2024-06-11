@@ -87,6 +87,7 @@
 							placeholder="パスワード" disabled>
 					</div>
 				</div>
+				
 				<div class="row mt-3">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -96,11 +97,11 @@
 					</div>
 					<div class="col-sm-8" style="margin-top: 10px;">
 
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"disabled>
 						<label for="flexRadioDefault1"> 権限なし </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1"> <label
+							name="flexRadioDefault" id="flexRadioDefault1"disabled> <label
 							for="flexRadioDefault1"> 参照 </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1"> <label
+							name="flexRadioDefault" id="flexRadioDefault1"disabled> <label
 							for="flexRadioDefault1"> 更新 </label>
 
 					</div>
@@ -110,7 +111,7 @@
 					<div class="col-sm-8">
 						<button type="button" class="btn btn-primary"
 							style="margin-left: 30px;">O K</button>
-						<a class="btn btn-outline-secondary" href="#" role="button">キャンセル</a>
+						<a class="btn btn-outline-secondary" href="S0030.jsp" role="button">キャンセル</a>
 					</div>
 				</div>
 			</form>

@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import services.AccountRecord;
+
 /**
  * Servlet implementation class AccountRegisterServlet
  */
@@ -35,8 +37,16 @@ public class AccountRegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		response.setContentType("text/html: charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		
+		String name = request.getParameter("name");
+		String mail = request.getParameter("mail");
+		String password = request.getParameter("password");
+		int authority = Integer.parseInt(request.getParameter("authority"));
+		
+		AccountRecord.makeaccount(name, mail, password, authority);
+		response.sendRedirect("accounts");
 	}
 
 }
