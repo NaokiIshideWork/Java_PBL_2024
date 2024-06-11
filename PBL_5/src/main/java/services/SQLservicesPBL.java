@@ -37,6 +37,30 @@ public class SQLservicesPBL {
 		return person;
 	}
 	
-	public 
+	public AccountsBean SelectAllAcount() {
+		String sql = "SELECT * FROM accounts WHERE authority = 1 OR authority =11 ; ";
+		AccountsBean categories_list = null;
+		try (
+				Connection con = DbUtil.open();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+			// PreparedStatementがクローズされるタイミングでクローズされる
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				int account_id = rs.getInt("account_id");
+				String name = rs.getString("name");
+				String mail = rs.getString("mail");
+				String password = rs.getString("password");
+				int authority = rs.getInt("authority");
+		
+				
+				categories_list = new AccountsBean(account_id, name, mail, password, authority);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return categories_list ;
+	}
+	
+	
 
 }

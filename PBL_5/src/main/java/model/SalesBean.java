@@ -28,7 +28,7 @@ public class SalesBean {
 	public String getSale_date() {
 		return sale_date;
 	}
-	public String getAccout_id() {
+	public String getAccout() {
 		return account;
 	}
 	public String getItem_category() {
