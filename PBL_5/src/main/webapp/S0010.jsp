@@ -49,7 +49,7 @@
 <div class="container position-absolute">
         <h2 class="mt-5" style="margin-left: 30px;">売上登録</h2>
         <div class="" style="margin-left:100px">
-        <form class="text-right" action="/RegisterSalesServlet" method="post">
+        <form class="text-right"  action="RegisterSalesServlet" method="post">
             <div class="row ">
                 <div class="col-sm-3">
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">販売日  <span class="badge rounded-pill bg-secondary">必須</span></h3>
@@ -121,7 +121,7 @@
                 <div class="col-sm-3">    
                 </div>
                 <div class="col-sm-8">
-                    <button type="button" class="btn btn-primary" style="margin-left: 30px;">✔登 録</button>
+                    <button type="submit" class="btn btn-primary" style="margin-left: 30px;">✔登 録</button>
                 </div>
             </div>
         </form>

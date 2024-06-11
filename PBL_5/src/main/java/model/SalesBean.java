@@ -1,11 +1,9 @@
 package model;
 
-import java.sql.Date;
-
 public class SalesBean {
 	
 	private int sale_id;
-	private Date sale_date;
+	private String sale_date;
 	private int account_id;
 	private int category_id;
 	private String trade_name;
@@ -13,7 +11,7 @@ public class SalesBean {
 	private int sale_number;
 	private String note;
 	
-	public SalesBean(int si,Date sd,int ai,int ci,String tn,int up,int sn,String n) {
+	public SalesBean(int si,String sd,int ai,int ci,String tn,int up,int sn,String n) {
 		sale_id=si;
 		sale_date=sd;
 		account_id=ai;
@@ -29,7 +27,7 @@ public class SalesBean {
 		return sale_id;
 	}
 
-	public Date getSale_date() {
+	public String getSale_date() {
 		return sale_date;
 	}
 

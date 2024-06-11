@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,7 +46,9 @@ public class RegisterSalesServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		SQLservicesPBL mts = new SQLservicesPBL();
 		SalesBean list = null;
-		Date sales_date = Date.valueOf(request.getParameter("sales_date"));
+		String sales_date = request.getParameter("sale_date");
+	
+		
 		System.out.println(sales_date);
 		String responsible = request.getParameter("responsible");
 		String items = request.getParameter("items");
@@ -56,7 +57,7 @@ public class RegisterSalesServlet extends HttpServlet {
 		String number = request.getParameter("number");
 		String note = request.getParameter("note");
 		
-		list = new SalesBean(1, sales_date, 1, 1,item_name, Integer.parseInt(price),Integer.parseInt(number),note);
+		list = new SalesBean(1,sales_date, 1, 1,item_name, Integer.parseInt(price),Integer.parseInt(number),note);
 		request.setAttribute("list", list);
 		doGet(request, response);
 	}

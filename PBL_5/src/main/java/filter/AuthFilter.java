@@ -40,38 +40,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 			throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
-<<<<<<< HEAD
-		
-//<<<<<<< HEAD
-////		/HttpServletRequest req = (HttpServletRequest) request;
-////		HttpServletResponse res = (HttpServletResponse) response;
-////		
-//=======
-//		HttpServletRequest req = (HttpServletRequest) request;
-//		HttpServletResponse res = (HttpServletResponse) response;
-=======
->>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
-//		
-<<<<<<< HEAD
-//>>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
-=======
-//<<<<<<< HEAD
-////		/HttpServletRequest req = (HttpServletRequest) request;
-////		HttpServletResponse res = (HttpServletResponse) response;
-////		
-//=======
-//		HttpServletRequest req = (HttpServletRequest) request;
-//		HttpServletResponse res = (HttpServletResponse) response;
-		
->>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
-//		String path = req.getServletPath();
-//		if(!path.equals("/ToDoLoginServlet")) {
-//				var obj = req.getSession().getAttribute("person");		
-//				if(obj == null) {
-//					res.sendRedirect("ToDoLoginServlet");
-//				return;
-//				}
-//		}
+
 		chain.doFilter(request, response);
 		
 	}
