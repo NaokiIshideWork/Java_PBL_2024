@@ -38,6 +38,7 @@ public class SQLservicesPBL {
 		return person;
 	}
 
+
 	public AllayList<CategoriesBean> SelectAllCategory() {
 		String sql = "SELECT * FROM categories WHERE active_flg = 1;";
 		CategoriesBean categories_list = null;
@@ -59,7 +60,10 @@ public class SQLservicesPBL {
 		return categories_list;
 	}
 
-	public AccountsBean SelectAllAccount() {
+
+
+	public AccountsBean SelectAllAcount() {
+
 		String sql = "SELECT * FROM accounts WHERE authority = 1 OR authority =11 ; ";
 		AccountsBean account_list = null;
 		try (

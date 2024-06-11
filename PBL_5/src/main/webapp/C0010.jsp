@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +12,12 @@
 <title>ログイン</title>
 </head>
 <body class="bg-secondary-subtle">
+	
 	<div
 		class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
-		role="alert">メールアドレスを入力して下さい</div>
+		role="alert">${error_display}</div>
+	
+	
 	<div class="container text-center w-50" style="margin-top: 150px">
 		<h2>物品売上管理システム</h2>
 		<form action="LoginServlet" method="post">
