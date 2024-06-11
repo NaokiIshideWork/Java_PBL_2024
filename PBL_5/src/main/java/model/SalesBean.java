@@ -4,7 +4,9 @@ public class SalesBean {
 
 	private String sale_date;
 	private String account;
+	int account_id;
 	private String item_category;
+	int category_id;
 	private String trade_name;
 	private int unit_price;
 	private int sale_number;
