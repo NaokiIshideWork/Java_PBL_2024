@@ -45,7 +45,7 @@
 					</div>
 					<div class="col-sm-8 w-75">
 						<input type="text" name="#" class="form-control"
-							placeholder="メールアドレス">
+							placeholder="氏名">
 					</div>
 				</div>
 
