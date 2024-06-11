@@ -38,9 +38,10 @@ public class SQLservicesPBL {
 	}
 	
 
+
 	public AccountsBean SelectAllAcount() {
 		String sql = "SELECT * FROM accounts WHERE authority = 1 OR authority =11 ; ";
-		AccountsBean categories_list = null;
+		AccountsBean account_list = null;
 		try (
 				Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
@@ -54,13 +55,14 @@ public class SQLservicesPBL {
 				int authority = rs.getInt("authority");
 		
 				
-				categories_list = new AccountsBean(account_id, name, mail, password, authority);
+				account_list = new AccountsBean(account_id, name, mail, password, authority);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return categories_list ;
+		return account_list ;
 	}
 	
 	
+
 }

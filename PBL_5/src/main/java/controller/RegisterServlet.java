@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.AccountsBean;
 import services.SQLservicesPBL;
 
 /**
@@ -32,11 +33,9 @@ public class RegisterServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		SQLservicesPBL sqlserv = new SQLservicesPBL();
-		
-		category_list = sqlserv.select;
-			
-		request.setAttribute("category", list);
-		
+		AccountsBean account_list = null;
+		account_list = sqlserv.SelectAllAcount();
+		request.setAttribute("account", account_list);
 		this.getServletContext().getRequestDispatcher("/S0010.jsp").forward(request, response);
 	}
 

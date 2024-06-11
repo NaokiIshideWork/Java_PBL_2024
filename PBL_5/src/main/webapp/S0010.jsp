@@ -66,7 +66,7 @@
                 <div class="col-sm-8 w-50" >
                     <select name="account" class="form-select" aria-label="Default select example">
                        <c:forEach var="obj" items="${account}">
-                       	　<option><c:out value="${account.getSale_date()}"></c:out></option>
+                       	　<option><c:out value="${account.getName()}"></c:out></option>
                        </c:forEach>
                       </select>
                 </div>
