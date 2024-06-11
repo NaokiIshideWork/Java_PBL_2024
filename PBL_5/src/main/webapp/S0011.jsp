@@ -45,7 +45,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">販売日</h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="date" name="#" class="form-control w-25" placeholder="Last name" aria-label="Last name" disabled>
+                <input type="date" value="${list.getSale_date()}" class="form-control w-25" placeholder="Last name" aria-label="Last name" disabled>
                 </div>
             </div>
             <div class="row mt-3">
