@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.AccountsBean;
 import services.SQLservicesPBL;
 
 /**
@@ -74,9 +75,12 @@ public class LoginServlet extends HttpServlet {
 				
 	
 		
+		AccountsBean ab = sqlserv.Login(password, password);
 		
 //		sqlserv.insert(title, priority, term, contents);
-		response.sendRedirect("DashboardServlet");
+		if(ab != null) {
+			response.sendRedirect("DashboardServlet");
+		}
 	}
 
 	}

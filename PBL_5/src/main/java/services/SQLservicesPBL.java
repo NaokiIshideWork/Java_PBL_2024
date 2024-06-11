@@ -5,20 +5,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Person;
+import model.AccountsBean;
 import util.DbUtil;
 
 public class SQLservicesPBL {
-	public Login(String mail, String password) {
-		String sql = "SELECT * FROM todousers WHERE mail = ? AND password = ?;";
-		Person person = null;
+	
+	public AccountsBean Login(String in_mail, String in_password) {
+		String sql = "SELECT * FROM accounts WHERE mail = ? AND password = ?;";
+		AccountsBean person = null;
 		try (
 				Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
 			// PreparedStatementがクローズされるタイミングでクローズされる
 		
-			ps.setString(1, mail);
-			ps.setString(2, passwords);
+			ps.setString(1, in_mail);
+			ps.setString(2, in_password);
 			
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
@@ -28,7 +29,7 @@ public class SQLservicesPBL {
 				String password = rs.getString("password");
 				int authority = rs.getInt("authority");
 				
-				person = new (account_id, name, mail, password, authority);
+				person = new AccountsBean(account_id, name, mail, password, authority);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
