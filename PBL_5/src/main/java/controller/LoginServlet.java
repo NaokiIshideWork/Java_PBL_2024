@@ -76,8 +76,7 @@ public class LoginServlet extends HttpServlet {
 		
 		
 //		sqlserv.insert(title, priority, term, contents);
-		response.sendRedirect("/DashboardServlet");
-		doGet(request, response);
+		response.sendRedirect("DashboardServlet");
 	}
 
 	}
