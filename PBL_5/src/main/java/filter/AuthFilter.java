@@ -38,21 +38,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-////		/HttpServletRequest req = (HttpServletRequest) request;
-////		HttpServletResponse res = (HttpServletResponse) response;
-////		
-//=======
-//		HttpServletRequest req = (HttpServletRequest) request;
-//		HttpServletResponse res = (HttpServletResponse) response;
-		
-//		String path = req.getServletPath();
-//		if(!path.equals("/ToDoLoginServlet")) {
-//				var obj = req.getSession().getAttribute("person");		
-//				if(obj == null) {
-//					res.sendRedirect("ToDoLoginServlet");
-//				return;
-//				}
-//		}
+
 		chain.doFilter(request, response);
 		
 	}

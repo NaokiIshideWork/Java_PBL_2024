@@ -36,7 +36,23 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+//	request.setCharacterEncoding("UTF-8");
+//		SQLservicesPBL mts = new SQLservicesPBL();
+//		SalesBean list = null;
+//		String sales_date = request.getParameter("sale_date");
+//	
+//		
+//		System.out.println(sales_date);
+//		String responsible = request.getParameter("responsible");
+//		String items = request.getParameter("items");
+//		String item_name = request.getParameter("item_name");
+//		String price = request.getParameter("price");
+//		String number = request.getParameter("number");
+//		String note = request.getParameter("note");
+//		
+//		list = new SalesBean(1,sales_date, 1, 1,item_name, Integer.parseInt(price),Integer.parseInt(number),note);
+//		request.setAttribute("list", list);
+//		this.getServletContext().getRequestDispatcher("/S0011.jsp").forward(request, response);
 	}
 
 }
