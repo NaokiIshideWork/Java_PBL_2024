@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.AccountsBean;
+import model.CategoriesBean;
 import services.SQLServicesPBLreg;
 /**
  * Servlet implementation class RegisterServlet
@@ -36,6 +37,10 @@ public class RegisterServlet extends HttpServlet {
 		ArrayList<AccountsBean> account_list = null;
 		account_list = sqlserv.SelectAllAcount();
 		request.setAttribute("accounts", account_list);
+		
+		ArrayList<CategoriesBean> categories_list = null;
+		categories_list = sqlserv.SelectAllCategory();
+		request.setAttribute("cate", categories_list);
 		
 		this.getServletContext().getRequestDispatcher("/S0010.jsp").forward(request, response);
 	}

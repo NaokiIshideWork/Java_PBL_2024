@@ -90,7 +90,9 @@
 					<div class="col-sm-8 w-50">
 						<select name="item_category" class="form-select"
 							aria-label="Default select example">
-							
+							<c:forEach var="obj" items="${cate}">
+								<option value=""><c:out value="${obj.getCategory_name()}" /></option>
+							</c:forEach>
 						</select>
 					</div>
 				</div>
