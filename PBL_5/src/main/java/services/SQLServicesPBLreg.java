@@ -56,4 +56,44 @@ public class SQLServicesPBLreg {
 		}
 		return account_list;
 	}
+	
+	public String SelectRegName(int account_id) {
+		String sql = "SELECT NAME FROM accounts WHERE account_id = ?;";
+		String accountName  = "";
+		try (
+				Connection con = DbUtil.open();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+			// PreparedStatementがクローズされるタイミングでクローズされる
+			ps.setInt(1, account_id);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+			
+				String name = rs.getString("name");
+				accountName = name;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return accountName;
+	}
+	
+	public String SelectCategory_Name(int category_id) {
+		String sql = "SELECT category_name FROM categories WHERE category_id = ?";
+		String category_name = "";
+		try (
+				Connection con = DbUtil.open();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+			// PreparedStatementがクローズされるタイミングでクローズされる
+			ps.setInt(1, category_id);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+			
+				String name = rs.getString("category_name");
+				category_name = name;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return category_name;
+	}
 }
