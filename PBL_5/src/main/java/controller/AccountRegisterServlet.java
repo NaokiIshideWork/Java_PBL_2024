@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import LoginServlet.LoginServise;
+import services.AccountRecord;
 
 /**
  * Servlet implementation class AccountRegisterServlet
@@ -43,9 +43,9 @@ public class AccountRegisterServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
-		String int = request.getParameter("authority");
+		int authority = Integer.parseInt(request.getParameter("authority"));
 		
-		AccountRecord.makeacount(name, email, password, authority);
+		AccountRecord.makeaccount(name, mail, password, authority);
 		response.sendRedirect("accounts");
 	}
 
