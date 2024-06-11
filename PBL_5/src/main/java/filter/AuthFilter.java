@@ -10,8 +10,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet Filter implementation class AuthFilter
@@ -43,17 +41,23 @@ public class AuthFilter extends HttpFilter implements Filter {
 		// TODO Auto-generated method stub
 		// place your code here
 		
+<<<<<<< HEAD
+//		/HttpServletRequest req = (HttpServletRequest) request;
+//		HttpServletResponse res = (HttpServletResponse) response;
+//		
+=======
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		
-		String path = req.getServletPath();
-		if(!path.equals("/ToDoLoginServlet")) {
-				var obj = req.getSession().getAttribute("person");		
-				if(obj == null) {
-					res.sendRedirect("ToDoLoginServlet");
-				return;
-				}
-		}
+>>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
+//		String path = req.getServletPath();
+//		if(!path.equals("/ToDoLoginServlet")) {
+//				var obj = req.getSession().getAttribute("person");		
+//				if(obj == null) {
+//					res.sendRedirect("ToDoLoginServlet");
+//				return;
+//				}
+//		}
 		chain.doFilter(request, response);
 		
 	}
