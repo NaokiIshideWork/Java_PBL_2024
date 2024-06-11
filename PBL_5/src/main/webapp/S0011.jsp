@@ -40,7 +40,7 @@
 <div class="container position-absolute">
         <h2 class="mt-5" style="margin-left: 30px;">売上登録確認</h2>
         <div class="" style="margin-left:100px">
-        <form class="text-right">
+        <form class="text-right" action="" method="post">
             <div class="row ">
                 <div class="col-sm-2">
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">販売日</h3>
@@ -54,12 +54,10 @@
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">担当</h3>
                 </div>
                 <div class="col-sm-8 w-50" >
-                <%--登録されている人--%>
+               
                     <select  class="form-select" aria-label="Default select example" disabled>
-                        <option selected>選択してください</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option><c:out value="${list.getAccout()}" /></option>
+                       
                       </select>
                 </div>
             </div>
@@ -69,10 +67,7 @@
                 </div>
                 <div class="col-sm-8 w-50" >
                     <select class="form-select" aria-label="Default select example" disabled>
-                        <option selected>選択してください</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value=""><c:out value="${list.getItem_category()}" /></option>
                       </select>
                 </div>
             </div>
@@ -114,9 +109,7 @@
                 </div>
                 <div class="col-sm-8">
                 
-                <textarea  class="form-control w-75" id="exampleFormControlTextarea1" rows="5" disabled>
-                <c:out value="${list.getNote()}" />
-               
+                <textarea  class="form-control w-75" id="exampleFormControlTextarea1" rows="5" disabled><c:out value="${list.getNote()}" />
                 </textarea>
                 </div>
             </div>

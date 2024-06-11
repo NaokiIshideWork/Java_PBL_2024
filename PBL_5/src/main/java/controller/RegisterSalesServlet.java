@@ -55,10 +55,14 @@ public class RegisterSalesServlet extends HttpServlet {
 		String sale_number = request.getParameter("sale_number");
 		String note = request.getParameter("note");
 		
+		System.out.println(account);
+		System.out.println(item_category);
+		
 		int subtotal = Integer.parseInt(unit_price)*Integer.parseInt(sale_number);
 		
 		list = new SalesBean(sales_date, account, item_category, trade_name,Integer.parseInt(unit_price),
 				Integer.parseInt(sale_number), subtotal, note);
+		
 		request.setAttribute("list", list);
 		doGet(request, response);
 	}
