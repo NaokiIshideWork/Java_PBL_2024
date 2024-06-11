@@ -61,23 +61,16 @@ public class RegisterServlet extends HttpServlet {
 		String sales_date = request.getParameter("sale_date");
 		
 		//account_id
-		String account = request.getParameter("account");
-		String account_id = 
-
-		//categori_id
-		String item_category = request.getParameter("item_category");
-		String item_category=
+		String account_id =  request.getParameter("account_id");
 		
+		//categori_id
+		String category_id = request.getParameter("category_id");
+			
 		String trade_name = request.getParameter("trade_name");
 		String unit_price = request.getParameter("unit_price");
 		String sale_number = request.getParameter("sale_number");
 		String note = request.getParameter("note");
 		
-		
-		
-		int subtotal = Integer.parseInt(unit_price)*Integer.parseInt(sale_number);
-		
-	
 		
 		mts.insert(sale_number, subtotal, subtotal, trade_name, subtotal, subtotal, note)
 		doGet(request, response);

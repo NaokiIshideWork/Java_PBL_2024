@@ -1,14 +1,14 @@
 package model;
 
 public class Sales2Bean {
-	int sale_id;
-	String sale_date;
-	int account_id;
-	int category_id;
-	String trade_name;
-	int unit_price;
-	int sale_number;
-	String note;
+	private int sale_id;
+	private String sale_date;
+	private int account_id;
+	private int category_id;
+	private String trade_name;
+	private int unit_price;
+	private int sale_number;
+	private String note;
 	
 	public Sales2Bean(int si,String sd,int ai,int ci,String tn,int up,int sn, String n) {
 		sale_id=si;
