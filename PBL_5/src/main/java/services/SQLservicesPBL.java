@@ -55,7 +55,7 @@ public class SQLservicesPBL {
 				String mail = rs.getString("mail");
 				String password = rs.getString("password");
 				int authority = rs.getInt("authority");
-		
+//		あああ
 				
 				account_list.add(new AccountsBean(account_id, name, mail,
 						password, authority));
