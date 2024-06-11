@@ -48,7 +48,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">販売日</h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="date" value="${list.getSale_date()}" class="form-control w-25" placeholder="Last name" aria-label="Last name" disabled>
+                <input type="date" name="sale_date" value="${list.getSale_date()}" class="form-control w-25" placeholder="Last name" aria-label="Last name" disabled>
                 </div>
             </div>
             <div class="row mt-3">
@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-sm-8 w-50" >
                
-                    <select  class="form-select" aria-label="Default select example" disabled>
+                    <select  class="form-select" name="account_id" aria-label="Default select example" disabled>
                         <option><c:out value="${list.getAccout()}" /></option>
                        
                       </select>
@@ -68,7 +68,7 @@
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">商品カテゴリー</h3>
                 </div>
                 <div class="col-sm-8 w-50" >
-                    <select class="form-select" aria-label="Default select example" disabled>
+                    <select class="form-select" name="category_id" aria-label="Default select example" disabled>
                         <option value=""><c:out value="${list.getItem_category()}" /></option>
                       </select>
                 </div>
@@ -78,7 +78,7 @@
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">商品名</h3>
                 </div>
                 <div class="col-sm-8 w-50" >
-                    <input type="text" value="${list.getTrade_name()}" class="form-control" placeholder="商品名" disabled>
+                    <input type="text" name="trade_name" value="${list.getTrade_name()}" class="form-control" placeholder="商品名" disabled>
                 </div>
             </div>
             <div class="row mt-3">
@@ -86,7 +86,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">単価</h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="text" value="${list.getUnit_price()}"class="form-control w-25" placeholder="単価" disabled>
+                <input type="text" name="unit_price" value="${list.getUnit_price()}"class="form-control w-25" placeholder="単価" disabled>
                 </div>
             </div>
             <div class="row mt-3">
@@ -94,7 +94,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">個数</h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="text" value="${list.getSale_number()}" class="form-control w-25" placeholder="個数" disabled>
+                <input type="text" name="sale_number" value="${list.getSale_number()}" class="form-control w-25" placeholder="個数" disabled>
                 </div>
             </div>
             <div class="row mt-3">
@@ -102,7 +102,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">小計</h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="text" value="${list.getSubtotal()}" class="form-control w-25"  disabled>
+                <input type="text" name="subtotal" value="${list.getSubtotal()}" class="form-control w-25"  disabled>
                 </div>
             </div>
             <div class="row mt-3">
@@ -111,7 +111,7 @@
                 </div>
                 <div class="col-sm-8">
                 
-                <textarea  class="form-control w-75" id="exampleFormControlTextarea1" rows="5" disabled><c:out value="${list.getNote()}" />
+                <textarea  class="form-control w-75" name="note" id="exampleFormControlTextarea1" rows="5" disabled><c:out value="${list.getNote()}" />
 =======
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上登録確認</h2>
