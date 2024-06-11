@@ -62,7 +62,7 @@
 					<div class="col-sm-8 w-50">
 
 
-						<select class="form-select" name="account_id"
+						<select class="form-select bg-secondary-subtle" name="account_id"
 							aria-label="Default select example" readonly>
 							<option value="${list.getAccout_id()}"><c:out
 									value="${list.getAccout()}" /></option>
@@ -78,7 +78,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 
-						<select class="form-select" name="category_id"
+						<select class="form-select bg-secondary-subtle" name="category_id"
 							aria-label="Default select example" readonly>
 							<option value="${list.getCategory_id()}"><c:out
 									value="${list.getItem_category()}" /></option>
@@ -93,7 +93,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="text" name="trade_name"
-							value="${list.getTrade_name()}" class="form-control"
+							value="${list.getTrade_name()}" class="form-control bg-secondary-subtle"
 							placeholder="商品名" readonly>
 					</div>
 				</div>
@@ -104,7 +104,7 @@
 					</div>
 					<div class="col-sm-8">
 						<input type="text" name="unit_price"
-							value="${list.getUnit_price()}" class="form-control w-25"
+							value="${list.getUnit_price()}" class="form-control w-25 bg-secondary-subtle"
 							placeholder="単価" readonly>
 					</div>
 				</div>
@@ -115,7 +115,7 @@
 					</div>
 					<div class="col-sm-8">
 						<input type="text" name="sale_number"
-							value="${list.getSale_number()}" class="form-control w-25"
+							value="${list.getSale_number()}" class="form-control w-25 bg-secondary-subtle"
 							placeholder="個数" readonly>
 					</div>
 				</div>
@@ -126,7 +126,7 @@
 					</div>
 					<div class="col-sm-8">
 						<input type="text" name="subtotal" value="${list.getSubtotal()}"
-							class="form-control w-25" readonly>
+							class="form-control w-25 bg-secondary-subtle" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -136,7 +136,7 @@
 					</div>
 					<div class="col-sm-8">
 
-						<textarea class="form-control w-75" name="note"
+						<textarea class="form-control w-75 bg-secondary-subtle" name="note"
 							id="exampleFormControlTextarea1" rows="5" readonly><c:out
 								value="${list.getNote()}" />
                 </textarea>
