@@ -105,7 +105,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">小計</h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="text"  class="form-control w-25" placeholder="個数" disabled>
+                <input type="text" value="${list.getSubtotal()}" class="form-control w-25"  disabled>
                 </div>
             </div>
             <div class="row mt-3">

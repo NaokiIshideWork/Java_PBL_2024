@@ -32,11 +32,10 @@ public class RegisterServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		SQLservicesPBL sqlserv = new SQLservicesPBL();
-		//bean 呼ぶ
-
-		bean = sqlserv.select;
+		
+		category_list = sqlserv.select;
 			
-		request.setAttribute("list", list);
+		request.setAttribute("category", list);
 		
 		this.getServletContext().getRequestDispatcher("/S0010.jsp").forward(request, response);
 	}
