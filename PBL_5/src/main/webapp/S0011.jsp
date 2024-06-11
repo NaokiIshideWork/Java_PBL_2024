@@ -58,7 +58,7 @@
                 <div class="col-sm-8 w-50" >
                
                     <select  class="form-select" aria-label="Default select example" disabled>
-                        <option><c:out value="${list.getAccout()}" /></option>
+                        <option value="${list.getAccount_id() }"><c:out value="${list.getAccout()}" /></option>
                        
                       </select>
                 </div>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="col-sm-8 w-50" >
                     <select class="form-select" aria-label="Default select example" disabled>
-                        <option value=""><c:out value="${list.getItem_category()}" /></option>
+                        <option value="${list.getCategory_id() }"><c:out value="${list.getItem_category()}" /></option>
                       </select>
                 </div>
             </div>
