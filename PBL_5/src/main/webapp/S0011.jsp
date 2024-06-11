@@ -57,8 +57,13 @@
                 </div>
                 <div class="col-sm-8 w-50" >
                
+<<<<<<< HEAD
                     <select  class="form-select" name="account_id" aria-label="Default select example" disabled>
                         <option><c:out value="${list.getAccout()}" /></option>
+=======
+                    <select  class="form-select" aria-label="Default select example" disabled>
+                        <option value="${list.getAccount_id() }"><c:out value="${list.getAccout()}" /></option>
+>>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
                        
                       </select>
                 </div>
@@ -68,8 +73,13 @@
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">商品カテゴリー</h3>
                 </div>
                 <div class="col-sm-8 w-50" >
+<<<<<<< HEAD
                     <select class="form-select" name="category_id" aria-label="Default select example" disabled>
                         <option value=""><c:out value="${list.getItem_category()}" /></option>
+=======
+                    <select class="form-select" aria-label="Default select example" disabled>
+                        <option value="${list.getCategory_id() }"><c:out value="${list.getItem_category()}" /></option>
+>>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
                       </select>
                 </div>
             </div>

@@ -50,12 +50,12 @@ public class RegisterSalesServlet extends HttpServlet {
 		String sales_date = request.getParameter("sale_date");
 		
 		//担当に対するName
-		String account = request.getParameter("account");	
-		String accountName = mts.SelectRegName(Integer.parseInt(account));
+		String account_id = request.getParameter("account");//id	
+		String accountName = mts.SelectRegName(Integer.parseInt(account_id));
 		
 		//商品カテゴリーに対する
-		String item_category = request.getParameter("item_category");
-		String item_category_name = mts.SelectCategory_Name(Integer.parseInt(item_category));
+		String item_category_id = request.getParameter("item_category");//id
+		String item_category_name = mts.SelectCategory_Name(Integer.parseInt(item_category_id));
 		
 		//商品名以下
 		String trade_name = request.getParameter("trade_name");
@@ -65,7 +65,7 @@ public class RegisterSalesServlet extends HttpServlet {
 		int subtotal = Integer.parseInt(unit_price)*Integer.parseInt(sale_number);
 		
 		
-		list = new SalesBean(sales_date, accountName , item_category_name, trade_name,Integer.parseInt(unit_price),
+		list = new SalesBean(sales_date, accountName ,Integer.parseInt(account_id), item_category_name,Integer.parseInt(item_category_id),trade_name,Integer.parseInt(unit_price),
 				Integer.parseInt(sale_number), subtotal, note);
 		
 		request.setAttribute("list", list);
