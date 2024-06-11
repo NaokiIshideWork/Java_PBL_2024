@@ -49,13 +49,13 @@
 <div class="container position-absolute">
         <h2 class="mt-5" style="margin-left: 30px;">売上登録</h2>
         <div class="" style="margin-left:100px">
-        <form class="text-right">
+        <form class="text-right" action="" method="post">
             <div class="row ">
                 <div class="col-sm-3">
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">販売日  <span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="date" name="#" class="form-control w-25"  aria-label="Last name"placeholder="年/月/日">
+                <input type="date" name="sale_date" class="form-control w-25"  aria-label="Last name"placeholder="年/月/日">
                 </div>
             </div>
             <div class="row mt-3">
@@ -63,7 +63,7 @@
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">担当  <span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8 w-50" >
-                    <select class="form-select" aria-label="Default select example">
+                    <select name="responsible" class="form-select" aria-label="Default select example">
                         <option selected>選択してください</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -76,7 +76,7 @@
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">商品カテゴリー   <span class="badge rounded-pill bg-secondary" >必須</span></h3>
                 </div>
                 <div class="col-sm-8 w-50" >
-                    <select class="form-select" aria-label="Default select example">
+                    <select name="items" class="form-select" aria-label="Default select example">
                         <option selected>選択してください</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -89,7 +89,7 @@
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">商品名  <span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8 w-50" >
-                    <input type="text" name="#" class="form-control" placeholder="商品名">
+                    <input type="text" name="item_name" class="form-control" placeholder="商品名">
                 </div>
             </div>
             <div class="row mt-3">
@@ -97,7 +97,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">単価  <span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="text" name="#" class="form-control w-25" placeholder="単価">
+                <input type="text" name="price" class="form-control w-25" placeholder="単価">
                 </div>
             </div>
             <div class="row mt-3">
@@ -105,7 +105,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">個数  <span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="text" name="#" class="form-control w-25" placeholder="個数">
+                <input type="text" name="number" class="form-control w-25" placeholder="個数">
                 </div>
             </div>
             <div class="row mt-3">
@@ -114,7 +114,7 @@
                 </div>
                 <div class="col-sm-8">
                 
-                <textarea name="#" class="form-control w-75" id="exampleFormControlTextarea1" rows="5"placeholder="備考"></textarea>
+                <textarea name="note" class="form-control w-75" id="exampleFormControlTextarea1" rows="5"placeholder="備考"></textarea>
                 </div>
             </div>
             <div class="row mt-3">
