@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                 
-                    <li class="nav-item"><a class="nav-link active"
+                    <li class="nav-item"><a class="nav-link "
                         aria-current="page" href="ToDoDelayServlet">ダッシュボード</a></li>
                     <li class="nav-item"><a class="nav-link"
                         href="ToDoDoneServlet">売上登録</a></li>
