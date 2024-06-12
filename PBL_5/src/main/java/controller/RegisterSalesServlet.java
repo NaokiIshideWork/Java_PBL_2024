@@ -45,6 +45,7 @@ public class RegisterSalesServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLreg mts = new SQLServicesPBLreg();
 		SalesBean list = null;
+		String error_message = "";
 
 		String sales_date = request.getParameter("sale_date");
 

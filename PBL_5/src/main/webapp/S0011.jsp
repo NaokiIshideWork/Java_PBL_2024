@@ -60,15 +60,12 @@
 							style="text-align: end;">担当</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-
-
-						<select class="form-select bg-secondary-subtle" name="account_id"
-							aria-label="Default select example" readonly>
-							<option value="${list.getAccout_id()}"><c:out
-									value="${list.getAccout()}" /></option>
-
-
-						</select>
+						<input type="text" value="${list.getAccout()}"
+							class="form-control  bg-secondary-subtle" 
+							aria-label="Last name" readonly>
+						<input type="hidden"name="account_id" value="${list.getAccout_id()}"
+							class="form-control  bg-secondary-subtle" 
+							aria-label="Last name" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -77,13 +74,12 @@
 							style="text-align: end;">商品カテゴリー</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-
-						<select class="form-select bg-secondary-subtle" name="category_id"
-							aria-label="Default select example" readonly>
-							<option value="${list.getCategory_id()}"><c:out
-									value="${list.getItem_category()}" /></option>
-
-						</select>
+						<input type="text" value="${list.getItem_category()}"
+							class="form-control bg-secondary-subtle" 
+							aria-label="Last name" readonly>
+						<input type="hidden"name="category_id" value="${list.getCategory_id()}"
+							class="form-control  bg-secondary-subtle" 
+							aria-label="Last name" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">

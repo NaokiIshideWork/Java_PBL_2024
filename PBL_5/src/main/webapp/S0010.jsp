@@ -46,7 +46,10 @@
 			</div>
 		</nav>
 	</header>
-
+	
+	<div
+		class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
+		role="alert">${error_display}</div>
 
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上登録</h2>
