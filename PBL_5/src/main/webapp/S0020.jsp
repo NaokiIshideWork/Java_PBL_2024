@@ -41,17 +41,17 @@
 </header>
 
 <div class="container">
-  <h2 class="ml-5 mt-5 mb-1">売上検索条件入力</h2>
+  <h1 class="ml-5 mt-5 mb-4">売上検索条件入力</h1>
 
-  <div class="row justify-content-center">
-    <div class="col-8">
-        <form class="text-center">
+  <div class="row">
+    <div class="col-7  offset-md-0.1">
+        <form class="text-center style="margin-left: -15px;">
           <div class="row mb-3 justify-content-center">
-            <div class="col-sm-4">
+            <div class="col-sm-4" style="text-align: right">
               <label for="salesDate" class="col-form-label">販売日</label>
             </div>
             
-            <div class="col-sm-3">
+            <div class="col-sm-3" style="width: 23%">
               <input type="date" class="form-control" id="salesDate" name="salesDate">
             </div>
             ～
@@ -60,7 +60,7 @@
             </div>
           </div>
           <div class="row mb-3 justify-content-center">
-            <div class="col-sm-4">
+            <div class="col-sm-4" style="text-align: right">
               <label for="salesPerson" class="col-form-label">担当</label>
             </div>
             <div class="col-sm-6">
@@ -73,7 +73,7 @@
             </div>
           </div>
           <div class="row mb-3 justify-content-center">
-            <div class="col-sm-4">
+            <div class="col-sm-4" style="text-align: right">
               <label for="productCategory" class="col-form-label">商品カテゴリー</label>
             </div>
             <div class="col-sm-6">
@@ -86,7 +86,7 @@
             </div>
           </div>
           <div class="row mb-3 justify-content-center">
-            <div class="col-sm-4">
+            <div class="col-sm-4" style="text-align: right">
               <label for="productName" class="col-form-label">商品名 <span class="badge bg-secondary">部分一致</span></label>
             </div>
             <div class="col-sm-6">
@@ -94,7 +94,7 @@
             </div>
           </div>
           <div class="row mb-3 justify-content-center">
-            <div class="col-sm-4">
+            <div class="col-sm-4" style="text-align: right">
               <label for="remarks" class="col-form-label">備考 <span class="badge bg-secondary">部分一致</span></label>
             </div>
             <div class="col-sm-6">
@@ -104,8 +104,8 @@
           <div class="row mb-3 justify-content-center">
             <div class="col-sm-2"></div>
             <div class="col-sm-4">
-              <a type="submit" class="btn btn-primary btn-search me-2">🔍検索</a>
-              <button type="reset" class="btn btn-secondary btn-clear">クリア</button>
+              <a type="submit" class="btn btn-primary btn-search me-0.7">🔍検索</a>
+              <button type="reset" class="btn btn-outline-secondary btn-clear">クリア</button>
             </div>
           </div>
         </form>
