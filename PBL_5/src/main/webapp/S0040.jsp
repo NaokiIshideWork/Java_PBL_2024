@@ -14,6 +14,7 @@
             <a class="navbar-brand" href="ToDoServlet">物品売上管理システム</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
+                
                     <li class="nav-item"><a class="nav-link active"
                         aria-current="page" href="ToDoDelayServlet">ダッシュボード</a></li>
                     <li class="nav-item"><a class="nav-link"
@@ -71,19 +72,10 @@
 						</h3>
 					</div>
 					<div class="col-sm-8" style="margin-top: 10px;">
-						<input type="radio" name="flexRadioDefault" id="none" value="0" checked>
-						<label for="none"> 権限なし </label> 
-						
-						<input type="radio" name="flexRadioDefault" id="read" value="1">
-						<label for="read"> 参照 </label> 
-						
-						<input type="radio" name="flexRadioDefault" id="update" value="2"> 
-						<label for="update"> 更新 </label>
-
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"checked>
+						<input type="radio" name="flexRadioDefault" id="flexRadioDefault" value="sales" >
 						<label for="flexRadioDefault1"> 売上登録 </label> 
 						
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1" > 
+						<input type="radio" name="flexRadioDefault" id="flexRadioDefault" value="account" > 
 						<label for="flexRadioDefault1"> アカウント登録 </label> 
 					</div>
 				</div>
@@ -93,12 +85,6 @@
 					<div class="col-sm-3">
 						<button type="submit" class="btn btn-primary me-3" href="AccountSearchServlet">🔍検 索</button>
 							<a class="btn btn-outline-secondary" href="#" role="button">クリア</a>
-					<div class="col-sm-3"></div>
-					<div class="col-sm-8">
-						<button type="button" class="btn btn-primary"
-							style="margin-left: 30px;">🔍検 索</button>
-						<a class="btn btn-outline-secondary" href="#" role="button">クリア</a>
-					</div>
 				</div>
 				
 			</form>
