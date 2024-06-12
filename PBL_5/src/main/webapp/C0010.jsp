@@ -24,7 +24,6 @@
 			<input type="text" class="form-control w-50 mx-auto mb-1"
 				placeholder="メールアドレス" name="mail"/> <input type="text"
 				class="form-control w-50 mx-auto" placeholder="パスワード" name="password"/>
-
 			<button id="btn" class="btn btn-primary btn-rounded mt-1  w-50 ">ログイン</button>
 		</form>
 	</div>

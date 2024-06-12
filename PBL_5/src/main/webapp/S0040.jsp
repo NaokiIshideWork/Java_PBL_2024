@@ -35,7 +35,7 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">アカウント検索条件入力</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right">
+			<form class="text-right" action="AccountSearchServlet" method="POST">
 				<div class="row ">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -44,7 +44,7 @@
 						</h3>
 					</div>
 					<div class="col-sm-8 w-75">
-						<input type="text" name="#" class="form-control"
+						<input type="text" name="name" class="form-control"
 							placeholder="氏名">
 					</div>
 				</div>
@@ -58,7 +58,7 @@
 						</h3>
 					</div>
 					<div class="col-sm-8 w-75">
-						<input type="email" name="#" class="form-control"
+						<input type="email" name="mail" class="form-control"
 							placeholder="メールアドレス">
 					</div>
 				</div>
@@ -72,19 +72,21 @@
 					</div>
 					<div class="col-sm-8" style="margin-top: 10px;">
 
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"checked>
-						<label for="flexRadioDefault1"> 権限なし </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1" > <label
-							for="flexRadioDefault1"> 参照 </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1"> <label
-							for="flexRadioDefault1"> 更新 </label>
+						<input type="radio" name="flexRadioDefault" id="none" value="0" checked>
+						<label for="none"> 権限なし </label> 
+						
+						<input type="radio" name="flexRadioDefault" id="read" value="1">
+						<label for="read"> 参照 </label> 
+						
+						<input type="radio" name="flexRadioDefault" id="update" value="2"> 
+						<label for="update"> 更新 </label>
 
 					</div>
 				</div>
 				<div class="row mt-3">
 					<div class="col-sm-6"></div>
 					<div class="col-sm-3">
-						<button type="button" class="btn btn-primary me-3" href="#">🔍検 索</button>
+						<button type="submit" class="btn btn-primary me-3" href="AccountSearchServlet">🔍検 索</button>
 							<a class="btn btn-outline-secondary" href="#" role="button">クリア</a>
 					</div>
 				</div>

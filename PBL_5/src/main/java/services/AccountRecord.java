@@ -2,8 +2,11 @@ package services;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import model.AccountsBean;
 import util.DbUtil;
 
 public class AccountRecord {
@@ -24,5 +27,65 @@ public class AccountRecord {
 			e.printStackTrace();
 		}
 	}
+	
+	// アカウント検索条件入力
+	public ArrayList<AccountsBean> EnterAccountSearchCriteria(String name, String mail, int authority) {
+		String sql = "SELECT * FROM accounts WHERE name LIKE '%?%' AND mail=? AND autority=?";
+		ArrayList<AccountsBean> accountsList = new ArrayList<AccountsBean>();
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+	try {
+			con = DbUtil.open();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, name);
+			ps.setString(2, mail);
+			ps.setInt(3, authority);
+			
+			rs = ps.executeQuery();
+			
+			System.out.println("EnterAccountSearchCriteriaの実行");
+
+			while (rs.next()) {
+				int account_id = rs.getInt("account_id");
+				String rs_name = rs.getString("name");
+				String rs_mail = rs.getString("mail");
+				String password = rs.getString("password");
+				int rs_authority = rs.getInt("authority");
+				AccountsBean user = new AccountsBean(account_id, rs_name, rs_mail, password, rs_authority);
+				accountsList.add(user);
+				System.out.println(user);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return accountsList;
+	}
+
 
 }

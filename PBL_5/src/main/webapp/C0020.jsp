@@ -9,6 +9,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<!-- 遷移先未作成  -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="ToDoServlet">物品売上管理システム</a>

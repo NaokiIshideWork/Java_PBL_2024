@@ -29,11 +29,17 @@ public class SQLservicesPBL {
 				String password = rs.getString("password");
 				int authority = rs.getInt("authority");
 
+				System.out.println("確認用:Login");
+				System.out.println(account_id);
+				System.out.println(name);
+				System.out.println(mail);
+				System.out.println(password);
 				person = new AccountsBean(account_id, name, mail, password, authority);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		System.out.println("確認用Loginの返り値:" + person);
 		return person;
 	}
 

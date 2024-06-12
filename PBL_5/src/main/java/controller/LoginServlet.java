@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.AccountsBean;
+import services.SQLservicesPBL;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -37,11 +40,10 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		request.setCharacterEncoding("UTF-8");
-		// SQLservicesPBL sqlserv = new SQLservicesPBL();
+		SQLservicesPBL sqlserv = new SQLservicesPBL();
 
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
-		
 		String error_display = "";
 		
 		//メールアドレス未入力
@@ -71,16 +73,21 @@ public class LoginServlet extends HttpServlet {
   		}		
 		
   		// 複数でるかも？　cでカウントして1以上ならそのたびに空白はいるようにしたい
-  		if(error_display != null) {
+  		if(!error_display.equals("")) {
   			request.setAttribute("error_display", error_display);
   			request.getRequestDispatcher("/C0010.jsp").forward(request, response);
+  			return;
   		} 
   		
-		// AccountsBean ab = sqlserv.Login(password, password);
-//		sqlserv.insert(title, priority, term, contents);
-		//if(ab != null) {
-			response.sendRedirect("DashboardServlet");
-		//}
+		AccountsBean ab = sqlserv.Login(mail, password);
+		// sqlserv.insert(title, priority, term, contents);
+		
+		System.out.println("t");
+		if(ab != null) {
+			request.getRequestDispatcher("/C0020.jsp").forward(request, response);
+		} else {
+			System.out.println("miss");
+		}
 	}
 
 	}
