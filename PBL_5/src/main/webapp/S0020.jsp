@@ -117,7 +117,7 @@
 					<div class="row mb-3 justify-content-center">
 						<div class="col-sm-2"></div>
 						<div class="col-sm-4">
-							<button type="submit" class="btn btn-primary btn-search me-0.7">
+							<button type="submit" class="btn btn-primary btn-search me-1">
 								🔍検索</a>
 								<button type="reset" class="btn btn-outline-secondary btn-clear">クリア</button>
 						</div>
