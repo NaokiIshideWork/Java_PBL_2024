@@ -34,7 +34,7 @@
 	</nav>
 
 	<div class="container position-absolute">
-		<h2 class="mt-5" style="margin-left: 30px;">アカウントを登録してよろしいでしょうか</h2>
+		<h2 class="mt-5" style="margin-left: 30px;">アカウントを登録してよろしいですか?</h2>
 		<div class="" style="margin-left: 100px">
 			<form class="text-right" >
 				<div class="row ">

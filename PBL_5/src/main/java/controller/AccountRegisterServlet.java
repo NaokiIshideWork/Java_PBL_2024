@@ -29,7 +29,7 @@ public class AccountRegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getServletContext().getRequestDispatcher("/S0030.jsp").forward(request, response);
+		request.getServletContext().getRequestDispatcher("/S0031.jsp").forward(request, response);
 	}
 
 	/**

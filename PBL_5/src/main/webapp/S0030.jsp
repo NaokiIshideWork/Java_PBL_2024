@@ -35,7 +35,7 @@
     </nav>
 
 	<div class="container position-absolute">
-		<h2 class="mt-5" style="margin-left: 40px;">アカウント登録</h2>
+		<h2 class="mt-5" style="margin-left: 30px;">アカウント登録</h2>
 		<div class="" style="margin-left: 10px">
 			<form class="text-right" action="AccountRegisterServlet" method="post">
 				<div class="row ">

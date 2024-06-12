@@ -80,12 +80,12 @@
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							パスワード確認
+							パスワード（確認）
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="password" name="#" class="form-control "
-							placeholder="パスワード" disabled>
+							placeholder="パスワード確認" disabled>
 					</div>
 				</div>
 				<div class="row mt-3">
