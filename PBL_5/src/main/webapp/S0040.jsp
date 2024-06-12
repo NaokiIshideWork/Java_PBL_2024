@@ -71,23 +71,23 @@
 						</h3>
 					</div>
 					<div class="col-sm-8" style="margin-top: 10px;">
-
 						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"checked>
-						<label for="flexRadioDefault1"> 権限なし </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1" > <label
-							for="flexRadioDefault1"> 参照 </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1"> <label
-							for="flexRadioDefault1"> 更新 </label>
-
+						<label for="flexRadioDefault1"> 売上登録 </label> 
+						
+						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1" > 
+						<label for="flexRadioDefault1"> アカウント登録 </label> 
 					</div>
 				</div>
+				
 				<div class="row mt-3">
-					<div class="col-sm-6"></div>
-					<div class="col-sm-3">
-						<button type="button" class="btn btn-primary me-3" href="#">🔍検 索</button>
-							<a class="btn btn-outline-secondary" href="#" role="button">クリア</a>
+					<div class="col-sm-3"></div>
+					<div class="col-sm-8">
+						<button type="button" class="btn btn-primary"
+							style="margin-left: 30px;">🔍検 索</button>
+						<a class="btn btn-outline-secondary" href="#" role="button">クリア</a>
 					</div>
 				</div>
+				
 			</form>
 		</div>
 	</div>

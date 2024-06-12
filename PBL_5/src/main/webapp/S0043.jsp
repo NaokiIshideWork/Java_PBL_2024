@@ -42,7 +42,7 @@
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							氏名<span class="badge rounded-pill bg-secondary">必須</span>
+							氏名
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
@@ -56,7 +56,7 @@
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							メールアドレス<span class="badge rounded-pill bg-secondary">必須</span>
+							メールアドレス
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
@@ -68,7 +68,7 @@
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							パスワード<span class="badge rounded-pill bg-secondary">必須</span>
+							パスワード
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
@@ -80,7 +80,7 @@
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							パスワード確認<span class="badge rounded-pill bg-secondary">必須</span>
+							パスワード確認
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
@@ -92,17 +92,16 @@
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							権限<span class="badge rounded-pill bg-secondary">必須</span>
+							権限
 						</h3>
 					</div>
 					<div class="col-sm-8" style="margin-top: 10px;">
 
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1" disabled>
-						<label for="flexRadioDefault1"> 権限なし </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1" disabled> <label
-							for="flexRadioDefault1"> 参照 </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1" disabled> <label
-							for="flexRadioDefault1"> 更新 </label>
+						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"disabled>
+						<label for="flexRadioDefault1"> 売上登録 </label> 
+						
+						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"disabled> 
+						<label for="flexRadioDefault1"> アカウント登録 </label> 
 
 					</div>
 				</div>

@@ -8,19 +8,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import services.AccountRecord;
-
 /**
- * Servlet implementation class AccountRegisterServlet
+ * Servlet implementation class AccountServlet
  */
-@WebServlet("/AccountRegisterServlet")
-public class AccountRegisterServlet extends HttpServlet {
+@WebServlet("/AccountServlet")
+public class AccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AccountRegisterServlet() {
+    public AccountServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,16 +34,20 @@ public class AccountRegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html: charset=UTF-8");
-		request.setCharacterEncoding("UTF-8");
 		
 		String name = request.getParameter("name");
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
-		int authority = Integer.parseInt(request.getParameter("authority"));
-		
-		AccountRecord.makeaccount(name, mail, password, authority);
-		response.sendRedirect("accounts");
+		String authority = request.getParameter("authority");
+
+        // リクエストに属性として設定
+        request.setAttribute("inputName", name);
+        request.setAttribute("inputMail", mail);
+        request.setAttribute("inputPassword", password);
+        request.setAttribute("inputAuthority", authority);
+
+        // 次のJSPにフォワード
+        request.getRequestDispatcher("S0031.jsp").forward(request, response);
 	}
 
 }
