@@ -42,14 +42,14 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上登録確認</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right" action="RegisterServlet" method="post">
+			<form class="text-right" action="RegisterSalesServlet" method="post">
 				<div class="row ">
 					<div class="col-sm-2">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">販売日</h3>
 					</div>
 					<div class="col-sm-8">
-						<input type="date" name="sale_date" value="${list.getSale_date()}"
+						<input type="text" name="sale_date" value="${list.getSale_date()}"
 							class="form-control w-25 bg-secondary-subtle" placeholder="Last name"
 							aria-label="Last name" readonly >
 					</div>

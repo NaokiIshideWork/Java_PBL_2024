@@ -43,15 +43,15 @@
 <div class="container">
   <h1 class="ml-5 mt-5 mb-4">売上検索条件入力</h1>
 
-  <div class="row">
-    <div class="col-7  offset-md-0.1">
+  <div class="row" style="padding-right:350px;">
+    <div class="col-12 ">
         <form class="text-center style="margin-left: -15px;">
           <div class="row mb-3 justify-content-center">
             <div class="col-sm-4" style="text-align: right">
-              <label for="salesDate" class="col-form-label">販売日</label>
+              <label for="salesDate" class="col-form-label ">販売日</label>
             </div>
             
-            <div class="col-sm-3" style="width: 23%">
+            <div class="col-sm-3" style="width: 23%" >
               <input type="date" class="form-control" id="salesDate" name="salesDate">
             </div>
             ～

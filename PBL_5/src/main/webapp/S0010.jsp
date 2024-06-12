@@ -54,7 +54,7 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上登録</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right" action="RegisterSalesServlet" method="post">
+			<form class="text-right" action="RegisterServlet" method="post">
 				<div class="row ">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
