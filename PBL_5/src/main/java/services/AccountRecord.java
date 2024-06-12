@@ -31,7 +31,7 @@ public class AccountRecord {
 	
 	// アカウント検索条件入力
 	public ArrayList<AccountsBean> EnterAccountSearchCriteria(String name, String mail, int authority) {
-		String sql = "SELECT * FROM accounts WHERE name LIKE '%?%' AND mail=? AND autority=?";
+		String sql = "SELECT * FROM accounts WHERE name LIKE ? AND mail=? AND authority=?";
 		ArrayList<AccountsBean> accountsList = new ArrayList<AccountsBean>();
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -40,9 +40,11 @@ public class AccountRecord {
 	try {
 			con = DbUtil.open();
 			ps = con.prepareStatement(sql);
-			ps.setString(1, name);
+			System.out.println("サービス側" + name);
+		    ps.setString(1, "%" + name + "%"); // 名前の部分一致
 			ps.setString(2, mail);
 			ps.setInt(3, authority);
+			System.out.println("サービス側" + authority);
 			
 			rs = ps.executeQuery();
 			
