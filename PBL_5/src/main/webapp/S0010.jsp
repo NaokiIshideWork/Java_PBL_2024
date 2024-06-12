@@ -46,8 +46,11 @@
 			</div>
 		</nav>
 	</header>
-
-
+	<c:if test="${not empty err}">
+		<div
+			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
+			role="alert">${err}</div>
+	</c:if>
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上登録</h2>
 		<div class="" style="margin-left: 100px">
@@ -75,7 +78,8 @@
 						<select name="account" class="form-select"
 							aria-label="Default select example">
 							<c:forEach var="obj" items="${accounts}">
-								<option value=""><c:out value="${obj.getName()}" /></option>
+								<option value="${obj.getAccount_id()}"><c:out
+										value="${obj.getName()}" /></option>
 							</c:forEach>
 						</select>
 					</div>
@@ -90,7 +94,10 @@
 					<div class="col-sm-8 w-50">
 						<select name="item_category" class="form-select"
 							aria-label="Default select example">
-							
+							<c:forEach var="obj" items="${cate}">
+								<option value="${obj.getCategory_id()}"><c:out
+										value="${obj.getCategory_name()}" /></option>
+							</c:forEach>
 						</select>
 					</div>
 				</div>

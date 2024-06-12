@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.AccountsBean;
+import model.CategoriesBean;
 import services.SQLServicesPBLreg;
 /**
  * Servlet implementation class RegisterServlet
@@ -33,10 +34,28 @@ public class RegisterServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLreg sqlserv = new SQLServicesPBLreg();
-		ArrayList<AccountsBean> account_list = null;
-		account_list = sqlserv.SelectAllAcount();
-		request.setAttribute("accounts", account_list);
+		String error_message = "";
 		
+		ArrayList<AccountsBean> account_list = null;
+		//担当表示用
+		account_list = sqlserv.SelectAllAcount();
+		if(account_list.isEmpty()) {
+			error_message += "アカウントテーブルに存在しません";
+			request.setAttribute("err", error_message);
+		}else {
+			request.setAttribute("accounts", account_list);
+		}
+		
+		//商品カテゴリー表示用
+		ArrayList<CategoriesBean> categories_list = null;
+		categories_list = sqlserv.SelectAllCategory();
+		if(categories_list.isEmpty()) {
+			error_message += "商品カテゴリーテーブルに存在しません";
+			request.setAttribute("err", error_message);
+		}else {
+			request.setAttribute("cate", categories_list);
+		}
+				
 		this.getServletContext().getRequestDispatcher("/S0010.jsp").forward(request, response);
 	}
 
@@ -45,6 +64,28 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		SQLServicesPBLreg mts = new SQLServicesPBLreg();
+		
+		
+		String sales_date = request.getParameter("sale_date");
+		
+		//account_id
+		String account_id =  request.getParameter("account_id");
+		
+		//categori_id
+		String category_id = request.getParameter("category_id");
+			
+		String trade_name = request.getParameter("trade_name");
+		String unit_price = request.getParameter("unit_price");
+		String sale_number = request.getParameter("sale_number");
+		String note = request.getParameter("note");
+		
+		System.out.println(sales_date+account_id+category_id);
+		System.out.println(trade_name+unit_price+sale_number+note);
+		
+		mts.insert(sales_date, Integer.parseInt(account_id), Integer.parseInt(category_id), trade_name, Integer.parseInt(unit_price), Integer.parseInt(sale_number), note);
+		doGet(request, response);
 	}
 
 }

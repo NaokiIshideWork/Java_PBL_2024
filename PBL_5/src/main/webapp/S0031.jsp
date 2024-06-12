@@ -36,7 +36,7 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">アカウントを登録してよろしいでしょうか</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right">
+			<form class="text-right" >
 				<div class="row ">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -98,11 +98,12 @@
 					<div class="col-sm-8" style="margin-top: 10px;">
 
 						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"disabled>
-						<label for="flexRadioDefault1"> 権限なし </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1"disabled> <label
-							for="flexRadioDefault1"> 参照 </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1"disabled> <label
-							for="flexRadioDefault1"> 更新 </label>
+						<label for="flexRadioDefault1"> 売上登録 </label> 
+						
+						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"disabled> 
+						<label for="flexRadioDefault1"> アカウント登録 </label> 
+						
+						
 
 					</div>
 				</div>

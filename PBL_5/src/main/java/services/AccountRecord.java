@@ -12,7 +12,7 @@ import util.DbUtil;
 public class AccountRecord {
 
 	public static void makeaccount(String name, String mail, String password, int authority) {
-		String sql = "insert into accounts (name,email,password,authority) values(?,?,?,?)";
+		String sql = "insert into accounts (name,mail,password,authority) values(?,?,?,?)";
 		try{
 			Connection con = DbUtil.open();
 			PreparedStatement ps = null;
@@ -27,6 +27,7 @@ public class AccountRecord {
 			e.printStackTrace();
 		}
 	}
+
 	
 	// アカウント検索条件入力
 	public ArrayList<AccountsBean> EnterAccountSearchCriteria(String name, String mail, int authority) {

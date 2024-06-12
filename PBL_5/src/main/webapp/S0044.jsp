@@ -80,7 +80,7 @@
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							パスワード確認
+							パスワード（確認）
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
@@ -97,12 +97,11 @@
 					</div>
 					<div class="col-sm-8" style="margin-top: 10px;">
 
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1" disabled>
-						<label for="flexRadioDefault1"> 権限なし </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1" disabled> <label
-							for="flexRadioDefault1"> 売上登録 </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1" disabled> <label
-							for="flexRadioDefault1"> アカウント登録 </label>
+						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"disabled>
+						<label for="flexRadioDefault1"> 売上登録 </label> 
+						
+						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"disabled> 
+						<label for="flexRadioDefault1"> アカウント登録 </label> 
 
 					</div>
 				</div>

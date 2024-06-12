@@ -85,7 +85,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="password" name="#" class="form-control "
-							placeholder="パスワード">
+							placeholder="パスワード（確認）">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -97,12 +97,11 @@
 					</div>
 					<div class="col-sm-8" style="margin-top: 10px;">
 
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-						<label for="flexRadioDefault1"> 権限なし </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1"> <label
-							for="flexRadioDefault1"> 売上登録 </label> <input type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1" checked> <label
-							for="flexRadioDefault1"> アカウント登録 </label>
+						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"disabled>
+						<label for="flexRadioDefault1"> 売上登録 </label> 
+						
+						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"disabled> 
+						<label for="flexRadioDefault1"> アカウント登録 </label> 
 
 					</div>
 				</div>
