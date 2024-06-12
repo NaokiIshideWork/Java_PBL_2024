@@ -13,60 +13,62 @@ import model.AccountsBean;
 import model.CategoriesBean;
 import model.SalesBean;
 import services.SQLServicesPBLreg;
+
 /**
  * Servlet implementation class RegisterServlet
  */
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegisterServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public RegisterServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLreg sqlserv = new SQLServicesPBLreg();
 		String error_message = "";
-		
-		ArrayList<AccountsBean> account_list = null;
+
 		//担当表示用
+		ArrayList<AccountsBean> account_list = null;
 		account_list = sqlserv.SelectAllAcount();
-		if(account_list.isEmpty()) {
-			error_message += "アカウントテーブルに存在しません";
-			request.setAttribute("err", error_message);
-		}else {
-			request.setAttribute("accounts", account_list);
-		}
-		
 		//商品カテゴリー表示用
 		ArrayList<CategoriesBean> categories_list = null;
 		categories_list = sqlserv.SelectAllCategory();
-		if(categories_list.isEmpty()) {
+
+		if (account_list.isEmpty()) {
+			error_message += "アカウントテーブルに存在しません";
+			request.setAttribute("err", error_message);
+		} else {
+			request.setAttribute("accounts", account_list);
+		}
+
+		if (categories_list.isEmpty()) {
 			error_message += "商品カテゴリーテーブルに存在しません";
 			request.setAttribute("err", error_message);
-		}else {
+		} else {
 			request.setAttribute("cate", categories_list);
 		}
-		System.out.println(error_message);	
+
 		this.getServletContext().getRequestDispatcher("/S0010.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
 
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLreg mts = new SQLServicesPBLreg();
@@ -77,7 +79,7 @@ public class RegisterServlet extends HttpServlet {
 		if (sales_date.isEmpty()) {
 			error_message += "販売日を入力して下さい,";//ok
 		} else {
-			//販売日を正しく入力して下さい
+			sales_date = sales_date.replace("-", "/");
 		}
 
 		//担当に対するName
@@ -103,7 +105,6 @@ public class RegisterServlet extends HttpServlet {
 				error_message += "商品名が長すぎます,";//ok
 			}
 		}
-		
 
 		//単価
 		String unit_price = request.getParameter("unit_price");
@@ -114,16 +115,12 @@ public class RegisterServlet extends HttpServlet {
 				error_message += "単価が長すぎます,";
 			} else {
 				//形式チェック　単価を正しく入力して下さい
-				if (!unit_price.matches("\\d+?(,\\d{3})*")) {
+				if (!unit_price.matches("\\d{1,3}(,\\d{3})*")) {
 					error_message += "単価を正しく入力して下さい,";
 				}
 			}
 		}
-		System.out.println(error_message);
-		System.out.println(unit_price);
-		
-		
-		
+
 		//個数
 		String sale_number = request.getParameter("sale_number");
 		if (sale_number.isEmpty()) {
@@ -133,12 +130,11 @@ public class RegisterServlet extends HttpServlet {
 				error_message += "個数が長すぎます,";
 			} else {
 				//個数を正しく入力して下さい
-				if (!sale_number.matches("\\d+?(,\\d{3})*")) {
+				if (!sale_number.matches("\\d{1,3}(,\\d{3})*")) {
 					error_message += "個数を正しく入力して下さい,";
 				}
 			}
 		}
-
 		//備考
 		String note = request.getParameter("note");
 		if (note.length() > 400) {
@@ -146,11 +142,11 @@ public class RegisterServlet extends HttpServlet {
 		}
 
 		int subtotal = 0;
-		if (!(unit_price.isEmpty()) && !(sale_number.isEmpty())) {
+		if (error_message.isEmpty()) {
+			unit_price = unit_price.replace(",", "");
+			sale_number = sale_number.replace(",", "");
 			subtotal = Integer.parseInt(unit_price) * Integer.parseInt(sale_number);
 		}
-		System.out.println(error_message);
-		System.out.println(error_message.isEmpty());
 
 		if (error_message.isEmpty()) {
 			list = new SalesBean(sales_date, accountName, Integer.parseInt(account_id), item_category_name,
@@ -164,7 +160,5 @@ public class RegisterServlet extends HttpServlet {
 		}
 
 	}
-		
-	}
 
-
+}

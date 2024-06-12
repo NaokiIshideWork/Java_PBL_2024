@@ -43,23 +43,17 @@ public class RegisterSalesServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLreg mts = new SQLServicesPBLreg();
 		
-		
 		String sales_date = request.getParameter("sale_date");
-		
 		//account_id
 		String account_id =  request.getParameter("account_id");
-		
 		//categori_id
 		String category_id = request.getParameter("category_id");
-			
 		String trade_name = request.getParameter("trade_name");
 		String unit_price = request.getParameter("unit_price");
 		String sale_number = request.getParameter("sale_number");
 		String note = request.getParameter("note");
 		
-//		System.out.println(sales_date+account_id+category_id);
-//		System.out.println(trade_name+unit_price+sale_number+note);
-		
+
 		mts.insert(sales_date, Integer.parseInt(account_id), Integer.parseInt(category_id), trade_name, Integer.parseInt(unit_price), Integer.parseInt(sale_number), note);
 		
 		response.sendRedirect("RegisterServlet");
