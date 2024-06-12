@@ -1,11 +1,18 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.AccountsBean;
+import model.CategoriesBean;
+import services.SQLServicesPBLreg;
+import services.SQLServicesPBLsfs;
 
 /**
  * Servlet implementation class SearchSalesServlet
@@ -13,29 +20,84 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/SearchSalesServlet")
 public class SearchSalesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SearchSalesServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public SearchSalesServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("UTF-8");
+		SQLServicesPBLreg sqlserv = new SQLServicesPBLreg();
+		SQLServicesPBLsfs sqlservsfs = new SQLServicesPBLsfs();
+		String error_message = "";
+
+		//担当表示用
+		//担当表示用
+		ArrayList<AccountsBean> account_list = null;
+		account_list = sqlservsfs.SelectAllAcount();
+
+		if (account_list.isEmpty()) {
+			error_message += "アカウントテーブルに存在しません";
+			request.setAttribute("err", error_message);
+		} else {
+			request.setAttribute("accounts", account_list);
+		}
+
+		//商品カテゴリー表示用
+		ArrayList<CategoriesBean> categories_list = null;
+		categories_list = sqlserv.SelectAllCategory();
+
+		if (categories_list.isEmpty()) {
+			error_message += "商品カテゴリーテーブルに存在しません";
+			request.setAttribute("err", error_message);
+		} else {
+			request.setAttribute("cate", categories_list);
+		}
+
+		this.getServletContext().getRequestDispatcher("/S0020.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
+		String error_message = "";
+
+		String salesDateB = request.getParameter("salesDateB");
+		if (salesDateB.isEmpty()) {
+			error_message += "販売日を入力して下さい,";//ok
+		} else {
+			salesDateB = salesDateB.replace("-", "/");
+		}
+		
+		String salesDateA = request.getParameter("salesDateA");
+		if (salesDateA.isEmpty()) {
+			error_message += "販売日を入力して下さい,";//ok
+		} else {
+			salesDateA = salesDateA.replace("-", "/");
+		}
+		
+		String salesPerson = request.getParameter("salesPerson");
+		String productCategory = request.getParameter("productCategory");
+		String productName = request.getParameter("productName");
+		String remarks = request.getParameter("remarks");
+		
+		//select で0だった場合に0件だから　商品名と備考がなくてもOK
+
+	
 	}
 
 }
