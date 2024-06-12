@@ -79,7 +79,7 @@
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							パスワード確認<span class="badge rounded-pill bg-secondary">必須</span>
+							パスワード（確認）<span class="badge rounded-pill bg-secondary">必須</span>
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
