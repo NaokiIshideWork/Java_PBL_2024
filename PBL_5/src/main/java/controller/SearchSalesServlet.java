@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.AccountsBean;
 import model.CategoriesBean;
+import model.Sales2Bean;
 import services.SQLServicesPBLreg;
 import services.SQLServicesPBLsfs;
 
@@ -74,30 +75,42 @@ public class SearchSalesServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
+		ArrayList<Sales2Bean> account_list = new ArrayList<Sales2Bean>();
 		String error_message = "";
 
 		String salesDateB = request.getParameter("salesDateB");
 		if (salesDateB.isEmpty()) {
-			error_message += "販売日を入力して下さい,";//ok
+			error_message += "販売日(検索開始日)を入力して下さい,";//ok
 		} else {
 			salesDateB = salesDateB.replace("-", "/");
 		}
 		
 		String salesDateA = request.getParameter("salesDateA");
 		if (salesDateA.isEmpty()) {
-			error_message += "販売日を入力して下さい,";//ok
+			error_message += "販売日(検索終了日)を入力して下さい,";//ok
 		} else {
 			salesDateA = salesDateA.replace("-", "/");
 		}
 		
-		String salesPerson = request.getParameter("salesPerson");
-		String productCategory = request.getParameter("productCategory");
+		String salesPerson = request.getParameter("salesPerson");//int
+		String productCategory = request.getParameter("productCategory");//int
 		String productName = request.getParameter("productName");
 		String remarks = request.getParameter("remarks");
 		
+		System.out.println(salesDateB+salesDateA+salesPerson);
+		
+		System.out.println(productCategory+productName + remarks);
+		
 		//select で0だった場合に0件だから　商品名と備考がなくてもOK
-
-	
+		
+		account_list = mts.selectAllSales(salesDateB, salesDateA, salesPerson, productCategory, productName, remarks);
+		if(account_list.isEmpty()) {
+			error_message += "検索結果はありません";
+			request.setAttribute("err", error_message);
+			doGet(request, response);
+		}else {
+			this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
+		}
 	}
 
 }
