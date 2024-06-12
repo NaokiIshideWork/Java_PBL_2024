@@ -41,7 +41,7 @@
 </header>
 
 <div class="container">
-  <h1 class="ml-5 mt-5 mb-4">売上検索条件入力</h1>
+  <h2 class="ml-5 mt-5 mb-3">売上検索条件入力</h2>
 
   <div class="row" style="padding-right:350px;">
     <div class="col-12 ">
