@@ -10,6 +10,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet Filter implementation class AuthFilter
@@ -39,8 +41,16 @@ public class AuthFilter extends HttpFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 
-		chain.doFilter(request, response);
-		
+		HttpSession session = ((HttpServletRequest) request).getSession();
+
+//		if (null != session.getAttribute("")
+//				|| ((HttpServletRequest) request).getRequestURI().endsWith("")) {
+//			chain.doFilter(request, response);
+//
+//		} else {
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/");
+//			dispatcher.forward(request, response);
+//		}
 	}
 
 	/**

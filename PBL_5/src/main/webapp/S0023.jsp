@@ -47,7 +47,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">販売日  <span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="date" name="#" class="form-control w-25" placeholder="Last name" aria-label="Last name">
+                <input type="date" name="sale_date" class="form-control w-25" placeholder="Last name" aria-label="Last name">
                 </div>
             </div>
             <div class="row mt-3">
@@ -55,7 +55,7 @@
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">担当  <span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8 w-50" >
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" name="account_id" aria-label="Default select example">
                         <option selected>選択してください</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -68,7 +68,7 @@
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">商品カテゴリー  <span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8 w-50" >
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" name="category_id" aria-label="Default select example">
                         <option selected>選択してください</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -81,7 +81,7 @@
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">商品名  <span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8 w-50" >
-                    <input type="text" name="#" class="form-control" placeholder="商品名">
+                    <input type="text" name="tard_name" class="form-control" placeholder="商品名">
                 </div>
             </div>
             <div class="row mt-3">
@@ -89,7 +89,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">単価  <span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="text" name="#" class="form-control w-25" placeholder="単価">
+                <input type="text" name="unit_price" class="form-control w-25" placeholder="単価">
                 </div>
             </div>
             <div class="row mt-3">
@@ -97,7 +97,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">個数  <span class="badge rounded-pill bg-secondary">必須</span></h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="text" name="#" class="form-control w-25" placeholder="個数">
+                <input type="text" name="sale_namber" class="form-control w-25" placeholder="個数">
                 </div>
             </div>
             <div class="row mt-3">
@@ -106,7 +106,7 @@
                 </div>
                 <div class="col-sm-8">
                 
-                <textarea name="#" class="form-control w-75" id="exampleFormControlTextarea1" rows="5"placeholder="備考"></textarea>
+                <textarea name="note" class="form-control w-75" id="exampleFormControlTextarea1" rows="5"placeholder="備考"></textarea>
                 </div>
             </div>
             <div class="row mt-3">

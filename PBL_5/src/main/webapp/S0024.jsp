@@ -46,7 +46,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">販売日</h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="date" name="#" class="form-control w-25" placeholder="Last name" aria-label="Last name" disabled>
+                <input type="date" name="sale_date" class="form-control w-25" placeholder="Last name" aria-label="Last name" disabled>
                 </div>
             </div>
             <div class="row mt-3">
@@ -54,7 +54,7 @@
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">担当</h3>
                 </div>
                 <div class="col-sm-8 w-50" >
-                    <select class="form-select" aria-label="Default select example" disabled>
+                    <select class="form-select" name="account_id" aria-label="Default select example" disabled>
                         <option selected>選択してください</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -67,7 +67,7 @@
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">商品カテゴリー</h3>
                 </div>
                 <div class="col-sm-8 w-50" >
-                    <select class="form-select" aria-label="Default select example" disabled>
+                    <select class="form-select" name="category_id" aria-label="Default select example" disabled>
                         <option selected>選択してください</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -80,7 +80,7 @@
                     <h3 for="inputEmail" class="col-form-label"style="text-align: end;">商品名</h3>
                 </div>
                 <div class="col-sm-8 w-50" >
-                    <input type="text" name="#" class="form-control" placeholder="商品名" disabled>
+                    <input type="text" name="trade_name" class="form-control" placeholder="商品名" disabled>
                 </div>
             </div>
             <div class="row mt-3">
@@ -88,7 +88,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">単価</h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="text" name="#" class="form-control w-25" placeholder="単価" disabled>
+                <input type="text" name="unit_price" class="form-control w-25" placeholder="単価" disabled>
                 </div>
             </div>
             <div class="row mt-3">
@@ -96,7 +96,7 @@
                     <h3 for="inputEmail" class="col-form-label" style="text-align: end;">個数</h3>
                 </div>
                 <div class="col-sm-8">
-                <input type="text" name="#" class="form-control w-25" placeholder="個数" disabled>
+                <input type="text" name="sale_number" class="form-control w-25" placeholder="個数" disabled>
                 </div>
             </div>
             <div class="row mt-3">
@@ -105,7 +105,7 @@
                 </div>
                 <div class="col-sm-8">
                 
-                <textarea name="#" class="form-control w-75" id="exampleFormControlTextarea1" rows="5"placeholder="備考" disabled></textarea>
+                <textarea name="note" class="form-control w-75" id="exampleFormControlTextarea1" rows="5"placeholder="備考" disabled></textarea>
                 </div>
             </div>
             <div class="row mt-3">
