@@ -71,4 +71,7 @@ public class SQLServicesPBLsfs {
 		}
 		return account_list;
 	}
+	public SalesSearchDisplay() {
+		
+	}
 }

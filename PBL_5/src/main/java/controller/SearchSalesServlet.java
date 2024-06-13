@@ -109,7 +109,9 @@ public class SearchSalesServlet extends HttpServlet {
 			request.setAttribute("err", error_message);
 			doGet(request, response);
 		}else {
+			//表示用
 			this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
+			
 		}
 	}
 
