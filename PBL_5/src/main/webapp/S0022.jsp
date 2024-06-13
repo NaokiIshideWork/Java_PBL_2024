@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,7 @@
 							style="text-align: end;">販売日</h3>
 					</div>
 					<div class="col-sm-8">
-						<p class="text-start" style="margin-top: 5px">2015/1/15</p>
+						<p class="text-start" style="margin-top: 5px"><c:out value="${list.getSale_date()}" /></p>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -58,7 +59,7 @@
 							style="text-align: end;">担当</h3>
 					</div>
 					<div class="col-sm-8">
-						<p class="text-start" style="margin-top: 5px">イチロー</p>
+						<p class="text-start" style="margin-top: 5px"><c:out value="${list.getAccount()}" /></p>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -67,7 +68,7 @@
 							style="text-align: end;">商品カテゴリー</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<p class="text-start" style="margin-top: 5px">食料品</p>
+						<p class="text-start" style="margin-top: 5px"><c:out value="${list.getCategory()}" /></p>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -76,7 +77,7 @@
 							style="text-align: end;">商品名</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<p class="text-start" style="margin-top: 5px">からあげ弁当</p>
+						<p class="text-start" style="margin-top: 5px"><c:out value="${list.getTrade_name()}"/></p>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -85,7 +86,7 @@
 							style="text-align: end;">単価</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<p class="text-start" style="margin-top: 5px">450</p>
+						<p class="text-start" style="margin-top: 5px"><c:out value="${list.getUnit_price()}"/></p>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -94,7 +95,7 @@
 							style="text-align: end;">個数</h3>
 					</div>
 					<div class="col-sm-8">
-						<p class="text-start" style="margin-top: 5px">3</p>
+						<p class="text-start" style="margin-top: 5px"><c:out value="${list.getSale_number()}"/></p>
 					</div>
 				</div>
 
@@ -104,19 +105,22 @@
 							style="text-align: end;">備考</h3>
 					</div>
 					<div class="col-sm-8">
-						<p class="text-start" style="margin-top: 5px">3</p>
+						<p class="text-start" style="margin-top: 5px"><c:out value="${list.getNote()}"/></p>
 					</div>
 				</div>
 				<div class="row mt-3">
 					<div class="col-sm-3"></div>
-					<div class="col-sm-8">
-						<button type="button" class="btn btn-primary"
-							style="margin-left: 30px;">✔編集</button>
-						<a type="submit" class="btn btn-danger btn-search">✕削除</a>
-						<a class="btn btn-outline-secondary" href="#" role="button">キャンセル</a>
+					<div class="col-sm-8"style="margin-left: 30px;">
+						<button type="submit" class="btn btn-primary"
+							name="sale_id" value="${list.getSale_id() }">✔編集</button>
+							
+						</form>
+						<form method="post" action="S0025Servlet">
+							<button type="submit"  class="btn btn-danger btn-search"name="sale_id" value="${list.getSale_id() }">✕削除</button>
+						</form>
+						<a class="btn btn-outline-secondary" href="SearchSalesServlet" role="button">キャンセル</a>
 					</div>
-				</div>
-			</form>
+			</div>
 		</div>
 	</div>
 </body>

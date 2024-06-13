@@ -58,12 +58,12 @@
 				</tr>
 			</thead>
 			<c:forEach var="obj" items="${list}">
-				<form action="#" method="post">
+				<form action="SalesDetailsDisplayServlet" method="post">
 					<tr>
 
 
 						<!-- 詳細ページに遷移 -->
-						<td class="col-md-1"><button type="button"
+						<td class="col-md-1"><button type="submit"
 								class="btn btn-primary" name="sale_id" value="${obj.getSale_id()}">✓
 								詳細</button></td>
 						<td class="col-md-1"><c:out value="${obj.getSale_id()}" /></td>

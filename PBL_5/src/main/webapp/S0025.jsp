@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,14 +39,14 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上詳細削除確認</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right">
+			<form class="text-right" action="#" method="post">
 				<div class="row ">
 					<div class="col-sm-2">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">販売日</h3>
 					</div>
 					<div class="col-sm-8">
-						<input type="date" name="#" class="form-control w-25"
+						<input type="text" name="sale_date" value="${list.getSale_date()}" class="form-control w-25"
 							placeholder="Last name" aria-label="Last name" disabled>
 					</div>
 				</div>
@@ -55,13 +56,9 @@
 							style="text-align: end;">担当</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<select class="form-select" aria-label="Default select example"
-							disabled>
-							<option selected>選択してください</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
-						</select>
+						<input type="text" value="${list.getName()}"
+							class="form-control  bg-secondary-subtle" 
+							aria-label="Last name" name="name" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -70,13 +67,9 @@
 							style="text-align: end;">商品カテゴリー</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<select class="form-select" aria-label="Default select example"
-							disabled>
-							<option selected>選択してください</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
-						</select>
+						<input type="text" value="${list.getCategory_name()}"
+							class="form-control  bg-secondary-subtle" 
+							name="category_name"aria-label="Last name" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -85,8 +78,8 @@
 							style="text-align: end;">商品名</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="text" name="#" class="form-control" placeholder="商品名"
-							disabled>
+						<input type="text" name="trade_name" class="form-control bg-secondary-subtle" value="${list.getTrade_name()}"
+							readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -95,8 +88,8 @@
 							style="text-align: end;">単価</h3>
 					</div>
 					<div class="col-sm-8">
-						<input type="text" name="#" class="form-control w-25"
-							placeholder="単価" disabled>
+						<input type="text" name="unit_price" class="form-control w-25 bg-secondary-subtle"
+							placeholder="単価" value="${list.getUnir_price()}" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -105,8 +98,8 @@
 							style="text-align: end;">個数</h3>
 					</div>
 					<div class="col-sm-8">
-						<input type="text" name="#" class="form-control w-25"
-							placeholder="個数" disabled>
+						<input type="text" name="sale_number" class="form-control w-25 bg-secondary-subtle"
+							value="${list.getSale_number() }" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -115,8 +108,8 @@
 							style="text-align: end;">小計</h3>
 					</div>
 					<div class="col-sm-8">
-						<input type="text" name="#" class="form-control w-25"
-							placeholder="小計" disabled>
+						<input type="text" name="subtotal" class="form-control w-25 bg-secondary-subtle"
+							value="${list.getSubtotal()}" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -126,15 +119,15 @@
 					</div>
 					<div class="col-sm-8">
 
-						<textarea name="#" class="form-control w-75"
+						<textarea name="#" class="form-control w-75 bg-secondary-subtle"
 							id="exampleFormControlTextarea1" rows="5" placeholder="備考"
-							disabled></textarea>
+							readonly><c:out value="${list.getNote()}"/></textarea>
 					</div>
 				</div>
 				<div class="row mt-3">
 					<div class="col-sm-2"></div>
 					<div class="col-sm-8" style="margin-left: 30px;">
-						<button type="button" class="btn btn-danger">✕ O K</button>
+						<button type="submit" class="btn btn-danger" name="delete_id" value="${list.getSale_di()}">✕ O K</button>
 						<a class="btn btn-outline-secondary" href="#" role="button">キャンセル</a>
 					</div>
 				</div>
