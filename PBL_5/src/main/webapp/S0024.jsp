@@ -42,14 +42,14 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上詳細編集確認</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right">
+			<form class="text-right" action = "S0024InsertServlet" method ="post">
 				<div class="row ">
 					<div class="col-sm-2">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">販売日</h3>
 					</div>
 					<div class="col-sm-8">
-						<input type="date" name="sale_date" class="form-control w-25"
+						<input type="text" name="sale_date" class="form-control w-25"
 							 value="${S0024list.getSale_date()}" aria-label="Last name" disabled>
 					</div>
 				</div>
@@ -120,7 +120,7 @@
 					<div class="row mt-3">
 						<div class="col-sm-2"></div>
 						<div class="col-sm-8" style="margin-left: 30px;">
-							<button type="button" class="btn btn-primary">✔O K</button>
+							<button type="submit" class="btn btn-primary">✔O K</button>
 							<a class="btn btn-outline-secondary" href="#" role="button">キャンセル</a>
 						</div>
 					</div>

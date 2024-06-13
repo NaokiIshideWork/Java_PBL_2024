@@ -242,7 +242,8 @@ public class SQLServicesPBLsfs {
 		return S0023Bean_list;
 	}
 	
-	public void insert() {
+	public void insert(int up_date_id, String sale_date, String account_id, String category_id, String trade_name,
+			String unit_price, String sale_number, String note) {
 		String sql = "UPDATE sales AS s\n"
 				+ "LEFT JOIN accounts AS a ON s.account_id = a.account_id\n"
 				+ "LEFT JOIN categories AS c ON s.category_id = c.category_id\n"
@@ -257,10 +258,14 @@ public class SQLServicesPBLsfs {
 		try (Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
 
-			ps.setString(1, title);
-			ps.setString(2, priority);
-			ps.setString(3, term);
-			ps.setString(4, contents);
+			ps.setString(1, sale_date);
+			ps.setString(2, account_id);
+			ps.setString(3, category_id);
+			ps.setString(4, trade_name);
+			ps.setString(5, unit_price);
+			ps.setString(6, sale_number);
+			ps.setString(7, note);
+			ps.setInt(8, up_date_id);
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
