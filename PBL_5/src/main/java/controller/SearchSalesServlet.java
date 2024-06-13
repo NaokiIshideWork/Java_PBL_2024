@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.AccountsBean;
 import model.CategoriesBean;
 import model.Sales2Bean;
+import model.SalesSearchDisplayBean;
 import services.SQLServicesPBLreg;
 import services.SQLServicesPBLsfs;
 
@@ -75,7 +76,8 @@ public class SearchSalesServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
-		ArrayList<Sales2Bean> account_list = new ArrayList<Sales2Bean>();
+		ArrayList<Sales2Bean> Sales2Bean_list = new ArrayList<Sales2Bean>();
+		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
 		String error_message = "";
 
 		String salesDateB = request.getParameter("salesDateB");
@@ -97,19 +99,20 @@ public class SearchSalesServlet extends HttpServlet {
 		String productName = request.getParameter("productName");
 		String remarks = request.getParameter("remarks");
 		
-//		System.out.println(salesDateB+salesDateA+salesPerson);
-//		
-//		System.out.println(productCategory+productName + remarks);
+
 		
 		//select で0だった場合に0件だから　商品名と備考がなくてもOK
 		
-		account_list = mts.selectAllSales(salesDateB, salesDateA, salesPerson, productCategory, productName, remarks);
-		if(account_list.isEmpty()) {
+		Sales2Bean_list = mts.selectAllSales(salesDateB, salesDateA, salesPerson, productCategory, productName, remarks);
+		if(Sales2Bean_list.isEmpty()) {
 			error_message += "検索結果はありません";
 			request.setAttribute("err", error_message);
 			doGet(request, response);
 		}else {
 			//表示用
+			account_list =mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName, remarks);
+			
+			request.setAttribute("list", account_list);
 			this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
 			
 		}

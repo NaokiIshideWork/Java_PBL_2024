@@ -4,10 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 import model.AccountsBean;
 import model.Sales2Bean;
+import model.SalesSearchDisplayBean;
 import util.DbUtil;
 
 public class SQLServicesPBLsfs {
@@ -35,21 +37,22 @@ public class SQLServicesPBLsfs {
 		return account_list;
 	}
 
-	public ArrayList<Sales2Bean>  selectAllSales(String salesDateB, String salesDateA, String salesPerson, String productCategory,
+	public ArrayList<Sales2Bean> selectAllSales(String salesDateB, String salesDateA, String salesPerson,
+			String productCategory,
 			String productName, String remarks) {
 		String sql = "SELECT * FROM sales WHERE sale_date >=? and sale_date <= ? and account_id = ? and category_id = ? and trade_name LIKE ? AND note LIKE ?;";
 		ArrayList<Sales2Bean> account_list = new ArrayList<Sales2Bean>();
 		try (
 				Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
-			System.out.println("->"+productName);
-			
+			System.out.println("->" + productName);
+
 			ps.setString(1, salesDateB);
 			ps.setString(2, salesDateA);
 			ps.setString(3, salesPerson);
 			ps.setString(4, productCategory);
-			ps.setString(5, "%"+productName+"%");
-			ps.setString(6, "%"+remarks+"%");
+			ps.setString(5, "%" + productName + "%");
+			ps.setString(6, "%" + remarks + "%");
 
 			System.out.println(productName + remarks);
 			ResultSet rs = ps.executeQuery();
@@ -71,7 +74,50 @@ public class SQLServicesPBLsfs {
 		}
 		return account_list;
 	}
-	public SalesSearchDisplay() {
-		
+
+	public ArrayList<SalesSearchDisplayBean> SalesSearchDisplay(String salesDateB, String salesDateA,
+			String salesPerson, String productCategory,
+			String productName, String remarks) {
+		String sql = "SELECT s.sale_id, s.sale_date,a.name,c.category_name,s.trade_name,s.unit_price,s.sale_number,(s.unit_price*s.sale_number)AS subtotal FROM sales s \n"
+				+ "LEFT OUTER JOIN accounts a ON s.account_id = a.account_id\n"
+				+ "LEFT OUTER JOIN categories c ON s.category_id = c.category_id \n"
+				+ "WHERE sale_date >= ? and sale_date <= ? AND\n"
+				+ "s.account_id = ? AND s.category_id = ? AND trade_name LIKE ? AND note LIKE ?;";
+		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
+		try (
+				Connection con = DbUtil.open();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+
+			ps.setString(1, salesDateB);
+			ps.setString(2, salesDateA);
+			ps.setString(3, salesPerson);
+			ps.setString(4, productCategory);
+			ps.setString(5, "%" + productName + "%");
+			ps.setString(6, "%" + remarks + "%");
+
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				int sale_id = rs.getInt("sale_id");
+				String sale_date = rs.getString("sale_date");
+				String name = rs.getString("name");
+				String category_name = rs.getString("category_name");
+				String trade_name = rs.getString("trade_name");
+				int unit_price = rs.getInt("unit_price");
+				int sale_number = rs.getInt("sale_number");
+				int subtotal = rs.getInt("subtotal");
+
+				
+				account_list.add(new SalesSearchDisplayBean(sale_id, sale_date, name, category_name,
+						trade_name, formatNumber(unit_price), formatNumber(sale_number), formatNumber(subtotal)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return account_list;
+	}
+
+	public static final String formatNumber(long num) {
+		NumberFormat nf = NumberFormat.getNumberInstance();
+		return nf.format(num);
 	}
 }

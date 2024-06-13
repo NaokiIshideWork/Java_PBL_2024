@@ -6,11 +6,11 @@ public class SalesSearchDisplayBean {
 	private String name;
 	private String category_name;
 	private String trade_name;
-	private int unit_price;
-	private int sale_number;
-	private int subtotal;
+	private String unit_price;
+	private String sale_number;
+	private String subtotal;
 	
-	public SalesSearchDisplayBean(int sale_id,String sale_date,String name,String category_name,String trade_name,int unit_price,int sale_number,int subtotal) {
+	public SalesSearchDisplayBean(int sale_id,String sale_date,String name,String category_name,String trade_name,String unit_price,String sale_number,String subtotal) {
 		this.sale_id = sale_id;
 		this.sale_date = sale_date;
 		this.name = name;
@@ -41,15 +41,15 @@ public class SalesSearchDisplayBean {
 		return trade_name;
 	}
 
-	public int getUnit_price() {
+	public String getUnit_price() {
 		return unit_price;
 	}
 
-	public int getSale_number() {
+	public String getSale_number() {
 		return sale_number;
 	}
 
-	public int getSubtotal() {
+	public String getSubtotal() {
 		return subtotal;
 	}
 }
