@@ -27,10 +27,10 @@
                                     href="ToDoDoneServlet">アカウント検索</a></li>
                 </ul>
             </div>
-            <ul class="navbar-nav justify-content-end">
-                <li class="nav-item"><a class="nav-link"
-                    href="ToDoDoneServlet">ログアウト</a></li>
-            </ul>
+            <div class="navbar-nav justify-content-end">
+                <form action="LogoutServlet" method="post"><button class="nav-link"
+                    type="submit">ログアウト</butn></form></li>
+            </div>
         </div>
     </nav>
 </body>
