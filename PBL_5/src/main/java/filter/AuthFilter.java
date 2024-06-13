@@ -51,6 +51,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 //			RequestDispatcher dispatcher = request.getRequestDispatcher("/");
 //			dispatcher.forward(request, response);
 //		}
+		chain.doFilter(request, response);
 	}
 
 	/**
