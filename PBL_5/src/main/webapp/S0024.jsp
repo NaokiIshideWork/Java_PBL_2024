@@ -50,7 +50,7 @@
 					</div>
 					<div class="col-sm-8">
 						<input type="text" name="sale_date" class="form-control w-25"
-							 value="${S0024list.getSale_date()}" aria-label="Last name" disabled>
+							 value="${S0024list.getSale_date()}" aria-label="Last name" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -82,7 +82,7 @@
 						</div>
 						<div class="col-sm-8 w-50">
 							<input type="text" name="trade_name" class="form-control"
-								value="${S0024list.getTrade_name() }" disabled>
+								value="${S0024list.getTrade_name() }" readonly>
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -92,7 +92,7 @@
 						</div>
 						<div class="col-sm-8">
 							<input type="text" name="unit_price" class="form-control w-25"
-								value="${S0024list.getUnit_price() }" disabled>
+								value="${S0024list.getUnit_price() }" readonly>
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -102,7 +102,7 @@
 						</div>
 						<div class="col-sm-8">
 							<input type="text" name="sale_number" class="form-control w-25"
-								value="${S0024list.getSale_number() }" disabled>
+								value="${S0024list.getSale_number() }" readonly>
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -114,7 +114,7 @@
 
 							<textarea name="note" class="form-control w-75"
 								id="exampleFormControlTextarea1" rows="5"
-								disabled><c:out value="${S0024list.getNote()}"></c:out></textarea>
+								readonly><c:out value="${S0024list.getNote()}"></c:out></textarea>
 						</div>
 					</div>
 					<div class="row mt-3">
