@@ -97,9 +97,9 @@ public class SearchSalesServlet extends HttpServlet {
 		String productName = request.getParameter("productName");
 		String remarks = request.getParameter("remarks");
 		
-		System.out.println(salesDateB+salesDateA+salesPerson);
-		
-		System.out.println(productCategory+productName + remarks);
+//		System.out.println(salesDateB+salesDateA+salesPerson);
+//		
+//		System.out.println(productCategory+productName + remarks);
 		
 		//select で0だった場合に0件だから　商品名と備考がなくてもOK
 		
