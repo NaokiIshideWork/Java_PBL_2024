@@ -31,7 +31,7 @@ public class SalesDetailsDisplayServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		this.getServletContext().getRequestDispatcher("/S0022.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
 	}
 
 	/**
@@ -47,7 +47,8 @@ public class SalesDetailsDisplayServlet extends HttpServlet {
 		SalesDeetail_list = mts.SalesDetailsDisplay(Integer.parseInt(sale_id));
 		
 		request.setAttribute("list", SalesDeetail_list);
-		doGet(request, response);
+		this.getServletContext().getRequestDispatcher("/S0022.jsp").forward(request, response);
+	
 	}
 
 }

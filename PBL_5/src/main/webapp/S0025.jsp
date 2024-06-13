@@ -39,7 +39,7 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上詳細削除確認</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right" action="#" method="post">
+			<form class="text-right" action="S0025DeleteServlet" method="post">
 				<div class="row ">
 					<div class="col-sm-2">
 						<h3 for="inputEmail" class="col-form-label"

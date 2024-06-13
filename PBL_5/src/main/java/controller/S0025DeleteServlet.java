@@ -8,20 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.S0025Bean;
 import services.SQLServicesPBLsfs;
 
 /**
- * Servlet implementation class S0025Servlet
+ * Servlet implementation class S0025DeleteServlet
  */
-@WebServlet("/S0025Servlet")
-public class S0025Servlet extends HttpServlet {
+@WebServlet("/S0025DeleteServlet")
+public class S0025DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public S0025Servlet() {
+    public S0025DeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,7 +30,8 @@ public class S0025Servlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		this.getServletContext().getRequestDispatcher("/S0025.jsp").forward(request, response);
+		
+		 response.sendRedirect("SearchSalesServlet");
 	}
 
 	/**
@@ -39,16 +39,10 @@ public class S0025Servlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
-		S0025Bean S0025Bean_list=null;
-		
-		String sale_id = request.getParameter("sale_id");
-		S0025Bean_list= mts.SalesDetailsDelete(Integer.parseInt(sale_id));		
-		request.setAttribute("list", S0025Bean_list);
-			
-		
+		String delete_id = request.getParameter("delete_id");
+		mts.delete(Integer.parseInt(delete_id));
 		doGet(request, response);
 	}
 

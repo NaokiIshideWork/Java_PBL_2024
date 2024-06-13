@@ -191,5 +191,20 @@ public class SQLServicesPBLsfs {
 		}
 		return S0025Bean_list;
 	}
+	
+	//削除追加
+	
+	public void delete(int delete_id) {
+		String sql = "DELETE FROM sales WHERE sale_id = ?";
+		try (Connection con = DbUtil.open();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+
+			ps.setInt(1, delete_id);
+
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

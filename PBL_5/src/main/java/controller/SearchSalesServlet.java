@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.AccountsBean;
 import model.CategoriesBean;
@@ -42,8 +43,6 @@ public class SearchSalesServlet extends HttpServlet {
 		SQLServicesPBLsfs sqlservsfs = new SQLServicesPBLsfs();
 		String error_message = "";
 
-		//担当表示用
-		//担当表示用
 		ArrayList<AccountsBean> account_list = null;
 		account_list = sqlservsfs.SelectAllAcount();
 
@@ -100,7 +99,7 @@ public class SearchSalesServlet extends HttpServlet {
 		String remarks = request.getParameter("remarks");
 		
 
-		
+		HttpSession session = request.getSession();
 		//select で0だった場合に0件だから　商品名と備考がなくてもOK
 		
 		Sales2Bean_list = mts.selectAllSales(salesDateB, salesDateA, salesPerson, productCategory, productName, remarks);
@@ -110,9 +109,8 @@ public class SearchSalesServlet extends HttpServlet {
 			doGet(request, response);
 		}else {
 			//表示用
-			account_list =mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName, remarks);
-			
-			request.setAttribute("list", account_list);
+			account_list =mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName, remarks);	
+			session.setAttribute("list", account_list);
 			this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
 			
 		}
