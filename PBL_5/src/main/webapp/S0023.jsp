@@ -42,7 +42,7 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上詳細編集</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right">
+			<form class="text-right" action="S0024Servlet" method="post">
 				<div class="row ">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -52,7 +52,7 @@
 					</div>
 					<div class="col-sm-8">
 						<input type="date" name="sale_date" class="form-control w-25"
-							value="${S0023.getSale_date() }" aria-label="Last name">
+							value="${S0023list.getSale_date()}" aria-label="Last name">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -65,10 +65,8 @@
 					<div class="col-sm-8 w-50">
 						<select class="form-select" name="account_id"
 							aria-label="Default select example">
-							<option selected><c:out value="${S0023.getAccount() }"></option>
 							<c:forEach var="obj" items="${accounts}">
-								<option value="${obj.getAccount_id()}"><c:out
-										value="${obj.getName()}" /></option>
+								<option value="${obj.getName()}"></option>
 							</c:forEach>
 						</select>
 					</div>
@@ -83,10 +81,9 @@
 					<div class="col-sm-8 w-50">
 						<select class="form-select" name="category_id"
 							aria-label="Default select example">
-							<option selected><c:out value="${S0023.getCategory_name() }"></option>
+
 							<c:forEach var="obj" items="${cate}">
-								<option value="${obj.getCategory_id()}"><c:out
-										value="${obj.getCategory_name()}" /></option>
+								<option value="${obj.getCategory_name()}"></option>
 							</c:forEach>
 						</select>
 					</div>
@@ -100,7 +97,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="text" name="tard_name" class="form-control"
-							value="${S0023.getTrade_name() }">
+							value="${S0023list.getTrade_name()}">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -112,36 +109,42 @@
 					</div>
 					<div class="col-sm-8">
 						<input type="text" name="unit_price" class="form-control w-25"
-							value="${S0023.getUnit_price() }>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-sm-3">
-                    <h3 for="inputEmail" class="col-form-label" style="text-align: end;">個数  <span class="badge rounded-pill bg-secondary">必須</span></h3>
-                </div>
-                <div class="col-sm-8">
-                <input type="text" name="sale_namber" class="form-control w-25" value="${S0023.getUnit_price()}>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-sm-3">
-                    <h3 for="inputEmail" class="col-form-label" style="text-align: end;">備考  </h3>
-                </div>
-                <div class="col-sm-8">
-                
-                <textarea name="note" class="form-control w-75" id="exampleFormControlTextarea1" rows="5"><c:out value="${S0023.getNote() }"/></textarea>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-sm-3">    
-                </div>
-                <div class="col-sm-8" style="margin-left: 30px;">
-                    <button type="button" class="btn btn-primary">✔更 新</button>
-                    <a class="btn btn-outline-secondary" href="#" role="button">キャンセル</a>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+							value="${S0023list.getUnit_price()}">
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-sm-3">
+						<h3 for="inputEmail" class="col-form-label"
+							style="text-align: end;">
+							個数 <span class="badge rounded-pill bg-secondary">必須</span>
+						</h3>
+					</div>
+					<div class="col-sm-8">
+						<input type="text" name="sale_namber" class="form-control w-25"
+							value="${S0023list.getSale_number()}" />
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-sm-3">
+						<h3 for="inputEmail" class="col-form-label"
+							style="text-align: end;">備考</h3>
+					</div>
+					<div class="col-sm-8">
+
+						<textarea name="note" class="form-control w-75"
+							id="exampleFormControlTextarea1" rows="5"><c:out
+								value="${S0023list.getNote()}" /></textarea>
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-8" style="margin-left: 30px;">
+						<button type="submit" class="btn btn-primary" name="up_date_id" value="${S0023list.getSale_id()}">✔更 新</button>
+						<a class="btn btn-outline-secondary" href="SalesDetailsDisplayServlet" role="button">キャンセル</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

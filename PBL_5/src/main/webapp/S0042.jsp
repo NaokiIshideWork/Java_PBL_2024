@@ -35,8 +35,8 @@
     </nav>
 
 <div class="container position-absolute">
-		<h2 class="mt-5" style="margin-left: 80px;">アカウント詳細編集</h2>
-		<div class="" style="margin-left: 100px">
+		<h2 class="mt-5" style="margin-left: 130px;">アカウント詳細編集</h2>
+		<div class="" style="margin-left: 30px">
 			<form class="text-right">
 				<div class="row ">
 					<div class="col-sm-3">

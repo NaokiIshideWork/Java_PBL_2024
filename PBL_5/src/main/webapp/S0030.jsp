@@ -35,9 +35,9 @@
     </nav>
 
 	<div class="container position-absolute">
-		<h2 class="mt-5" style="margin-left: 30px;">アカウント登録</h2>
+		<h1 class="mt-5" style="margin-left: 50px;">アカウント登録</h1>
 		<div class="" style="margin-left: 10px">
-			<form class="text-right" action="AccountRegisterServlet" method="post">
+			<form class="text-right" action="AccountServlet" method="post">
 				<div class="row ">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -47,7 +47,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="text" name="name" class="form-control"
-							placeholder="氏名">
+							placeholder="氏名" required>
 					</div>
 				</div>
 
@@ -61,7 +61,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="email" name="mail" class="form-control"
-							placeholder="メールアドレス">
+							placeholder="メールアドレス" required>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -73,7 +73,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="password" name="password" class="form-control "
-							placeholder="パスワード">
+							placeholder="パスワード" required>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -84,23 +84,26 @@
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="password" name="password" class="form-control "
-							placeholder="パスワード（確認）">
+						<input type="password" name="confirmPassword" class="form-control "
+							placeholder="パスワード（確認）" required>
 					</div>
 				</div>
 				<div class="row mt-3">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							権限<span class="badge rounded-pill bg-secondary">必須</span>
+							権限
 						</h3>
 					</div>
 
 					<div class="col-sm-8" style="margin-top: 10px;">
-						<input type="radio" name="authority" id="flexRadioDefault1" checked value="0">
+					
+					    <input type="hidden" name="authority" id="authority_none" checked value="0">
+					
+						<input type="radio" name="authority" id="authority_sales" value="1">
 						<label for="flexRadioDefault1"> 売上登録 </label> 
 						
-						<input type="radio" name="authority" id="flexRadioDefault1" value="1"> 
+						<input type="radio" name="authority" id="authority_account" value="2"> 
 						<label for="flexRadioDefault1"> アカウント登録 </label> 
 						
 					</div>

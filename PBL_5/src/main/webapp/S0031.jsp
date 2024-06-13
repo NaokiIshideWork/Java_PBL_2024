@@ -34,9 +34,13 @@
 	</nav>
 
 	<div class="container position-absolute">
-		<h2 class="mt-5" style="margin-left: 30px;">アカウントを登録してよろしいですか?</h2>
+		<h2 class="mt-5" style="margin-left: 40px;">アカウントを登録してよろしいですか?</h2>
 		<div class="" style="margin-left: 100px">
+<<<<<<< HEAD
+			<form class="text-right" action="AccountRegisterServlet" method="post">
+=======
 			<form class="text-right">
+>>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
 				<div class="row ">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -45,6 +49,8 @@
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
+						<input type="text" name="name" class="form-control" value="${name}"
+							 readonly>
 						<input type="text" name="#" class="form-control" placeholder="氏名"
 							disabled>
 					</div>
@@ -58,8 +64,8 @@
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="email" name="#" class="form-control"
-							placeholder="メールアドレス" disabled>
+						<input type="email" name="mail" class="form-control" value="${mail}"
+							placeholder="メールアドレス" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -70,8 +76,8 @@
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="password" name="#" class="form-control "
-							placeholder="パスワード" disabled>
+						<input type="password" name="password" class="form-control" value="${password}"
+							placeholder="パスワード" readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -82,8 +88,8 @@
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="password" name="#" class="form-control "
-							placeholder="パスワード" disabled>
+						<input type="password" name="password" class="form-control" value="${password}"
+							placeholder="パスワード" readonly>
 					</div>
 				</div>
 
@@ -94,7 +100,22 @@
 							権限<span class="badge rounded-pill bg-secondary">必須</span>
 						</h3>
 					</div>
+					
 					<div class="col-sm-8" style="margin-top: 10px;">
+
+					<c:if test="${authority==1}">
+						<input type="radio" name="authority" id="flexRadioDefault1" checked readonly disabled>
+						<label for="flexRadioDefault1"> 売上登録 </label> 
+						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1" readonly disabled> 
+						<label for="flexRadioDefault1"> アカウント登録 </label>
+					</c:if>
+					<c:if test="${authority==2}">
+						<input type="radio" name="authority" id="flexRadioDefault1" readonly disabled>
+						<label for="flexRadioDefault1"> 売上登録 </label> 
+						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked readonly disabled> 
+						<label for="flexRadioDefault1"> アカウント登録 </label>
+					</c:if>  
+
 
 						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"
 							disabled> <label for="flexRadioDefault1"> 売上登録 </label> <input
@@ -106,6 +127,7 @@
 
 					</div>
 				</div>
+
 				<div class="row mt-3">
 					<div class="col-sm-3"></div>
 					<div class="col-sm-8">
