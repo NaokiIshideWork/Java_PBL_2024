@@ -241,5 +241,30 @@ public class SQLServicesPBLsfs {
 		}
 		return S0023Bean_list;
 	}
+	
+	public void insert() {
+		String sql = "UPDATE sales AS s\n"
+				+ "LEFT JOIN accounts AS a ON s.account_id = a.account_id\n"
+				+ "LEFT JOIN categories AS c ON s.category_id = c.category_id\n"
+				+ "SET s.sale_date = ?,\n"
+				+ "    a.name = ?,\n"
+				+ "    c.category_name = ?,\n"
+				+ "    s.trade_name = ?,\n"
+				+ "    s.unit_price = ?,\n"
+				+ "    s.sale_number = ?,\n"
+				+ "    s.note = ?\n"
+				+ "WHERE s.sale_id = ?;";
+		try (Connection con = DbUtil.open();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+
+			ps.setString(1, title);
+			ps.setString(2, priority);
+			ps.setString(3, term);
+			ps.setString(4, contents);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

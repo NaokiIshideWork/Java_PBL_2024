@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,7 @@
 					</div>
 					<div class="col-sm-8">
 						<input type="date" name="sale_date" class="form-control w-25"
-							placeholder="Last name" aria-label="Last name" disabled>
+							 value="${S0024list.getSale_date()}" aria-label="Last name" disabled>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -58,7 +59,7 @@
 							style="text-align: end;">担当</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="txet" value="${lst.getAccount()}"
+						<input type="txet" value="${S0024list.getAccount()}"
 							class="form-control bg-secondary-subtle" aria-label="Last Name"
 							readonly>
 					</div>
@@ -69,7 +70,7 @@
 							style="text-align: end;">商品カテゴリー</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="text" value="${list.getItem_category()}"
+						<input type="text" value="${S0024list.getCategory_name()}"
 							class="form-control bg-secondary-subtle" aria-label="Last name"
 							readonly>
 					</div>
@@ -81,7 +82,7 @@
 						</div>
 						<div class="col-sm-8 w-50">
 							<input type="text" name="trade_name" class="form-control"
-								placeholder="商品名" disabled>
+								value="${S0024list.getTrade_name() }" disabled>
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -91,7 +92,7 @@
 						</div>
 						<div class="col-sm-8">
 							<input type="text" name="unit_price" class="form-control w-25"
-								placeholder="単価" disabled>
+								value="${S0024list.getUnit_price() }" disabled>
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -101,7 +102,7 @@
 						</div>
 						<div class="col-sm-8">
 							<input type="text" name="sale_number" class="form-control w-25"
-								placeholder="個数" disabled>
+								value="${S0024list.getSale_number() }" disabled>
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -112,8 +113,8 @@
 						<div class="col-sm-8">
 
 							<textarea name="note" class="form-control w-75"
-								id="exampleFormControlTextarea1" rows="5" placeholder="備考"
-								disabled></textarea>
+								id="exampleFormControlTextarea1" rows="5"
+								disabled><c:out value="${S0024list.getNote()}"></c:out></textarea>
 						</div>
 					</div>
 					<div class="row mt-3">

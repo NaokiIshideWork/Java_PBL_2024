@@ -50,6 +50,10 @@ public class S0023Servlet extends HttpServlet {
 		S0023Bean S0023Bean_list = null;
 		
 		S0023Bean_list = mts.SalesEdit(Integer.parseInt(sale_id));
+		
+		System.out.println(S0023Bean_list.getAccount());
+		
+		
 		ArrayList<AccountsBean> account_list = null;
 		account_list = sqlserv.SelectAllAcount();
 		//商品カテゴリー表示用
