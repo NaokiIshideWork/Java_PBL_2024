@@ -258,12 +258,14 @@ public class SQLServicesPBLsfs {
 		try (Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
 
+			unit_price = unit_price.replace(",", "");
+			sale_number = sale_number.replace(",","");
 			ps.setString(1, sale_date);
 			ps.setString(2, account_id);
 			ps.setString(3, category_id);
 			ps.setString(4, trade_name);
-			ps.setString(5, unit_price);
-			ps.setString(6, sale_number);
+			ps.setInt(5, Integer.parseInt(unit_price));
+			ps.setInt(6, Integer.parseInt(sale_number));
 			ps.setString(7, note);
 			ps.setInt(8, up_date_id);
 			ps.executeUpdate();

@@ -50,7 +50,7 @@ public class S0024InsertServlet extends HttpServlet {
 		
 		String trade_name = request.getParameter("trade_name");
 		String unit_price = request.getParameter("unit_price");
-		String sale_number = request.getParameter("sale_namber");
+		String sale_number = request.getParameter("sale_number");
 		String note = request.getParameter("note");
 		
 		System.out.println(up_date_id+sale_date+account_id);
