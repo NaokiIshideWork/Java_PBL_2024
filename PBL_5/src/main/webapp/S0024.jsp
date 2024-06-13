@@ -59,7 +59,7 @@
 							style="text-align: end;">担当</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="txet" value="${S0024list.getAccount()}"
+						<input type="txet" name="account_id"value="${S0024list.getAccount()}"
 							class="form-control bg-secondary-subtle" aria-label="Last Name"
 							readonly>
 					</div>
@@ -70,7 +70,7 @@
 							style="text-align: end;">商品カテゴリー</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="text" value="${S0024list.getCategory_name()}"
+						<input type="text" name="category_id" value="${S0024list.getCategory_name()}"
 							class="form-control bg-secondary-subtle" aria-label="Last name"
 							readonly>
 					</div>
@@ -120,7 +120,7 @@
 					<div class="row mt-3">
 						<div class="col-sm-2"></div>
 						<div class="col-sm-8" style="margin-left: 30px;">
-							<button type="submit" class="btn btn-primary">✔O K</button>
+							<button type="submit" class="btn btn-primary" name="up_date_id" value="${S0024list.getSale_id()}">✔O K</button>
 							<a class="btn btn-outline-secondary" href="#" role="button">キャンセル</a>
 						</div>
 					</div>

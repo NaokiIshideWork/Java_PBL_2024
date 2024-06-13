@@ -63,7 +63,7 @@ public class SearchSalesServlet extends HttpServlet {
 		} else {
 			request.setAttribute("cate", categories_list);
 		}
-		System.out.println(1);
+		
 		this.getServletContext().getRequestDispatcher("/S0020.jsp").forward(request, response);
 	}
 

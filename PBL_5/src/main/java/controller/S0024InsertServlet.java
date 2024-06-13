@@ -48,7 +48,7 @@ public class S0024InsertServlet extends HttpServlet {
 		String account_id = request.getParameter("account_id");
 		String category_id = request.getParameter("category_id");
 		
-		String trade_name = request.getParameter("tard_name");
+		String trade_name = request.getParameter("trade_name");
 		String unit_price = request.getParameter("unit_price");
 		String sale_number = request.getParameter("sale_namber");
 		String note = request.getParameter("note");
