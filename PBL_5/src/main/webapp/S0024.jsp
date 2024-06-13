@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,15 +42,16 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上詳細編集確認</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right" action = "S0024InsertServlet" method ="post">
+			<form class="text-right" action="S0024InsertServlet" method="post">
 				<div class="row ">
 					<div class="col-sm-2">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">販売日</h3>
 					</div>
 					<div class="col-sm-8">
-						<input type="text" name="sale_date" class="form-control w-25"
-							 value="${S0024list.getSale_date()}" aria-label="Last name" readonly>
+						<input type="text" name="sale_date" class="form-control w-25 bg-secondary-subtle"
+							value="${S0024list.getSale_date()}" aria-label="Last name"
+							readonly>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -59,8 +60,12 @@
 							style="text-align: end;">担当</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="txet" name="account_id"value="${S0024list.getAccount()}"
+						<input type="txet" name="account_id"
+							value="${S0024list.getAccount()}"
 							class="form-control bg-secondary-subtle" aria-label="Last Name"
+							readonly><input type="hidden" name="account_id"
+							value="${list.getAccout_id()}"
+							class="form-control  bg-secondary-subtle" aria-label="Last name"
 							readonly>
 					</div>
 				</div>
@@ -70,8 +75,12 @@
 							style="text-align: end;">商品カテゴリー</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="text" name="category_id" value="${S0024list.getCategory_name()}"
+						<input type="text" name="category_id"
+							value="${S0024list.getCategory_name()}"
 							class="form-control bg-secondary-subtle" aria-label="Last name"
+							readonly> <input type="hidden" name="category_id"
+							value="${list.getCategory_id()}"
+							class="form-control  bg-secondary-subtle" aria-label="Last name"
 							readonly>
 					</div>
 
@@ -81,7 +90,7 @@
 								style="text-align: end;">商品名</h3>
 						</div>
 						<div class="col-sm-8 w-50">
-							<input type="text" name="trade_name" class="form-control"
+							<input type="text" name="trade_name" class="form-control bg-secondary-subtle" 
 								value="${S0024list.getTrade_name() }" readonly>
 						</div>
 					</div>
@@ -91,7 +100,7 @@
 								style="text-align: end;">単価</h3>
 						</div>
 						<div class="col-sm-8">
-							<input type="text" name="unit_price" class="form-control w-25"
+							<input type="text" name="unit_price" class="form-control w-25 bg-secondary-subtle"
 								value="${S0024list.getUnit_price() }" readonly>
 						</div>
 					</div>
@@ -101,7 +110,7 @@
 								style="text-align: end;">個数</h3>
 						</div>
 						<div class="col-sm-8">
-							<input type="text" name="sale_number" class="form-control w-25"
+							<input type="text" name="sale_number" class="form-control w-25 bg-secondary-subtle"
 								value="${S0024list.getSale_number() }" readonly>
 						</div>
 					</div>
@@ -112,15 +121,16 @@
 						</div>
 						<div class="col-sm-8">
 
-							<textarea name="note" class="form-control w-75"
-								id="exampleFormControlTextarea1" rows="5"
-								readonly><c:out value="${S0024list.getNote()}"></c:out></textarea>
+							<textarea name="note" class="form-control w-75 bg-secondary-subtle"
+								id="exampleFormControlTextarea1" rows="5" readonly><c:out
+									value="${S0024list.getNote()}"></c:out></textarea>
 						</div>
 					</div>
 					<div class="row mt-3">
 						<div class="col-sm-2"></div>
 						<div class="col-sm-8" style="margin-left: 30px;">
-							<button type="submit" class="btn btn-primary" name="up_date_id" value="${S0024list.getSale_id()}">✔O K</button>
+							<button type="submit" class="btn btn-primary" name="up_date_id"
+								value="${S0024list.getSale_id()}">✔O K</button>
 							<a class="btn btn-outline-secondary" href="#" role="button">キャンセル</a>
 						</div>
 					</div>
