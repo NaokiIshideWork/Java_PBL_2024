@@ -15,7 +15,7 @@
             <a class="navbar-brand" href="ToDoServlet">物品売上管理システム</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item bg-dark-subtle"><a class="nav-link active"
+                    <li class="nav-item bg-dark-subtle"><a class="nav-link"
                         aria-current="page" href="ToDoDelayServlet">ダッシュボード</a></li>
                     <li class="nav-item"><a class="nav-link"
                         href="ToDoDoneServlet">売上登録</a></li>
@@ -27,10 +27,10 @@
                                     href="ToDoDoneServlet">アカウント検索</a></li>
                 </ul>
             </div>
-            <ul class="navbar-nav justify-content-end">
-                <li class="nav-item"><a class="nav-link"
-                    href="ToDoDoneServlet">ログアウト</a></li>
-            </ul>
+            <div class="navbar-nav justify-content-end">
+                <form action="LogoutServlet" method="post"><button class="nav-link"
+                    type="submit">ログアウト</butn></form></li>
+            </div>
         </div>
     </nav>
 </body>

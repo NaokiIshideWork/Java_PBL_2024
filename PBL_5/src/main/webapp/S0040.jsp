@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                 
-                    <li class="nav-item"><a class="nav-link active"
+                    <li class="nav-item"><a class="nav-link "
                         aria-current="page" href="ToDoDelayServlet">ダッシュボード</a></li>
                     <li class="nav-item"><a class="nav-link"
                         href="ToDoDoneServlet">売上登録</a></li>
@@ -72,10 +72,13 @@
 						</h3>
 					</div>
 					<div class="col-sm-8" style="margin-top: 10px;">
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault" value="sales" >
+						<input type="radio" name="authority" id="authority_none" value="0" >
+						<label for="flexRadioDefault1"> 権限なし </label> 					
+						
+						<input type="radio" name="authority" id="authority_sales" value="1" >
 						<label for="flexRadioDefault1"> 売上登録 </label> 
 						
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault" value="account" > 
+						<input type="radio" name="authority" id="authority_account" value="2" > 
 						<label for="flexRadioDefault1"> アカウント登録 </label> 
 					</div>
 				</div>

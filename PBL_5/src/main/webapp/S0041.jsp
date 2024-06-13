@@ -18,7 +18,7 @@
             <a class="navbar-brand" href="ToDoServlet">物品売上管理システム</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link active"
+                    <li class="nav-item"><a class="nav-link "
                         aria-current="page" href="ToDoDelayServlet">ダッシュボード</a></li>
                     <li class="nav-item"><a class="nav-link"
                         href="ToDoDoneServlet">売上登録</a></li>
@@ -54,28 +54,19 @@
 
 				</tr>
 			</thead>
-			<!-- <c:forEach var="obj" items="${list}"> -->
-			<form action="#" method="post">
+			<c:forEach var="obj" items="${AccountSearch}">
 				<tr>
-					<!-- <c:out value="${obj.getDate()}" /> -->
-
-					<!-- 詳細ページに遷移 -->
 					<td class="col-md-1">
 						<button type="button" class="btn btn-primary">✓ 編集</button>
 						<button type="button" class="btn btn-danger">× 削除</button>
 					</td>
-					<td class="col-md-1">${obj.getNumber()}</td>
+					
+					<td class="col-md-1">${obj.getAccount_id()}</td>
 					<td class="col-md-1">${obj.getName()}</td>
 					<td class="col-md-1">${obj.getMail()}</td>
-					<td class="col-md-2">${obj.getAuthority()}</td>
+					<td class="col-md-2"><c:if test="${obj.getAuthority() == 0}">権限なし</c:if><c:if test="${obj.getAuthority() == 1}">アカウント登録</c:if><c:if test="${obj.getAuthority() == 2}">売上登録</c:if></td>
 				</tr>
-			</form>
-
-
-			<!-- </c:forEach> -->
-
-
-
+			</c:forEach>
 		</table>
 	</div>
 </body>

@@ -11,31 +11,32 @@
 </head>
 <body>
 
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="ToDoServlet">物品売上管理システム</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link"
-                    href="ToDoDoneServlet">ダッシュボード</a></li>
-                <li class="nav-item"><a class="nav-link"
-                    href="ToDoDoneServlet">売上登録</a></li>
-                <li class="nav-item bg-dark-subtle"><a class="nav-link active"
-                  aria-current="page" href="ToDoDelayServlet">売上検索</a></li>
-                <li class="nav-item"><a class="nav-link"
-                                href="ToDoDoneServlet">アカウント登録</a></li>
-                <li class="nav-item"><a class="nav-link"
-                                href="ToDoDoneServlet">アカウント検索</a></li>
-            </ul>
-        </div>
-        <ul class="navbar-nav justify-content-end">
-            <li class="nav-item"><a class="nav-link"
-                href="ToDoDoneServlet">ログアウト</a></li>
-        </ul>
-    </div>
-</nav>
-</header>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="ToDoServlet">物品売上管理システム</a>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item"><a class="nav-link"
+							href="ToDoDoneServlet">ダッシュボード</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="ToDoDoneServlet">売上登録</a></li>
+						<li class="nav-item bg-dark-subtle"><a
+							class="nav-link active" aria-current="page"
+							href="ToDoDelayServlet">売上検索</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="ToDoDoneServlet">アカウント登録</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="ToDoDoneServlet">アカウント検索</a></li>
+					</ul>
+				</div>
+				<ul class="navbar-nav justify-content-end">
+					<li class="nav-item"><a class="nav-link"
+						href="ToDoDoneServlet">ログアウト</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
 
 	<div class="container" class="text-left">
 		<h2 class="mt-3">売上検索結果表示</h2>
@@ -56,28 +57,28 @@
 
 				</tr>
 			</thead>
-			<!-- <c:forEach var="obj" items="${list}"> -->
-			<form action="#" method="post">
-				<tr>
-					<!-- <c:out value="${obj.getDate()}" /> -->
-
-					<!-- 詳細ページに遷移 -->
-					<td class="col-md-1"><button type="button"
-							class="btn btn-primary">✓ 詳細</button></td>
-					<td class="col-md-1">${obj.getNumber()}</td>
-					<td class="col-md-1">${obj.getSaleDay()}</td>
-					<td class="col-md-1">${obj.getTantou()}</td>
-					<td class="col-md-2">${obj.getCategory()}</td>
-					<td class="col-md-3">${obj.getName()}</td>
-					<td class="col-md-1">${obj.getPrice()}</td>
-					<td class="col-md-1">${obj.getQuantity()}</td>
-					<td class="col-md-1">${obj.getSubtotal()}</td>
-
-				</tr>
-			</form>
+			<c:forEach var="obj" items="${list}">
+				<form action="SalesDetailsDisplayServlet" method="post">
+					<tr>
 
 
-			<!-- </c:forEach> -->
+						<!-- 詳細ページに遷移 -->
+						<td class="col-md-1"><button type="submit"
+								class="btn btn-primary" name="sale_id" value="${obj.getSale_id()}">✓
+								詳細</button></td>
+						<td class="col-md-1"><c:out value="${obj.getSale_id()}" /></td>
+						<td class="col-md-1"><c:out value="${obj.getSale_date()}" /></td>
+						<td class="col-md-1"><c:out value="${obj.getName()}" /></td>
+						<td class="col-md-2"><c:out value="${obj.getCategory_name()}" /></td>
+						<td class="col-md-3"><c:out value="${obj.getTrade_name()}" /></td>
+						<td class="col-md-1"><c:out value="${obj.getUnit_price()}" /></td>
+						<td class="col-md-1"><c:out value="${obj.getSale_number()}" /></td>
+						<td class="col-md-1"><c:out value="${obj.getSubtotal()}" /></td>
+					</tr>
+				</form>
+
+
+			</c:forEach>
 
 
 

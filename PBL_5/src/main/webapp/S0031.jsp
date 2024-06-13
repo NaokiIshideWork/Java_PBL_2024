@@ -15,8 +15,8 @@
 			<a class="navbar-brand" href="ToDoServlet">物品売上管理システム</a>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="ToDoDelayServlet">ダッシュボード</a></li>
+					<li class="nav-item"><a class="nav-link " aria-current="page"
+						href="ToDoDelayServlet">ダッシュボード</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="ToDoDoneServlet">売上登録</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -36,7 +36,11 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 40px;">アカウントを登録してよろしいですか?</h2>
 		<div class="" style="margin-left: 100px">
+<<<<<<< HEAD
 			<form class="text-right" action="AccountRegisterServlet" method="post">
+=======
+			<form class="text-right">
+>>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
 				<div class="row ">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -47,9 +51,10 @@
 					<div class="col-sm-8 w-50">
 						<input type="text" name="name" class="form-control" value="${name}"
 							 readonly>
+						<input type="text" name="#" class="form-control" placeholder="氏名"
+							disabled>
 					</div>
 				</div>
-
 
 				<div class="row mt-3">
 					<div class="col-sm-3">
@@ -87,7 +92,7 @@
 							placeholder="パスワード" readonly>
 					</div>
 				</div>
-				
+
 				<div class="row mt-3">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -97,6 +102,7 @@
 					</div>
 					
 					<div class="col-sm-8" style="margin-top: 10px;">
+
 					<c:if test="${authority==1}">
 						<input type="radio" name="authority" id="flexRadioDefault1" checked readonly disabled>
 						<label for="flexRadioDefault1"> 売上登録 </label> 
@@ -109,6 +115,16 @@
 						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked readonly disabled> 
 						<label for="flexRadioDefault1"> アカウント登録 </label>
 					</c:if>  
+
+
+						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+							disabled> <label for="flexRadioDefault1"> 売上登録 </label> <input
+							type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+							disabled> <label for="flexRadioDefault1"> アカウント登録
+						</label>
+
+
+
 					</div>
 				</div>
 
