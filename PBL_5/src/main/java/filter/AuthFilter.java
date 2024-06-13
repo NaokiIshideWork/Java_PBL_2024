@@ -45,7 +45,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 
 //		if (null != session.getAttribute("")
 //				|| ((HttpServletRequest) request).getRequestURI().endsWith("")) {
-//			chain.doFilter(request, response);
+		chain.doFilter(request, response);
 //
 //		} else {
 //			RequestDispatcher dispatcher = request.getRequestDispatcher("/");
