@@ -38,17 +38,24 @@ public class AccountSearchServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		System.out.println("-----------------------------------------------");
 		AccountRecord ar = new AccountRecord();
 		String name = request.getParameter("name");
 		String mail = request.getParameter("mail");
 		System.out.println("jspからの受け取り" + name);
 		System.out.println("jspからの受け取り" + mail);
 		
-		 String authorityParam = request.getParameter("authority");
+		if(mail.isEmpty()) {
+			System.out.println("nullです");
+		}
 		
-        int authority = 0; // 権限がない場合のデフォルト値
-
-//	    int authority = Integer.parseInt(request.getParameter("authority"));
+		String authorityParam = request.getParameter("authority");
+		System.out.println("authority" + authorityParam);
+		if(authorityParam==null) {
+			authorityParam = "99"; //権限での絞り込みがなかった場合 -> int型でnullでの比較ができないため
+		}
+		
+        int authority = -1; // authority int型用の初期化
 		
         try {
             if (authorityParam != null && !authorityParam.isEmpty()) {
@@ -62,8 +69,16 @@ public class AccountSearchServlet extends HttpServlet {
         System.out.println(authority);
 
 		
+		if(name.isEmpty()) {
+			name = null;
+		} 
+		if(mail.isEmpty()) {
+			mail = null;
+		} 
 		
+		System.out.println("サーブレットからサービスへ mail" + mail);
 		request.setAttribute("AccountSearch", ar.EnterAccountSearchCriteria(name, mail, authority));
+		
 		request.getRequestDispatcher("/S0041.jsp").forward(request, response);
 		
 	}

@@ -72,6 +72,9 @@
 						</h3>
 					</div>
 					<div class="col-sm-8" style="margin-top: 10px;">
+						<input type="radio" name="authority" id="authority_none" value="0" >
+						<label for="flexRadioDefault1"> 権限なし </label> 					
+						
 						<input type="radio" name="authority" id="authority_sales" value="1" >
 						<label for="flexRadioDefault1"> 売上登録 </label> 
 						

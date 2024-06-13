@@ -31,24 +31,28 @@ public class AccountRecord {
 	
 	// アカウント検索条件入力
 	public ArrayList<AccountsBean> EnterAccountSearchCriteria(String name, String mail, int authority) {
-		String sql = "SELECT * FROM accounts WHERE name LIKE ? AND mail=? AND authority=?";
+		// すべて選択なし
+		String AllSQL = "select * from accounts";
+		
+		
+		// all
 		ArrayList<AccountsBean> accountsList = new ArrayList<AccountsBean>();
+		// 氏名絞り込み
+		ArrayList<AccountsBean> accountsList2 = new ArrayList<AccountsBean>();
+		// 氏名絞り込み後、メアド絞り込み
+		ArrayList<AccountsBean> accountsList3 = new ArrayList<AccountsBean>();
+		// 最後の絞り込み
+		ArrayList<AccountsBean> accountsList4 = new ArrayList<AccountsBean>();
+		
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
 	try {
 			con = DbUtil.open();
-			ps = con.prepareStatement(sql);
-			System.out.println("サービス側" + name);
-		    ps.setString(1, "%" + name + "%"); // 名前の部分一致
-			ps.setString(2, mail);
-			ps.setInt(3, authority);
-			System.out.println("サービス側" + authority);
-			
+			ps = con.prepareStatement(AllSQL);
 			rs = ps.executeQuery();
-			
-			System.out.println("EnterAccountSearchCriteriaの実行");
+			System.out.println("AllSQLの実行");
 
 			while (rs.next()) {
 				int account_id = rs.getInt("account_id");
@@ -59,6 +63,46 @@ public class AccountRecord {
 				AccountsBean user = new AccountsBean(account_id, rs_name, rs_mail, password, rs_authority);
 				accountsList.add(user);
 				System.out.println(user);
+			}
+			
+			System.out.println("nameA" + name);
+			
+			if(accountsList.size() != 0 && name != null) {
+				System.out.println("accountsList.size() != 0 && name != null");
+				for(AccountsBean ab : accountsList) {
+					System.out.println("name" + name);
+					System.out.println("name2" + ab.getName());
+					if(ab.getName() != null && ab.getName().contains(name)) {
+						System.out.println("getName test:" + ab.getName()); // ここで
+						accountsList2.add(ab);
+					}
+				}
+			} else {
+				accountsList2 = new ArrayList<>(accountsList);
+			}
+			
+			if(accountsList.size() != 0 && mail != null) {
+				System.out.println("accountsList.size() != 0 && mail != null");
+				for(AccountsBean ab : accountsList2) {
+					if(ab.getMail() != null && ab.getMail().equals(mail)) {
+						System.out.println("getMail test:" + ab.getMail());
+						accountsList3.add(ab);
+					}
+				}
+			} else {
+				accountsList3 = new ArrayList<>(accountsList2);
+			}
+			
+			if(accountsList.size() != 0 && authority != 99) {
+				System.out.println("accountsList.size() != 0 && authority != 99");
+				for(AccountsBean ab : accountsList3) {
+					if(ab.getAuthority() != 99 && ab.getAuthority() == authority) {
+						System.out.println("ge test:" + ab.getAuthority());
+						accountsList4.add(ab);
+					}
+				}
+			} else {
+				accountsList4 = new ArrayList<>(accountsList3);
 			}
 
 		} catch (SQLException e) {
@@ -86,9 +130,9 @@ public class AccountRecord {
 				}
 			}
 		}
-
-		return accountsList;
+		
+		System.out.println("accountsList4:" + accountsList4);
+		System.out.println("accountsList4:" + accountsList4.size());
+		return accountsList4;
 	}
-
-
 }

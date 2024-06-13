@@ -72,7 +72,7 @@ public class LoginServlet extends HttpServlet {
   			error_display += "パスワードが長すぎます";
   		}		
 		
-  		// 複数でるかも？　cでカウントして1以上ならそのたびに空白はいるようにしたい
+  		// このままだと複数でエラーが起きた場合文章が繋がって出てくるかも
   		if(!error_display.equals("")) {
   			request.setAttribute("error_display", error_display);
   			request.getRequestDispatcher("/C0010.jsp").forward(request, response);
