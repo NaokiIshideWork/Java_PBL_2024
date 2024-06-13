@@ -30,22 +30,34 @@ public class AccountRegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getServletContext().getRequestDispatcher("/S0031.jsp").forward(request, response);
+		System.out.println(request.getAttribute("name"));
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html: charset=UTF-8");
-		request.setCharacterEncoding("UTF-8");
-		
 		String name = request.getParameter("name");
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
 		int authority = Integer.parseInt(request.getParameter("authority"));
 		
-		AccountRecord.makeaccount(name, mail, password, authority);
-		response.sendRedirect("accounts");
+		System.out.println("doPost name: " + name);
+		System.out.println("doPost mail: " + mail);
+		System.out.println("doPost password: " + password);
+		System.out.println("doPost authority: " + authority);
+
+        // リクエストに属性として設定
+        
+        AccountRecord.makeaccount(name, mail, password, authority);
+
+        
+        // 追加 AccountServletにリダイレクト
+        response.sendRedirect("AccountServlet");
+        System.out.println("登録しました");
+        
+        // どこかでパスワードチェック
+        
 	}
 
 }
