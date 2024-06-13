@@ -66,8 +66,7 @@
 						<select class="form-select" name="account_id"
 							aria-label="Default select example">
 							<c:forEach var="obj" items="${accounts}">
-								<option value="${obj.getAccount_id()}"><c:out
-										value="${obj.getName()}" /></option>
+								<option value="${obj.getName()}"></option>
 							</c:forEach>
 						</select>
 					</div>
@@ -84,8 +83,7 @@
 							aria-label="Default select example">
 
 							<c:forEach var="obj" items="${cate}">
-								<option value="${obj.getCategory_id()}"><c:out
-										value="${obj.getCategory_name()}" /></option>
+								<option value="${obj.getCategory_name()}"></option>
 							</c:forEach>
 						</select>
 					</div>
