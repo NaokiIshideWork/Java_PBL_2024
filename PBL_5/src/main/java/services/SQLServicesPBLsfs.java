@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import model.AccountsBean;
 import model.S0023Bean;
+import model.S0023ConfirmBean;
 import model.S0025Bean;
 import model.Sales2Bean;
 import model.SalesDetailsDisplayBean;
@@ -242,19 +243,44 @@ public class SQLServicesPBLsfs {
 		return S0023Bean_list;
 	}
 	
+	public S0023ConfirmBean SalesConfirm(int sales_id, int account_id, int category_id,String sale_date, String trade_name, String unit_price, String sale_number, String note) {
+		String sql = "SELECT s.sale_id,a.name,c.category_name from sales s LEFT OUTER JOIN accounts a ON s.account_id = a.account_id\n"
+				+ "LEFT OUTER JOIN categories c ON s.category_id = c.category_id \n"
+				+ "WHERE s.sale_id  =? AND s.account_id = ? AND s.category_id = ? ;";
+
+		S0023ConfirmBean  S0023Bean_list = null;
+		try (
+				Connection con = DbUtil.open();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+
+			ps.setInt(1, sales_id);
+			ps.setInt(2, account_id);
+			ps.setInt(3, category_id);
+
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				int sale_id = rs.getInt("sale_id");
+				String name = rs.getString("name");
+				String category_name = rs.getString("category_name");
+				S0023Bean_list = new S0023ConfirmBean(sales_id,sale_date,name,account_id,category_name,category_id,trade_name,unit_price,sale_number,note);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return S0023Bean_list;
+	}
+	
+	
+	
 	public void insert(int up_date_id, String sale_date, String account_id, String category_id, String trade_name,
 			String unit_price, String sale_number, String note) {
-		String sql = "UPDATE sales AS s\n"
-				+ "LEFT JOIN accounts AS a ON s.account_id = a.account_id\n"
-				+ "LEFT JOIN categories AS c ON s.category_id = c.category_id\n"
-				+ "SET s.sale_date = ?,\n"
-				+ "    a.name = ?,\n"
-				+ "    c.category_name = ?,\n"
-				+ "    s.trade_name = ?,\n"
-				+ "    s.unit_price = ?,\n"
-				+ "    s.sale_number = ?,\n"
-				+ "    s.note = ?\n"
-				+ "WHERE s.sale_id = ?;";
+		String sql = "UPDATE sales SET sale_date = ?,account_id = ?,\n"
+				+ "			     category_id =?, \n"
+				+ "				   trade_name = ?,\n"
+				+ "				    unit_price = ?,\n"
+				+ "				    sale_number = ?,\n"
+				+ "				    note = ?,\n"
+				+ "				 WHERE sale_id = ?;";
 		try (Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
 

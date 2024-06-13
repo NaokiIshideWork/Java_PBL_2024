@@ -53,9 +53,7 @@ public class S0024InsertServlet extends HttpServlet {
 		String sale_number = request.getParameter("sale_number");
 		String note = request.getParameter("note");
 		
-		System.out.println(up_date_id+sale_date+account_id);
-		System.out.println(category_id+trade_name+unit_price);
-		System.out.println(sale_number+note);
+
 		
 		mts.insert(Integer.parseInt(up_date_id), sale_date, account_id, category_id, trade_name,
 				unit_price, sale_number, note);

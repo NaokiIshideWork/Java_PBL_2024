@@ -66,7 +66,7 @@
 						<select class="form-select" name="account_id"
 							aria-label="Default select example">
 							<c:forEach var="obj" items="${accounts}">
-								<option value="${obj.getName()}">
+								<option value="${obj.getAccount_id()}">
 								<c:out value="${obj.getName()}"></c:out>
 								</option>
 							</c:forEach>
@@ -85,8 +85,10 @@
 							aria-label="Default select example">
 
 							<c:forEach var="obj" items="${cate}">
-								<option value="${obj.getCategory_name()}">
-								<c:out value="${obj.getCategory_name()}"></c:out></option>
+								<option value="${obj.getCategory_id()}">
+								<c:out value="${obj.getCategory_name()}"></c:out>
+								<%--hidden idと name　送る --%>
+								</option>
 							</c:forEach>
 						</select>
 					</div>

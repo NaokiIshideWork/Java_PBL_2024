@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.S0023Bean;
+import model.S0023ConfirmBean;
+import services.SQLServicesPBLsfs;
 
 /**
  * Servlet implementation class S0024Servlet
@@ -39,9 +40,10 @@ public class S0024Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		S0023Bean S0023Beanlist = null;
+		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
+		S0023ConfirmBean S0023Confirmlist = null;//id混みのやつ
 		
-		
+		//
 		String up_date_id = request.getParameter("up_date_id");
 		String sale_date = request.getParameter("sale_date");
 		String account_id = request.getParameter("account_id");
@@ -50,13 +52,13 @@ public class S0024Servlet extends HttpServlet {
 		String unit_price = request.getParameter("unit_price");
 		String sale_number = request.getParameter("sale_namber");
 		String note = request.getParameter("note");
-		System.out.println(account_id);
-		System.out.println(category_id);
+	
 		
+//		sql で id 属性をもとにとってくる
 		
-		S0023Beanlist  = new S0023Bean(Integer.parseInt(up_date_id), sale_date, account_id, category_id, trade_name , unit_price, sale_number, note);
-		
-		request.setAttribute("S0024list", S0023Beanlist);
+		S0023Confirmlist= mts.SalesConfirm(Integer.parseInt(up_date_id), Integer.parseInt(account_id), Integer.parseInt(category_id),
+				sale_date, trade_name, unit_price, sale_number, note);
+		request.setAttribute("S0024list", S0023Confirmlist);
 		doGet(request, response);
 		
 	}
