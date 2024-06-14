@@ -120,6 +120,7 @@
 						</form>
 						<a class="btn btn-outline-secondary" href="SalesDetailsDisplayServlet" role="button">キャンセル</a>
 					</div>
+					<%--コメント --%>
 			</div>
 		</div>
 	</div>
