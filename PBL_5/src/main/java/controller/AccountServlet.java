@@ -64,33 +64,37 @@ public class AccountServlet extends HttpServlet {
 		
 		//氏名
 		if (name.isEmpty()) {
-			error_message += "氏名を入力して下さい,";//ok
+			error_display += "氏名を入力して下さい。";//ok
 		} else if (name.length() > 20) {
-			error_message += "氏名が長すぎます,";//ok
+			error_display += "氏名が長すぎます。";//ok
 		}
 		
 		//メールアドレス
-        String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
-        boolean result = mail.matches(regex);
-        if(result==false) {
-        	error_display += "メールアドレスの形式ではありません";
-        }
 		if (mail.isEmpty()) {
-			error_message += "メールアドレスを入力して下さい,";//ok
+		    error_display += "メールアドレスを入力して下さい。";
 		} else if (mail.length() > 30) {
-			error_message += "メールアドレスが長すぎます,";//ok
+		    error_display += "メールアドレスが長すぎます。";
+		} else {
+		    String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+		    boolean result = mail.matches(regex);
+		    if (!result) {
+		        error_display += "メールアドレスの形式ではありません。";
+		    }
 		}
+
 		
 		//パスワード
 		if (password.isEmpty()) {
-			error_message += "パスワードを入力して下さい,";//ok
+			error_display += "パスワードを入力して下さい。";//ok
 		} else if (password.length() > 30) {
-			error_message += "パスワードが長すぎます,";//ok
+			error_display += "パスワードが長すぎます。";//ok
+		} else if(!password.equals(confirmpassword)) {
+			error_display += "パスワードが一致しません。";
 		}
 		
 		
 		if(!error_display.equals("")) {
-			request.setAttribute("error_display", error_display);
+			request.setAttribute("err", error_display);
 			request.getRequestDispatcher("/S0030.jsp").forward(request, response);
 			return;
 		}
@@ -135,7 +139,6 @@ public class AccountServlet extends HttpServlet {
 		} else {
 		    // パスワードが一致しない場合
 		    // 同じ画面に留まる
-		    request.setAttribute("errorMessage", "パスワードが一致しません。");
 		    error_message += "パスワードが一致しません。";
 		    request.getRequestDispatcher("/S0030.jsp").forward(request, response);
 		    

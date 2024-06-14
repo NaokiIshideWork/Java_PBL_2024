@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -54,7 +55,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="text" name="name" class="form-control"
-							placeholder="氏名" required>
+							placeholder="氏名">
 					</div>
 				</div>
 
