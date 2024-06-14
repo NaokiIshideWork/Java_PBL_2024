@@ -27,6 +27,24 @@ public class AccountRecord {
 		}
 	}
 	
+	public void updateAccount(int id, String name, String mail, String password, int authority) {
+		// とりあえず常に全ての値updateしちゃう 変わってなくても
+				String sql = "UPDATE accounts SET name=?, mail=?, password=?, authority=? WHERE account_id = ?";
+				try{
+					Connection con = DbUtil.open();
+					PreparedStatement ps = null;
+					ps = con.prepareStatement(sql);
+					ps.setString(1,name);			
+					ps.setString(2,mail);			
+					ps.setString(3, password);
+					ps.setInt(4, authority);
+					ps.setInt(5, id);			
+					ps.executeUpdate();
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+	}
+	
 	public void deleteAccount(String id) {
 		// idで消せるようにしちゃう？
 		String sql = "DELETE FROM accounts WHERE account_id = ?";

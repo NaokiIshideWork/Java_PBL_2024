@@ -1,5 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>	
+<%
+// 今は片方の権限しか受け取れない
+String authorityStr = (String) request.getAttribute("authority");
+int authority = Integer.parseInt(authorityStr);
+
+
+boolean salesSelected = false;
+boolean accountSelected = false;
+boolean noneSelected = false;
+
+if(authority==0) {
+	noneSelected = true;
+}
+if(authority==1) {
+	salesSelected = true;
+}
+if(authority==2) {
+	accountSelected = true;
+}
+
+// List<String> authorityList = (List<String>) request.getAttribute("authorities");
+ 
+ 
+// 受け取った値がnullでない場合、それぞれの値に対応する変数をtrueに設定する
+/*
+// 複数受け取りの場合
+if (authorityList != null) {
+    for (String authority : authorityList) {
+        if (authority.equals("1")) {
+            salesSelected = true;
+        } else if (authority.equals("2")) {
+            accountSelected = true;
+        }
+    }
+}
+*/
+ 
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,19 +74,19 @@
     </nav>
 
 <div class="container position-absolute">
-		<h2 class="mt-5" style="margin-left: 130px;">アカウント詳細編集</h2>
-		<div class="" style="margin-left: 30px">
-			<form class="text-right">
+		<h2 class="mt-5" style="margin-left: 80px;">アカウント詳細編集</h2>
+		<div class="" style="margin-left: 100px">
+			<form class="text-right" action="S0043EditScreenServlet" method="POST">
 				<div class="row ">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							氏名<span class="badge rounded-pill bg-secondary">必須</span>
+							氏名
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="text" name="#" class="form-control"
-							value="${name}">
+						<input type="text" name="name" class="form-control"
+							value= "${name}">
 					</div>
 				</div>
 
@@ -56,61 +95,63 @@
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							メールアドレス<span class="badge rounded-pill bg-secondary">必須</span>
+							メールアドレス
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="email" name="#" class="form-control"
-							value="${mail}"">
+						<input type="email" name="mail" class="form-control"
+							value= "${mail}"  >
 					</div>
 				</div>
 				<div class="row mt-3">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							パスワード<span class="badge rounded-pill bg-secondary">必須</span>
+							パスワード
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="password" name="#" class="form-control "
-							value="${password}"">
+						<input type="password" name="password" class="form-control "
+							value= "${password}"  >
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-sm-3">
+						<h3 for="inputEmail" class="col-form-label" 
+							style="text-align: end;">
+							パスワード（確認）
+						</h3>
+					</div>
+					<div class="col-sm-8 w-50">
+						<input type="password" name="confirmPassword" class="form-control "
+							value= "${password}"  >
 					</div>
 				</div>
 				<div class="row mt-3">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							パスワード（確認）<span class="badge rounded-pill bg-secondary">必須</span>
+							権限
 						</h3>
 					</div>
-					<div class="col-sm-8 w-50">
-						<input type="password" name="#" class="form-control "
-							value="${confirmPassword}">
-					</div>
-				</div>
-				<div class="row mt-3">
-					<div class="col-sm-3">
-						<h3 for="inputEmail" class="col-form-label"
-							style="text-align: end;">
-							権限<span class="badge rounded-pill bg-secondary">必須</span>
-						</h3>
-					</div>
+
 					<div class="col-sm-8" style="margin-top: 10px;">
-
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"disabled>
-						<label for="flexRadioDefault1"> 売上登録 </label> 
+						<input type="checkbox" name="authority" value="0" id="flexRadioDefault0" <%= noneSelected ? "checked" : "" %>  >
+						<label for="flexRadioDefault0"> 権限なし </label>
 						
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"disabled> 
-						<label for="flexRadioDefault1"> アカウント登録 </label> 
-
+						
+						<input type="checkbox" name="authority" value="1" id="flexRadioDefault1" <%= salesSelected ? "checked" : "" %>  >
+						<label for="flexRadioDefault1"> 売上登録 </label>
+						
+						<input type="checkbox" name="authority" value="2" id="flexRadioDefault2" <%= accountSelected ? "checked" : "" %>  >
+						<label for="flexRadioDefault2"> アカウント登録 </label>
 					</div>
 				</div>
 				<div class="row mt-3">
 					<div class="col-sm-3"></div>
 					<div class="col-sm-8">
-						<button type="button" class="btn btn-primary"
-							style="margin-left: 30px;">✔更 新</button>
-						<a class="btn btn-outline-secondary" href="#" role="button">キャンセル</a>
+					    <button type="submit" class="btn btn-primary" style="margin-left: 30px;">✔更 新</button>
+						<a class="btn btn-outline-secondary" href="" role="button">キャンセル</a>
 					</div>
 				</div>
 			</form>

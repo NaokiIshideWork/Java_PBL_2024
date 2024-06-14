@@ -57,8 +57,16 @@
 			<c:forEach var="obj" items="${AccountSearch}">
 				<tr>
 					<td class="col-md-1">
-					    <div class="d-flex align-items-center">
-					        <a type="button" class="btn btn-primary me-2">✓ 編集</a>
+	    				<div class="d-flex align-items-center">
+					        <form action="S0042EditAccountServlet" method="post" class="me-2">
+					            <input type="hidden" name="tmpId" value="${obj.getAccount_id()}" />
+					            <input type="hidden" name="tmpName" value="${obj.getName()}" />
+					            <input type="hidden" name="tmpMail" value="${obj.getMail()}" />
+					            <input type="hidden" name="tmpAuthority" value="${obj.getAuthority()}" />
+					            <input type="hidden" name="tmpPassword" value="${obj.getPassword()}" />
+					            <button type="submit" class="btn btn-primary">✓ 編集</button>
+					        </form>
+					        
 					        <form action="S0044DeleteAccountServlet" method="post">
 					            <input type="hidden" name="tmpId" value="${obj.getAccount_id()}" />
 					            <input type="hidden" name="tmpName" value="${obj.getName()}" />
@@ -69,11 +77,12 @@
 					        </form>
 					    </div>
 					</td>
+
 					
 					<td class="col-md-1">${obj.getAccount_id()}</td>
 					<td class="col-md-1">${obj.getName()}</td>
 					<td class="col-md-1">${obj.getMail()}</td>
-					<td class="col-md-2"><c:if test="${obj.getAuthority() == 0}">権限なし</c:if><c:if test="${obj.getAuthority() == 1}">アカウント登録</c:if><c:if test="${obj.getAuthority() == 2}">売上登録</c:if></td>
+					<td class="col-md-2"><c:if test="${obj.getAuthority() == 0}">権限なし</c:if><c:if test="${obj.getAuthority() == 1}">売上登録</c:if><c:if test="${obj.getAuthority() == 2}">アカウント登録</c:if></td>
 				</tr>
 				
 			</c:forEach>
