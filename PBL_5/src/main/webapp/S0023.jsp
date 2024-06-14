@@ -69,6 +69,7 @@
 					<div class="col-sm-8 w-50">
 						<select class="form-select" name="account_id"
 							aria-label="Default select example">
+
 							<c:forEach var="obj" items="${accounts}">
 								<option value="${obj.getAccount_id()}">
 									<c:out value="${obj.getName()}"></c:out>

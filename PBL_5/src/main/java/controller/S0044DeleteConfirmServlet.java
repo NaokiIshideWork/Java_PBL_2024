@@ -8,17 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import services.AccountRecord;
+
 /**
- * Servlet implementation class S0044DeleteAccountServlet
+ * Servlet implementation class S0044DeleteConfirm
  */
-@WebServlet("/S0044DeleteAccountServlet")
-public class S0044DeleteAccountServlet extends HttpServlet {
+@WebServlet("/S0044DeleteConfirmServlet")
+public class S0044DeleteConfirmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public S0044DeleteAccountServlet() {
+    public S0044DeleteConfirmServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,63 +30,30 @@ public class S0044DeleteAccountServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+		// TODO Auto-generated method stub
+		// 新しいサーブレットでないとurlにてパスワードがバレル
+		AccountRecord ar = new AccountRecord();
+		System.out.println("post");
 		
-		String id = request.getParameter("tmpId");
+		String str_id = request.getParameter("tmpId");
 		String name = request.getParameter("tmpName");
 		String mail = request.getParameter("tmpMail");
 		String password = request.getParameter("tmpPassword");
-		String authority = request.getParameter("tmpAuthority");
+		String str_authority = request.getParameter("tmpAuthority");
 		
-		System.out.println("44servlet ");
-		System.out.println(name);
-		System.out.println(mail);
-		System.out.println(authority);
 		
-		request.setAttribute("id", id);
-		request.setAttribute("name", name);
-		request.setAttribute("mail", mail);
-		request.setAttribute("password", password);
-		request.setAttribute("authority", authority);
+		int authority = Integer.parseInt(str_authority);
 		
-		request.getRequestDispatcher("/S0044.jsp").forward(request, response);
-		// TODO Auto-generated method stub
-				
-			}
+		
+		ar.deleteAccount(str_id);
+		System.out.println(str_id + name + "さん" + "を削除しました");
+
+	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

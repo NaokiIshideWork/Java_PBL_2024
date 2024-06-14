@@ -76,7 +76,7 @@ if (authorityList != null) {
 <div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 80px;">アカウント詳細削除確認</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right">
+			<form class="text-right" action="S0044DeleteConfirmServlet" method="POST">
 				<div class="row ">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -112,7 +112,7 @@ if (authorityList != null) {
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="password" name="#" class="form-control "
-							value= "${pass}" disabled >
+							value= "${password}" disabled >
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -124,7 +124,7 @@ if (authorityList != null) {
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="password" name="#" class="form-control "
-							value= "${pass}" disabled >
+							value= "${password}" disabled >
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -135,7 +135,7 @@ if (authorityList != null) {
 						</h3>
 					</div>
 
-					<div class="col-sm-8" style="margin-top: 10px;"
+					<div class="col-sm-8" style="margin-top: 10px;">
 						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault0" <%= noneSelected ? "checked" : "" %> readonly disabled>
 						<label for="flexRadioDefault0"> 権限なし </label>
 						
@@ -150,8 +150,21 @@ if (authorityList != null) {
 				<div class="row mt-3">
 					<div class="col-sm-4"></div>
 					<div class="col-sm-8">
-						<button type="button" class="btn btn-danger me-2">✕O K</button>
-						<a class="btn btn-outline-secondary" href="#" role="button">キャンセル</a>
+					    <% 
+					        String id = (String) request.getAttribute("id");
+					        String name = (String) request.getAttribute("name");
+					        String mail = (String) request.getAttribute("mail");
+					        String confirm_authority = (String) request.getAttribute("authority");
+					        String password = (String) request.getAttribute("password");
+					        System.out.println("S0044jsp id: " + id); 
+					    %>
+					    <input type="hidden" name="tmpId" value="<%= id %>" />
+					    <input type="hidden" name="tmpName" value="<%= name %>" />
+					    <input type="hidden" name="tmpMail" value="<%= mail %>" />
+					    <input type="hidden" name="tmpAuthority" value="<%= confirm_authority %>" />
+					    <input type="hidden" name="tmpPassword" value="<%= password %>" />
+					    <button type="submit" class="btn btn-danger me-2">✕OK</button>
+						<a class="btn btn-outline-secondary" href="" role="button">キャンセル</a>
 					</div>
 				</div>
 			</form>
