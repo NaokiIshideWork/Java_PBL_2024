@@ -16,7 +16,7 @@ public class DbUtil {
 			Context envContext = (Context) initContext.lookup("java:/comp/env");
 			DataSource ds = (DataSource) envContext.lookup("jdbc/mariadb");
 			con = ds.getConnection();
-			System.out.println("接続に成功");
+			//System.out.println("接続に成功");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -24,7 +24,6 @@ public class DbUtil {
 	}
 
 	public static Connection close(Connection con) {
-
 		if (con != null) {
 			try {
 				con.close();
@@ -33,7 +32,6 @@ public class DbUtil {
 			}
 		}
 
-		//例外をcatch
 		return con;
 	}
 }

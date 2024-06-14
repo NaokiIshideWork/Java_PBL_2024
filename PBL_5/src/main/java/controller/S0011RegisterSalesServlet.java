@@ -14,13 +14,13 @@ import services.SQLServicesPBLreg;
  * Servlet implementation class RegisterSalesServlet
  */
 @WebServlet("/RegisterSalesServlet")
-public class RegisterSalesServlet extends HttpServlet {
+public class S0011RegisterSalesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public RegisterSalesServlet() {
+	public S0011RegisterSalesServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -43,19 +43,15 @@ public class RegisterSalesServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLreg mts = new SQLServicesPBLreg();
 		
-		String sales_date = request.getParameter("sale_date");
-		//account_id
-		String account_id =  request.getParameter("account_id");
-		//categori_id
-		String category_id = request.getParameter("category_id");
-		String trade_name = request.getParameter("trade_name");
-		String unit_price = request.getParameter("unit_price");
-		String sale_number = request.getParameter("sale_number");
-		String note = request.getParameter("note");
+		String sales_date = request.getParameter("sale_date");//販売日		
+		String account_id =  request.getParameter("account_id");//account_id	
+		String category_id = request.getParameter("category_id");//categori_id
+		String trade_name = request.getParameter("trade_name");//商品名
+		String unit_price = request.getParameter("unit_price");//単価
+		String sale_number = request.getParameter("sale_number");//個数
+		String note = request.getParameter("note");//備考
 		
-
 		mts.insert(sales_date, Integer.parseInt(account_id), Integer.parseInt(category_id), trade_name, Integer.parseInt(unit_price), Integer.parseInt(sale_number), note);
-		
 		response.sendRedirect("RegisterServlet");
 	}
 
