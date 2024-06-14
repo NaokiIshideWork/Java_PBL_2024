@@ -1,5 +1,26 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>	
+<% 
+// String[] authorities = request.getParameterValues("authorities");
+List<String> authorityList = (List<String>) request.getAttribute("authorities");
+
+boolean salesSelected = false;
+boolean accountSelected = false;
+
+// 受け取った値がnullでない場合、それぞれの値に対応する変数をtrueに設定する
+if (authorityList != null) {
+    for (String authority : authorityList) {
+        if (authority.equals("1")) {
+            salesSelected = true;
+        } else if (authority.equals("2")) {
+            accountSelected = true;
+        }
+    }
+}
+
+%>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -36,11 +57,11 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 40px;">アカウントを登録してよろしいですか?</h2>
 		<div class="" style="margin-left: 100px">
-<<<<<<< HEAD
+
 			<form class="text-right" action="AccountRegisterServlet" method="post">
-=======
+
 			<form class="text-right">
->>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
+
 				<div class="row ">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -51,8 +72,7 @@
 					<div class="col-sm-8 w-50">
 						<input type="text" name="name" class="form-control" value="${name}"
 							 readonly>
-						<input type="text" name="#" class="form-control" placeholder="氏名"
-							disabled>
+						
 					</div>
 				</div>
 
@@ -102,29 +122,11 @@
 					</div>
 					
 					<div class="col-sm-8" style="margin-top: 10px;">
-
-					<c:if test="${authority==1}">
-						<input type="radio" name="authority" id="flexRadioDefault1" checked readonly disabled>
+						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" <%= salesSelected ? "checked" : "" %> readonly disabled>
 						<label for="flexRadioDefault1"> 売上登録 </label> 
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1" readonly disabled> 
-						<label for="flexRadioDefault1"> アカウント登録 </label>
-					</c:if>
-					<c:if test="${authority==2}">
-						<input type="radio" name="authority" id="flexRadioDefault1" readonly disabled>
-						<label for="flexRadioDefault1"> 売上登録 </label> 
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked readonly disabled> 
-						<label for="flexRadioDefault1"> アカウント登録 </label>
-					</c:if>  
-
-
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-							disabled> <label for="flexRadioDefault1"> 売上登録 </label> <input
-							type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-							disabled> <label for="flexRadioDefault1"> アカウント登録
-						</label>
-
-
-
+						
+						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault2" <%= accountSelected ? "checked" : "" %> readonly disabled> 
+						<label for="flexRadioDefault2"> アカウント登録 </label>
 					</div>
 				</div>
 
