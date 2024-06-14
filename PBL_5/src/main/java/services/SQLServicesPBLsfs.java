@@ -115,6 +115,7 @@ public class SQLServicesPBLsfs {
 				int sale_number = rs.getInt("sale_number");
 				int subtotal = rs.getInt("subtotal");
 
+				sale_date= sale_date.replace("-", "/");
 				account_list.add(new SalesSearchDisplayBean(sale_id, sale_date, name, category_name,
 						trade_name, formatNumber(unit_price), formatNumber(sale_number), formatNumber(subtotal)));
 			}
@@ -149,6 +150,7 @@ public class SQLServicesPBLsfs {
 				int sale_number = rs.getInt("sale_number");
 				String note = rs.getString("note");
 
+				sale_date = sale_date.replace("-", "/");
 				SalesDeetail_list = new SalesDetailsDisplayBean(sale_id, sale_date, name, category_name, trade_name,
 						formatNumber(unit_price), formatNumber(sale_number), note);
 			}
@@ -184,6 +186,7 @@ public class SQLServicesPBLsfs {
 				int subtotal = rs.getInt("subtotal");
 				String note = rs.getString("note");
 
+				sale_date = sale_date.replace("-", "/");
 				S0025Bean_list = new S0025Bean(sale_id,sale_date, name, category_name, trade_name,
 						formatNumber(unit_price), formatNumber(sale_number), formatNumber(subtotal), note);
 			}

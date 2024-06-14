@@ -38,7 +38,11 @@
 			</div>
 		</nav>
 	</header>
-
+	<c:if test="${not empty err}">
+		<div
+			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
+			role="alert">${err}</div>
+	</c:if>
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上詳細編集</h2>
 		<div class="" style="margin-left: 100px">
@@ -67,7 +71,7 @@
 							aria-label="Default select example">
 							<c:forEach var="obj" items="${accounts}">
 								<option value="${obj.getAccount_id()}">
-								<c:out value="${obj.getName()}"></c:out>
+									<c:out value="${obj.getName()}"></c:out>
 								</option>
 							</c:forEach>
 						</select>
@@ -86,8 +90,8 @@
 
 							<c:forEach var="obj" items="${cate}">
 								<option value="${obj.getCategory_id()}">
-								<c:out value="${obj.getCategory_name()}"></c:out>
-								<%--hidden idと name　送る --%>
+									<c:out value="${obj.getCategory_name()}"></c:out>
+									<%--hidden idと name　送る --%>
 								</option>
 							</c:forEach>
 						</select>
@@ -144,8 +148,10 @@
 				<div class="row mt-3">
 					<div class="col-sm-3"></div>
 					<div class="col-sm-8" style="margin-left: 30px;">
-						<button type="submit" class="btn btn-primary" name="up_date_id" value="${S0023list.getSale_id()}">✔更 新</button>
-						<a class="btn btn-outline-secondary" href="SalesDetailsDisplayServlet" role="button">キャンセル</a>
+						<button type="submit" class="btn btn-primary" name="up_date_id"
+							value="${S0023list.getSale_id()}">✔更 新</button>
+						<a class="btn btn-outline-secondary"
+							href="SalesDetailsDisplayServlet" role="button">キャンセル</a>
 					</div>
 				</div>
 			</form>
