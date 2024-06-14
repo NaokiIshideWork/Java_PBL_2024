@@ -29,7 +29,6 @@ public class AccountSearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.getRequestDispatcher("/S0040.jsp").forward(request, response);
 	}
 
@@ -38,19 +37,12 @@ public class AccountSearchServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		System.out.println("-----------------------------------------------");
 		AccountRecord ar = new AccountRecord();
 		String name = request.getParameter("name");
 		String mail = request.getParameter("mail");
-		System.out.println("jspからの受け取り" + name);
-		System.out.println("jspからの受け取り" + mail);
 		
-		if(mail.isEmpty()) {
-			System.out.println("nullです");
-		}
 		
 		String authorityParam = request.getParameter("authority");
-		System.out.println("authority" + authorityParam);
 		if(authorityParam==null) {
 			authorityParam = "99"; //権限での絞り込みがなかった場合 -> int型でnullでの比較ができないため
 		}
@@ -62,12 +54,8 @@ public class AccountSearchServlet extends HttpServlet {
                 authority = Integer.parseInt(authorityParam);
             }
         } catch (NumberFormatException e) {
-            // Handle the error appropriately
             e.printStackTrace();
         }
-        
-        System.out.println(authority);
-
 		
 		if(name.isEmpty()) {
 			name = null;
@@ -76,7 +64,6 @@ public class AccountSearchServlet extends HttpServlet {
 			mail = null;
 		} 
 		
-		System.out.println("サーブレットからサービスへ mail" + mail);
 		request.setAttribute("AccountSearch", ar.EnterAccountSearchCriteria(name, mail, authority));
 		
 		request.getRequestDispatcher("/S0041.jsp").forward(request, response);

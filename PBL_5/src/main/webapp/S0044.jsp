@@ -1,5 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>	
+<%
+// 今は片方の権限しか受け取れない
+String authorityStr = (String) request.getAttribute("authority");
+int authority = 0;
+
+
+boolean salesSelected = false;
+boolean accountSelected = false;
+boolean noneSelected = false;
+
+if(authority==0) {
+	noneSelected = true;
+}
+if(authority==1) {
+	salesSelected = true;
+}
+if(authority==2) {
+	accountSelected = true;
+}
+
+// List<String> authorityList = (List<String>) request.getAttribute("authorities");
+ 
+ 
+// 受け取った値がnullでない場合、それぞれの値に対応する変数をtrueに設定する
+/*
+// 複数受け取りの場合
+if (authorityList != null) {
+    for (String authority : authorityList) {
+        if (authority.equals("1")) {
+            salesSelected = true;
+        } else if (authority.equals("2")) {
+            accountSelected = true;
+        }
+    }
+}
+*/
+ 
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +86,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="text" name="#" class="form-control"
-							placeholder="イチロー" disabled >
+							value= "${name}" disabled >
 					</div>
 				</div>
 
@@ -61,7 +100,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="email" name="#" class="form-control"
-							placeholder="メールアドレス"disabled >
+							value= "${mail}" disabled >
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -73,7 +112,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="password" name="#" class="form-control "
-							placeholder="パスワード"disabled >
+							value= "${pass}" disabled >
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -85,7 +124,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="password" name="#" class="form-control "
-							placeholder="パスワード" disabled >
+							value= "${pass}" disabled >
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -95,14 +134,17 @@
 							権限
 						</h3>
 					</div>
-					<div class="col-sm-8" style="margin-top: 10px;">
 
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"disabled>
-						<label for="flexRadioDefault1"> 売上登録 </label> 
+					<div class="col-sm-8" style="margin-top: 10px;"
+						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault0" <%= noneSelected ? "checked" : "" %> readonly disabled>
+						<label for="flexRadioDefault0"> 権限なし </label>
 						
-						<input type="radio" name="flexRadioDefault" id="flexRadioDefault1"disabled> 
-						<label for="flexRadioDefault1"> アカウント登録 </label> 
-
+						
+						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" <%= salesSelected ? "checked" : "" %> readonly disabled>
+						<label for="flexRadioDefault1"> 売上登録 </label>
+						
+						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault2" <%= accountSelected ? "checked" : "" %> readonly disabled>
+						<label for="flexRadioDefault2"> アカウント登録 </label>
 					</div>
 				</div>
 				<div class="row mt-3">
