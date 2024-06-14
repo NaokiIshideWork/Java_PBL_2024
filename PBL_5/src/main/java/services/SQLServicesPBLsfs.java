@@ -15,8 +15,10 @@ import model.SalesDetailsDisplayBean;
 import model.SalesSearchDisplayBean;
 import util.DbUtil;
 
+
+//S0020用のSQLファイル
 public class SQLServicesPBLsfs {
-	//三桁区切り
+	//三桁区切り表示用
 	public static final String formatNumber(long num) {
 		NumberFormat nf = NumberFormat.getNumberInstance();
 		return nf.format(num);
@@ -54,8 +56,7 @@ public class SQLServicesPBLsfs {
 		try (
 				Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
-			System.out.println("->" + productName);
-
+		
 			ps.setString(1, salesDateB);
 			ps.setString(2, salesDateA);
 			ps.setString(3, salesPerson);
@@ -125,7 +126,7 @@ public class SQLServicesPBLsfs {
 		}
 		return account_list;
 	}
-
+	//詳細内容表示
 	public SalesDetailsDisplayBean SalesDetailsDisplay(int salesearch_id) {
 		String sql = "SELECT s.sale_id, s.sale_date,a.name,c.category_name,s.trade_name,s.unit_price,s.sale_number,\n"
 				+ " s.note from sales s \n"
@@ -160,7 +161,7 @@ public class SQLServicesPBLsfs {
 		}
 		return SalesDeetail_list;
 	}
-
+	//詳細内容削除
 	public S0025Bean SalesDetailsDelete(int salesearch_id) {
 		String sql = "SELECT s.sale_id,s.sale_date,a.name,c.category_name,s.trade_name,s.unit_price,s.sale_number,\n"
 				+ " (s.unit_price*s.sale_number)AS subtotal ,s.note from sales s \n"
@@ -197,8 +198,7 @@ public class SQLServicesPBLsfs {
 		return S0025Bean_list;
 	}
 	
-	//削除追加
-	
+	//削除	
 	public void delete(int delete_id) {
 		String sql = "DELETE FROM sales WHERE sale_id = ?";
 		try (Connection con = DbUtil.open();

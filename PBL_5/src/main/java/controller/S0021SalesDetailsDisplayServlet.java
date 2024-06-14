@@ -15,13 +15,13 @@ import services.SQLServicesPBLsfs;
  * Servlet implementation class SalesDetailsDisplayServlet
  */
 @WebServlet("/SalesDetailsDisplayServlet")
-public class SalesDetailsDisplayServlet extends HttpServlet {
+public class S0021SalesDetailsDisplayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SalesDetailsDisplayServlet() {
+    public S0021SalesDetailsDisplayServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,6 +44,8 @@ public class SalesDetailsDisplayServlet extends HttpServlet {
 		SalesDetailsDisplayBean SalesDeetail_list =null;
 		
 		String sale_id = request.getParameter("sale_id");
+		
+		//salesのsale_idをもとに詳細内容を取得
 		SalesDeetail_list = mts.SalesDetailsDisplay(Integer.parseInt(sale_id));
 		
 		request.setAttribute("list", SalesDeetail_list);

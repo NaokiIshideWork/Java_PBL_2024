@@ -22,13 +22,13 @@ import services.SQLServicesPBLsfs;
  * Servlet implementation class SearchSalesServlet
  */
 @WebServlet("/SearchSalesServlet")
-public class SearchSalesServlet extends HttpServlet {
+public class S0020SearchSalesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public SearchSalesServlet() {
+	public S0020SearchSalesServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -95,28 +95,27 @@ public class SearchSalesServlet extends HttpServlet {
 			salesDateA = salesDateA.replace("-", "/");
 		}
 		
-		String salesPerson = request.getParameter("salesPerson");//int
-		String productCategory = request.getParameter("productCategory");//int
-		String productName = request.getParameter("productName");
-		String remarks = request.getParameter("remarks");
+		String salesPerson = request.getParameter("salesPerson");//担当者id
+		String productCategory = request.getParameter("productCategory");//商品カテゴリーid
+		String productName = request.getParameter("productName");//商品名
+		String remarks = request.getParameter("remarks");//備考
 		
 
 		HttpSession session = request.getSession();
-		//select で0だった場合に0件だから　商品名と備考がなくてもOK
 		
+		//検索結果が0件か?
 		Sales2Bean_list = mts.selectAllSales(salesDateB, salesDateA, salesPerson, productCategory, productName, remarks);
 		if(Sales2Bean_list.isEmpty()) {
 			error_message += "検索結果はありません";
 			request.setAttribute("err", error_message);
 			doGet(request, response);
 		}else {
-			//表示用
+			
 			account_list =mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName, remarks);	
 			session.setAttribute("list", account_list);
 			SalesSearchBean ssb =  new SalesSearchBean(salesDateB, salesDateA, salesPerson, productCategory, productName,remarks);
 			session.setAttribute("ssb", ssb);
-			this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
-			
+			this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);		
 		}
 	}
 
