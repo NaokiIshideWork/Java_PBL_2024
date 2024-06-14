@@ -45,7 +45,7 @@ public class SQLservicesPBL {
 		return person;
 	}
 
-	public AllayList<CategoriesBean> SelectAllCategory() {
+	public ArrayList<CategoriesBean> SelectAllCategory() {
 		String sql = "SELECT * FROM categories WHERE active_flg = 1;";
 		CategoriesBean categories_list = null;
 		try (
