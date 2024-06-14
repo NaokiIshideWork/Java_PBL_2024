@@ -1,5 +1,6 @@
 package model;
 
+//sqlアカウントテーブルをもとに作成
 public class AccountsBean {
 
 	private int account_id;
