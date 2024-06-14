@@ -4,7 +4,7 @@
 <%
 // 今は片方の権限しか受け取れない
 String authorityStr = (String) request.getAttribute("authority");
-int authority = 0;
+int authority = Integer.parseInt(authorityStr);
 
 
 boolean salesSelected = false;
