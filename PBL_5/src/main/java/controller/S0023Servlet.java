@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.AccountsBean;
 import model.CategoriesBean;
@@ -60,11 +61,11 @@ public class S0023Servlet extends HttpServlet {
 		ArrayList<CategoriesBean> categories_list = null;
 		categories_list = sqlserv.SelectAllCategory();
 
+		HttpSession session = request.getSession();
+		session.setAttribute("accounts", account_list);
+		session.setAttribute("cate", categories_list);
 		
-		request.setAttribute("accounts", account_list);
-		request.setAttribute("cate", categories_list);
-		
-		request.setAttribute("S0023list", S0023Bean_list);
+		session.setAttribute("S0023list", S0023Bean_list);
 		doGet(request, response);
 	}
 

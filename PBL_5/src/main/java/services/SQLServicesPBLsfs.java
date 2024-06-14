@@ -75,6 +75,7 @@ public class SQLServicesPBLsfs {
 				int sale_number = rs.getInt("sale_number");
 				String note = rs.getString("note");
 
+				
 				account_list.add(new Sales2Bean(sale_id, sale_date, account_id,
 						category_id, trade_name, unit_price, sale_number, note));
 			}

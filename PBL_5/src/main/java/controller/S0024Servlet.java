@@ -43,14 +43,16 @@ public class S0024Servlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
-		S0023ConfirmBean S0023Confirmlist = null;//id混みのやつ
+		S0023ConfirmBean S0023Confirmlist = null;
 		String error_message = "";
 
-		//
+	
 		String up_date_id = request.getParameter("up_date_id");
 		String sale_date = request.getParameter("sale_date");
 		if (sale_date.isEmpty()) {
 			error_message += "販売日を入力して下さい";
+		} else {
+			sale_date = sale_date.replaceAll("-", "/");
 		}
 
 		String account_id = request.getParameter("account_id");
@@ -86,17 +88,23 @@ public class S0024Servlet extends HttpServlet {
 				error_message += "個数を正しく入力して下さい,";
 			}
 		}
-	
 
-	String note = request.getParameter("note");
-	if (note.length() > 400) {
-		error_message += "備考が長すぎます,";
-	}
+		String note = request.getParameter("note");
+		if (note.length() > 400) {
+			error_message += "備考が長すぎます,";
+		}
 
-	S0023Confirmlist=new S0023ConfirmBean(Integer.parseInt(up_date_id),sale_date,account_name,Integer.parseInt(account_id),category_name,Integer.parseInt(category_id),trade_name,unit_price,sale_number,note);
-	request.setAttribute("S0024list",S0023Confirmlist);
-	doGet(request, response);
-		
+		if (error_message.isEmpty()) {
+			S0023Confirmlist = new S0023ConfirmBean(Integer.parseInt(up_date_id), sale_date, account_name,
+					Integer.parseInt(account_id), category_name, Integer.parseInt(category_id), trade_name, unit_price,
+					sale_number, note);
+			request.setAttribute("S0024list", S0023Confirmlist);
+			doGet(request, response);
+		} else {
+			request.setAttribute("err", error_message);
+			this.getServletContext().getRequestDispatcher("/S0023.jsp").forward(request, response);
+		}
+
 	}
 
 }

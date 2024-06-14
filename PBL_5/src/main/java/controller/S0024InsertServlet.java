@@ -72,9 +72,6 @@ public class S0024InsertServlet extends HttpServlet {
 		
 		session.removeAttribute("list");
 		session.setAttribute("list", account_list);
-		for (SalesSearchDisplayBean salesSearchDisplayBean : account_list) {
-			System.out.println(account_list.get(0).getCategory_name());
-		}
 		this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
 	}
 
