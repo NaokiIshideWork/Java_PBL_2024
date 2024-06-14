@@ -56,7 +56,7 @@ public class RegisterSalesServlet extends HttpServlet {
 
 		mts.insert(sales_date, Integer.parseInt(account_id), Integer.parseInt(category_id), trade_name, Integer.parseInt(unit_price), Integer.parseInt(sale_number), note);
 		
-		doGet(request, response);
+		response.sendRedirect("RegisterServlet");
 	}
 
 }
