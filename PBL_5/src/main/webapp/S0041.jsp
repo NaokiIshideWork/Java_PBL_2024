@@ -57,8 +57,15 @@
 			<c:forEach var="obj" items="${AccountSearch}">
 				<tr>
 					<td class="col-md-1">
-						<button type="button" class="btn btn-primary">✓ 編集</button>
-						<button type="button" class="btn btn-danger">× 削除</button>
+						<a type="button" class="btn btn-primary">✓ 編集</a>
+						<form action="S0044DeleteAccountServlet" method="get">
+							   <input type="hidden" name="tmpId" value="${obj.getAccount_id()}" />
+						    <input type="hidden" name="tmpName" value="${obj.getName()}" />
+						    <input type="hidden" name="tmpMail" value="${obj.getMail()}" />
+						    <input type="hidden" name="tmpAuthority" value="${obj.getAuthority()}" />
+						    <input type="hidden" name="tmpPass" value="${obj.getPassword()}" />
+							<button type="submit" class="btn btn-danger" method="get">× 削除</button>
+						</form>
 					</td>
 					
 					<td class="col-md-1">${obj.getAccount_id()}</td>
@@ -66,8 +73,43 @@
 					<td class="col-md-1">${obj.getMail()}</td>
 					<td class="col-md-2"><c:if test="${obj.getAuthority() == 0}">権限なし</c:if><c:if test="${obj.getAuthority() == 1}">アカウント登録</c:if><c:if test="${obj.getAuthority() == 2}">売上登録</c:if></td>
 				</tr>
+				
 			</c:forEach>
 		</table>
 	</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

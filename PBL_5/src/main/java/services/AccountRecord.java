@@ -22,7 +22,6 @@ public class AccountRecord {
 			ps.setString(3,password);
 			ps.setInt(4,authority);			
 			ps.executeUpdate();
-			System.out.println("insertされました。");
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -41,7 +40,7 @@ public class AccountRecord {
 		ArrayList<AccountsBean> accountsList2 = new ArrayList<AccountsBean>();
 		// 氏名絞り込み後、メアド絞り込み
 		ArrayList<AccountsBean> accountsList3 = new ArrayList<AccountsBean>();
-		// 最後の絞り込み
+		// 最後にチェックボックスでの絞り込み
 		ArrayList<AccountsBean> accountsList4 = new ArrayList<AccountsBean>();
 		
 		Connection con = null;
@@ -52,8 +51,6 @@ public class AccountRecord {
 			con = DbUtil.open();
 			ps = con.prepareStatement(AllSQL);
 			rs = ps.executeQuery();
-			System.out.println("AllSQLの実行");
-
 			while (rs.next()) {
 				int account_id = rs.getInt("account_id");
 				String rs_name = rs.getString("name");
@@ -62,10 +59,7 @@ public class AccountRecord {
 				int rs_authority = rs.getInt("authority");
 				AccountsBean user = new AccountsBean(account_id, rs_name, rs_mail, password, rs_authority);
 				accountsList.add(user);
-				System.out.println(user);
 			}
-			
-			System.out.println("nameA" + name);
 			
 			if(accountsList.size() != 0 && name != null) {
 				System.out.println("accountsList.size() != 0 && name != null");
@@ -73,7 +67,6 @@ public class AccountRecord {
 					System.out.println("name" + name);
 					System.out.println("name2" + ab.getName());
 					if(ab.getName() != null && ab.getName().contains(name)) {
-						System.out.println("getName test:" + ab.getName()); // ここで
 						accountsList2.add(ab);
 					}
 				}
@@ -85,7 +78,6 @@ public class AccountRecord {
 				System.out.println("accountsList.size() != 0 && mail != null");
 				for(AccountsBean ab : accountsList2) {
 					if(ab.getMail() != null && ab.getMail().equals(mail)) {
-						System.out.println("getMail test:" + ab.getMail());
 						accountsList3.add(ab);
 					}
 				}
@@ -97,7 +89,6 @@ public class AccountRecord {
 				System.out.println("accountsList.size() != 0 && authority != 99");
 				for(AccountsBean ab : accountsList3) {
 					if(ab.getAuthority() != 99 && ab.getAuthority() == authority) {
-						System.out.println("ge test:" + ab.getAuthority());
 						accountsList4.add(ab);
 					}
 				}
@@ -130,9 +121,6 @@ public class AccountRecord {
 				}
 			}
 		}
-		
-		System.out.println("accountsList4:" + accountsList4);
-		System.out.println("accountsList4:" + accountsList4.size());
 		return accountsList4;
 	}
 }
