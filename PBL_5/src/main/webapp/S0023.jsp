@@ -21,10 +21,10 @@
 						<li class="nav-item"><a class="nav-link"
 							href="ToDoDoneServlet">ダッシュボード</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="ToDoDoneServlet">売上登録</a></li>
+							href="RegisterServlet">売上登録</a></li>
 						<li class="nav-item bg-dark-subtle"><a
 							class="nav-link active" aria-current="page"
-							href="ToDoDelayServlet">売上検索</a></li>
+							href="SearchSalesServlet">売上検索</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="ToDoDoneServlet">アカウント登録</a></li>
 						<li class="nav-item"><a class="nav-link"
@@ -69,6 +69,7 @@
 					<div class="col-sm-8 w-50">
 						<select class="form-select" name="account_id"
 							aria-label="Default select example">
+							<option value="選択して下さい。"><c:out value="選択して下さい。"></c:out></option>
 							<c:forEach var="obj" items="${accounts}">
 								<option value="${obj.getAccount_id()}">
 									<c:out value="${obj.getName()}"></c:out>
@@ -87,11 +88,11 @@
 					<div class="col-sm-8 w-50">
 						<select class="form-select" name="category_id"
 							aria-label="Default select example">
-
+							<option value="選択して下さい。"><c:out value="選択して下さい。"></c:out></option>
 							<c:forEach var="obj" items="${cate}">
 								<option value="${obj.getCategory_id()}">
 									<c:out value="${obj.getCategory_name()}"></c:out>
-									<%--hidden idと name　送る --%>
+									
 								</option>
 							</c:forEach>
 						</select>

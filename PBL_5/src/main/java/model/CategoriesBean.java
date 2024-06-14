@@ -1,5 +1,6 @@
 package model;
 
+//sql カテゴリーテーブルをもとに作成
 public class CategoriesBean {
 
 	private int category_id;

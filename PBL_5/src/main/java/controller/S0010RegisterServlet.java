@@ -83,58 +83,51 @@ public class S0010RegisterServlet extends HttpServlet {
 		}
 
 		//担当に対するName
-		String account_id = request.getParameter("account");//id	
-		String accountName = mts.SelectRegName(Integer.parseInt(account_id));//担当名
-		if (accountName.isEmpty()) {
-			error_message += "担当が未選択です,";//ok
+		String account_id = request.getParameter("account");//id
+		String accountName = "";
+		if (account_id.equals("選択して下さい。")) {
+			error_message += "担当が未選択です,";
+		} else {
+			accountName = mts.SelectRegName(Integer.parseInt(account_id));//担当名
 		}
 
 		//商品カテゴリーに対する
 		String item_category_id = request.getParameter("item_category");//id
-		String item_category_name = mts.SelectCategory_Name(Integer.parseInt(item_category_id));
-		if (item_category_name.isEmpty()) {
-			error_message += "商品カテゴリーが未選択です,";//ok
+		String item_category_name = "";
+		if (item_category_id.equals("選択して下さい。")) {
+			error_message += "担当が未選択です,";
+		} else {
+			item_category_name = mts.SelectCategory_Name(Integer.parseInt(item_category_id));
 		}
 
 		//商品名
 		String trade_name = request.getParameter("trade_name");
 		if (trade_name.isEmpty()) {
 			error_message += "商品名を入力して下さい,";//ok
-		} else {
-			if (trade_name.length() > 100) {
-				error_message += "商品名が長すぎます,";//ok
-			}
+		} else if (trade_name.length() > 100) {
+			error_message += "商品名が長すぎます,";//ok
 		}
 
 		//単価
 		String unit_price = request.getParameter("unit_price");
 		if (unit_price.isEmpty()) {
-			error_message += "単価を入力して下さい,";
-		} else {
-			if (unit_price.length() > 10) {
-				error_message += "単価が長すぎます,";
-			} else {
-				//形式チェック　単価を正しく入力して下さい
-				if (!unit_price.matches("\\d{1,3}(,\\d{3})*")) {
-					error_message += "単価を正しく入力して下さい,";
-				}
-			}
+			error_message += "単価を入力して下さい,";//ok
+		} else if (unit_price.length() > 10) {
+			error_message += "単価が長すぎます,";//ok
+		} else if (!unit_price.matches("\\d{1,3}(,\\d{3})*")) {
+			error_message += "単価を正しく入力して下さい,";//ok
 		}
 
 		//個数
 		String sale_number = request.getParameter("sale_number");
 		if (sale_number.isEmpty()) {
-			error_message += "個数を入力して下さい,";
-		} else {
-			if (sale_number.length() > 10) {
-				error_message += "個数が長すぎます,";
-			} else {
-				//個数を正しく入力して下さい
-				if (!sale_number.matches("\\d{1,3}(,\\d{3})*")) {
-					error_message += "個数を正しく入力して下さい,";
-				}
-			}
+			error_message += "個数を入力して下さい,";//ok
+		} else if (sale_number.length() > 10) {
+			error_message += "個数が長すぎます,";//ok
+		} else if (!sale_number.matches("\\d{1,3}(,\\d{3})*")) {
+			error_message += "個数を正しく入力して下さい,";//ok
 		}
+
 		//備考
 		String note = request.getParameter("note");
 		if (note.length() > 400) {

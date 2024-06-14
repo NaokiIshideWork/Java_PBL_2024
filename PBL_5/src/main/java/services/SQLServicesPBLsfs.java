@@ -25,7 +25,7 @@ public class SQLServicesPBLsfs {
 	}
 
 	public ArrayList<AccountsBean> SelectAllAcount() {
-		String sql = "SELECT * FROM accounts;";
+		String sql = "SELECT * FROM accounts where;";
 		ArrayList<AccountsBean> account_list = new ArrayList<AccountsBean>();
 		try (
 				Connection con = DbUtil.open();

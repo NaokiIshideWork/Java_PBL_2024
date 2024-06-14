@@ -22,10 +22,10 @@
 						<li class="nav-item"><a class="nav-link"
 							href="ToDoDoneServlet">ダッシュボード</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="ToDoDoneServlet">売上登録</a></li>
+							href="RegisterServlet">売上登録</a></li>
 						<li class="nav-item bg-dark-subtle"><a
 							class="nav-link active" aria-current="page"
-							href="ToDoDelayServlet">売上検索</a></li>
+							href="SearchSalesServlet">売上検索</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="ToDoDoneServlet">アカウント登録</a></li>
 						<li class="nav-item"><a class="nav-link"
@@ -142,8 +142,6 @@
 			</div>
 			<div class="col-sm-5"></div>
 			</div>
-
-	</div>
-	
+	</div>	
 </body>
 </html>

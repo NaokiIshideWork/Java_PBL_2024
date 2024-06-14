@@ -41,11 +41,11 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLreg sqlserv = new SQLServicesPBLreg();
-		SQLServicesPBLsfs sqlservsfs = new SQLServicesPBLsfs();
+		
 		String error_message = "";
 
 		ArrayList<AccountsBean> account_list = null;
-		account_list = sqlservsfs.SelectAllAcount();
+		account_list = sqlserv.SelectAllAcount();
 
 		if (account_list.isEmpty()) {
 			error_message += "アカウントテーブルに存在しません";
