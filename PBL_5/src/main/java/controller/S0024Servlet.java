@@ -49,7 +49,7 @@ public class S0024Servlet extends HttpServlet {
 		String up_date_id = request.getParameter("up_date_id");
 		String sale_date = request.getParameter("sale_date");//販売日
 		if (sale_date.isEmpty()) {
-			error_message += "販売日を入力して下さい";
+			error_message += "販売日を入力して下さい,";
 		} else {
 			sale_date = sale_date.replaceAll("-", "/");
 		}
@@ -58,7 +58,7 @@ public class S0024Servlet extends HttpServlet {
 		String account_id = request.getParameter("account_id");
 		String account_name = "";
 		if (account_id.equals("選択して下さい。")) {
-			error_message += "担当が未選択です";
+			error_message += "担当が未選択です,";
 		} else {
 			account_name = mts.SearchName(Integer.parseInt(account_id));
 		}
@@ -67,7 +67,7 @@ public class S0024Servlet extends HttpServlet {
 		String category_id = request.getParameter("category_id");
 		String category_name = "";
 		if (account_id.equals("選択して下さい。")) {
-			error_message += "商品カテゴリーが未選択です";
+			error_message += "商品カテゴリーが未選択です,";
 		} else {
 			category_name = mts.SearchCategory_name(Integer.parseInt(category_id));
 		}
@@ -75,14 +75,14 @@ public class S0024Servlet extends HttpServlet {
 		//商品名
 		String trade_name = request.getParameter("tard_name");
 		if (trade_name.isEmpty()) {
-			error_message += "商品名を入力して下さい";
+			error_message += "商品名を入力して下さい,";
 		} else if (trade_name.length() > 100) {
-			error_message += "商品名が長すぎます";
+			error_message += "商品名が長すぎます,";
 		}
 		//単価
 		String unit_price = request.getParameter("unit_price");
 		if (unit_price.isEmpty()) {
-			error_message += "単価を入力して下さい";
+			error_message += "単価を入力して下さい,";
 		} else if (!unit_price.matches("\\d{1,3}(,\\d{3})*")) {
 			error_message += "単価を正しく入力して下さい,";
 
