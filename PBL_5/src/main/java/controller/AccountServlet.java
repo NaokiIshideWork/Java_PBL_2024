@@ -36,9 +36,6 @@ public class AccountServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-        
         response.setContentType("text/html: charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		
@@ -89,7 +86,7 @@ public class AccountServlet extends HttpServlet {
   		
   		if(!error_display.equals("")) {
   			request.setAttribute("error_display", error_display);
-  			request.getRequestDispatcher("/C0010.jsp").forward(request, response);
+  			request.getRequestDispatcher("/S0030.jsp").forward(request, response);
   			return;
   		}
   		

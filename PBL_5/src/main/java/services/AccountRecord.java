@@ -12,20 +12,40 @@ import util.DbUtil;
 public class AccountRecord {
 
 	public static void makeaccount(String name, String mail, String password, int authority) {
-		String sql = "insert into accounts (name,mail,password,authority) values(?,?,?,?)";
-		try{
-			Connection con = DbUtil.open();
-			PreparedStatement ps = null;
-			ps = con.prepareStatement(sql);
-			ps.setString(1,name);
-			ps.setString(2,mail);
-			ps.setString(3,password);
-			ps.setInt(4,authority);			
-			ps.executeUpdate();
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}
+	    String sql = "INSERT INTO accounts (name, mail, password, authority) VALUES (?, ?, ?, ?)";
+	    Connection con = null;
+	    PreparedStatement ps = null;
+	    try {
+	        con = DbUtil.open();
+	        ps = con.prepareStatement(sql);
+	        ps.setString(1, name);
+	        ps.setString(2, mail);
+	        // パスワードをハッシュ化するなどのセキュリティ処理を追加することが推奨されます
+	        ps.setString(3, password);
+	        ps.setInt(4, authority);
+	        ps.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        // 呼び出し元にエラーを伝えるか、適切に処理する
+	    } finally {
+	        // リソースの解放
+	        if (ps != null) {
+	            try {
+	                ps.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        if (con != null) {
+	            try {
+	                con.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
 	}
+
 
 	
 	// アカウント検索条件入力

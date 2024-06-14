@@ -10,6 +10,11 @@
 <title>フォーム</title>
 </head>
 <body>
+<c:if test="${not empty err}">
+		<div class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
+		role="alert">${err}</div>
+</c:if>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="ToDoServlet">物品売上管理システム</a>
@@ -60,8 +65,8 @@
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="email" name="mail" class="form-control"
-							placeholder="メールアドレス" required>
+						<input type="text" name="mail" class="form-control"
+							placeholder="メールアドレス">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -92,7 +97,7 @@
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							権限
+							権限<span class="badge rounded-pill bg-secondary">必須</span>
 						</h3>
 					</div>
 
