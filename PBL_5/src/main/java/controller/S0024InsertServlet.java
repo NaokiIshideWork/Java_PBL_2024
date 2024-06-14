@@ -1,13 +1,17 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import model.SalesSearchBean;
+import model.SalesSearchDisplayBean;
 import services.SQLServicesPBLsfs;
 
 /**
@@ -53,13 +57,25 @@ public class S0024InsertServlet extends HttpServlet {
 		String sale_number = request.getParameter("sale_number");
 		String note = request.getParameter("note");
 		
-
+		
 		
 		mts.insert(Integer.parseInt(up_date_id), sale_date, account_id, category_id, trade_name,
 				unit_price, sale_number, note);
-		doGet(request, response);
 		
 		
+		HttpSession session = request.getSession();
+		SalesSearchBean ssb_list =(SalesSearchBean) session.getAttribute("ssb");
+		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
+		
+		account_list =mts.SalesSearchDisplay(ssb_list.getSalesDateB(),
+				ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),ssb_list.getProductName(), ssb_list.getRemarks());	
+		
+		session.removeAttribute("list");
+		session.setAttribute("list", account_list);
+		for (SalesSearchDisplayBean salesSearchDisplayBean : account_list) {
+			System.out.println(account_list.get(0).getCategory_name());
+		}
+		this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
 	}
 
 }

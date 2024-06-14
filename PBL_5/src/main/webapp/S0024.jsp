@@ -64,7 +64,7 @@
 							value="${S0024list.getAccount()}"
 							class="form-control bg-secondary-subtle" aria-label="Last Name"
 							readonly><input type="hidden" name="account_id"
-							value="${list.getAccount_id()}"
+							value="${S0024list.getAccount_id()}"
 							class="form-control  bg-secondary-subtle" aria-label="Last name"
 							readonly>
 					</div>
@@ -79,7 +79,7 @@
 							value="${S0024list.getCategory_name()}"
 							class="form-control bg-secondary-subtle" aria-label="Last name"
 							readonly> <input type="hidden" name="category_id"
-							value="${list.getCategory_id()}"
+							value="${S0024list.getCategory_id()}"
 							class="form-control  bg-secondary-subtle" aria-label="Last name"
 							readonly>
 					</div>
@@ -132,7 +132,7 @@
 						<div class="col-sm-8" style="margin-left: 30px;">
 							<button type="submit" class="btn btn-primary" name="up_date_id"
 								value="${S0024list.getSale_id()}">✔O K</button>
-							<a class="btn btn-outline-secondary" href="#" role="button">キャンセル</a>
+							<a class="btn btn-outline-secondary" onclick="history.back()" role="button">キャンセル</a>
 						</div>
 					</div>
 			</form>

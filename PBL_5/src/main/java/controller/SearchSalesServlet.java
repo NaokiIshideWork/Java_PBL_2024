@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import model.AccountsBean;
 import model.CategoriesBean;
 import model.Sales2Bean;
+import model.SalesSearchBean;
 import model.SalesSearchDisplayBean;
 import services.SQLServicesPBLreg;
 import services.SQLServicesPBLsfs;
@@ -77,6 +78,7 @@ public class SearchSalesServlet extends HttpServlet {
 		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
 		ArrayList<Sales2Bean> Sales2Bean_list = new ArrayList<Sales2Bean>();
 		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
+		
 		String error_message = "";
 
 		String salesDateB = request.getParameter("salesDateB");
@@ -111,6 +113,8 @@ public class SearchSalesServlet extends HttpServlet {
 			//表示用
 			account_list =mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName, remarks);	
 			session.setAttribute("list", account_list);
+			SalesSearchBean ssb =  new SalesSearchBean(salesDateB, salesDateA, salesPerson, productCategory, productName,remarks);
+			session.setAttribute("ssb", ssb);
 			this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
 			
 		}

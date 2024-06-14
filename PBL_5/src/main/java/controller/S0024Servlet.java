@@ -46,18 +46,24 @@ public class S0024Servlet extends HttpServlet {
 		//
 		String up_date_id = request.getParameter("up_date_id");
 		String sale_date = request.getParameter("sale_date");
+		
 		String account_id = request.getParameter("account_id");
+		String account_name = mts.SearchName(Integer.parseInt(account_id));
+		
 		String category_id = request.getParameter("category_id");
+		String category_name = mts.SearchCategory_name(Integer.parseInt(category_id));
+		
+//		"id"をもとにとってくる
+		
 		String trade_name = request.getParameter("tard_name");
 		String unit_price = request.getParameter("unit_price");
 		String sale_number = request.getParameter("sale_namber");
 		String note = request.getParameter("note");
 	
 		
-//		sql で id 属性をもとにとってくる
+		S0023Confirmlist= new S0023ConfirmBean(Integer.parseInt(up_date_id),sale_date,account_name, Integer.parseInt(account_id),
+				category_name, Integer.parseInt(category_id),trade_name, unit_price, sale_number, note);
 		
-		S0023Confirmlist= mts.SalesConfirm(Integer.parseInt(up_date_id), Integer.parseInt(account_id), Integer.parseInt(category_id),
-				sale_date, trade_name, unit_price, sale_number, note);
 		request.setAttribute("S0024list", S0023Confirmlist);
 		doGet(request, response);
 		
