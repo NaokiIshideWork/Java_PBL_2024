@@ -142,8 +142,6 @@
 			</div>
 			<div class="col-sm-5"></div>
 			</div>
-
-	</div>
-	
+	</div>	
 </body>
 </html>
