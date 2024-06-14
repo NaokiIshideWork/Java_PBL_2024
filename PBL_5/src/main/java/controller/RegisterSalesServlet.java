@@ -31,7 +31,7 @@ public class RegisterSalesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		this.getServletContext().getRequestDispatcher("/S0011.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/S0010.jsp").forward(request, response);
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class RegisterSalesServlet extends HttpServlet {
 
 		mts.insert(sales_date, Integer.parseInt(account_id), Integer.parseInt(category_id), trade_name, Integer.parseInt(unit_price), Integer.parseInt(sale_number), note);
 		
-		response.sendRedirect("RegisterServlet");
+		doGet(request, response);
 	}
 
 }
