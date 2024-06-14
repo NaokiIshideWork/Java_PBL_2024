@@ -26,6 +26,20 @@ public class AccountRecord {
 			e.printStackTrace();
 		}
 	}
+	
+	public void deleteAccount(String id) {
+		// idで消せるようにしちゃう？
+		String sql = "DELETE FROM accounts WHERE account_id = ?";
+		try{
+			Connection con = DbUtil.open();
+			PreparedStatement ps = null;
+			ps = con.prepareStatement(sql);
+			ps.setString(1,id);			
+			ps.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 	
 	// アカウント検索条件入力
