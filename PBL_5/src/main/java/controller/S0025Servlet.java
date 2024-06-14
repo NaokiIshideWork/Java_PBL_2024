@@ -14,7 +14,7 @@ import services.SQLServicesPBLsfs;
 /**
  * Servlet implementation class S0025Servlet
  */
-@WebServlet("/S0025Servlet")
+@WebServlet("/ConfirmationSalesDeletion")
 public class S0025Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

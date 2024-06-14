@@ -44,7 +44,7 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 100px;">売上詳細表示</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right" action="S0023Servlet" method="post">
+			<form class="text-right" action="EditSalesDetails" method="post">
 				<div class="row ">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -131,13 +131,13 @@
 					</div>
 			</form>
 			<div class="col-sm-1">
-				<form method="post" action="S0025Servlet">
+				<form method="post" action="ConfirmationSalesDeletion">
 					<button type="submit" class="btn btn-danger btn-search"
 						name="sale_id" value="${list.getSale_id() }">✕削除</button>
 				</form>
 			</div>
 			<div class= "col-sm-1" style= "white-space: nowrap;"> <a
-				class="btn btn-outline-secondary" href="SalesDetailsDisplayServlet"
+				class="btn btn-outline-secondary"onclick="history.back()"
 				role="button">キャンセル</a>
 			</div>
 			<div class="col-sm-5"></div>

@@ -67,7 +67,6 @@ public class SQLServicesPBLreg {
 			ps.setInt(1, account_id);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-			
 				String name = rs.getString("name");
 				accountName = name;
 			}
@@ -76,7 +75,6 @@ public class SQLServicesPBLreg {
 		}
 		return accountName;
 	}
-	
 	public String SelectCategory_Name(int category_id) {
 		String sql = "SELECT category_name FROM categories WHERE category_id = ?";
 		String category_name = "";

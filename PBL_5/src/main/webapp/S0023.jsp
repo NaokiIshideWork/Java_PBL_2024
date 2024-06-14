@@ -151,7 +151,7 @@
 						<button type="submit" class="btn btn-primary" name="up_date_id"
 							value="${S0023list.getSale_id()}">✔更 新</button>
 						<a class="btn btn-outline-secondary"
-							href="SalesDetailsDisplayServlet" role="button">キャンセル</a>
+							onclick="history.back()" role="button">キャンセル</a>
 					</div>
 				</div>
 			</form>
