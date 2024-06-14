@@ -73,7 +73,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="password" name="password" class="form-control "
-							placeholder="パスワード" required>
+							placeholder="パスワード" >
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -85,7 +85,7 @@
 					</div>
 					<div class="col-sm-8 w-50">
 						<input type="password" name="confirmPassword" class="form-control "
-							placeholder="パスワード（確認）" required>
+							placeholder="パスワード（確認）">
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -98,12 +98,12 @@
 
 					<div class="col-sm-8" style="margin-top: 10px;">
 					
-					    <input type="hidden" name="authority" id="authority_none" checked value="0">
+					    <!-- <input type="hidden" name="authority" id="authority_none" checked value="0"> -->
 					
-						<input type="radio" name="authority" id="authority_sales" value="1">
+						<input type="checkbox" name="authority" id="authority_sales" value="1">
 						<label for="flexRadioDefault1"> 売上登録 </label> 
 						
-						<input type="radio" name="authority" id="authority_account" value="2"> 
+						<input type="checkbox" name="authority" id="authority_account" value="2"> 
 						<label for="flexRadioDefault1"> アカウント登録 </label> 
 						
 					</div>
@@ -117,6 +117,7 @@
 					</div>
 				</div>
 			</form>
+			
 		</div>
 	</div>
 </body>
