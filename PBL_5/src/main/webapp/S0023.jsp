@@ -46,7 +46,7 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上詳細編集</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right" action="ConfirmationSalesEdit" method="post">
+			<form class="text-right" action="ConfirmationSalesEdit" method="get">
 				<div class="row ">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"

@@ -32,15 +32,6 @@ public class S0024Servlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		this.getServletContext().getRequestDispatcher("/S0024.jsp").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
 		S0023ConfirmBean S0023Confirmlist = null;
@@ -92,7 +83,7 @@ public class S0024Servlet extends HttpServlet {
 		if (sale_number.isEmpty()) {
 			error_message += "個数を入力して下さい,";
 		} else if (!sale_number.matches("\\d{1,3}(,\\d{3})*")) {
-				error_message += "個数を正しく入力して下さい,";
+			error_message += "個数を正しく入力して下さい,";
 		}
 		//備考
 		String note = request.getParameter("note");
@@ -105,11 +96,19 @@ public class S0024Servlet extends HttpServlet {
 					Integer.parseInt(account_id), category_name, Integer.parseInt(category_id), trade_name, unit_price,
 					sale_number, note);
 			request.setAttribute("S0024list", S0023Confirmlist);
-			doGet(request, response);
+			this.getServletContext().getRequestDispatcher("/S0024.jsp").forward(request, response);
 		} else {
 			request.setAttribute("err", error_message);
 			this.getServletContext().getRequestDispatcher("/S0023.jsp").forward(request, response);
 		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
 
 	}
 

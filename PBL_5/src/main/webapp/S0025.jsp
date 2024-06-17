@@ -39,7 +39,7 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上詳細削除確認</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right" action="S0025DeleteServlet" method="post">
+			<form class="text-right" action="DeleteServlet" method="post">
 				<div class="row ">
 					<div class="col-sm-2">
 						<h3 for="inputEmail" class="col-form-label"
@@ -127,7 +127,7 @@
 				<div class="row mt-3">
 					<div class="col-sm-2"></div>
 					<div class="col-sm-8" style="margin-left: 30px;">
-						<button type="submit" class="btn btn-danger" name="delete_id" value="${list.getSale_di()}">✕ O K</button>
+						<button type="submit" class="btn btn-danger" name="delete_id" value="${list.getSale_id()}">✕ O K</button>
 						<a class="btn btn-outline-secondary" onclick="history.back()" role="button">キャンセル</a>
 					</div>
 				</div>

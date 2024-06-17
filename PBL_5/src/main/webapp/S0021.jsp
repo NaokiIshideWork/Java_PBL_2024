@@ -58,7 +58,7 @@
 				</tr>
 			</thead>
 			<c:forEach var="obj" items="${list}">
-				<form action="SalesDetailsDisplayServlet" method="post">
+				<form action="SalesDetailsDisplayServlet" method="get">
 					<tr>
 
 
