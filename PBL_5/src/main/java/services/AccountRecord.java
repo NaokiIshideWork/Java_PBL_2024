@@ -58,7 +58,13 @@ public class AccountRecord {
 					ps.setString(3, password);
 					ps.setInt(4, authority);
 					ps.setInt(5, id);			
-					ps.executeUpdate();
+					int rowsUpdated = ps.executeUpdate();
+					
+					if (rowsUpdated > 0) {
+			            System.out.println("Update successful. " + "更新された行数は" + rowsUpdated);
+			        } else {
+			            System.out.println("Update failed. No rows updated.");
+			        }
 				}catch(SQLException e) {
 					e.printStackTrace();
 				}
@@ -143,6 +149,12 @@ public class AccountRecord {
 					if(ab.getAuthority() != 99 && ab.getAuthority() == authority) {
 						accountsList4.add(ab);
 					}
+					if(authority == 1 && ab.getAuthority() == 11) {
+						accountsList4.add(ab);
+					}
+					if(authority == 10 && ab.getAuthority() == 11) {
+						accountsList4.add(ab);
+					}
 				}
 			} else {
 				accountsList4 = new ArrayList<>(accountsList3);
@@ -175,4 +187,112 @@ public class AccountRecord {
 		}
 		return accountsList4;
 	}
+	
+	public ArrayList<AccountsBean> AccountMultiSearchCriteria(String name, String mail, int authority1, int authority2) {
+		// すべて選択なし
+		String AllSQL = "select * from accounts";
+		
+		
+		// all
+		ArrayList<AccountsBean> accountsList = new ArrayList<AccountsBean>();
+		// 氏名絞り込み
+		ArrayList<AccountsBean> accountsList2 = new ArrayList<AccountsBean>();
+		// 氏名絞り込み後、メアド絞り込み
+		ArrayList<AccountsBean> accountsList3 = new ArrayList<AccountsBean>();
+		// 最後にチェックボックスでの絞り込み
+		ArrayList<AccountsBean> accountsList4 = new ArrayList<AccountsBean>();
+		
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+	try {
+			con = DbUtil.open();
+			ps = con.prepareStatement(AllSQL);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				int account_id = rs.getInt("account_id");
+				String rs_name = rs.getString("name");
+				String rs_mail = rs.getString("mail");
+				String password = rs.getString("password");
+				int rs_authority = rs.getInt("authority");
+				AccountsBean user = new AccountsBean(account_id, rs_name, rs_mail, password, rs_authority);
+				accountsList.add(user);
+			}
+			
+			if(accountsList.size() != 0 && name != null) {
+				System.out.println("accountsList.size() != 0 && name != null");
+				for(AccountsBean ab : accountsList) {
+					System.out.println("name" + name);
+					System.out.println("name2" + ab.getName());
+					if(ab.getName() != null && ab.getName().contains(name)) {
+						accountsList2.add(ab);
+					}
+				}
+			} else {
+				accountsList2 = new ArrayList<>(accountsList);
+			}
+			
+			if(accountsList.size() != 0 && mail != null) {
+				System.out.println("accountsList.size() != 0 && mail != null");
+				for(AccountsBean ab : accountsList2) {
+					if(ab.getMail() != null && ab.getMail().equals(mail)) {
+						accountsList3.add(ab);
+					}
+				}
+			} else {
+				accountsList3 = new ArrayList<>(accountsList2);
+			}
+			
+			if(accountsList.size() != 0 && authority1 != 999 && authority2 != 999) {
+				System.out.println("accountsList.size() != 0 && authority != 99");
+				for(AccountsBean ab : accountsList3) {
+					if(ab.getAuthority() != 99 && (ab.getAuthority() == authority1 || ab.getAuthority() == authority2)) {
+						accountsList4.add(ab);
+					}
+					if(( (authority1==1) || (authority2 == 1) ) && ab.getAuthority() == 11) {
+						// 重複を回避
+						if (!accountsList4.contains(ab)) {
+					        accountsList4.add(ab);
+					    }
+					}
+					if(( (authority1==10) || (authority2 == 10) ) && ab.getAuthority() == 11) {
+						// 重複を回避
+						if (!accountsList4.contains(ab)) {
+					        accountsList4.add(ab);
+					    }
+					}
+				}
+			} else {
+				accountsList4 = new ArrayList<>(accountsList3);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return accountsList4;
+	}
+
 }

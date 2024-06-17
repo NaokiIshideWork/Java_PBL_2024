@@ -17,36 +17,22 @@ if(authority==0) {
 if(authority==1) {
 	salesSelected = true;
 }
-if(authority==2) {
+if(authority==10) {
 	accountSelected = true;
 }
-
-// List<String> authorityList = (List<String>) request.getAttribute("authorities");
- 
- 
-// 受け取った値がnullでない場合、それぞれの値に対応する変数をtrueに設定する
-/*
-// 複数受け取りの場合
-if (authorityList != null) {
-    for (String authority : authorityList) {
-        if (authority.equals("1")) {
-            salesSelected = true;
-        } else if (authority.equals("2")) {
-            accountSelected = true;
-        }
-    }
+if(authority==11) {
+	salesSelected = true;
+	accountSelected = true;
 }
-*/
- 
 %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./css/bootstrap.min.css" text="text/css">
-<title>アカウント詳細編集</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./css/bootstrap.min.css" text="text/css">
+	<title>アカウント詳細編集</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -77,6 +63,13 @@ if (authorityList != null) {
 		<h2 class="mt-5" style="margin-left: 80px;">アカウント詳細編集</h2>
 		<div class="" style="margin-left: 100px">
 			<form class="text-right" action="S0043EditScreenServlet" method="POST">
+				
+				<% 
+					        String id = (String) request.getAttribute("id");
+					        System.out.println("S0042jsp id: " + id); 
+					    %>
+					    
+				<input type="hidden" name="id" value="<%= id %>" />
 				<div class="row ">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -135,17 +128,17 @@ if (authorityList != null) {
 						</h3>
 					</div>
 
-					<div class="col-sm-8" style="margin-top: 10px;">
-						<input type="checkbox" name="authority" value="0" id="flexRadioDefault0" <%= noneSelected ? "checked" : "" %>  >
-						<label for="flexRadioDefault0"> 権限なし </label>
-						
-						
-						<input type="checkbox" name="authority" value="1" id="flexRadioDefault1" <%= salesSelected ? "checked" : "" %>  >
-						<label for="flexRadioDefault1"> 売上登録 </label>
-						
-						<input type="checkbox" name="authority" value="2" id="flexRadioDefault2" <%= accountSelected ? "checked" : "" %>  >
-						<label for="flexRadioDefault2"> アカウント登録 </label>
-					</div>
+				<div class="col-sm-8" style="margin-top: 10px;">
+				    <input type="checkbox" name="authority" value="1" id="authoritySale" <%= salesSelected ? "checked" : "" %> >
+				    <label for="authoritySale"> 売上登録 </label>
+				    
+				    <input type="checkbox" name="authority" value="10" id="authorityAccount" <%= accountSelected ? "checked" : "" %> >
+				    <label for="authorityAccount"> アカウント登録 </label>
+				    
+				    <input type="hidden" name="authority" value="0" id="authorityNone" <%= noneSelected ? "checked" : "" %> >
+				    <label for="authorityNone">  </label>
+				</div>
+
 				</div>
 				<div class="row mt-3">
 					<div class="col-sm-3"></div>

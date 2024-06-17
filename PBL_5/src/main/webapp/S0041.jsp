@@ -82,7 +82,12 @@
 					<td class="col-md-1">${obj.getAccount_id()}</td>
 					<td class="col-md-1">${obj.getName()}</td>
 					<td class="col-md-1">${obj.getMail()}</td>
-					<td class="col-md-2"><c:if test="${obj.getAuthority() == 0}">権限なし</c:if><c:if test="${obj.getAuthority() == 1}">売上登録</c:if><c:if test="${obj.getAuthority() == 2}">アカウント登録</c:if></td>
+					<td class="col-md-2">
+						<c:if test="${obj.getAuthority() == 0}">権限なし</c:if>
+						<c:if test="${obj.getAuthority() == 1}">売上登録</c:if>				
+						<c:if test="${obj.getAuthority() == 10}">アカウント登録</c:if>
+						<c:if test="${obj.getAuthority() == 11}">売上登録/アカウント登録</c:if>
+					</td>
 				</tr>
 				
 			</c:forEach>

@@ -3,6 +3,7 @@
     <%@ page import="java.util.List" %>	
 <%
 // 今は片方の権限しか受け取れない
+// 10, 11でも受け取って 11なら両方ちぇっくずみにｓて　10でも反応するように
 String authorityStr = (String) request.getAttribute("authority");
 int authority = Integer.parseInt(authorityStr);
 
@@ -17,7 +18,11 @@ if(authority==0) {
 if(authority==1) {
 	salesSelected = true;
 }
-if(authority==2) {
+if(authority==10) {
+	accountSelected = true;
+}
+if(authority==11) {
+	salesSelected = true;
 	accountSelected = true;
 }
 
@@ -136,15 +141,16 @@ if (authorityList != null) {
 						</h3>
 					</div>
 					<div class="col-sm-8" style="margin-top: 10px;">
-						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault0" <%= noneSelected ? "checked" : "" %> readonly disabled>
-						<label for="flexRadioDefault0"> 権限なし </label>
+					    <input type="checkbox" name="authority" value="1" id="authoritySale" <%= salesSelected ? "checked" : "" %> >
+					    <label for="authoritySale"> 売上登録 </label>
+					    
+					    <input type="checkbox" name="authority" value="10" id="authorityAccount" <%= accountSelected ? "checked" : "" %> >
+					    <label for="authorityAccount"> アカウント登録 </label>
 						
+						<input type="hidden" name="authority" value="0" id="authorityNone" <%= noneSelected ? "checked" : "" %> >
+				        <label for="authorityNone">  </label>
+						</div>
 						
-						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" <%= salesSelected ? "checked" : "" %> readonly disabled>
-						<label for="flexRadioDefault1"> 売上登録 </label>
-						
-						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault2" <%= accountSelected ? "checked" : "" %> readonly disabled>
-						<label for="flexRadioDefault2"> アカウント登録 </label>
 					</div>
 				</div>
 				<div class="row mt-3">

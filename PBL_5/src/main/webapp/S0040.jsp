@@ -72,14 +72,15 @@
 						</h3>
 					</div>
 					<div class="col-sm-8" style="margin-top: 10px;">
-						<input type="radio" name="authority" id="authority_none" value="0" >
-						<label for="flexRadioDefault1"> 権限なし </label> 					
-						
-						<input type="radio" name="authority" id="authority_sales" value="1" >
-						<label for="flexRadioDefault1"> 売上登録 </label> 
-						
-						<input type="radio" name="authority" id="authority_account" value="2" > 
-						<label for="flexRadioDefault1"> アカウント登録 </label> 
+						<input type="checkbox" name="authority" value="0" id="authorityNone">
+					    <label for="authorityNone"> 権限なし </label>
+					    
+						<input type="checkbox" name="authority" value="1" id="authoritySale">
+					    <label for="authoritySale"> 売上登録 </label>
+					    
+					    <input type="checkbox" name="authority" value="10" id="authorityAccount">
+					    <label for="authorityAccount"> アカウント登録 </label>
+					</div>
 					</div>
 				</div>
 				
