@@ -17,7 +17,11 @@ if(authority==0) {
 if(authority==1) {
 	salesSelected = true;
 }
-if(authority==2) {
+if(authority==10) {
+	accountSelected = true;
+}
+if(authority==11) {
+	salesSelected = true;
 	accountSelected = true;
 }
 
@@ -136,15 +140,14 @@ if (authorityList != null) {
 					</div>
 
 					<div class="col-sm-8" style="margin-top: 10px;">
-						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault0" <%= noneSelected ? "checked" : "" %> readonly disabled>
-						<label for="flexRadioDefault0"> 権限なし </label>
+						<input type="checkbox" name="authority" value="1" id="authoritySale" <%= salesSelected ? "checked" : "" %> disabled>
+					    <label for="authoritySale"> 売上登録 </label>
+					    
+					    <input type="checkbox" name="authority" value="10" id="authorityAccount" <%= accountSelected ? "checked" : "" %> disabled>
+					    <label for="authorityAccount"> アカウント登録 </label>
 						
-						
-						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" <%= salesSelected ? "checked" : "" %> readonly disabled>
-						<label for="flexRadioDefault1"> 売上登録 </label>
-						
-						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault2" <%= accountSelected ? "checked" : "" %> readonly disabled>
-						<label for="flexRadioDefault2"> アカウント登録 </label>
+						<input type="hidden" name="authority" value="0" id="authorityNone" <%= noneSelected ? "checked" : "" %> disabled>
+				        <label for="authorityNone">  </label>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -164,7 +167,7 @@ if (authorityList != null) {
 					    <input type="hidden" name="tmpAuthority" value="<%= confirm_authority %>" />
 					    <input type="hidden" name="tmpPassword" value="<%= password %>" />
 					    <button type="submit" class="btn btn-danger me-2">✕OK</button>
-						<a class="btn btn-outline-secondary" href="" role="button">キャンセル</a>
+						<a class="btn btn-outline-secondary" href="javascript:history.back()" role="button">キャンセル</a>
 					</div>
 				</div>
 			</form>

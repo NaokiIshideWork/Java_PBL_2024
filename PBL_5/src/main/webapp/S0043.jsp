@@ -141,13 +141,13 @@ if (authorityList != null) {
 						</h3>
 					</div>
 					<div class="col-sm-8" style="margin-top: 10px;">
-					    <input type="checkbox" name="authority" value="1" id="authoritySale" <%= salesSelected ? "checked" : "" %> >
+					    <input type="checkbox" name="authority" value="1" id="authoritySale" <%= salesSelected ? "checked" : "" %> disabled>
 					    <label for="authoritySale"> 売上登録 </label>
 					    
-					    <input type="checkbox" name="authority" value="10" id="authorityAccount" <%= accountSelected ? "checked" : "" %> >
+					    <input type="checkbox" name="authority" value="10" id="authorityAccount" <%= accountSelected ? "checked" : "" %> disabled>
 					    <label for="authorityAccount"> アカウント登録 </label>
 						
-						<input type="hidden" name="authority" value="0" id="authorityNone" <%= noneSelected ? "checked" : "" %> >
+						<input type="hidden" name="authority" value="0" id="authorityNone" <%= noneSelected ? "checked" : "" %> disabled>
 				        <label for="authorityNone">  </label>
 						</div>
 						

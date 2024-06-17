@@ -53,6 +53,8 @@ public class S0044DeleteConfirmServlet extends HttpServlet {
 		
 		ar.deleteAccount(str_id);
 		System.out.println(str_id + name + "さん" + "を削除しました");
+		
+		response.sendRedirect("AccountSearchServlet");
 
 	}
 
