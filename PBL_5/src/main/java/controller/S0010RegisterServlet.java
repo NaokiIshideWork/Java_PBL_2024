@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -134,6 +135,7 @@ public class S0010RegisterServlet extends HttpServlet {
 			ErrorMessage += "備考が長すぎます,";
 		}
 
+		
 		int subtotal = 0;
 		if (ErrorMessage.isEmpty()) {
 			unit_price = unit_price.replace(",", "");
@@ -143,8 +145,8 @@ public class S0010RegisterServlet extends HttpServlet {
 
 		if (ErrorMessage.isEmpty()) {
 			sblist = new SalesBean(salesDate, accountName, Integer.parseInt(account_id), item_category_name,
-					Integer.parseInt(item_category_id), trade_name, Integer.parseInt(unit_price),
-					Integer.parseInt(sale_number), subtotal, note);
+					Integer.parseInt(item_category_id), trade_name, formatNumber(Integer.parseInt(unit_price)),
+					formatNumber(Integer.parseInt(sale_number)), formatNumber(subtotal), note);
 			request.setAttribute("list", sblist);
 			this.getServletContext().getRequestDispatcher("/S0011.jsp").forward(request, response);
 		} else {
@@ -152,6 +154,10 @@ public class S0010RegisterServlet extends HttpServlet {
 			doGet(request, response);
 		}
 
+	}
+	public static final String formatNumber(long num) {
+		NumberFormat nf = NumberFormat.getNumberInstance();
+		return nf.format(num);
 	}
 
 }

@@ -8,12 +8,12 @@ public class SalesBean {
 	private String item_category;
 	private int category_id;
 	private String trade_name;
-	private int unit_price;
-	private int sale_number;
-	private int subtotal;
+	private String unit_price;
+	private String sale_number;
+	private String subtotal;
 	private String note;
 
-	public SalesBean(String sd, String a, int ai, String ic, int ci, String tn, int up, int sn, int st, String n) {
+	public SalesBean(String sd, String a, int ai, String ic, int ci, String tn, String up, String sn, String st, String n) {
 
 		sale_date = sd;
 		account = a;
@@ -52,16 +52,16 @@ public class SalesBean {
 		return trade_name;
 	}
 
-	public int getUnit_price() {
+	public String getUnit_price() {
 		return unit_price;
 		
 	}
 
-	public int getSale_number() {
+	public String getSale_number() {
 		return sale_number;
 	}
 
-	public int getSubtotal() {
+	public String getSubtotal() {
 		return subtotal;
 	}
 

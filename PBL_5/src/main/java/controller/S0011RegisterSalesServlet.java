@@ -48,7 +48,9 @@ public class S0011RegisterSalesServlet extends HttpServlet {
 		String category_id = request.getParameter("category_id");//categori_id
 		String trade_name = request.getParameter("trade_name");//商品名
 		String unit_price = request.getParameter("unit_price");//単価
+		unit_price = unit_price.replace(",", "");
 		String sale_number = request.getParameter("sale_number");//個数
+		sale_number = sale_number.replace(",", "");
 		String note = request.getParameter("note");//備考
 		
 		mts.insert(sales_date, Integer.parseInt(account_id), Integer.parseInt(category_id), trade_name, Integer.parseInt(unit_price), Integer.parseInt(sale_number), note);
