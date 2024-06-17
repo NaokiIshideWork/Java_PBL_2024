@@ -23,7 +23,7 @@
 							href="RegisterServlet">売上登録</a></li>
 						<li class="nav-item bg-dark-subtle"><a
 							class="nav-link active" aria-current="page"
-							href="SearchSalesServlet">売上検索</a></li>
+							href="SearchSales">売上検索</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="ToDoDoneServlet">アカウント登録</a></li>
 						<li class="nav-item"><a class="nav-link"

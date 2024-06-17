@@ -31,7 +31,6 @@ public class S0024Servlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
 		S0023ConfirmBean S0023Confirmlist = null;
@@ -57,7 +56,7 @@ public class S0024Servlet extends HttpServlet {
 		//商品カテゴリー
 		String category_id = request.getParameter("category_id");
 		String category_name = "";
-		if (account_id.equals("選択して下さい。")) {
+		if (category_id.equals("選択して下さい。")) {
 			error_message += "商品カテゴリーが未選択です,";
 		} else {
 			category_name = mts.SearchCategory_name(Integer.parseInt(category_id));
@@ -101,6 +100,8 @@ public class S0024Servlet extends HttpServlet {
 			request.setAttribute("err", error_message);
 			this.getServletContext().getRequestDispatcher("/S0023.jsp").forward(request, response);
 		}
+		// TODO Auto-generated method stub
+		
 	}
 
 	/**
@@ -109,6 +110,7 @@ public class S0024Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 
 	}
 

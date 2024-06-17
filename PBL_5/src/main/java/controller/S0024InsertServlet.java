@@ -34,7 +34,7 @@ public class S0024InsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
+		
 	}
 
 	/**

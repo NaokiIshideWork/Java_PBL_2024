@@ -10,12 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.AccountsBean;
-import model.CategoriesBean;
 import model.Sales2Bean;
 import model.SalesSearchBean;
 import model.SalesSearchDisplayBean;
-import services.SQLServicesPBLreg;
 import services.SQLServicesPBLsfs;
 
 /**
@@ -39,34 +36,20 @@ public class S0020SearchSalesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		SQLServicesPBLreg sqlserv = new SQLServicesPBLreg();
+		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
+		HttpSession session = request.getSession();
+		SalesSearchBean ssb_list =(SalesSearchBean) session.getAttribute("ssb");
+		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
 		
-		String ErrorMessage = "";
-
-		ArrayList<AccountsBean> account_list = null;
-		account_list = sqlserv.canSelectAllAcount();
-
-		if (account_list.isEmpty()) {
-			ErrorMessage += "アカウントテーブルに存在しません";
-			request.setAttribute("err", ErrorMessage);
-		} else {
-			request.setAttribute("accounts", account_list);
-		}
-
-		//商品カテゴリー表示用
-		ArrayList<CategoriesBean> categories_list = null;
-		categories_list = sqlserv.canSelectAllCategory();
-
-		if (categories_list.isEmpty()) {
-			ErrorMessage += "商品カテゴリーテーブルに存在しません";
-			request.setAttribute("err", ErrorMessage);
-		} else {
-			request.setAttribute("cate", categories_list);
-		}
+		account_list =mts.SalesSearchDisplay(ssb_list.getSalesDateB(),
+				ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),ssb_list.getProductName(), ssb_list.getRemarks());	
 		
-		this.getServletContext().getRequestDispatcher("/S0020.jsp").forward(request, response);
-	}
+		session.removeAttribute("list");
+		session.setAttribute("list", account_list);
+		
+		this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
+		
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -108,7 +91,7 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		if(Sales2Bean_list.isEmpty()) {
 			ErrorMessage += "検索結果はありません";
 			request.setAttribute("err", ErrorMessage);
-			doGet(request, response);
+			this.getServletContext().getRequestDispatcher("/S0020.jsp").forward(request, response);		
 		}else {
 			
 			account_list =mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName, remarks);	

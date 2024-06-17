@@ -24,7 +24,7 @@
 							href="RegisterServlet">売上登録</a></li>
 						<li class="nav-item bg-dark-subtle"><a
 							class="nav-link active" aria-current="page"
-							href="SearchSalesServlet">売上検索</a></li>
+							href="SearchSales">売上検索</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="ToDoDoneServlet">アカウント登録</a></li>
 						<li class="nav-item"><a class="nav-link"
@@ -132,7 +132,7 @@
 						<div class="col-sm-8" style="margin-left: 30px;">
 							<button type="submit" class="btn btn-primary" name="up_date_id"
 								value="${S0024list.getSale_id()}">✔O K</button>
-							<a class="btn btn-outline-secondary" onclick="history.back()" role="button">キャンセル</a>
+							<a class="btn btn-outline-secondary" href="EditSalesDetails?sale_id=${S0024list.getSale_id()}" role="button">キャンセル</a>
 						</div>
 					</div>
 			</form>

@@ -26,7 +26,7 @@
 							href="RegisterServlet">売上登録</a></li>
 						<li class="nav-item bg-dark-subtle"><a
 							class="nav-link active" aria-current="page"
-							href="SearchSalesServlet">売上検索</a></li>
+							href="SearchSales">売上検索</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="ToDoDoneServlet">アカウント登録</a></li>
 						<li class="nav-item"><a class="nav-link"
@@ -50,8 +50,8 @@
 
 		<div class="row" style="padding-right: 350px;">
 			<div class="col-12 ">
-				<form class="text-center style="
-					margin-left: -15px;"　action="SearchSalesServlet" method="post">
+				<form class="text-center" style="
+					margin-left: -15px;"action="SearchSalesServlet" method="post">
 					<div class="row mb-3 justify-content-center">
 						<div class="col-sm-4" style="text-align: right">
 							<label for="salesDate" class="col-form-label ">販売日</label>
