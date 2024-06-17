@@ -72,7 +72,7 @@ public class S0024InsertServlet extends HttpServlet {
 		
 		session.removeAttribute("list");
 		session.setAttribute("list", account_list);
-		this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
+		response.sendRedirect("SearchSalesServlet");
 	}
 
 }
