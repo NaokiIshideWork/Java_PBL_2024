@@ -38,7 +38,8 @@ public class AccountRegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    String name = request.getParameter("name");
+		request.setCharacterEncoding("UTF-8");
+		String name = request.getParameter("name");
 	    String mail = request.getParameter("mail");
 	    String password = request.getParameter("password");
 	    int authority;
