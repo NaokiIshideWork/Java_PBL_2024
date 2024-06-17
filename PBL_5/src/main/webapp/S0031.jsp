@@ -53,7 +53,7 @@ if (authorityList != null) {
 			</ul>
 		</div>
 	</nav>
-
+	
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 40px;">アカウントを登録してよろしいですか?</h2>
 		<div class="" style="margin-left: 100px">

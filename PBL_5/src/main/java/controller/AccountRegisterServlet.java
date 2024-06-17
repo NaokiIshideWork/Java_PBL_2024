@@ -59,6 +59,7 @@ public class AccountRegisterServlet extends HttpServlet {
 	        System.err.println("権限値が指定されていません。デフォルト値を使用します。");
 	        authority = DEFAULT_AUTHORITY; // デフォルトの権限値を設定
 	    }
+	    
 
 	    System.out.println("doPost name: " + name);
 	    System.out.println("doPost mail: " + mail);
@@ -73,6 +74,11 @@ public class AccountRegisterServlet extends HttpServlet {
 	    System.out.println("登録しました");
 
 	    // どこかでパスワードチェック
+	}
+
+	private boolean isEmailAlreadyRegistered(String mail) {
+		// TODO 自動生成されたメソッド・スタブ
+		return false;
 	}
 
 
