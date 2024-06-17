@@ -83,7 +83,7 @@ public class S0024Servlet extends HttpServlet {
 		if (sale_number.isEmpty()) {
 			error_message += "個数を入力して下さい,";
 		} else if (!sale_number.matches("\\d{1,3}(,\\d{3})*")) {
-				error_message += "個数を正しく入力して下さい,";
+			error_message += "個数を正しく入力して下さい,";
 		}
 		//備考
 		String note = request.getParameter("note");
@@ -109,7 +109,6 @@ public class S0024Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 
 	}
 

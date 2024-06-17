@@ -130,9 +130,9 @@
 							value="${list.getSale_id() }">✔編集</button>
 					</div>
 			</form>
-			<div class="col-sm-1">
+			<div class="col-sm-1" style= "white-space: nowrap;">
 				<form method="get" action="ConfirmationSalesDeletion">
-					<button type="submit" class="btn btn-danger btn-search"
+					<button type="submit" class="btn btn-danger "
 						name="sale_id" value="${list.getSale_id() }">✕削除</button>
 				</form>
 			</div>
