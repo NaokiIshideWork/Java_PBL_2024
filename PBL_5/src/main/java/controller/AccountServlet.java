@@ -126,19 +126,22 @@ public class AccountServlet extends HttpServlet {
 
 	private boolean isEmailAlreadyRegistered(String mail) {
 		boolean exists = false;
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pbl", "root", "root")) {
-			String sql = "SELECT COUNT(*) FROM accounts WHERE mail = ?";
-			try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-				stmt.setString(1, mail);
-				try (ResultSet rs = stmt.executeQuery()) {
-					if (rs.next() && rs.getInt(1) > 0) {
-						System.out.println("重複あり");
-						exists = true; // メールアドレスが既に登録されている場合
-					}
-				}
-			}
-		} catch (SQLException e) {
-			// エラー処理
+		
+		try {
+			Class.forName("org.mariadb.jdbc.Driver");
+			 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pbl", "root", "root");
+				String sql = "SELECT COUNT(*) FROM accounts WHERE mail = ?";
+				PreparedStatement stmt = conn.prepareStatement(sql);
+					stmt.setString(1, mail);
+					 ResultSet rs = stmt.executeQuery();
+						if (rs.next() && rs.getInt(1) > 0) {
+							System.out.println("重複あり");
+							exists = true; // メールアドレスが既に登録されている場合
+						}
+			} catch (SQLException e) {
+				// エラー処理
+				e.printStackTrace();
+			}catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		return exists;
