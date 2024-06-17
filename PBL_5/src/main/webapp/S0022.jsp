@@ -44,7 +44,7 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 100px;">売上詳細表示</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right" action="EditSalesDetails" method="post">
+			<form class="text-right" action="EditSalesDetails" method="get">
 				<div class="row ">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -131,7 +131,7 @@
 					</div>
 			</form>
 			<div class="col-sm-1">
-				<form method="post" action="ConfirmationSalesDeletion">
+				<form method="get" action="ConfirmationSalesDeletion">
 					<button type="submit" class="btn btn-danger btn-search"
 						name="sale_id" value="${list.getSale_id() }">✕削除</button>
 				</form>

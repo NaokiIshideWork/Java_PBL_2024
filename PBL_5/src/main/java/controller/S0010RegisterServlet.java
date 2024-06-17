@@ -71,8 +71,8 @@ public class S0010RegisterServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		request.setCharacterEncoding("UTF-8");
-		SQLServicesPBLreg mts = new SQLServicesPBLreg();
-		SalesBean list = null;
+		SQLServicesPBLreg sqlreg = new SQLServicesPBLreg();
+		SalesBean sblist = null;
 		String error_message = "";
 
 		String sales_date = request.getParameter("sale_date");
@@ -88,7 +88,7 @@ public class S0010RegisterServlet extends HttpServlet {
 		if (account_id.equals("選択して下さい。")) {
 			error_message += "担当が未選択です,";
 		} else {
-			accountName = mts.SelectRegName(Integer.parseInt(account_id));//担当名
+			accountName = sqlreg.SelectRegName(Integer.parseInt(account_id));//担当名
 		}
 
 		//商品カテゴリーに対する
@@ -97,7 +97,7 @@ public class S0010RegisterServlet extends HttpServlet {
 		if (item_category_id.equals("選択して下さい。")) {
 			error_message += "担当が未選択です,";
 		} else {
-			item_category_name = mts.SelectCategory_Name(Integer.parseInt(item_category_id));
+			item_category_name = sqlreg.SelectCategory_Name(Integer.parseInt(item_category_id));
 		}
 
 		//商品名
@@ -142,10 +142,10 @@ public class S0010RegisterServlet extends HttpServlet {
 		}
 
 		if (error_message.isEmpty()) {
-			list = new SalesBean(sales_date, accountName, Integer.parseInt(account_id), item_category_name,
+			sblist = new SalesBean(sales_date, accountName, Integer.parseInt(account_id), item_category_name,
 					Integer.parseInt(item_category_id), trade_name, Integer.parseInt(unit_price),
 					Integer.parseInt(sale_number), subtotal, note);
-			request.setAttribute("list", list);
+			request.setAttribute("list", sblist);
 			this.getServletContext().getRequestDispatcher("/S0011.jsp").forward(request, response);
 		} else {
 			request.setAttribute("err", error_message);

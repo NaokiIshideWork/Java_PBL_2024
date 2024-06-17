@@ -17,7 +17,7 @@ import services.SQLServicesPBLsfs;
 /**
  * Servlet implementation class S0025DeleteServlet
  */
-@WebServlet("/S0025DeleteServlet")
+@WebServlet("/DeleteServlet")
 public class S0025DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -35,7 +35,7 @@ public class S0025DeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		 response.sendRedirect("SearchSalesServlet");
+		 //response.sendRedirect("SearchSalesServlet");
 	}
 
 	/**
@@ -57,9 +57,7 @@ public class S0025DeleteServlet extends HttpServlet {
 		
 		session.removeAttribute("list");
 		session.setAttribute("list", account_list);
-		for (SalesSearchDisplayBean salesSearchDisplayBean : account_list) {
-			System.out.println(account_list.get(0).getCategory_name());
-		}
+		
 		this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
 	}
 
