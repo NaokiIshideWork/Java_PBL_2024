@@ -15,23 +15,23 @@
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="ToDoServlet">物品売上管理システム</a>
+			<a class="navbar-brand" href="#">物品売上管理システム</a>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item"><a class="nav-link"
-						aria-current="page" href="ToDoDelayServlet">ダッシュボード</a></li>
+						aria-current="page" href="DashboardServlet">ダッシュボード</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="RegisterServlet">売上登録</a></li>
 					<li class="nav-item bg-dark-subtle"><a class="nav-link"
-						href="SearchSalesServlet">売上検索</a></li>
+						href="SearchSales">売上検索</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="ToDoDoneServlet">アカウント登録</a></li>
+						href="AccountServlet">アカウント登録</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="ToDoDoneServlet">アカウント検索</a></li>
+						href="AccountSearchServlet">アカウント検索</a></li>
 				</ul>
 			</div>
 			<ul class="navbar-nav justify-content-end">
-				<li class="nav-item"><a class="nav-link" href="ToDoDoneServlet">ログアウト</a></li>
+				<li class="nav-item"><a class="nav-link" href="LogoutServlet">ログアウト</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -39,7 +39,7 @@
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上詳細削除確認</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right" action="S0025DeleteServlet" method="post">
+			<form class="text-right" action="DeleteServlet" method="post">
 				<div class="row ">
 					<div class="col-sm-2">
 						<h3 for="inputEmail" class="col-form-label"
@@ -127,8 +127,8 @@
 				<div class="row mt-3">
 					<div class="col-sm-2"></div>
 					<div class="col-sm-8" style="margin-left: 30px;">
-						<button type="submit" class="btn btn-danger" name="delete_id" value="${list.getSale_di()}">✕ O K</button>
-						<a class="btn btn-outline-secondary" onclick="history.back()" role="button">キャンセル</a>
+						<button type="submit" class="btn btn-danger" name="delete_id" value="${list.getSale_id()}">✕ O K</button>
+						<a class="btn btn-outline-secondary" href="SalesDetailsDisplayServlet?sale_id=${list.getSale_id()}" role="button">キャンセル</a>
 					</div>
 				</div>
 			</form>

@@ -38,7 +38,8 @@ public class AccountRegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    String name = request.getParameter("name");
+		request.setCharacterEncoding("UTF-8");
+		String name = request.getParameter("name");
 	    String mail = request.getParameter("mail");
 	    String password = request.getParameter("password");
 	    int authority;
@@ -59,6 +60,7 @@ public class AccountRegisterServlet extends HttpServlet {
 	        System.err.println("権限値が指定されていません。デフォルト値を使用します。");
 	        authority = DEFAULT_AUTHORITY; // デフォルトの権限値を設定
 	    }
+	    
 
 	    System.out.println("doPost name: " + name);
 	    System.out.println("doPost mail: " + mail);
@@ -73,6 +75,11 @@ public class AccountRegisterServlet extends HttpServlet {
 	    System.out.println("登録しました");
 
 	    // どこかでパスワードチェック
+	}
+
+	private boolean isEmailAlreadyRegistered(String mail) {
+		// TODO 自動生成されたメソッド・スタブ
+		return false;
 	}
 
 

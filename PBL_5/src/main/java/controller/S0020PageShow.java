@@ -8,25 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.AccountsBean;
 import model.CategoriesBean;
-import model.S0023Bean;
 import services.SQLServicesPBLreg;
-import services.SQLServicesPBLsfs;
 
 /**
- * Servlet implementation class S0023Servlet
+ * Servlet implementation class S0020PageShow
  */
-@WebServlet("/EditSalesDetails")
-public class S0023Servlet extends HttpServlet {
+@WebServlet("/SearchSales")
+public class S0020PageShow extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public S0023Servlet() {
+    public S0020PageShow() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,25 +34,33 @@ public class S0023Servlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
 		SQLServicesPBLreg sqlserv = new SQLServicesPBLreg();
-		String sale_id = request.getParameter("sale_id");
-		S0023Bean S0023Bean_list = null;
 		
-		S0023Bean_list = mts.SalesEdit(Integer.parseInt(sale_id));
-		
+		String ErrorMessage = "";
+
 		ArrayList<AccountsBean> account_list = null;
 		account_list = sqlserv.canSelectAllAcount();
+
+		if (account_list.isEmpty()) {
+			ErrorMessage += "アカウントテーブルに存在しません";
+			request.setAttribute("err", ErrorMessage);
+		} else {
+			request.setAttribute("accounts", account_list);
+		}
+
 		//商品カテゴリー表示用
 		ArrayList<CategoriesBean> categories_list = null;
 		categories_list = sqlserv.canSelectAllCategory();
 
-		HttpSession session = request.getSession();
-		session.setAttribute("accounts", account_list);
-		session.setAttribute("cate", categories_list);
+		if (categories_list.isEmpty()) {
+			ErrorMessage += "商品カテゴリーテーブルに存在しません";
+			request.setAttribute("err", ErrorMessage);
+		} else {
+			request.setAttribute("cate", categories_list);
+		}
 		
-		session.setAttribute("S0023list", S0023Bean_list);
-		this.getServletContext().getRequestDispatcher("/S0023.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/S0020.jsp").forward(request, response);
+	
 	}
 
 	/**
@@ -63,8 +68,7 @@ public class S0023Servlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
+		doGet(request, response);
 	}
 
 }

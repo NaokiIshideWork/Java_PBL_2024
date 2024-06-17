@@ -12,7 +12,7 @@ import util.DbUtil;
 
 public class SQLServicesPBLreg {
 
-	public ArrayList<CategoriesBean> SelectAllCategory() {
+	public ArrayList<CategoriesBean> canSelectAllCategory() {
 		String sql = "SELECT * FROM categories WHERE active_flg = 1;";
 		ArrayList<CategoriesBean> categories_list = new ArrayList<CategoriesBean>();
 		try (
@@ -33,7 +33,7 @@ public class SQLServicesPBLreg {
 		return categories_list;
 	}
 
-	public ArrayList<AccountsBean> SelectAllAcount() {
+	public ArrayList<AccountsBean> canSelectAllAcount() {
 		String sql = "SELECT * FROM accounts WHERE authority = 1 OR authority =11 ; ";
 		ArrayList<AccountsBean> account_list = new ArrayList<AccountsBean>();
 		try (
