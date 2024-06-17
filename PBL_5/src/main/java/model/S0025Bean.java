@@ -24,7 +24,7 @@ public class S0025Bean {
 		this.note = note;
 	}
 
-	public int getSale_di() {
+	public int getSale_id() {
 		return sale_id;
 	}
 	public String getSale_date() {
