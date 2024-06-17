@@ -42,25 +42,25 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLreg sqlserv = new SQLServicesPBLreg();
 		
-		String error_message = "";
+		String ErrorMessage = "";
 
 		ArrayList<AccountsBean> account_list = null;
-		account_list = sqlserv.SelectAllAcount();
+		account_list = sqlserv.canSelectAllAcount();
 
 		if (account_list.isEmpty()) {
-			error_message += "アカウントテーブルに存在しません";
-			request.setAttribute("err", error_message);
+			ErrorMessage += "アカウントテーブルに存在しません";
+			request.setAttribute("err", ErrorMessage);
 		} else {
 			request.setAttribute("accounts", account_list);
 		}
 
 		//商品カテゴリー表示用
 		ArrayList<CategoriesBean> categories_list = null;
-		categories_list = sqlserv.SelectAllCategory();
+		categories_list = sqlserv.canSelectAllCategory();
 
 		if (categories_list.isEmpty()) {
-			error_message += "商品カテゴリーテーブルに存在しません";
-			request.setAttribute("err", error_message);
+			ErrorMessage += "商品カテゴリーテーブルに存在しません";
+			request.setAttribute("err", ErrorMessage);
 		} else {
 			request.setAttribute("cate", categories_list);
 		}
@@ -79,18 +79,18 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		ArrayList<Sales2Bean> Sales2Bean_list = new ArrayList<Sales2Bean>();
 		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
 		
-		String error_message = "";
+		String ErrorMessage = "";
 
 		String salesDateB = request.getParameter("salesDateB");
 		if (salesDateB.isEmpty()) {
-			error_message += "販売日(検索開始日)を入力して下さい,";//ok
+			ErrorMessage += "販売日(検索開始日)を入力して下さい,";//ok
 		} else {
 			salesDateB = salesDateB.replace("-", "/");
 		}
 		
 		String salesDateA = request.getParameter("salesDateA");
 		if (salesDateA.isEmpty()) {
-			error_message += "販売日(検索終了日)を入力して下さい,";//ok
+			ErrorMessage += "販売日(検索終了日)を入力して下さい,";//ok
 		} else {
 			salesDateA = salesDateA.replace("-", "/");
 		}
@@ -106,8 +106,8 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		//検索結果が0件か?
 		Sales2Bean_list = mts.selectAllSales(salesDateB, salesDateA, salesPerson, productCategory, productName, remarks);
 		if(Sales2Bean_list.isEmpty()) {
-			error_message += "検索結果はありません";
-			request.setAttribute("err", error_message);
+			ErrorMessage += "検索結果はありません";
+			request.setAttribute("err", ErrorMessage);
 			doGet(request, response);
 		}else {
 			

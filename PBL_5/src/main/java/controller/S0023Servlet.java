@@ -45,10 +45,10 @@ public class S0023Servlet extends HttpServlet {
 		S0023Bean_list = mts.SalesEdit(Integer.parseInt(sale_id));
 		
 		ArrayList<AccountsBean> account_list = null;
-		account_list = sqlserv.SelectAllAcount();
+		account_list = sqlserv.canSelectAllAcount();
 		//商品カテゴリー表示用
 		ArrayList<CategoriesBean> categories_list = null;
-		categories_list = sqlserv.SelectAllCategory();
+		categories_list = sqlserv.canSelectAllCategory();
 
 		HttpSession session = request.getSession();
 		session.setAttribute("accounts", account_list);
