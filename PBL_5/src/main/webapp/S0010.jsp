@@ -48,6 +48,12 @@
 			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
 			role="alert">${err}</div>
 	</c:if>
+	<c:if test="${not empty isAuthSales}">
+	<div
+			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
+			role="alert">${isAuthSales}</div>
+	</c:if>
+	
 	<c:choose>	
 	<c:when test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
 	<div class="container position-absolute">

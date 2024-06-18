@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.AccountsBean;
 import model.CategoriesBean;
@@ -38,6 +39,7 @@ public class S0010RegisterServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLreg sqlserv = new SQLServicesPBLreg();
+		HttpSession session = request.getSession();
 		String ErrorMessage = "";
 
 		//担当表示用
@@ -60,7 +62,8 @@ public class S0010RegisterServlet extends HttpServlet {
 		} else {
 			request.setAttribute("cate", categories_list);
 		}
-
+		String isAuth = (String) session.getAttribute("isAuthSales");
+		request.setAttribute("isAuthSales", isAuth);
 		this.getServletContext().getRequestDispatcher("/S0010.jsp").forward(request, response);
 	}
 

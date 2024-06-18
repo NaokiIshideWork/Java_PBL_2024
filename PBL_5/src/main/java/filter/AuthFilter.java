@@ -56,22 +56,37 @@ public class AuthFilter extends HttpFilter implements Filter {
 		try {
 			referer = req.getHeader("referer").replaceAll(".*/([^/?]+).*", "$1");
 		} catch (Exception e) {
-			referer = null;
+			referer = null;//直打ちである
 		}
-
+//		System.out.println("->"+referer);
 		if (session.getAttribute("LoginUser") == null) {
 			if (!path.equals("/LoginServlet")) {
 				res.sendRedirect("LoginServlet");
 				return;
 			}
-		} else {
+		}else {
 			if (referer == null && !(ab.getAuthority() == 1 || ab.getAuthority() == 11)
-					&& !(path.equals("/SearchSales") || path.equals("/SearchSalesServlet"))) {
+					&& (path.equals("/RegisterServlet") || path.equals("/RegisterSalesServlet"))) {
 				ErrorMessage ="売上編集権限はありません";
-				req.getSession().setAttribute("isAuth", ErrorMessage);
-				res.sendRedirect("SearchSalesServlet");
+				req.getSession().setAttribute("isAuthSales", ErrorMessage);
+				res.sendRedirect("RegisterServlet");//検索条件に返す
 				return;
 			}
+			else if (referer == null && !(ab.getAuthority() == 1 || ab.getAuthority() == 11)
+					&& !(path.equals("/SearchSales") || path.equals("/SearchSalesServlet"))) {
+				ErrorMessage ="売上編集権限はありません,ページを直打ちしないでください";
+				req.getSession().setAttribute("isAuth", ErrorMessage);
+				res.sendRedirect("SearchSalesServlet");//検索条件に返す
+				return;
+			}
+			
+//			else if(referer == null && !(ab.getAuthority() == 10 || ab.getAuthority() == 11)
+//			&& !(path.equals("/") || path.equals("/"))) {
+//				ErrorMessage ="アカウント編集権限はありません,ページを直打ちしないでください";
+//				req.getSession().setAttribute("isAuth", ErrorMessage);
+//				res.sendRedirect("");//
+//				return;
+//			}
 
 		}
 		chain.doFilter(request, response);
