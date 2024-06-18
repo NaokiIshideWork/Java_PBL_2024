@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class S0043EditConfirmServlet
  */
-@WebServlet("/S0043EditScreenServlet")
+@WebServlet("/EditScreenServlet")
 public class S0043EditScreenServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

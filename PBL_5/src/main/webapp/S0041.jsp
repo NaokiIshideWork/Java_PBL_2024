@@ -55,7 +55,7 @@
 						test="${sessionScope.LoginUser.getAuthority() eq 10 or sessionScope.LoginUser.getAuthority() eq 11}">
 						<td class="col-md-1">
 							<div class="d-flex align-items-center">
-								<form action="S0042EditAccountServlet" method="post"
+								<form action="EditAccountServlet" method="post"
 									class="me-2">
 									<input type="hidden" name="tmpId"
 										value="${obj.getAccount_id()}" /> <input type="hidden"
@@ -66,7 +66,7 @@
 										name="tmpPassword" value="${obj.getPassword()}" />
 									<button type="submit" class="btn btn-primary">✓ 編集</button>
 								</form>
-								<form action="S0044DeleteAccountServlet" method="post">
+								<form action="DeleteAccountServlet" method="post">
 									<input type="hidden" name="tmpId"
 										value="${obj.getAccount_id()}" /> <input type="hidden"
 										name="tmpName" value="${obj.getName()}" /> <input

@@ -62,7 +62,7 @@ if (authority == 11) {
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 80px;">アカウント詳細編集</h2>
 		<div class="" style="margin-left: 100px">
-			<form class="text-right" action="S0043EditScreenServlet"
+			<form class="text-right" action="EditScreenServlet"
 				method="POST">
 				<%
 				String id = (String) request.getAttribute("id");

@@ -13,7 +13,7 @@ import services.AccountRecord;
 /**
  * Servlet implementation class S0043_EditConfirmServlet
  */
-@WebServlet("/S0043_EditConfirmServlet")
+@WebServlet("/EditConfirmServlet")
 public class S0043_EditConfirmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

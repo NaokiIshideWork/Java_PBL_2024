@@ -13,7 +13,7 @@ import services.AccountRecord;
 /**
  * Servlet implementation class S0044DeleteConfirm
  */
-@WebServlet("/S0044DeleteConfirmServlet")
+@WebServlet("/DeleteConfirmServlet")
 public class S0044DeleteConfirmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
