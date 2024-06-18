@@ -42,9 +42,35 @@ public class AccountRegisterServlet extends HttpServlet {
 	    String mail = request.getParameter("mail");
 	    String password = request.getParameter("password");
 	    int authority;
- 
+	    String[] authorities = request.getParameterValues("submitAuthority");
+		String strAuthority = null;
+
+		for (String auth : authorities) {
+		    System.out.println(auth); // コンソールに出力
+		}
+
+		if (authorities != null) {
+		    if (authorities.length == 1) {
+		        // 一つの要素だけauthoritiesに入っていたらその要素をstrAuthorityに代入する
+		        strAuthority = authorities[0];
+		    } else if (authorities.length == 2) {
+		        // 二つの要素が入っていて、それらの要素が1という文字列と10という文字列ならばstrAuthorityに11という文字列を代入する
+		        boolean hasOne = false;
+		        boolean hasTen = false;
+		        for (String auth : authorities) {
+		            if (auth.equals("1")) hasOne = true;
+		            else if (auth.equals("10")) hasTen = true;
+		        }
+		        if (hasOne && hasTen) {
+		            strAuthority = "11";
+		        }
+		    }
+		}
+
+		
+		
 	    // authority パラメータの取得と解析
-	    String authorityParam = request.getParameter("authority");
+	    String authorityParam = strAuthority;
 	    if (authorityParam != null && !authorityParam.isEmpty()) {
 	        try {
 	            authority = Integer.parseInt(authorityParam);

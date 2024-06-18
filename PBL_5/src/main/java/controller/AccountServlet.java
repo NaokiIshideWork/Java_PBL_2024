@@ -48,38 +48,50 @@ public class AccountServlet extends HttpServlet {
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
 		String confirmpassword = request.getParameter("confirmPassword");
-
-		// authority_salesとauthority_accountの値を受け取る
-
-		String[] authorities = request.getParameterValues("authority");
-		
-		
-
+	
 		System.out.println(name);
 		System.out.println(mail);
 		System.out.println("パスワード" + password);
 		System.out.println("確認用パスワード" + confirmpassword);
-		System.out.println(authorities);
+		
+		// authority_salesとauthority_accountの値を受け取る
 
-	    String authoritySales = request.getParameter("authority_sales");
-	    String authorityAccount = request.getParameter("authority_account");
-	    
-	    int authorities;
-	    if ("1".equals(authoritySales) && "0".equals(authorityAccount)) {
-	        authorities = 1; // 売上登録が選択された場合
-	    } else if ("0".equals(authoritySales) && "1".equals(authorityAccount)) {
-	        authorities = 0; // アカウント登録が選択された場合
-	    } else if ("1".equals(authoritySales) && "1".equals(authorityAccount)) {
-	        authorities = 11; // 両方選択された場合
-	    } else {
-	        authorities = 00; // どちらも選択されなかった場合
-	    }
-	    
+		String[] authorities = request.getParameterValues("authority");
+		String authority = null;
+
+		for (String auth : authorities) {
+		    System.out.println(auth); // コンソールに出力
+		}
+
+		if (authorities.length == 1) {
+		    authority = "0";
+		} else if (authorities.length == 2) {
+		    // 0という文字列と任意の文字列が入っていたら、1または10のみ受け付ける
+		    if (authorities[0].equals("0") && (authorities[1].equals("1") || authorities[1].equals("10"))) {
+		        authority = authorities[1];
+		    } else if (authorities[1].equals("0") && (authorities[0].equals("1") || authorities[0].equals("10"))) {
+		        authority = authorities[0];
+		    }
+		} else if (authorities.length == 3) {
+		    // 三つの要素が0と1と10という文字列の場合
+		    boolean hasZero = false;
+		    boolean hasOne = false;
+		    boolean hasTen = false;
+		    for (String auth : authorities) {
+		        if (auth.equals("0")) hasZero = true;
+		        else if (auth.equals("1")) hasOne = true;
+		        else if (auth.equals("10")) hasTen = true;
+		    }
+		    if (hasZero && hasOne && hasTen) {
+		        authority = "11";
+		    }
+		}
+		
 		System.out.println("氏名:" + name);
 		System.out.println("メールアドレス:" + mail);
 		System.out.println("パスワード:" + password);
 		System.out.println("確認用パスワード:" + confirmpassword);
-		System.out.println("権限:" + authorities);
+		System.out.println("権限:" + authority);
 
 
 		
@@ -130,7 +142,7 @@ public class AccountServlet extends HttpServlet {
 			request.setAttribute("name", name);
 			request.setAttribute("mail", mail);
 			request.setAttribute("password", password);
-			request.setAttribute("authorities", authorities);
+			request.setAttribute("authority", authority);
 			// 次の処理に進む
 			request.getRequestDispatcher("/S0031.jsp").forward(request, response);
 		} else {

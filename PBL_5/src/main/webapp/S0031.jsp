@@ -4,20 +4,27 @@
 <%@ page import="java.util.List" %>	
 <% 
 // String[] authorities = request.getParameterValues("authorities");
-List<String> authorityList = (List<String>) request.getAttribute("authorities");
+String authority = (String) request.getAttribute("authority");
+System.out.println("S0031 あたま　Authority: " + authority);
 
 boolean salesSelected = false;
 boolean accountSelected = false;
+boolean noneSelected = false;
 
 // 受け取った値がnullでない場合、それぞれの値に対応する変数をtrueに設定する
-if (authorityList != null) {
-    for (String authority : authorityList) {
-        if (authority.equals("1")) {
-            salesSelected = true;
-        } else if (authority.equals("2")) {
-            accountSelected = true;
-        }
-    }
+if(authority.equals("1")){
+	System.out.println("Authority==1");
+	salesSelected = true;
+} else if(authority.equals("10")) {
+	System.out.println("Authority==10");
+	accountSelected = true;
+} else if(authority.equals("11")) {
+	System.out.println("Authority==11");
+	salesSelected = true;
+	accountSelected = true;
+} else if(authority.equals("0")) {
+	System.out.println("Authority==0");
+	noneSelected = true;
 }
 
 %>
@@ -122,11 +129,13 @@ if (authorityList != null) {
 					</div>
 					
 					<div class="col-sm-8" style="margin-top: 10px;">
-						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" <%= salesSelected ? "checked" : "" %> readonly disabled>
+						<input type="checkbox" name="authority" value="1" id="flexRadioDefault1" <%= salesSelected ? "checked" : "" %> disabled>
 						<label for="flexRadioDefault1"> 売上登録 </label> 
 						
-						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault2" <%= accountSelected ? "checked" : "" %> readonly disabled> 
+						<input type="checkbox" name="authority" value="10" id="flexRadioDefault2" <%= accountSelected ? "checked" : "" %> disabled> 
 						<label for="flexRadioDefault2"> アカウント登録 </label>
+						
+						<input type="hidden" name="submitAuthority" value="<%= authority %>" />
 					</div>
 				</div>
 
