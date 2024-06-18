@@ -17,7 +17,11 @@ if(authority==0) {
 if(authority==1) {
 	salesSelected = true;
 }
-if(authority==2) {
+if(authority==10) {
+	accountSelected = true;
+}
+if(authority==11) {
+	salesSelected = true;
 	accountSelected = true;
 }
 
@@ -51,24 +55,24 @@ if (authorityList != null) {
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="ToDoServlet">物品売上管理システム</a>
+            <a class="navbar-brand" href="#">物品売上管理システム</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link "
-                        aria-current="page" href="ToDoDelayServlet">ダッシュボード</a></li>
+                        aria-current="page" href="DashboardServlet">ダッシュボード</a></li>
                     <li class="nav-item"><a class="nav-link"
-                        href="ToDoDoneServlet">売上登録</a></li>
+                        href="AccountRegisterServlet">売上登録</a></li>
                     <li class="nav-item"><a class="nav-link"
-                            href="ToDoDoneServlet">売上検索</a></li>  
+                            href="SearchSalesServlet">売上検索</a></li>  
                     <li class="nav-item"><a class="nav-link"
-                                href="ToDoDoneServlet">アカウント登録</a></li>  
+                                href="AccountRegisterServlet">アカウント登録</a></li>  
                     <li class="nav-item bg-dark-subtle"><a class="nav-link"
-                                    href="ToDoDoneServlet">アカウント検索</a></li>
+                                    href="AccountSearchServlet">アカウント検索</a></li>
                 </ul>
             </div>
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item"><a class="nav-link"
-                    href="ToDoDoneServlet">ログアウト</a></li>
+                    href="LogoutServlet">ログアウト</a></li>
             </ul>
         </div>
     </nav>
@@ -136,15 +140,14 @@ if (authorityList != null) {
 					</div>
 
 					<div class="col-sm-8" style="margin-top: 10px;">
-						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault0" <%= noneSelected ? "checked" : "" %> readonly disabled>
-						<label for="flexRadioDefault0"> 権限なし </label>
+						<input type="checkbox" name="authority" value="1" id="authoritySale" <%= salesSelected ? "checked" : "" %> disabled>
+					    <label for="authoritySale"> 売上登録 </label>
+					    
+					    <input type="checkbox" name="authority" value="10" id="authorityAccount" <%= accountSelected ? "checked" : "" %> disabled>
+					    <label for="authorityAccount"> アカウント登録 </label>
 						
-						
-						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" <%= salesSelected ? "checked" : "" %> readonly disabled>
-						<label for="flexRadioDefault1"> 売上登録 </label>
-						
-						<input type="checkbox" name="flexRadioDefault" id="flexRadioDefault2" <%= accountSelected ? "checked" : "" %> readonly disabled>
-						<label for="flexRadioDefault2"> アカウント登録 </label>
+						<input type="hidden" name="authority" value="0" id="authorityNone" <%= noneSelected ? "checked" : "" %> disabled>
+				        <label for="authorityNone">  </label>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -164,7 +167,8 @@ if (authorityList != null) {
 					    <input type="hidden" name="tmpAuthority" value="<%= confirm_authority %>" />
 					    <input type="hidden" name="tmpPassword" value="<%= password %>" />
 					    <button type="submit" class="btn btn-danger me-2">✕OK</button>
-						<a class="btn btn-outline-secondary" href="" role="button">キャンセル</a>
+						<a class="btn btn-outline-secondary" href="javascript:history.back()" role="button">キャンセル</a>
+						<!-- キャンセル　セッションを使う -->
 					</div>
 				</div>
 			</form>

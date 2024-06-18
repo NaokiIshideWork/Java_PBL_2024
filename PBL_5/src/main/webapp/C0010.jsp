@@ -13,11 +13,12 @@
 </head>
 <body class="bg-secondary-subtle">
 	
+	<c:if test="${not empty error_display}">
 	<div
 		class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
 		role="alert">${error_display}</div>
 	
-	
+	</c:if>
 	<div class="container text-center w-50" style="margin-top: 60px">
 		<h2>物品売上管理システム</h2>
 		<form action="LoginServlet" method="post">

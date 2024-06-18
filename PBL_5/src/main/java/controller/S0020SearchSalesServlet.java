@@ -10,12 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.AccountsBean;
-import model.CategoriesBean;
 import model.Sales2Bean;
 import model.SalesSearchBean;
 import model.SalesSearchDisplayBean;
-import services.SQLServicesPBLreg;
 import services.SQLServicesPBLsfs;
 
 /**
@@ -39,33 +36,20 @@ public class S0020SearchSalesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		SQLServicesPBLreg sqlserv = new SQLServicesPBLreg();
-		
-		String ErrorMessage = "";
+		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
+		HttpSession session = request.getSession();
+		SalesSearchBean ssb_list = (SalesSearchBean) session.getAttribute("ssb");
+		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
 
-		ArrayList<AccountsBean> account_list = null;
-		account_list = sqlserv.canSelectAllAcount();
+		account_list = mts.SalesSearchDisplay(ssb_list.getSalesDateB(),
+				ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
+				ssb_list.getProductName(), ssb_list.getRemarks());
 
-		if (account_list.isEmpty()) {
-			ErrorMessage += "アカウントテーブルに存在しません";
-			request.setAttribute("err", ErrorMessage);
-		} else {
-			request.setAttribute("accounts", account_list);
-		}
+		session.removeAttribute("list");
+		session.setAttribute("list", account_list);
 
-		//商品カテゴリー表示用
-		ArrayList<CategoriesBean> categories_list = null;
-		categories_list = sqlserv.canSelectAllCategory();
+		this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
 
-		if (categories_list.isEmpty()) {
-			ErrorMessage += "商品カテゴリーテーブルに存在しません";
-			request.setAttribute("err", ErrorMessage);
-		} else {
-			request.setAttribute("cate", categories_list);
-		}
-		
-		this.getServletContext().getRequestDispatcher("/S0020.jsp").forward(request, response);
 	}
 
 	/**
@@ -78,7 +62,7 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
 		ArrayList<Sales2Bean> Sales2Bean_list = new ArrayList<Sales2Bean>();
 		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
-		
+
 		String ErrorMessage = "";
 
 		String salesDateB = request.getParameter("salesDateB");
@@ -87,35 +71,37 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		} else {
 			salesDateB = salesDateB.replace("-", "/");
 		}
-		
+
 		String salesDateA = request.getParameter("salesDateA");
 		if (salesDateA.isEmpty()) {
 			ErrorMessage += "販売日(検索終了日)を入力して下さい,";//ok
 		} else {
 			salesDateA = salesDateA.replace("-", "/");
 		}
-		
+
 		String salesPerson = request.getParameter("salesPerson");//担当者id
 		String productCategory = request.getParameter("productCategory");//商品カテゴリーid
 		String productName = request.getParameter("productName");//商品名
 		String remarks = request.getParameter("remarks");//備考
-		
 
 		HttpSession session = request.getSession();
-		
+
 		//検索結果が0件か?
-		Sales2Bean_list = mts.selectAllSales(salesDateB, salesDateA, salesPerson, productCategory, productName, remarks);
-		if(Sales2Bean_list.isEmpty()) {
+		Sales2Bean_list = mts.selectAllSales(salesDateB, salesDateA, salesPerson, productCategory, productName,
+				remarks);
+		if (Sales2Bean_list.isEmpty()) {
 			ErrorMessage += "検索結果はありません";
 			request.setAttribute("err", ErrorMessage);
-			doGet(request, response);
-		}else {
-			
-			account_list =mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName, remarks);	
+			this.getServletContext().getRequestDispatcher("/S0020.jsp").forward(request, response);
+		} else {
+
+			account_list = mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName,
+					remarks);
 			session.setAttribute("list", account_list);
-			SalesSearchBean ssb =  new SalesSearchBean(salesDateB, salesDateA, salesPerson, productCategory, productName,remarks);
+			SalesSearchBean ssb = new SalesSearchBean(salesDateB, salesDateA, salesPerson, productCategory, productName,
+					remarks);
 			session.setAttribute("ssb", ssb);
-			this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);		
+			this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
 		}
 	}
 

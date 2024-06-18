@@ -43,10 +43,11 @@ public class S0042EditAccountServlet extends HttpServlet {
 		String password = request.getParameter("tmpPassword");
 		String authority = request.getParameter("tmpAuthority");
 		
-		System.out.println("44servlet ");
+		System.out.println("S0042EditAccountServlet");
+		System.out.println(id);
 		System.out.println(name);
 		System.out.println(mail);
-		System.out.println(authority);
+		System.out.println("権限: " + authority);
 		
 		request.setAttribute("id", id);
 		request.setAttribute("name", name);

@@ -15,24 +15,24 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="ToDoServlet">物品売上管理システム</a>
+            <a class="navbar-brand" href="#">物品売上管理システム</a>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link "
-                        aria-current="page" href="ToDoDelayServlet">ダッシュボード</a></li>
+                <ul class="navbar-nav mr-auto">                        
+                	<li class="nav-item"><a class="nav-link "
+                        aria-current="page" href="DashboardServlet">ダッシュボード</a></li>
                     <li class="nav-item"><a class="nav-link"
-                        href="ToDoDoneServlet">売上登録</a></li>
+                        href="AccountRegisterServlet">売上登録</a></li>
                     <li class="nav-item"><a class="nav-link"
-                            href="ToDoDoneServlet">売上検索</a></li>  
+                            href="SearchSalesServlet">売上検索</a></li>  
                     <li class="nav-item"><a class="nav-link"
-                                href="ToDoDoneServlet">アカウント登録</a></li>  
+                                href="AccountRegisterServlet">アカウント登録</a></li>  
                     <li class="nav-item bg-dark-subtle"><a class="nav-link"
-                                    href="ToDoDoneServlet">アカウント検索</a></li>
+                                    href="AccountSearchServlet">アカウント検索</a></li>
                 </ul>
             </div>
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item"><a class="nav-link"
-                    href="ToDoDoneServlet">ログアウト</a></li>
+                    href="LogoutServlet">ログアウト</a></li>
             </ul>
         </div>
     </nav>
@@ -82,7 +82,12 @@
 					<td class="col-md-1">${obj.getAccount_id()}</td>
 					<td class="col-md-1">${obj.getName()}</td>
 					<td class="col-md-1">${obj.getMail()}</td>
-					<td class="col-md-2"><c:if test="${obj.getAuthority() == 0}">権限なし</c:if><c:if test="${obj.getAuthority() == 1}">売上登録</c:if><c:if test="${obj.getAuthority() == 2}">アカウント登録</c:if></td>
+					<td class="col-md-2">
+						<c:if test="${obj.getAuthority() == 0}">権限なし</c:if>
+						<c:if test="${obj.getAuthority() == 1}">売上登録</c:if>				
+						<c:if test="${obj.getAuthority() == 10}">アカウント登録</c:if>
+						<c:if test="${obj.getAuthority() == 11}">売上登録/アカウント登録</c:if>
+					</td>
 				</tr>
 				
 			</c:forEach>

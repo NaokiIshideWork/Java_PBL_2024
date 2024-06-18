@@ -14,25 +14,25 @@
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="ToDoServlet">物品売上管理システム</a>
+				<a class="navbar-brand" href="#">物品売上管理システム</a>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item"><a class="nav-link"
-							href="ToDoDoneServlet">ダッシュボード</a></li>
+							href="DashboardServlet">ダッシュボード</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="RegisterServlet">売上登録</a></li>
 						<li class="nav-item bg-dark-subtle"><a
 							class="nav-link active" aria-current="page"
-							href="SearchSalesServlet">売上検索</a></li>
+							href="SearchSales">売上検索</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="ToDoDoneServlet">アカウント登録</a></li>
+							href="AccountServlet">アカウント登録</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="ToDoDoneServlet">アカウント検索</a></li>
+							href="AccountSearchServlet">アカウント検索</a></li>
 					</ul>
 				</div>
 				<ul class="navbar-nav justify-content-end">
 					<li class="nav-item"><a class="nav-link"
-						href="ToDoDoneServlet">ログアウト</a></li>
+						href="LogoutServlet">ログアウト</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -45,7 +45,9 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
+					<c:if test="${sessionScope.accounts.getAuthority() eq 1 or sessionScope.accounts.getAuthority() eq 11}">
 					<th scope="col" class="col-md-1">操作</th>
+					</c:if>
 					<th scope="col" class="col-md-1">No</th>
 					<th scope="col" class="col-md-1">販売日</th>
 					<th scope="col" class="col-md-1">担当</th>
@@ -62,10 +64,10 @@
 					<tr>
 
 
-						<!-- 詳細ページに遷移 -->
+						<c:if test="${sessionScope.accounts.getAuthority() eq 1 or sessionScope.accounts.getAuthority() eq 11}">
 						<td class="col-md-1"><button type="submit"
 								class="btn btn-primary" name="sale_id" value="${obj.getSale_id()}">✓
-								詳細</button></td>
+								詳細</button></td></c:if>
 						<td class="col-md-1"><c:out value="${obj.getSale_id()}" /></td>
 						<td class="col-md-1"><c:out value="${obj.getSale_date()}" /></td>
 						<td class="col-md-1"><c:out value="${obj.getName()}" /></td>

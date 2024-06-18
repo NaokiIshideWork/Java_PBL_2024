@@ -14,31 +14,31 @@
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="ToDoServlet">物品売上管理システム</a>
+				<a class="navbar-brand" href="#">物品売上管理システム</a>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item"><a class="nav-link"
-							href="ToDoDoneServlet">ダッシュボード</a></li>
+							href="DashboardServlet">ダッシュボード</a></li>
 						<li class="nav-item bg-dark-subtle"><a
 							class="nav-link active" aria-current="page"
 							href="RegisterServlet">売上登録</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="SearchSalesServlet">売上検索</a></li>
+							href="SearchSales">売上検索</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="ToDoDoneServlet">アカウント登録</a></li>
+							href="AccountServlet">アカウント登録</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="ToDoDoneServlet">アカウント検索</a></li>
+							href="AccountSearchServlet">アカウント検索</a></li>
 					</ul>
 				</div>
 				<ul class="navbar-nav justify-content-end">
 					<li class="nav-item"><a class="nav-link"
-						href="ToDoDoneServlet">ログアウト</a></li>
+						href="LogoutServlet">ログアウト</a></li>
 				</ul>
 			</div>
 		</nav>
 	</header>
 
-
+<c:if test="${sessionScope.accounts.getAuthority() eq 1 or sessionScope.accounts.getAuthority() eq 11}">
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上登録確認</h2>
 		<div class="" style="margin-left: 100px">
@@ -149,5 +149,6 @@
 			</form>
 		</div>
 	</div>
+</c:if>
 </body>
 </html>
