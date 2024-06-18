@@ -37,10 +37,7 @@
 		</nav>
 	</header>
 
-	<c:choose>
-		<c:when
-			test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
-			<div class="container position-absolute">
+	<div class="container position-absolute">
 				<h2 class="mt-5" style="margin-left: 30px;">売上詳細編集確認</h2>
 				<div class="" style="margin-left: 100px">
 					<form class="text-right" action="InsertServlet" method="post">
@@ -144,12 +141,6 @@
 					</form>
 				</div>
 			</div>
-		</c:when>
-		<c:otherwise>
-			<div
-				class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
-				role="alert">売上編集権限がありません</div>
-		</c:otherwise>
-	</c:choose>
+		
 </body>
 </html>

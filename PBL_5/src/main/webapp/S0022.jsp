@@ -37,10 +37,7 @@
 			</div>
 		</nav>
 	</header>
-	<c:choose>
-		<c:when
-			test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
-
+	
 			<div class="container position-absolute">
 				<h2 class="mt-5" style="margin-left: 100px;">売上詳細表示</h2>
 				<div class="" style="margin-left: 100px">
@@ -142,12 +139,6 @@
 					<div class="col-sm-5"></div>
 				</div>
 			</div>
-		</c:when>
-		<c:otherwise>
-			<div
-				class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
-				role="alert">売上登録権限がありません</div>
-		</c:otherwise>
-	</c:choose>
+		
 </body>
 </html>

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.AccountsBean;
+
 /**
  * Servlet Filter implementation class AuthFilter
  */
@@ -46,24 +47,32 @@ public class AuthFilter extends HttpFilter implements Filter {
 		HttpSession session = ((HttpServletRequest) request).getSession();
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
-		
-		AccountsBean ab = (AccountsBean)req.getSession().getAttribute("LoginUser");		
-		
+
+		AccountsBean ab = (AccountsBean) req.getSession().getAttribute("LoginUser");
+
 		String path = req.getServletPath();
-		 
-		 
-		if (session.getAttribute("LoginUser")== null) {
-			if(!path.equals("/LoginServlet")) {
+		String referer = "";
+		String ErrorMessage = "";
+		try {
+			referer = req.getHeader("referer").replaceAll(".*/([^/?]+).*", "$1");
+		} catch (Exception e) {
+			referer = null;
+		}
+
+		if (session.getAttribute("LoginUser") == null) {
+			if (!path.equals("/LoginServlet")) {
 				res.sendRedirect("LoginServlet");
 				return;
 			}
-		}else {	
-			if((ab.getAuthority() == 1 ||ab.getAuthority() == 11) && !(path.equals("/SearchSales")||path.equals("/SearchSalesServlet"))) {
-				request.setAttribute("isAuth", true);
+		} else {
+			if (referer == null && !(ab.getAuthority() == 1 || ab.getAuthority() == 11)
+					&& !(path.equals("/SearchSales") || path.equals("/SearchSalesServlet"))) {
+				ErrorMessage ="売上編集権限はありません";
+				req.getSession().setAttribute("isAuth", ErrorMessage);
 				res.sendRedirect("SearchSalesServlet");
 				return;
 			}
-			
+
 		}
 		chain.doFilter(request, response);
 	}
