@@ -40,7 +40,7 @@
 	<c:if test="${not empty isAuth}">
 		<div
 			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
-			role="alert">売上編集権限はありません</div>
+			role="alert">${isAuth}</div>
 	</c:if>
 	
 	<div class="container" class="text-left">

@@ -44,9 +44,10 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		account_list = mts.SalesSearchDisplay(ssb_list.getSalesDateB(),
 				ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
 				ssb_list.getProductName(), ssb_list.getRemarks());
-
+		String isAuth = (String) session.getAttribute("isAuth");
 		session.removeAttribute("list");
 		session.setAttribute("list", account_list);
+		request.setAttribute("isAuth", isAuth);
 
 		this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
 
