@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.AccountsBean;
 import services.SQLservicesPBL;
@@ -76,12 +77,13 @@ public class LoginServlet extends HttpServlet {
 		}
 
 		// このままだと複数でエラーが起きた場合文章が繋がって出てくるかも
-
+		HttpSession session = request.getSession();
 		AccountsBean ab = sqlserv.Login(mail, password);
 		// sqlserv.insert(title, priority, term, contents);
 
 		if (ab != null) {
 			response.sendRedirect("DashboardServlet");
+			session.setAttribute("accounts", ab);
 		} else if (!error_display.isEmpty()) {
 			request.setAttribute("error_display", error_display);
 			doGet(request, response);
