@@ -1,5 +1,5 @@
 package controller;
-
+ 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -9,15 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import services.AccountRecord;
-
+ 
 /**
- * Servlet implementation class AccountRegisterServlet
- */
+* Servlet implementation class AccountRegisterServlet
+*/
 @WebServlet("/AccountRegisterServlet")
 public class AccountRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final int DEFAULT_AUTHORITY = 0;
-       
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -25,7 +24,7 @@ public class AccountRegisterServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
+ 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -33,7 +32,7 @@ public class AccountRegisterServlet extends HttpServlet {
 		request.getServletContext().getRequestDispatcher("/S0031.jsp").forward(request, response);
 		System.out.println(request.getAttribute("name"));
 	}
-
+ 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -43,7 +42,7 @@ public class AccountRegisterServlet extends HttpServlet {
 	    String mail = request.getParameter("mail");
 	    String password = request.getParameter("password");
 	    int authority;
-
+ 
 	    // authority パラメータの取得と解析
 	    String authorityParam = request.getParameter("authority");
 	    if (authorityParam != null && !authorityParam.isEmpty()) {
@@ -60,27 +59,27 @@ public class AccountRegisterServlet extends HttpServlet {
 	        System.err.println("権限値が指定されていません。デフォルト値を使用します。");
 	        authority = DEFAULT_AUTHORITY; // デフォルトの権限値を設定
 	    }
-	    
 
+ 
 	    System.out.println("doPost name: " + name);
 	    System.out.println("doPost mail: " + mail);
 	    System.out.println("doPost password: " + password);
 	    System.out.println("doPost authority: " + authority);
-
+ 
 	    // リクエストに属性として設定
 	    AccountRecord.makeaccount(name, mail, password, authority);
-
+ 
 	    // 追加 AccountServletにリダイレクト
 	    response.sendRedirect("AccountServlet");
 	    System.out.println("登録しました");
-
+ 
 	    // どこかでパスワードチェック
 	}
-
+ 
 	private boolean isEmailAlreadyRegistered(String mail) {
 		// TODO 自動生成されたメソッド・スタブ
 		return false;
 	}
-
-
+ 
+ 
 }

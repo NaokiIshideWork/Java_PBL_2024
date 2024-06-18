@@ -45,7 +45,7 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<c:if test="${sessionScope.accounts.getAuthority() eq 1 or sessionScope.accounts.getAuthority() eq 11}">
+					<c:if test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
 					<th scope="col" class="col-md-1">操作</th>
 					</c:if>
 					<th scope="col" class="col-md-1">No</th>
@@ -56,15 +56,12 @@
 					<th scope="col" class="col-md-1">単価</th>
 					<th scope="col" class="col-md-1">個数</th>
 					<th scope="col" class="col-md-1">小計</th>
-
 				</tr>
 			</thead>
 			<c:forEach var="obj" items="${list}">
 				<form action="SalesDetailsDisplayServlet" method="get">
 					<tr>
-
-
-						<c:if test="${sessionScope.accounts.getAuthority() eq 1 or sessionScope.accounts.getAuthority() eq 11}">
+						<c:if test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
 						<td class="col-md-1"><button type="submit"
 								class="btn btn-primary" name="sale_id" value="${obj.getSale_id()}">✓
 								詳細</button></td></c:if>
@@ -78,12 +75,7 @@
 						<td class="col-md-1"><c:out value="${obj.getSubtotal()}" /></td>
 					</tr>
 				</form>
-
-
 			</c:forEach>
-
-
-
 		</table>
 	</div>
 </body>

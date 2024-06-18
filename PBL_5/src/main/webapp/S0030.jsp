@@ -60,7 +60,6 @@
 					</div>
 				</div>
 
-
 				<div class="row mt-3">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -73,6 +72,7 @@
 							placeholder="メールアドレス">
 					</div>
 				</div>
+				
 				<div class="row mt-3">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -85,6 +85,7 @@
 							placeholder="パスワード">
 					</div>
 				</div>
+				
 				<div class="row mt-3">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -97,6 +98,7 @@
 							class="form-control " placeholder="パスワード（確認）">
 					</div>
 				</div>
+				
 				<div class="row mt-3">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -114,6 +116,14 @@
 					    
 					    <input type="checkbox" name="authority" value="10" id="authorityAccount">
 					    <label for="authorityAccount"> アカウント登録 </label>
+						<!-- <input type="hidden" name="authority" id="authority_none" checked value="0"> -->
+
+						<input type="checkbox" name="authority_sales" id="authority_sales"
+							value="1"> <label for="authority_sales"> 売上登録 </label>
+
+						<input type="checkbox" name="authority_account" id="authority_account"
+							value="0"> <label for="authority_account">
+							アカウント登録 </label>
 					</div>
 				</div>
 
@@ -124,6 +134,7 @@
 							style="margin-left: 30px;">✓登録</button>
 					</div>
 				</div>
+				
 			</form>
 
 		</div>

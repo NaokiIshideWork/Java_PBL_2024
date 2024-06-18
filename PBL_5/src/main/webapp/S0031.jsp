@@ -135,8 +135,7 @@ if (authorityList != null) {
 					<div class="col-sm-8">
 						<button type="submit" class="btn btn-primary" 
 							style="margin-left: 30px;">O K</button>
-						<a class="btn btn-outline-secondary" href="S0030.jsp"
-							role="button">キャンセル</a>
+						<a class="btn btn-outline-secondary" href="S0030.jsp" role="button">キャンセル</a>
 					</div>
 				</div>
 			</form>
