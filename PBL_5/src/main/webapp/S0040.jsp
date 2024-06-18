@@ -17,9 +17,9 @@
                     <li class="nav-item"><a class="nav-link "
                         aria-current="page" href="DashboardServlet">ダッシュボード</a></li>
                     <li class="nav-item"><a class="nav-link"
-                        href="AccountRegisterServlet">売上登録</a></li>
+                        href="RegisterServlet">売上登録</a></li>
                     <li class="nav-item"><a class="nav-link"
-                            href="SearchSalesServlet">売上検索</a></li>  
+                            href="SearchSales">売上検索</a></li>  
                     <li class="nav-item"><a class="nav-link"
                                 href="AccountRegisterServlet">アカウント登録</a></li>  
                     <li class="nav-item bg-dark-subtle"><a class="nav-link"
@@ -48,8 +48,6 @@
 							placeholder="氏名">
 					</div>
 				</div>
-
-
 				<div class="row mt-3">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -61,8 +59,7 @@
 						<input type="email" name="mail" class="form-control"
 							placeholder="メールアドレス">
 					</div>
-				</div>
-			
+				</div>		
 				<div class="row mt-3">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -72,27 +69,22 @@
 					</div>
 					<div class="col-sm-8" style="margin-top: 10px;">
 						<input type="checkbox" name="authority" value="0" id="authorityNone">
-					    <label for="authorityNone"> 権限なし </label>
-					    
+					    <label for="authorityNone"> 権限なし </label>					    
 						<input type="checkbox" name="authority" value="1" id="authoritySale">
-					    <label for="authoritySale"> 売上登録 </label>
-					    
+					    <label for="authoritySale"> 売上登録 </label>				    
 					    <input type="checkbox" name="authority" value="10" id="authorityAccount">
 					    <label for="authorityAccount"> アカウント登録 </label>
 					</div>
 					</div>
-				</div>
-				
+				</div>			
 				<div class="row mt-3">
 					<div class="col-sm-6"></div>
 					<div class="col-sm-3">
 						<button type="submit" class="btn btn-primary me-3" href="AccountSearchServlet">🔍検 索</button>
 						<button type="reset" class="btn btn-outline-secondary" >クリア</button>
-				</div>
-				
+				</div>				
 			</form>
 		</div>
 	</div>
-	
 </body>
 </html>

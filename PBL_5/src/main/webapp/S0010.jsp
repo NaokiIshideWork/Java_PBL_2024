@@ -48,8 +48,7 @@
 			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
 			role="alert">${err}</div>
 	</c:if>
-	<c:choose>
-	
+	<c:choose>	
 	<c:when test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上登録</h2>
