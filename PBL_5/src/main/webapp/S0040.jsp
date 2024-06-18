@@ -14,17 +14,16 @@
             <a class="navbar-brand" href="#">物品売上管理システム</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
-                
                     <li class="nav-item"><a class="nav-link "
                         aria-current="page" href="DashboardServlet">ダッシュボード</a></li>
                     <li class="nav-item"><a class="nav-link"
-                        href="RegisterServlet">売上登録</a></li>
+                        href="AccountRegisterServlet">売上登録</a></li>
                     <li class="nav-item"><a class="nav-link"
-                            href="SearchSales">売上検索</a></li>  
+                            href="SearchSalesServlet">売上検索</a></li>  
                     <li class="nav-item"><a class="nav-link"
-                                href="AccountServlet">アカウント登録</a></li>  
+                                href="AccountRegisterServlet">アカウント登録</a></li>  
                     <li class="nav-item bg-dark-subtle"><a class="nav-link"
-                                    href="AccountServlet">アカウント検索</a></li>
+                                    href="AccountSearchServlet">アカウント検索</a></li>
                 </ul>
             </div>
             <ul class="navbar-nav justify-content-end">
@@ -88,7 +87,7 @@
 					<div class="col-sm-6"></div>
 					<div class="col-sm-3">
 						<button type="submit" class="btn btn-primary me-3" href="AccountSearchServlet">🔍検 索</button>
-							<a class="btn btn-outline-secondary" href="#" role="button">クリア</a>
+						<button type="reset" class="btn btn-outline-secondary" >クリア</button>
 				</div>
 				
 			</form>

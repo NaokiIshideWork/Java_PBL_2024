@@ -61,11 +61,11 @@ if (authorityList != null) {
                     <li class="nav-item"><a class="nav-link "
                         aria-current="page" href="DashboardServlet">ダッシュボード</a></li>
                     <li class="nav-item"><a class="nav-link"
-                        href="RegisterServlet">売上登録</a></li>
+                        href="AccountRegisterServlet">売上登録</a></li>
                     <li class="nav-item"><a class="nav-link"
-                            href="SearchSales">売上検索</a></li>  
+                            href="SearchSalesServlet">売上検索</a></li>  
                     <li class="nav-item"><a class="nav-link"
-                                href="AccountServlet">アカウント登録</a></li>  
+                                href="AccountRegisterServlet">アカウント登録</a></li>  
                     <li class="nav-item bg-dark-subtle"><a class="nav-link"
                                     href="AccountSearchServlet">アカウント検索</a></li>
                 </ul>
@@ -168,6 +168,7 @@ if (authorityList != null) {
 					    <input type="hidden" name="tmpPassword" value="<%= password %>" />
 					    <button type="submit" class="btn btn-danger me-2">✕OK</button>
 						<a class="btn btn-outline-secondary" href="javascript:history.back()" role="button">キャンセル</a>
+						<!-- キャンセル　セッションを使う -->
 					</div>
 				</div>
 			</form>

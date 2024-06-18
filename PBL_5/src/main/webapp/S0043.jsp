@@ -59,14 +59,14 @@ if (authorityList != null) {
             <a class="navbar-brand" href="#">物品売上管理システム</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link"
+            <li class="nav-item"><a class="nav-link "
                         aria-current="page" href="DashboardServlet">ダッシュボード</a></li>
                     <li class="nav-item"><a class="nav-link"
-                        href="RegisterServlet">売上登録</a></li>
+                        href="AccountRegisterServlet">売上登録</a></li>
                     <li class="nav-item"><a class="nav-link"
-                            href="SearchSales">売上検索</a></li>  
+                            href="SearchSalesServlet">売上検索</a></li>  
                     <li class="nav-item"><a class="nav-link"
-                                href="AccountServlet">アカウント登録</a></li>  
+                                href="AccountRegisterServlet">アカウント登録</a></li>  
                     <li class="nav-item bg-dark-subtle"><a class="nav-link"
                                     href="AccountSearchServlet">アカウント検索</a></li>
                 </ul>
@@ -155,13 +155,14 @@ if (authorityList != null) {
 				</div>
 				<div class="row mt-3">
 					<div class="col-sm-3"></div>
-					<div class="col-sm-8">
+					<div class="col-sm-8 d-flex align-items-center">
 						<% 
 					        String id = (String) request.getAttribute("id");
 					        String name = (String) request.getAttribute("name");
 					        String mail = (String) request.getAttribute("mail");
 					        String confirm_authority = (String) request.getAttribute("authority");
 					        String password = (String) request.getAttribute("password");
+					        String confirmPassword = (String) request.getAttribute("password");
 					        System.out.println("S0043jsp authority: " + authority); 
 					    %>
 					    
@@ -171,12 +172,21 @@ if (authorityList != null) {
 					    <input type="hidden" name="tmpAuthority" value="<%= confirm_authority %>" />
 					    <input type="hidden" name="tmpPassword" value="<%= password %>" />
 					    
-						<button type="submit" class="btn btn-primary"
-							style="margin-left: 30px;">✓OK</button>
-						<a class="btn btn-outline-secondary" href="#" role="button">キャンセル</a>
+						<button type="submit" class="btn btn-primary" style="margin-left: 50px;"
+							>✓OK</button>
+						</form>
+						
+						<form action="S0042EditAccountServlet" method="post" style="margin-left: 8px;">
+						<input type="hidden" name="tmpId" value="<%= id %>" />
+					    <input type="hidden" name="tmpName" value="<%= name %>" />
+					    <input type="hidden" name="tmpMail" value="<%= mail %>" />
+					    <input type="hidden" name="tmpAuthority" value="<%= confirm_authority %>" />
+					    <input type="hidden" name="tmpPassword" value="<%= password %>" />	
+						<button class="btn btn-outline-secondary" type="submit" role="button">キャンセル</button>
+						</form>
 					</div>
 				</div>
-			</form>
+			
 		</div>
 	</div>
 </body>
