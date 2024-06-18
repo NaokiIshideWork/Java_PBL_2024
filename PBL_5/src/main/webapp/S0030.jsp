@@ -106,16 +106,14 @@
 					</div>
 
 					<div class="col-sm-8" style="margin-top: 10px;">
-
-						<!-- <input type="hidden" name="authority" id="authority_none" checked value="0"> -->
-
-						<input type="checkbox" name="authority" id="authority_sales"
-							value="1"> <label for="flexRadioDefault1"> 売上登録 </label>
-
-						<input type="checkbox" name="authority" id="authority_account"
-							value="2"> <label for="flexRadioDefault1">
-							アカウント登録 </label>
-
+						<input type="hidden" name="authority" value="0" id="authorityNone">
+					    <label for="authorityNone" cheacked> 権限なし </label>
+					    
+						<input type="checkbox" name="authority" value="1" id="authoritySale">
+					    <label for="authoritySale"> 売上登録 </label>
+					    
+					    <input type="checkbox" name="authority" value="10" id="authorityAccount">
+					    <label for="authorityAccount"> アカウント登録 </label>
 					</div>
 				</div>
 

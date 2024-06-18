@@ -53,6 +53,8 @@ public class AccountServlet extends HttpServlet {
 
 		// authority_salesとauthority_accountの値を受け取る
 		String[] authorities = request.getParameterValues("authority");
+		
+		
 
 		System.out.println(name);
 		System.out.println(mail);
