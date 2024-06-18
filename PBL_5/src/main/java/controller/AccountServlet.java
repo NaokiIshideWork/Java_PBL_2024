@@ -54,11 +54,11 @@ public class AccountServlet extends HttpServlet {
 		// authority_salesとauthority_accountの値を受け取る
 		String[] authorities = request.getParameterValues("authority");
 
-		System.out.println(name);
-		System.out.println(mail);
+		System.out.println("氏名" + name);
+		System.out.println("メールアドレス" + mail);
 		System.out.println("パスワード" + password);
 		System.out.println("確認用パスワード" + confirmpassword);
-		System.out.println(authorities);
+		System.out.println("権限" + authorities);
 		//		response.sendRedirect(""); 2回以上送れない
 
 		// サーブレットからサーブレットに値を受け渡しているが、あとでセッションで解決？
@@ -76,30 +76,28 @@ public class AccountServlet extends HttpServlet {
 			error_display += "氏名が長すぎます。";//ok
 		}
 
+		//メールアドレス
 		String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
 		boolean result = mail.matches(regex);
-
-		//メールアドレス
 		if (!result) {
-			error_display += "メールアドレスの形式ではありません。";
+			error_display += "メールアドレスを正しく入力してください。";
 		} else if (isEmailAlreadyRegistered(mail)) {
 			error_display += "このメールアドレスは既に登録されています。";
 		} else if (mail.isEmpty()) {
 			error_display += "メールアドレスを入力して下さい。";
-		} else if (mail.length() > 30) {
+		} else if (mail.length() > 100) {
 			error_display += "メールアドレスが長すぎます。";
-		} //else {
-			//String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
-			//boolean result1 = mail.matches(regex);
-			//}
+		}
 
 		//パスワード
 		if (password.isEmpty()) {
 			error_display += "パスワードを入力して下さい。";//ok
+		} else if (confirmpassword.isEmpty()) {
+			error_display += "パスワード（確認）を入力してください。";
 		} else if (password.length() > 30) {
 			error_display += "パスワードが長すぎます。";//ok
 		} else if (!password.equals(confirmpassword)) {
-			error_display += "パスワードが一致しません。";
+			error_display += "パスワード又はパスワード（確認）の入力内容が異なっています。";
 		}
 
 		if (!error_display.equals("")) {
@@ -126,22 +124,21 @@ public class AccountServlet extends HttpServlet {
 
 	private boolean isEmailAlreadyRegistered(String mail) {
 		boolean exists = false;
-		
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
-			 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pbl", "root", "root");
-				String sql = "SELECT COUNT(*) FROM accounts WHERE mail = ?";
-				PreparedStatement stmt = conn.prepareStatement(sql);
-					stmt.setString(1, mail);
-					 ResultSet rs = stmt.executeQuery();
-						if (rs.next() && rs.getInt(1) > 0) {
-							System.out.println("重複あり");
-							exists = true; // メールアドレスが既に登録されている場合
-						}
-			} catch (SQLException e) {
-				// エラー処理
-				e.printStackTrace();
-			}catch(ClassNotFoundException e) {
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pbl", "root", "root");
+			String sql = "SELECT COUNT(*) FROM accounts WHERE mail = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, mail);
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next() && rs.getInt(1) > 0) {
+				System.out.println("重複あり");
+				exists = true; // メールアドレスが既に登録されている場合
+			}
+		} catch (SQLException e) {
+			// エラー処理
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		return exists;
