@@ -51,8 +51,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 				res.sendRedirect("LoginServlet");
 				return;
 			}
-		}
-				
+		}		
 		chain.doFilter(request, response);
 	}
 

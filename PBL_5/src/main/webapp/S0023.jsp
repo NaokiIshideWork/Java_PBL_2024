@@ -42,8 +42,8 @@
 			role="alert">${err}</div>
 	</c:if>
 	<c:choose>
-
-		<c:when test="${sessionScope.accounts.getAuthority() eq 1 or sessionScope.accounts.getAuthority() eq 11}">
+		<c:when
+			test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
 			<div class="container position-absolute">
 				<h2 class="mt-5" style="margin-left: 30px;">売上詳細編集</h2>
 				<div class="" style="margin-left: 100px">
