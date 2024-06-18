@@ -36,4 +36,45 @@ public class SQLservicesPBL {
 		return person;
 	}
 
+	public boolean SearchMail(String in_mail) {
+		String sql = "SELECT mail FROM accounts WHERE mail = ?;";
+		boolean existMail = false;
+		try (
+				Connection con = DbUtil.open();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+			// PreparedStatementがクローズされるタイミングでクローズされる
+
+			ps.setString(1, in_mail);
+
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+
+				existMail = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return existMail;
+	}
+
+	public boolean SearchPassword(String in_password) {
+		String sql = "SELECT password FROM accounts WHERE password = ?;";
+		boolean existPassword = false;
+		try (
+				Connection con = DbUtil.open();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+
+			ps.setString(1, in_password);
+
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+
+				existPassword = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return existPassword;
+	}
+
 }

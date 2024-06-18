@@ -38,7 +38,7 @@
 		</nav>
 	</header>
 
-
+<c:if test="${sessionScope.accounts.getAuthority() eq 1 or sessionScope.accounts.getAuthority() eq 11}">
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">売上登録確認</h2>
 		<div class="" style="margin-left: 100px">
@@ -149,5 +149,6 @@
 			</form>
 		</div>
 	</div>
+</c:if>
 </body>
 </html>

@@ -75,12 +75,15 @@ public class LoginServlet extends HttpServlet {
 		if (mail.length() > 30) {
 			error_display += "パスワードが長すぎます";
 		}
+		if(!sqlserv.SearchMail(mail) || !sqlserv.SearchPassword(password)) {
+			error_display += "メールアドレス、パスワードを正しく入力して下さい。";
+		}
 
 		// このままだと複数でエラーが起きた場合文章が繋がって出てくるかも
 		HttpSession session = request.getSession();
 		AccountsBean ab = sqlserv.Login(mail, password);
-		// sqlserv.insert(title, priority, term, contents);
-
+		
+	
 		if (ab != null) {
 			response.sendRedirect("DashboardServlet");
 			session.setAttribute("accounts", ab);

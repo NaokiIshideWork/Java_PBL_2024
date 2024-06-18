@@ -45,7 +45,9 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
+					<c:if test="${sessionScope.accounts.getAuthority() eq 1 or sessionScope.accounts.getAuthority() eq 11}">
 					<th scope="col" class="col-md-1">操作</th>
+					</c:if>
 					<th scope="col" class="col-md-1">No</th>
 					<th scope="col" class="col-md-1">販売日</th>
 					<th scope="col" class="col-md-1">担当</th>
@@ -62,10 +64,10 @@
 					<tr>
 
 
-						<!-- 詳細ページに遷移 -->
+						<c:if test="${sessionScope.accounts.getAuthority() eq 1 or sessionScope.accounts.getAuthority() eq 11}">
 						<td class="col-md-1"><button type="submit"
 								class="btn btn-primary" name="sale_id" value="${obj.getSale_id()}">✓
-								詳細</button></td>
+								詳細</button></td></c:if>
 						<td class="col-md-1"><c:out value="${obj.getSale_id()}" /></td>
 						<td class="col-md-1"><c:out value="${obj.getSale_date()}" /></td>
 						<td class="col-md-1"><c:out value="${obj.getName()}" /></td>
