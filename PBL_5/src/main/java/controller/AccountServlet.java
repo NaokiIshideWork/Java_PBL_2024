@@ -6,8 +6,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -52,19 +50,28 @@ public class AccountServlet extends HttpServlet {
 		String confirmpassword = request.getParameter("confirmPassword");
 
 		// authority_salesとauthority_accountの値を受け取る
-		String[] authorities = request.getParameterValues("authority");
-
-		System.out.println("氏名" + name);
-		System.out.println("メールアドレス" + mail);
-		System.out.println("パスワード" + password);
-		System.out.println("確認用パスワード" + confirmpassword);
-		System.out.println("権限" + authorities);
+	    String authoritySales = request.getParameter("authority_sales");
+	    String authorityAccount = request.getParameter("authority_account");
+	    
+	    int authorities;
+	    if ("1".equals(authoritySales) && "0".equals(authorityAccount)) {
+	        authorities = 1; // 売上登録が選択された場合
+	    } else if ("0".equals(authoritySales) && "1".equals(authorityAccount)) {
+	        authorities = 0; // アカウント登録が選択された場合
+	    } else if ("1".equals(authoritySales) && "1".equals(authorityAccount)) {
+	        authorities = 11; // 両方選択された場合
+	    } else {
+	        authorities = 00; // どちらも選択されなかった場合
+	    }
+	    
+		System.out.println("氏名:" + name);
+		System.out.println("メールアドレス:" + mail);
+		System.out.println("パスワード:" + password);
+		System.out.println("確認用パスワード:" + confirmpassword);
+		System.out.println("権限:" + authorities);
 		//		response.sendRedirect(""); 2回以上送れない
 
-		// サーブレットからサーブレットに値を受け渡しているが、あとでセッションで解決？
-
-		// ここに記入　パスワードが確認用と比較してあっていたらsetAttributeできるようにする（あとで）
-
+		
 		String unit_price = request.getParameter("unit_price");
 		String error_message = "";
 		String error_display = "";
@@ -108,11 +115,11 @@ public class AccountServlet extends HttpServlet {
 
 		if (password.equals(confirmpassword)) {
 			// パスワードが一致する場合
-			List<String> authorityList = Arrays.asList(authorities);
+			//List<String> authorityList = Arrays.asList(authorities);
 			request.setAttribute("name", name);
 			request.setAttribute("mail", mail);
 			request.setAttribute("password", password);
-			request.setAttribute("authorities", authorityList);
+			request.setAttribute("authorities", authorities);
 			// 次の処理に進む
 			request.getRequestDispatcher("/S0031.jsp").forward(request, response);
 		} else {
