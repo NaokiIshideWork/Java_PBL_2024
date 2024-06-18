@@ -82,11 +82,10 @@ public class LoginServlet extends HttpServlet {
 		// このままだと複数でエラーが起きた場合文章が繋がって出てくるかも
 		HttpSession session = request.getSession();
 		AccountsBean ab = sqlserv.Login(mail, password);
-		
-	
+			
 		if (ab != null) {
+			session.setAttribute("LoginUser", ab);
 			response.sendRedirect("DashboardServlet");
-			session.setAttribute("accounts", ab);
 		} else if (!error_display.isEmpty()) {
 			request.setAttribute("error_display", error_display);
 			doGet(request, response);
