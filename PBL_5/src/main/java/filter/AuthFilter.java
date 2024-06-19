@@ -59,19 +59,27 @@ public class AuthFilter extends HttpFilter implements Filter {
 			referer = null;//直打ちである
 		}
 		//		System.out.println("->"+referer);
-//		System.out.println("S:->" + session.getAttribute("redirectedFromRegister"));
-
+		//		System.out.println("->"+path);
 		if (session.getAttribute("LoginUser") == null) {
 			if (!path.equals("/LoginServlet")) {
 				res.sendRedirect("LoginServlet");
 				return;
 			}
 		} else {
-			boolean flag1 = referer == null;
-			boolean flag2 = ab.getAuthority() == 0 || ab.getAuthority() == 10;
+			boolean isRefer = referer == null;
+			boolean isSalesReg = ab.getAuthority() == 0 || ab.getAuthority() == 10;
+			boolean isAccountReg = ab.getAuthority() == 0 || ab.getAuthority() == 1;
 			boolean flag3 = path.equals("/RegisterServlet") || path.equals("/RegisterSalesServlet");
-			if (flag1 && flag2 && flag3) {
-				Boolean redirected = (Boolean) session.getAttribute("redirectedFromRegister");
+			boolean flag4 = path.equals("/SalesDetailsDisplayServlet") || path.equals("/EditSalesDetails")
+					|| path.equals("/ConfirmationSalesDeletion") || path.equals("/ConfirmationSalesEdit");
+			boolean flag5 = path.equals("/AccountServlet") || path.equals("/AccountRegisterServlet");
+			
+
+			Boolean redirected = (Boolean) session.getAttribute("redirectedFromRegister");
+			Boolean redirected1 = (Boolean) session.getAttribute("redirectedFromRegister1");
+			Boolean redirected2 = (Boolean) session.getAttribute("redirectedFromRegister2");
+			if (isRefer && isSalesReg  && flag3) {
+
 				if (redirected == null || !redirected) {
 					session.setAttribute("redirectedFromRegister", true);
 					res.sendRedirect("RegisterServlet");
@@ -81,7 +89,29 @@ public class AuthFilter extends HttpFilter implements Filter {
 					request.getRequestDispatcher("/S0010.jsp").forward(request, response);
 					return;
 				}
+			}
+			if (isRefer && isSalesReg  && flag4) {
+				if (redirected1 == null || !redirected1) {
+					session.setAttribute("redirectedFromRegister1", true);
+					res.sendRedirect("SearchSalesServlet");
+					return;
+				} else {
+					session.removeAttribute("redirectedFromRegister1");
+					res.sendRedirect("SearchSalesServlet");
+					return;
+				}
+			}
+			if (isRefer && isAccountReg  && flag5) {
 
+				if (redirected2 == null || !redirected2) {
+					session.setAttribute("redirectedFromRegister2", true);
+					res.sendRedirect("AccountServlet");
+					return;
+				} else {
+					session.removeAttribute("redirectedFromRegister2");
+					request.getRequestDispatcher("/S0030.jsp").forward(request, response);
+					return;
+				}
 			}
 		}
 

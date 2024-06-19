@@ -37,11 +37,9 @@
 			</div>
 		</nav>
 	</header>
-	<c:if test="${not empty isAuth}">
-		<div
+	<div
 			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
-			role="alert">${isAuth}</div>
-	</c:if>
+			role="alert">売上編集権限はありません</div>
 	
 	<div class="container" class="text-left">
 		<h2 class="mt-3">売上検索結果表示</h2>
