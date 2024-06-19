@@ -56,10 +56,8 @@ public class AuthFilter extends HttpFilter implements Filter {
 		try {
 			referer = req.getHeader("referer").replaceAll(".*/([^/?]+).*", "$1");
 		} catch (Exception e) {
-			referer = null;//直打ちである
+			referer = null;
 		}
-		//		System.out.println("->"+referer);
-		
 		if (session.getAttribute("LoginUser") == null) {
 			if (!path.equals("/LoginServlet")) {
 				res.sendRedirect("LoginServlet");
@@ -67,18 +65,20 @@ public class AuthFilter extends HttpFilter implements Filter {
 			}
 		} else {
 			boolean isRefer = referer == null;
-			boolean isSalesReg = ab.getAuthority() == 0 || ab.getAuthority() == 10;
-			boolean isAccountReg = ab.getAuthority() == 0 || ab.getAuthority() == 1;
-			boolean flag3 = path.equals("/RegisterServlet") || path.equals("/RegisterSalesServlet");
-			boolean flag4 = path.equals("/SalesDetailsDisplayServlet") || path.equals("/EditSalesDetails")
+			boolean isSalesRegAuth = ab.getAuthority() == 0 || ab.getAuthority() == 10;
+			boolean isAccountRegAuth = ab.getAuthority() == 0 || ab.getAuthority() == 1;
+			boolean isRegSale = path.equals("/RegisterServlet") || path.equals("/RegisterSalesServlet");
+			boolean isEditSale = path.equals("/SalesDetailsDisplayServlet") || path.equals("/EditSalesDetails")
 					|| path.equals("/ConfirmationSalesDeletion") || path.equals("/ConfirmationSalesEdit");
-			boolean flag5 = path.equals("/AccountServlet") || path.equals("/AccountRegisterServlet");
-			
+			boolean isRegAccount = path.equals("/AccountServlet") || path.equals("/AccountRegisterServlet");
+			boolean isEditAccount = path.equals("/EditAccountServlet") || path.equals("/EditScreenServlet") ||
+					path.equals("/DeleteAccountServlet");
 
 			Boolean redirected = (Boolean) session.getAttribute("redirectedFromRegister");
 			Boolean redirected1 = (Boolean) session.getAttribute("redirectedFromRegister1");
 			Boolean redirected2 = (Boolean) session.getAttribute("redirectedFromRegister2");
-			if (isRefer && isSalesReg  && flag3) {
+			Boolean redirected3 = (Boolean) session.getAttribute("redirectedFromRegister3");
+			if (isRefer && isSalesRegAuth && isRegSale) {
 
 				if (redirected == null || !redirected) {
 					session.setAttribute("redirectedFromRegister", true);
@@ -90,7 +90,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 					return;
 				}
 			}
-			if (isRefer && isSalesReg  && flag4) {
+			if (isRefer && isSalesRegAuth && isEditSale) {
 				if (redirected1 == null || !redirected1) {
 					session.setAttribute("redirectedFromRegister1", true);
 					res.sendRedirect("SearchSalesServlet");
@@ -101,7 +101,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 					return;
 				}
 			}
-			if (isRefer && isAccountReg  && flag5) {
+			if (isRefer && isAccountRegAuth && isRegAccount) {
 
 				if (redirected2 == null || !redirected2) {
 					session.setAttribute("redirectedFromRegister2", true);
@@ -110,6 +110,18 @@ public class AuthFilter extends HttpFilter implements Filter {
 				} else {
 					session.removeAttribute("redirectedFromRegister2");
 					request.getRequestDispatcher("/S0030.jsp").forward(request, response);
+					return;
+				}
+			}
+			if (isRefer && isAccountRegAuth && isEditAccount) {
+
+				if (redirected3 == null || !redirected3) {
+					session.setAttribute("redirectedFromRegister3", true);
+					res.sendRedirect("AccountSearchServlet");
+					return;
+				} else {
+					session.removeAttribute("redirectedFromRegister3");
+					res.sendRedirect("AccountSearchServlet");
 					return;
 				}
 			}

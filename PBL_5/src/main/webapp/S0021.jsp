@@ -10,7 +10,7 @@
 <title>売上検索結果表示</title>
 </head>
 <body>
-<%--コメント --%>
+	<%--コメント --%>
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
@@ -22,8 +22,7 @@
 						<li class="nav-item"><a class="nav-link"
 							href="RegisterServlet">売上登録</a></li>
 						<li class="nav-item bg-dark-subtle"><a
-							class="nav-link active" aria-current="page"
-							href="SearchSales">売上検索</a></li>
+							class="nav-link active" aria-current="page" href="SearchSales">売上検索</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="AccountServlet">アカウント登録</a></li>
 						<li class="nav-item"><a class="nav-link"
@@ -31,16 +30,17 @@
 					</ul>
 				</div>
 				<ul class="navbar-nav justify-content-end">
-					<li class="nav-item"><a class="nav-link"
-						href="LogoutServlet">ログアウト</a></li>
+					<li class="nav-item"><a class="nav-link" href="LogoutServlet">ログアウト</a></li>
 				</ul>
 			</div>
 		</nav>
 	</header>
-	<div
+	<c:if
+		test="${sessionScope.LoginUser.getAuthority() eq 0 or sessionScope.LoginUser.getAuthority() eq 10}">
+		<div
 			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
 			role="alert">売上編集権限はありません</div>
-	
+	</c:if>
 	<div class="container" class="text-left">
 		<h2 class="mt-3">売上検索結果表示</h2>
 	</div>
@@ -48,8 +48,9 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<c:if test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
-					<th scope="col" class="col-md-1">操作</th>
+					<c:if
+						test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
+						<th scope="col" class="col-md-1">操作</th>
 					</c:if>
 					<th scope="col" class="col-md-1">No</th>
 					<th scope="col" class="col-md-1">販売日</th>
@@ -64,10 +65,12 @@
 			<c:forEach var="obj" items="${list}">
 				<form action="SalesDetailsDisplayServlet" method="get">
 					<tr>
-						<c:if test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
-						<td class="col-md-1"><button type="submit"
-								class="btn btn-primary" name="sale_id" value="${obj.getSale_id()}">✓
-								詳細</button></td></c:if>
+						<c:if
+							test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
+							<td class="col-md-1"><button type="submit"
+									class="btn btn-primary" name="sale_id"
+									value="${obj.getSale_id()}">✓ 詳細</button></td>
+						</c:if>
 						<td class="col-md-1"><c:out value="${obj.getSale_id()}" /></td>
 						<td class="col-md-1"><c:out value="${obj.getSale_date()}" /></td>
 						<td class="col-md-1"><c:out value="${obj.getName()}" /></td>

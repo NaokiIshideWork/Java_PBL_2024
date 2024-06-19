@@ -31,6 +31,7 @@
 			</ul>
 		</div>
 	</nav>
+	
 	<div class="container" class="text-left">
 		<h2 class="mt-3">アカウント検索結果表示</h2>
 	</div>
@@ -54,8 +55,7 @@
 						test="${sessionScope.LoginUser.getAuthority() eq 10 or sessionScope.LoginUser.getAuthority() eq 11}">
 						<td class="col-md-1">
 							<div class="d-flex align-items-center">
-								<form action="EditAccountServlet" method="post"
-									class="me-2">
+								<form action="EditAccountServlet" method="post" class="me-2">
 									<input type="hidden" name="tmpId"
 										value="${obj.getAccount_id()}" /> <input type="hidden"
 										name="tmpName" value="${obj.getName()}" /> <input
