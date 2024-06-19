@@ -10,7 +10,7 @@
 <title>売上検索結果表示</title>
 </head>
 <body>
-
+<%--コメント --%>
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
