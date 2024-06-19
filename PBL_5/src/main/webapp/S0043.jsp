@@ -63,7 +63,7 @@ if (authority == 11) {
 			<div class="container position-absolute">
 				<h2 class="mt-5" style="margin-left: 130px;">アカウント詳細編集確認</h2>
 				<div class="" style="margin-left: 100px">
-					<form class="text-right" action="EditConfirmServlet"
+					<form class="text-right" action="AccountSearchServlet"
 						method="post">
 						<div class="row ">
 							<div class="col-sm-3">
@@ -141,6 +141,7 @@ if (authority == 11) {
 							type="hidden" name="tmpAuthority" value="<%=confirm_authority%>" />
 						<input type="hidden" name="tmpPassword" value="<%=password%>" />
 
+						<input type="hidden" name="editOK" value="true">
 						<button type="submit" class="btn btn-primary"
 							style="margin-left: 50px;">✓OK</button>
 						</form>

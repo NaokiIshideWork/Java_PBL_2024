@@ -61,7 +61,7 @@ if (authority == 11) {
 			<div class="container position-absolute">
 				<h2 class="mt-5" style="margin-left: 80px;">アカウント詳細削除確認</h2>
 				<div class="" style="margin-left: 100px">
-					<form class="text-right" action="DeleteConfirmServlet"
+					<form class="text-right" action="AccountSearchServlet"
 						method="POST">
 						<div class="row ">
 							<div class="col-sm-3">
@@ -137,6 +137,7 @@ if (authority == 11) {
 									type="hidden" name="tmpAuthority"
 									value="<%=confirm_authority%>" /> <input type="hidden"
 									name="tmpPassword" value="<%=password%>" />
+								<input type="hidden" name="deleteOK" value="true">	
 								<button type="submit" class="btn btn-danger me-2">✕OK</button>
 								
 								</form>

@@ -27,8 +27,62 @@ public class AccountSearchServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         
+        boolean boolEdit = false;
+        boolean boolDelete = false;
+        
+        if ("true".equals(request.getParameter("deleteOK"))) {
+        	AccountRecord ar = new AccountRecord();
+    		System.out.println("deleteOK");
+    		
+    		String str_id = request.getParameter("tmpId");
+    		String name = request.getParameter("tmpName");
+    		String mail = request.getParameter("tmpMail");
+    		String password = request.getParameter("tmpPassword");
+    		String str_authority = request.getParameter("tmpAuthority");
+    		
+    		
+    		int authority = Integer.parseInt(str_authority);
+    		
+    		
+    		ar.deleteAccount(str_id);
+    		System.out.println(str_id + name + "さん" + "を削除しました");
+    		boolDelete = true;
+        }
+        
+        if ("true".equals(request.getParameter("editOK"))) {
+        	request.setCharacterEncoding("UTF-8");
+    		
+    		AccountRecord ar = new AccountRecord();
+    		System.out.println("S0043_EditConfirmのpost");
+    		
+    		String str_id = request.getParameter("tmpId");
+    		String name = request.getParameter("tmpName");
+    		String mail = request.getParameter("tmpMail");
+    		String password = request.getParameter("tmpPassword");
+    		String str_authority = request.getParameter("tmpAuthority");
+    		
+    		System.out.println("POSTに届いたtmpId: " + str_id);
+    		System.out.println("POSTに届いたtmpName: " + name);
+    		System.out.println("POSTに届いたtmpMail: " + mail);
+    		System.out.println("POSTに届いたtmpPassword: " + password);
+    		System.out.println("POSTに届いたtmpAuthority: " + str_authority);
+    		
+    		
+    		
+    		int id = Integer.parseInt(str_id);
+    		int authority = Integer.parseInt(str_authority);
+    		
+    		
+    		ar.updateAccount(id, name, mail, password, authority);
+    		System.out.println(str_id + name + "さん" + "を更新しました。");
+    		
+    		
+    		boolEdit = true;
+        }
+        
+        
         // キャンセルボタンが押されたかどうかを確認
-        if ("true".equals(request.getParameter("cancel"))) {
+        if ("true".equals(request.getParameter("cancel")) || boolEdit == true || boolDelete == true) {
             // セッションから検索条件を取得
             String name = (String) session.getAttribute("searchName");
             String mail = (String) session.getAttribute("searchMail");
@@ -61,6 +115,10 @@ public class AccountSearchServlet extends HttpServlet {
             } else {
                 request.setAttribute("AccountSearch", ar.AccountMultiSearchCriteria(name, mail, intAuthorityOne, intAuthorityTwo));
             }
+            
+            // 一応false もし不要だったら消す
+            boolEdit = false;
+            boolDelete = false;
 
             request.getRequestDispatcher("/S0041.jsp").forward(request, response);
             return;
