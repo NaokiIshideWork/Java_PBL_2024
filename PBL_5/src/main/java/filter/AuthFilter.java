@@ -66,12 +66,22 @@ public class AuthFilter extends HttpFilter implements Filter {
 				res.sendRedirect("LoginServlet");
 				return;
 			}
-		} else if (referer == null && (ab.getAuthority() == 0 || ab.getAuthority() == 10)
-				&& (path.equals("/RegisterServlet") || path.equals("/RegisterSalesServlet"))
-				&& session.getAttribute("redirectedFromRegister") == null) {
-			session.setAttribute("redirectedFromRegister", true);
-			res.sendRedirect("RegisterServlet"); // ここでのリダイレクトが問題の原因
-			return;
+		} else {
+			boolean flag1 = referer == null;
+			boolean flag2 = ab.getAuthority() == 0 || ab.getAuthority() == 10;
+			boolean flag3 = path.equals("/RegisterServlet") || path.equals("/RegisterSalesServlet");
+			if (flag1 && flag2 && flag3) {
+			    Boolean redirected = (Boolean) session.getAttribute("redirectedFromRegister");
+			    if (redirected == null) {
+			        session.setAttribute("redirectedFromRegister", true);
+			        res.sendRedirect("RegisterServlet");
+			        return;
+			    }else {
+			    	res.sendRedirect("RegisterServlet");
+			        return;
+			    }
+			    
+			}
 		}
 
 		chain.doFilter(request, response);

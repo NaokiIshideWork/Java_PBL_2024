@@ -93,7 +93,7 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		if (Sales2Bean_list.isEmpty()) {
 			ErrorMessage += "検索結果はありません";
 			request.setAttribute("err", ErrorMessage);
-			this.getServletContext().getRequestDispatcher("/S0020.jsp").forward(request, response);
+			response.sendRedirect("SearchSalesServlet");
 		} else {
 
 			account_list = mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName,
