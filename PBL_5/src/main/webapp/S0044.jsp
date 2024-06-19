@@ -138,9 +138,12 @@ if (authority == 11) {
 									value="<%=confirm_authority%>" /> <input type="hidden"
 									name="tmpPassword" value="<%=password%>" />
 								<button type="submit" class="btn btn-danger me-2">✕OK</button>
-								<a class="btn btn-outline-secondary"
-									href="javascript:history.back()" role="button">キャンセル</a>
-								<!-- キャンセル　セッションを使う -->
+								
+								</form>
+								<form class="d-inline" action="AccountSearchServlet" method="post">
+                                        <input type="hidden" name="cancel" value="true">
+                                        <button type="submit" class="btn btn-outline-secondary">キャンセル</button>
+                                </form>
 							</div>
 						</div>
 					</form>
