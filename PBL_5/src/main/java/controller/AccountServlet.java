@@ -142,6 +142,7 @@ public class AccountServlet extends HttpServlet {
 			request.setAttribute("name", name);
 			request.setAttribute("mail", mail);
 			request.setAttribute("password", password);
+			// アカウント検索結果表示の編集ページからの移動対策
 			request.setAttribute("authority", authority);
 			// 次の処理に進む
 			request.getRequestDispatcher("/S0031.jsp").forward(request, response);

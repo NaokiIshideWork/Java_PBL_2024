@@ -47,8 +47,7 @@ if (authority == 11) {
 					<li class="nav-item"><a class="nav-link"
 						href="RegisterServlet">売上登録</a></li>
 					<li class="nav-item"><a class="nav-link" href="SearchSales">売上検索</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="AccountRegisterServlet">アカウント登録</a></li>
+					<li class="nav-item"><a class="nav-link" href="AccountServlet">アカウント登録</a></li>
 					<li class="nav-item bg-dark-subtle"><a class="nav-link"
 						href="AccountSearchServlet">アカウント検索</a></li>
 				</ul>
