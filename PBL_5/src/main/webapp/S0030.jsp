@@ -37,6 +37,7 @@
 			</div>
 		</nav>
 	</header>
+	
 	<c:if test="${not empty err}">
 		<div
 			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
