@@ -45,7 +45,7 @@
 			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
 			role="alert">${err}</div>
 	</c:if>
-	
+	<%--コメント --%>
 	<div class="container">
 		<h1 class="ml-5 mt-5 mb-4">売上検索条件入力</h1>
 

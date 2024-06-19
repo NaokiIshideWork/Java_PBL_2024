@@ -59,7 +59,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 			referer = null;//直打ちである
 		}
 		//		System.out.println("->"+referer);
-		//		System.out.println("->"+path);
+		
 		if (session.getAttribute("LoginUser") == null) {
 			if (!path.equals("/LoginServlet")) {
 				res.sendRedirect("LoginServlet");
