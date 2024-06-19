@@ -42,7 +42,8 @@
 			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
 			role="alert">${err}</div>
 	</c:if>
-
+<c:choose>	
+	<c:when test="${sessionScope.LoginUser.getAuthority() eq 10 or sessionScope.LoginUser.getAuthority() eq 11}">
 	<div class="container position-absolute">
 		<h1 class="mt-5" style="margin-left: 50px;">アカウント登録</h1>
 		<div class="" style="margin-left: 10px">
@@ -132,5 +133,12 @@
 
 		</div>
 	</div>
+	</c:when>
+	<c:otherwise>
+		<div
+			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
+			role="alert">アカウント登録権限がありません</div>
+	</c:otherwise>
+</c:choose>
 </body>
 </html>
