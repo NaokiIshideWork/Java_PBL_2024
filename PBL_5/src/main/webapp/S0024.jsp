@@ -89,7 +89,7 @@
 								<div class="col-sm-8 w-50">
 									<input type="text" name="trade_name"
 										class="form-control bg-secondary-subtle"
-										value="${S0024list.getTrade_name() }" readonly>
+										value="${S0024list.getTrade_name()}" readonly>
 								</div>
 							</div>
 							<div class="row mt-3">

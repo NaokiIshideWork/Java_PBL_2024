@@ -69,10 +69,13 @@ public class S0024Servlet extends HttpServlet {
 		} else if (trade_name.length() > 100) {
 			error_message += "商品名が長すぎます,";
 		}
+		trade_name = sanitizing(trade_name);
 		//単価
 		String unit_price = request.getParameter("unit_price");
 		if (unit_price.isEmpty()) {
 			error_message += "単価を入力して下さい,";
+		} else if (unit_price.length() > 9) {
+			error_message += "単価の桁数が長すぎます,";
 		} else if (!unit_price.matches("\\d{1,3}(,\\d{3})*")) {
 			error_message += "単価を正しく入力して下さい,";
 
@@ -81,6 +84,8 @@ public class S0024Servlet extends HttpServlet {
 		String sale_number = request.getParameter("sale_namber");
 		if (sale_number.isEmpty()) {
 			error_message += "個数を入力して下さい,";
+		} else if (sale_number.length() > 9) {
+			error_message += "個数の桁数が長すぎます,";
 		} else if (!sale_number.matches("\\d{1,3}(,\\d{3})*")) {
 			error_message += "個数を正しく入力して下さい,";
 		}
@@ -89,6 +94,7 @@ public class S0024Servlet extends HttpServlet {
 		if (note.length() > 400) {
 			error_message += "備考が長すぎます,";
 		}
+		note = sanitizing(note);
 
 		if (error_message.isEmpty()) {
 			S0023Confirmlist = new S0023ConfirmBean(Integer.parseInt(up_date_id), sale_date, account_name,
@@ -101,7 +107,7 @@ public class S0024Servlet extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/S0023.jsp").forward(request, response);
 		}
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	/**
@@ -110,8 +116,21 @@ public class S0024Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 
+	}
+
+	public static String sanitizing(String str) {
+		if (null == str || "".equals(str)) {
+			return str;
+		}
+
+		str = str.replaceAll("&", "&amp;");
+		str = str.replaceAll("<", "&lt;");
+		str = str.replaceAll(">", "&gt;");
+		str = str.replaceAll("\"", "&quot;");
+		str = str.replaceAll("'", "&#39;");
+
+		return str;
 	}
 
 }

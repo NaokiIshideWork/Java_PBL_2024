@@ -11,6 +11,7 @@
 <title>売上登録確認</title>
 </head>
 <body>
+
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
@@ -50,7 +51,7 @@
 							</div>
 							<div class="col-sm-8">
 								<input type="text" name="sale_date"
-									value="${list.getSale_date()}"
+									value="${sblist.getSale_date()}"
 									class="form-control w-25 bg-secondary-subtle"
 									placeholder="Last name" aria-label="Last name" readonly>
 							</div>
@@ -61,7 +62,7 @@
 									style="text-align: end;">担当</h3>
 							</div>
 							<div class="col-sm-8 w-50">
-								<input type="text" value="${list.getAccout()}"
+								<input type="text" value="${sblist.getAccout()}"
 									class="form-control  bg-secondary-subtle"
 									aria-label="Last name" readonly> <input type="hidden"
 									name="account_id" value="${list.getAccout_id()}"
@@ -75,10 +76,10 @@
 									style="text-align: end;">商品カテゴリー</h3>
 							</div>
 							<div class="col-sm-8 w-50">
-								<input type="text" value="${list.getItem_category()}"
+								<input type="text" value="${sblist.getItem_category()}"
 									class="form-control bg-secondary-subtle" aria-label="Last name"
 									readonly> <input type="hidden" name="category_id"
-									value="${list.getCategory_id()}"
+									value="${sblist.getCategory_id()}"
 									class="form-control  bg-secondary-subtle"
 									aria-label="Last name" readonly>
 							</div>
@@ -90,8 +91,8 @@
 							</div>
 							<div class="col-sm-8 w-50">
 								<input type="text" name="trade_name"
-									value="${list.getTrade_name()}"
-									class="form-control bg-secondary-subtle" placeholder="商品名"
+									value="${sblist.getTrade_name()}"
+									class="form-control bg-secondary-subtle" 
 									readonly>
 							</div>
 						</div>
@@ -102,8 +103,8 @@
 							</div>
 							<div class="col-sm-8">
 								<input type="text" name="unit_price"
-									value="${list.getUnit_price()}"
-									class="form-control w-25 bg-secondary-subtle" placeholder="単価"
+									value="${sblist.getUnit_price()}"
+									class="form-control w-25 bg-secondary-subtle" 
 									readonly>
 							</div>
 						</div>
@@ -114,8 +115,8 @@
 							</div>
 							<div class="col-sm-8">
 								<input type="text" name="sale_number"
-									value="${list.getSale_number()}"
-									class="form-control w-25 bg-secondary-subtle" placeholder="個数"
+									value="${sblist.getSale_number()}"
+									class="form-control w-25 bg-secondary-subtle" 
 									readonly>
 							</div>
 						</div>
@@ -125,7 +126,7 @@
 									style="text-align: end;">小計</h3>
 							</div>
 							<div class="col-sm-8">
-								<input type="text" name="subtotal" value="${list.getSubtotal()}"
+								<input type="text" name="subtotal" value="${sblist.getSubtotal()}"
 									class="form-control w-25 bg-secondary-subtle" readonly>
 							</div>
 						</div>
@@ -138,7 +139,7 @@
 
 								<textarea class="form-control w-75 bg-secondary-subtle"
 									name="note" id="exampleFormControlTextarea1" rows="5" readonly><c:out
-										value="${list.getNote()}" />
+										value="${sblist.getNote()}" />
                 </textarea>
 							</div>
 						</div>
