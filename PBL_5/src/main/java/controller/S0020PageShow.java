@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.AccountsBean;
 import model.CategoriesBean;
@@ -40,14 +41,15 @@ public class S0020PageShow extends HttpServlet {
 
 		ArrayList<AccountsBean> account_list = null;
 		account_list = sqlserv.canSelectAllAcount();
+		HttpSession session = request.getSession();
 
 		if (account_list.isEmpty()) {
 			ErrorMessage += "アカウントテーブルに存在しません";
 			request.setAttribute("err", ErrorMessage);
 		} else {
-			request.setAttribute("accounts", account_list);
+			session.setAttribute("accounts", account_list);
 		}
-
+		
 		//商品カテゴリー表示用
 		ArrayList<CategoriesBean> categories_list = null;
 		categories_list = sqlserv.canSelectAllCategory();
@@ -56,7 +58,7 @@ public class S0020PageShow extends HttpServlet {
 			ErrorMessage += "商品カテゴリーテーブルに存在しません";
 			request.setAttribute("err", ErrorMessage);
 		} else {
-			request.setAttribute("cate", categories_list);
+			session.setAttribute("cate", categories_list);
 		}
 		
 		this.getServletContext().getRequestDispatcher("/S0020.jsp").forward(request, response);

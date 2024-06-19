@@ -59,8 +59,8 @@ public class AuthFilter extends HttpFilter implements Filter {
 			referer = null;//直打ちである
 		}
 		//		System.out.println("->"+referer);
-		System.out.println("S:->"+session.getAttribute("redirectedFromRegister"));
-		
+//		System.out.println("S:->" + session.getAttribute("redirectedFromRegister"));
+
 		if (session.getAttribute("LoginUser") == null) {
 			if (!path.equals("/LoginServlet")) {
 				res.sendRedirect("LoginServlet");
@@ -71,16 +71,17 @@ public class AuthFilter extends HttpFilter implements Filter {
 			boolean flag2 = ab.getAuthority() == 0 || ab.getAuthority() == 10;
 			boolean flag3 = path.equals("/RegisterServlet") || path.equals("/RegisterSalesServlet");
 			if (flag1 && flag2 && flag3) {
-			    Boolean redirected = (Boolean) session.getAttribute("redirectedFromRegister");
-			    if (redirected == null) {
-			        session.setAttribute("redirectedFromRegister", true);
-			        res.sendRedirect("RegisterServlet");
-			        return;
-			    }else {
-			    	res.sendRedirect("RegisterServlet");
-			        return;
-			    }
-			    
+				Boolean redirected = (Boolean) session.getAttribute("redirectedFromRegister");
+				if (redirected == null || !redirected) {
+					session.setAttribute("redirectedFromRegister", true);
+					res.sendRedirect("RegisterServlet");
+					return;
+				} else {
+					session.removeAttribute("redirectedFromRegister");
+					request.getRequestDispatcher("/S0010.jsp").forward(request, response);
+					return;
+				}
+
 			}
 		}
 

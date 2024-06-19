@@ -44,10 +44,10 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		account_list = mts.SalesSearchDisplay(ssb_list.getSalesDateB(),
 				ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
 				ssb_list.getProductName(), ssb_list.getRemarks());
-		String isAuth = (String) session.getAttribute("isAuth");
+	
 		session.removeAttribute("list");
 		session.setAttribute("list", account_list);
-		request.setAttribute("isAuth", isAuth);
+		
 
 		this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
 
@@ -90,11 +90,16 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		//検索結果が0件か?
 		Sales2Bean_list = mts.selectAllSales(salesDateB, salesDateA, salesPerson, productCategory, productName,
 				remarks);
-		if (Sales2Bean_list.isEmpty()) {
+		if (Sales2Bean_list.isEmpty() && ErrorMessage.isEmpty()) {
 			ErrorMessage += "検索結果はありません";
 			request.setAttribute("err", ErrorMessage);
-			response.sendRedirect("SearchSalesServlet");
-		} else {
+			this.getServletContext().getRequestDispatcher("/S0020.jsp").forward(request, response);
+		}
+		else if(!ErrorMessage.isEmpty()) {
+			request.setAttribute("err", ErrorMessage);
+			this.getServletContext().getRequestDispatcher("/S0020.jsp").forward(request, response);
+		}
+		else {
 
 			account_list = mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName,
 					remarks);
