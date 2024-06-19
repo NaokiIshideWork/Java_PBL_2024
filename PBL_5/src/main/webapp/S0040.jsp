@@ -9,6 +9,7 @@
 <title>アカウント検索条件入力</title>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">物品売上管理システム</a>
@@ -31,6 +32,13 @@
             </ul>
         </div>
     </nav>
+    
+<c:if test="${not empty err}">
+		<div
+			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
+			role="alert">${err}</div>
+</c:if>
+    
 	<div class="container position-absolute">
 		<h2 class="mt-5" style="margin-left: 30px;">アカウント検索条件入力</h2>
 		<div class="" style="margin-left: 100px">
