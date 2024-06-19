@@ -60,25 +60,32 @@ public class AuthFilter extends HttpFilter implements Filter {
 		}
 //		System.out.println("->"+referer);
 		if (session.getAttribute("LoginUser") == null) {
-			if (!path.equals("/LoginServlet")) {
-				res.sendRedirect("LoginServlet");
-				return;
-			}
-		}else {
-			if (referer == null && !(ab.getAuthority() == 1 || ab.getAuthority() == 11)
-					&& (path.equals("/RegisterServlet") || path.equals("/RegisterSalesServlet"))) {
-				ErrorMessage ="売上編集権限はありません";
-				req.getSession().setAttribute("isAuthSales", ErrorMessage);
-				res.sendRedirect("RegisterServlet");//検索条件に返す
-				return;
-			}
-			else if (referer == null && !(ab.getAuthority() == 1 || ab.getAuthority() == 11)
-					&& !(path.equals("/SearchSales") || path.equals("/SearchSalesServlet"))) {
-				ErrorMessage ="売上編集権限はありません,ページを直打ちしないでください";
-				req.getSession().setAttribute("isAuth", ErrorMessage);
-				res.sendRedirect("SearchSalesServlet");//検索条件に返す
-				return;
-			}
+		    if (!path.equals("/LoginServlet")) {
+		        res.sendRedirect("LoginServlet");
+		        return;
+		    }
+		}
+//		} else {
+//		    if (referer == null && !(ab.getAuthority() == 1 || ab.getAuthority() == 11)
+//		            && (path.equals("/RegisterServlet") || path.equals("/RegisterSalesServlet"))) {
+//		        // リダイレクトを行う前にセッションにフラグを設定
+//		        session.setAttribute("redirectedFromRegister", true);
+////		        ErrorMessage = "売上編集権限はありません";
+////		        req.getSession().setAttribute("isAuthSales", ErrorMessage);
+//		        res.sendRedirect("RegisterServlet"); // ここでのリダイレクトが問題の原因
+//		        return;
+//		    } else if (session.getAttribute("redirectedFromRegister") != null) {
+//		        // RegisterServlet からのリダイレクトであれば、フラグをクリアする
+//		        session.removeAttribute("redirectedFromRegister");
+//		    }
+//		}
+//			else if (referer == null && !(ab.getAuthority() == 1 || ab.getAuthority() == 11)
+//					&& !(path.equals("/SearchSales") || path.equals("/SearchSalesServlet"))) {
+//				ErrorMessage ="売上編集権限はありません,ページを直打ちしないでください";
+//				req.getSession().setAttribute("isAuth", ErrorMessage);
+//				res.sendRedirect("SearchSalesServlet");//検索条件に返す
+//				return;
+//			}
 			
 //			else if(referer == null && !(ab.getAuthority() == 10 || ab.getAuthority() == 11)
 //			&& !(path.equals("/") || path.equals("/"))) {
@@ -88,7 +95,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 //				return;
 //			}
 
-		}
+		
 		chain.doFilter(request, response);
 	}
 
@@ -97,6 +104,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
+//		 super.init(fConfig);
 	}
 
 }
