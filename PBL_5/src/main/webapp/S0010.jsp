@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'">
 <title>売上登録</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
