@@ -47,7 +47,7 @@
 									style="text-align: end;">販売日</h3>
 							</div>
 							<div class="col-sm-8">
-								<input type="text" name="sale_date"
+								<input type="text" 
 									class="form-control w-25 bg-secondary-subtle"
 									value="${S0024list.getSale_date()}" aria-label="Last name"
 									readonly>
@@ -61,10 +61,7 @@
 							<div class="col-sm-8 w-50">
 								<input type="txet" value="${S0024list.getAccount()}"
 									class="form-control bg-secondary-subtle" aria-label="Last Name"
-									readonly><input type="hidden" name="account_id"
-									value="${S0024list.getAccount_id()}"
-									class="form-control  bg-secondary-subtle"
-									aria-label="Last name" readonly>
+									readonly>
 							</div>
 						</div>
 						<div class="row mt-3">
@@ -75,10 +72,7 @@
 							<div class="col-sm-8 w-50">
 								<input type="text" value="${S0024list.getCategory_name()}"
 									class="form-control bg-secondary-subtle" aria-label="Last name"
-									readonly> <input type="hidden" name="category_id"
-									value="${S0024list.getCategory_id()}"
-									class="form-control  bg-secondary-subtle"
-									aria-label="Last name" readonly>
+									readonly> 
 							</div>
 
 							<div class="row mt-3">
@@ -87,7 +81,7 @@
 										style="text-align: end;">商品名</h3>
 								</div>
 								<div class="col-sm-8 w-50">
-									<input type="text" name="trade_name"
+									<input type="text" 
 										class="form-control bg-secondary-subtle"
 										value="${S0024list.getTrade_name()}" readonly>
 								</div>
@@ -98,7 +92,7 @@
 										style="text-align: end;">単価</h3>
 								</div>
 								<div class="col-sm-8">
-									<input type="text" name="unit_price"
+									<input type="text" 
 										class="form-control w-25 bg-secondary-subtle"
 										value="${S0024list.getUnit_price() }" readonly>
 
@@ -110,7 +104,7 @@
 										style="text-align: end;">個数</h3>
 								</div>
 								<div class="col-sm-8">
-									<input type="text" name="sale_number"
+									<input type="text" 
 										class="form-control w-25 bg-secondary-subtle"
 										value="${S0024list.getSale_number() }" readonly>
 								</div>
@@ -122,7 +116,7 @@
 								</div>
 								<div class="col-sm-8">
 
-									<textarea name="note"
+									<textarea 
 										class="form-control w-75 bg-secondary-subtle"
 										id="exampleFormControlTextarea1" rows="5" readonly><c:out
 											value="${S0024list.getNote()}"></c:out></textarea>
@@ -131,7 +125,7 @@
 							<div class="row mt-3">
 								<div class="col-sm-2"></div>
 								<div class="col-sm-8" style="margin-left: 30px;">
-									<button type="submit" class="btn btn-primary" name="up_date_id"
+									<button type="submit" class="btn btn-primary" 
 										value="${S0024list.getSale_id()}">✔O K</button>
 									<a class="btn btn-outline-secondary"
 										href="EditSalesDetails?sale_id=${S0024list.getSale_id()}"

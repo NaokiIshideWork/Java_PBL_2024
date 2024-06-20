@@ -309,7 +309,7 @@ public class SQLServicesPBLsfs {
 	
 	
 	
-	public void insert(int up_date_id, String sale_date, String account_id, String category_id, String trade_name,
+	public void insert(int up_date_id, String sale_date, int account_id, int category_id, String trade_name,
 			String unit_price, String sale_number, String note) {
 		String sql = "UPDATE sales SET sale_date = ?,account_id = ?,\n"
 				+ "			     category_id =?, \n"
@@ -324,8 +324,8 @@ public class SQLServicesPBLsfs {
 			unit_price = unit_price.replace(",", "");
 			sale_number = sale_number.replace(",","");
 			ps.setString(1, sale_date);
-			ps.setInt(2, Integer.parseInt(account_id));
-			ps.setInt(3, Integer.parseInt(category_id));
+			ps.setInt(2, account_id);
+			ps.setInt(3, category_id);
 			ps.setString(4, trade_name);
 			ps.setInt(5, Integer.parseInt(unit_price));
 			ps.setInt(6, Integer.parseInt(sale_number));

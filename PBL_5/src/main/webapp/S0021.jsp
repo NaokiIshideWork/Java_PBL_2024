@@ -62,7 +62,7 @@
 					<th scope="col" class="col-md-1">小計</th>
 				</tr>
 			</thead>
-			<c:forEach var="obj" items="${list}">
+			<c:forEach var="obj" items="${slist}">
 				<form action="SalesDetailsDisplayServlet" method="get">
 					<tr>
 						<c:if

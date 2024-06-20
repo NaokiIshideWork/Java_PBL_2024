@@ -105,7 +105,7 @@ public class S0020SearchSalesServlet extends HttpServlet {
 
 			account_list = mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName,
 					remarks);
-			session.setAttribute("list", account_list);
+			session.setAttribute("slist", account_list);
 			SalesSearchBean ssb = new SalesSearchBean(salesDateB, salesDateA, salesPerson, productCategory, productName,
 					remarks);
 			session.setAttribute("ssb", ssb);

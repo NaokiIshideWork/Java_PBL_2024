@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.S0023ConfirmBean;
 import services.SQLServicesPBLsfs;
@@ -96,11 +97,12 @@ public class S0024Servlet extends HttpServlet {
 			error_message += "備考が長すぎます,";
 		}
 
+		HttpSession session = request.getSession();
 		if (error_message.isEmpty()) {
 			S0023Confirmlist = new S0023ConfirmBean(Integer.parseInt(up_date_id), sale_date, account_name,
 					Integer.parseInt(account_id), category_name, Integer.parseInt(category_id), trade_name, unit_price,
 					sale_number, note);
-			request.setAttribute("S0024list", S0023Confirmlist);
+			session.setAttribute("S0024list", S0023Confirmlist);
 			this.getServletContext().getRequestDispatcher("/S0024.jsp").forward(request, response);
 		} else {
 			error_message = CharUtil.replaceCommaAtEnd(error_message);

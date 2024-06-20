@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.S0023ConfirmBean;
 import model.SalesSearchBean;
 import model.SalesSearchDisplayBean;
 import services.SQLServicesPBLsfs;
@@ -43,27 +44,29 @@ public class S0024InsertServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		
+		HttpSession session = request.getSession();
 		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
-		
-		String up_date_id = request.getParameter("up_date_id");
-		
-		String sale_date = request.getParameter("sale_date");
-		String account_id = request.getParameter("account_id");
-		String category_id = request.getParameter("category_id");
-		
-		String trade_name = request.getParameter("trade_name");
-		String unit_price = request.getParameter("unit_price");
-		String sale_number = request.getParameter("sale_number");
-		String note = request.getParameter("note");
+		S0023ConfirmBean s023cfb = (S0023ConfirmBean)session.getAttribute("S0024list");
 		
 		
+		int up_date_id = s023cfb.getSale_id();
 		
-		mts.insert(Integer.parseInt(up_date_id), sale_date, account_id, category_id, trade_name,
+		String sale_date = s023cfb.getSale_date();
+		int account_id = s023cfb.getAccount_id();
+		int category_id = s023cfb.getCategory_id();
+		
+		String trade_name = s023cfb.getTrade_name();
+		String unit_price = s023cfb.getUnit_price();
+		String sale_number = s023cfb.getSale_number();
+		String note = s023cfb.getNote();
+		
+		
+		
+		mts.insert(up_date_id, sale_date, account_id, category_id, trade_name,
 				unit_price, sale_number, note);
 		
 		
-		HttpSession session = request.getSession();
+		
 		SalesSearchBean ssb_list =(SalesSearchBean) session.getAttribute("ssb");
 		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
 		
