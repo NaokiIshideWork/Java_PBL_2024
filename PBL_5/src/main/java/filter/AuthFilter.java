@@ -52,6 +52,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 
 		String path = req.getServletPath();
 		String referer = "";
+	
 
 		try {
 			referer = req.getHeader("referer").replaceAll(".*/([^/?]+).*", "$1");
@@ -79,7 +80,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 			//権限がない
 			boolean isRegSales = path.equals("/RegisterServlet") || path.equals("/RegisterSalesServlet");
 			boolean isEditSale = path.equals("/SalesDetailsDisplayServlet") || path.equals("/EditSalesDetails")
-					|| path.equals("/ConfirmationSalesDeletion") || path.equals("/ConfirmationSalesEdit");
+					|| path.equals("/ConfirmationSalesDeletion") || path.equals("/ConfirmationSalesEdit")||path.equals("/SearchSalesServlet");
 
 			boolean isRegAccount = path.equals("/AccountServlet") || path.equals("/AccountRegisterServlet");
 			boolean isEditAccount = path.equals("/EditAccountServlet") || path.equals("/EditScreenServlet") ||
@@ -117,14 +118,15 @@ public class AuthFilter extends HttpFilter implements Filter {
 					return;
 				}
 			}
-			if (isRefer && hasnotSalesReg && isEditSale) {
+			//売上編集権限がなく　編集画面一覧等に打ち込んだ場合
+			if (isRefer && hasnotSalesReg && isEditSale	) {
 				if (redirected1 == null || !redirected1) {
 					session.setAttribute("redirectedFromRegister1", true);
-					res.sendRedirect("SearchSalesServlet");
+					res.sendRedirect("SearchSales");//修正
 					return;
 				} else {
 					session.removeAttribute("redirectedFromRegister1");
-					res.sendRedirect("SearchSalesServlet");
+					res.sendRedirect("SearchSales");//修正
 					return;
 				}
 			}
