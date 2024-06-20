@@ -40,6 +40,11 @@ public class AccountSearchServlet extends HttpServlet {
     		String password = request.getParameter("tmpPassword");
     		String str_authority = request.getParameter("tmpAuthority");
     		
+    		name = sanitizing(name);
+    		
+    		
+    		
+    		
     		
     		int authority = Integer.parseInt(str_authority);
     		
@@ -66,6 +71,9 @@ public class AccountSearchServlet extends HttpServlet {
     		System.out.println("POSTに届いたtmpMail: " + mail);
     		System.out.println("POSTに届いたtmpPassword: " + password);
     		System.out.println("POSTに届いたtmpAuthority: " + str_authority);
+    		
+    		name = sanitizing(name);
+    		password = sanitizing(password);
     		
     		
     		
@@ -199,6 +207,8 @@ public class AccountSearchServlet extends HttpServlet {
 		}
 		
 		
+		
+		
 
 		if (!error_display.equals("")) {
 			request.setAttribute("err", error_display);
@@ -221,4 +231,20 @@ public class AccountSearchServlet extends HttpServlet {
         request.getRequestDispatcher("/S0041.jsp").forward(request, response);
     }
   }
+    
+	public static String sanitizing(String str) {
+		if (null == str || "".equals(str)) {
+			return str;
+		}
+
+		str = str.replaceAll("&", "&amp;");
+		str = str.replaceAll("<", "&lt;");
+		str = str.replaceAll(">", "&gt;");
+		str = str.replaceAll("\"", "&quot;");
+		str = str.replaceAll("'", "&#39;");
+
+		return str;
+	}
 }
+
+

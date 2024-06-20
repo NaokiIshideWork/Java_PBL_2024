@@ -57,11 +57,14 @@
 							<div class="d-flex align-items-center">
 								<form action="EditAccountServlet" method="post" class="me-2">
 									<input type="hidden" name="tmpId"
-										value="${obj.getAccount_id()}" /> <input type="hidden"
-										name="tmpName" value="${obj.getName()}" /> <input
+										value="${obj.getAccount_id()}" /> 
+										<input type="hidden"
+										name="tmpName" value="${obj.getName()}" /> 
+										<input
 										type="hidden" name="tmpMail" value="${obj.getMail()}" /> <input
 										type="hidden" name="tmpAuthority"
-										value="${obj.getAuthority()}" /> <input type="hidden"
+										value="${obj.getAuthority()}" /> 
+										<input type="hidden"
 										name="tmpPassword" value="${obj.getPassword()}" />
 									<button type="submit" class="btn btn-primary">✓ 編集</button>
 								</form>

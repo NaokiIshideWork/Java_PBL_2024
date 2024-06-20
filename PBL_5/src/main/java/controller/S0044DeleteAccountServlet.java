@@ -41,7 +41,17 @@ public class S0044DeleteAccountServlet extends HttpServlet {
 		String name = request.getParameter("tmpName");
 		String mail = request.getParameter("tmpMail");
 		String password = request.getParameter("tmpPassword");
+		// 一つのインスタンス？データのセット？としてconfirmPasswordにも"<---が入られると　それ用の対策もしておかないといけない
+		// 表示しなくても
+		
+		String confirmPassword = request.getParameter("confirmPassword");
 		String authority = request.getParameter("tmpAuthority");
+		
+		name = sanitizing(name);
+		password = sanitizing(password);
+		confirmPassword = sanitizing(confirmPassword);
+		
+		
 		
 		System.out.println("44servlet ");
 		System.out.println(name);
@@ -58,6 +68,20 @@ public class S0044DeleteAccountServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 				
 			}
+	
+	public static String sanitizing(String str) {
+		if (null == str || "".equals(str)) {
+			return str;
+		}
+
+		str = str.replaceAll("&", "&amp;");
+		str = str.replaceAll("<", "&lt;");
+		str = str.replaceAll(">", "&gt;");
+		str = str.replaceAll("\"", "&quot;");
+		str = str.replaceAll("'", "&#39;");
+
+		return str;
+	}
 
 }
 

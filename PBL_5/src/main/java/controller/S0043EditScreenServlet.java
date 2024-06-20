@@ -59,12 +59,19 @@ public class S0043EditScreenServlet extends HttpServlet {
 		System.out.println(confirmPassword);
 		System.out.println(authority);
 		
+		// VARCHAR型のnameとpasswordにサニタイジング
+		name = sanitizing(name);
+		password = sanitizing(password);
+		confirmPassword = sanitizing(confirmPassword);
+		
 		request.setAttribute("id", id);
 		request.setAttribute("name", name); //文字化け
 		request.setAttribute("mail", mail);
 		request.setAttribute("password", password);
 		request.setAttribute("confirmPassword", confirmPassword);
 		request.setAttribute("authority", authority);
+		
+		
 		
 		request.getRequestDispatcher("/S0043.jsp").forward(request, response);
 	}
@@ -109,6 +116,21 @@ public class S0043EditScreenServlet extends HttpServlet {
         }
         return false;
     }
+    
+    // サニタイジング用メソッド
+	public static String sanitizing(String str) {
+		if (null == str || "".equals(str)) {
+			return str;
+		}
+
+		str = str.replaceAll("&", "&amp;");
+		str = str.replaceAll("<", "&lt;");
+		str = str.replaceAll(">", "&gt;");
+		str = str.replaceAll("\"", "&quot;");
+		str = str.replaceAll("'", "&#39;");
+
+		return str;
+	}
 }
 
 

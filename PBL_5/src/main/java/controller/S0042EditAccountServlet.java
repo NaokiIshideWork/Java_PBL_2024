@@ -43,6 +43,9 @@ public class S0042EditAccountServlet extends HttpServlet {
 		String password = request.getParameter("tmpPassword");
 		String authority = request.getParameter("tmpAuthority");
 		
+		name = sanitizing(name);
+		password = sanitizing(password);
+		
 		System.out.println("S0042EditAccountServlet");
 		System.out.println(id);
 		System.out.println(name);
@@ -57,6 +60,20 @@ public class S0042EditAccountServlet extends HttpServlet {
 		
 		request.getRequestDispatcher("/S0042.jsp").forward(request, response);
 		
+	}
+	
+	public static String sanitizing(String str) {
+		if (null == str || "".equals(str)) {
+			return str;
+		}
+
+		str = str.replaceAll("&", "&amp;");
+		str = str.replaceAll("<", "&lt;");
+		str = str.replaceAll(">", "&gt;");
+		str = str.replaceAll("\"", "&quot;");
+		str = str.replaceAll("'", "&#39;");
+
+		return str;
 	}
 
 }
