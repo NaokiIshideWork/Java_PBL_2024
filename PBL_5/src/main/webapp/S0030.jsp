@@ -31,8 +31,7 @@
 					</ul>
 				</div>
 				<ul class="navbar-nav justify-content-end">
-					<li class="nav-item"><a class="nav-link"
-						href="LogoutServlet">ログアウト</a></li>
+					<li class="nav-item"><a class="nav-link" href="LogoutServlet">ログアウト</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -53,47 +52,40 @@
 				<div class="row ">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
-							style="text-align: end;">
-							氏名<span class="badge rounded-pill bg-secondary">必須</span>
+							style="text-align: end;">氏名 <span class="badge rounded-pill bg-secondary">必須</span>
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="text" name="name" class="form-control"
-							placeholder="氏名">
+						<input type="text" name="name" class="form-control" placeholder="氏名">
 					</div>
 				</div>
 
 				<div class="row mt-3">
 					<div class="col-sm-3">
-						<h3 for="inputEmail" class="col-form-label"
-							style="text-align: end;">
-							メールアドレス<span class="badge rounded-pill bg-secondary">必須</span>
+						<h3 for="inputEmail" class="col-form-label" style="text-align: end;">
+							メールアドレス <span class="badge rounded-pill bg-secondary">必須</span>
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="text" name="mail" class="form-control"
-							placeholder="メールアドレス">
+						<input type="text" name="mail" class="form-control" placeholder="メールアドレス">
 					</div>
 				</div>
 				
 				<div class="row mt-3">
 					<div class="col-sm-3">
-						<h3 for="inputEmail" class="col-form-label"
-							style="text-align: end;">
-							パスワード<span class="badge rounded-pill bg-secondary">必須</span>
+						<h3 for="inputEmail" class="col-form-label" style="text-align: end;">
+							パスワード <span class="badge rounded-pill bg-secondary">必須</span>
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="password" name="password" class="form-control "
-							placeholder="パスワード">
+						<input type="password" name="password" class="form-control" placeholder="パスワード">
 					</div>
 				</div>
 				
 				<div class="row mt-3">
 					<div class="col-sm-3">
-						<h3 for="inputEmail" class="col-form-label"
-							style="text-align: end;">
-							パスワード確認<span class="badge rounded-pill bg-secondary">必須</span>
+						<h3 for="inputEmail" class="col-form-label" style="text-align: end;">
+							パスワード確認 <span class="badge rounded-pill bg-secondary">必須</span>
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
@@ -106,7 +98,7 @@
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
 							style="text-align: end;">
-							権限<span class="badge rounded-pill bg-secondary">必須</span>
+							権限 <span class="badge rounded-pill bg-secondary">必須</span>
 						</h3>
 					</div>
 
@@ -119,15 +111,15 @@
 					    
 					    <input type="checkbox" name="authority" value="10" id="authorityAccount">
 					    <label for="authorityAccount"> アカウント登録 </label>
-
 					</div>
 				</div>
 
 				<div class="row mt-3">
 					<div class="col-sm-3"></div>
 					<div class="col-sm-8">
-						<button type="submit" class="btn btn-primary"
-							style="margin-left: 30px;">✓登録</button>
+						<button type="submit" class="btn btn-primary" style="margin-left: 30px;">
+						✓登録
+						</button>
 					</div>
 				</div>
 				
