@@ -7,7 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import model.SalesBean;
 import services.SQLServicesPBLreg;
 
 /**
@@ -42,18 +44,24 @@ public class S0011RegisterSalesServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLreg mts = new SQLServicesPBLreg();
+		HttpSession session = request.getSession();
+		SalesBean sb = (SalesBean)session.getAttribute("sblist");
 		
-		String sales_date = request.getParameter("sale_date");//販売日		
-		String account_id =  request.getParameter("account_id");//account_id	
-		String category_id = request.getParameter("category_id");//categori_id
-		String trade_name = request.getParameter("trade_name");//商品名
-		String unit_price = request.getParameter("unit_price");//単価
+		
+		String sales_date = sb.getSale_date();//販売日		
+		int account_id =  sb.getAccout_id();//account_id	
+		int category_id = sb.getCategory_id();//categori_id
+		String trade_name = sb.getTrade_name();//商品名
+		String unit_price = sb.getUnit_price();//単価
+		
 		unit_price = unit_price.replace(",", "");
-		String sale_number = request.getParameter("sale_number");//個数
+		String sale_number = sb.getSale_number();//個数
+				
 		sale_number = sale_number.replace(",", "");
-		String note = request.getParameter("note");//備考
 		
-		mts.insert(sales_date, Integer.parseInt(account_id), Integer.parseInt(category_id), trade_name, Integer.parseInt(unit_price), Integer.parseInt(sale_number), note);
+		String note = sb.getNote();//備考
+		
+		mts.insert(sales_date, account_id, category_id, trade_name, Integer.parseInt(unit_price), Integer.parseInt(sale_number), note);
 		response.sendRedirect("RegisterServlet");
 	}
 

@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.AccountsBean;
 import model.CategoriesBean;
@@ -40,7 +41,7 @@ public class S0010RegisterServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLreg sqlserv = new SQLServicesPBLreg();
 		String ErrorMessage = "";
-
+		
 		//担当表示用
 		ArrayList<AccountsBean> account_list = null;
 		account_list = sqlserv.canSelectAllAcount();
@@ -76,7 +77,7 @@ public class S0010RegisterServlet extends HttpServlet {
 		SQLServicesPBLreg sqlreg = new SQLServicesPBLreg();
 		SalesBean sblist = null;
 		String ErrorMessage = "";
-
+		HttpSession session = request.getSession();
 		String salesDate = request.getParameter("sale_date");
 		if (salesDate.isEmpty()) {
 			ErrorMessage += "販売日を入力して下さい,";//ok
@@ -149,7 +150,7 @@ public class S0010RegisterServlet extends HttpServlet {
 			sblist = new SalesBean(salesDate, accountName, Integer.parseInt(account_id), item_category_name,
 					Integer.parseInt(item_category_id), trade_name, formatNumber(Integer.parseInt(unit_price)),
 					formatNumber(Integer.parseInt(sale_number)), formatNumber(subtotal), note);
-			request.setAttribute("sblist", sblist);
+			session.setAttribute("sblist", sblist);
 			this.getServletContext().getRequestDispatcher("/S0011.jsp").forward(request, response);
 		} else {
 			ErrorMessage = CharUtil.replaceCommaAtEnd(ErrorMessage);

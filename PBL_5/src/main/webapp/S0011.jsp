@@ -51,8 +51,7 @@
 									style="text-align: end;">販売日</h3>
 							</div>
 							<div class="col-sm-8">
-								<input type="text" name="sale_date"
-									value="${sblist.getSale_date()}"
+								<input type="text" value="${sblist.getSale_date()}"
 									class="form-control w-25 bg-secondary-subtle"
 									placeholder="Last name" aria-label="Last name" readonly>
 							</div>
@@ -65,9 +64,6 @@
 							<div class="col-sm-8 w-50">
 								<input type="text" value="${sblist.getAccout()}"
 									class="form-control  bg-secondary-subtle"
-									aria-label="Last name" readonly> <input type="hidden"
-									name="account_id" value="${sblist.getAccout_id()}"
-									class="form-control  bg-secondary-subtle"
 									aria-label="Last name" readonly>
 							</div>
 						</div>
@@ -79,10 +75,7 @@
 							<div class="col-sm-8 w-50">
 								<input type="text" value="${sblist.getItem_category()}"
 									class="form-control bg-secondary-subtle" aria-label="Last name"
-									readonly> <input type="hidden" name="category_id"
-									value="${sblist.getCategory_id()}"
-									class="form-control  bg-secondary-subtle"
-									aria-label="Last name" readonly>
+									readonly>
 							</div>
 						</div>
 						<div class="row mt-3">
@@ -91,8 +84,7 @@
 									style="text-align: end;">商品名</h3>
 							</div>
 							<div class="col-sm-8 w-50">
-								<input type="text" name="trade_name"
-									value="${sblist.getTrade_name()}"
+								<input type="text" value="${sblist.getTrade_name()}"
 									class="form-control bg-secondary-subtle" readonly>
 							</div>
 						</div>
@@ -102,8 +94,7 @@
 									style="text-align: end;">単価</h3>
 							</div>
 							<div class="col-sm-8">
-								<input type="text" name="unit_price"
-									value="${sblist.getUnit_price()}"
+								<input type="text" value="${sblist.getUnit_price()}"
 									class="form-control w-25 bg-secondary-subtle" readonly>
 							</div>
 						</div>
@@ -113,8 +104,7 @@
 									style="text-align: end;">個数</h3>
 							</div>
 							<div class="col-sm-8">
-								<input type="text" name="sale_number"
-									value="${sblist.getSale_number()}"
+								<input type="text" value="${sblist.getSale_number()}"
 									class="form-control w-25 bg-secondary-subtle" readonly>
 							</div>
 						</div>
@@ -137,7 +127,7 @@
 							<div class="col-sm-8">
 
 								<textarea class="form-control w-75 bg-secondary-subtle"
-									name="note" id="exampleFormControlTextarea1" rows="5" readonly><c:out
+									id="exampleFormControlTextarea1" rows="5" readonly><c:out
 										value="${sblist.getNote()}" />
                 </textarea>
 							</div>
