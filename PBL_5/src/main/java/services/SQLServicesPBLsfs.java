@@ -196,12 +196,14 @@ public class SQLServicesPBLsfs {
 				String name = rs.getString("name");
 				String category_name = rs.getString("category_name");
 				String trade_name = rs.getString("trade_name");
+				
 				int unit_price = rs.getInt("unit_price");
 				int sale_number = rs.getInt("sale_number");
 				int subtotal = rs.getInt("subtotal");
 				String note = rs.getString("note");
 
 				sale_date = sale_date.replace("-", "/");
+				trade_name = sanitizing(trade_name);
 				S0025Bean_list = new S0025Bean(sale_id,sale_date, name, category_name, trade_name,
 						formatNumber(unit_price), formatNumber(sale_number), formatNumber(subtotal), note);
 			}
