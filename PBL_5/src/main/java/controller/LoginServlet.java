@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import model.AccountsBean;
 import services.SQLservicesPBL;
+import util.CharUtil;
 
 /**
  * Servlet implementation class LoginServlet
@@ -85,7 +86,7 @@ public class LoginServlet extends HttpServlet {
             System.out.println("後方一致しませんでした");
         }
 		
-        error_display = replaceCommaAtEnd(error_display);
+        error_display = CharUtil.replaceCommaAtEnd(error_display);
 
 		// このままだと複数でエラーが起きた場合文章が繋がって出てくるかも
 		HttpSession session = request.getSession();
@@ -100,14 +101,6 @@ public class LoginServlet extends HttpServlet {
 		}
 	}
 	
-	public static String replaceCommaAtEnd(String str) {
-        // 文字列が空でないこと、かつ末尾が「,」であるかを確認
-        if (str != null && !str.isEmpty() && str.charAt(str.length() - 1) == ',') {
-            // 末尾を「.」に置き換える
-            return str.substring(0, str.length() - 1) + ".";
-        }
-        // 条件を満たさない場合は元の文字列を返す
-        return str;
-    }
+	
 
 }

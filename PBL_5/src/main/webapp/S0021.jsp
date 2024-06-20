@@ -69,7 +69,7 @@
 							test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
 							<td class="col-md-1"><button type="submit"
 									class="btn btn-primary" name="sale_id"
-									value="${obj.getSale_id()}">✓ 詳細</button></td>
+									value="${obj.getSale_id()}" style="white-space:nowrap;">✓ 詳細</button></td>
 						</c:if>
 						<td class="col-md-1"><c:out value="${obj.getSale_id()}" /></td>
 						<td class="col-md-1"><c:out value="${obj.getSale_date()}" /></td>

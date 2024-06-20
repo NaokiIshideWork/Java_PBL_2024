@@ -14,6 +14,7 @@ import model.Sales2Bean;
 import model.SalesSearchBean;
 import model.SalesSearchDisplayBean;
 import services.SQLServicesPBLsfs;
+import util.CharUtil;
 
 /**
  * Servlet implementation class SearchSalesServlet
@@ -90,6 +91,7 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		//検索結果が0件か?
 		Sales2Bean_list = mts.selectAllSales(salesDateB, salesDateA, salesPerson, productCategory, productName,
 				remarks);
+		ErrorMessage = CharUtil.replaceCommaAtEnd(ErrorMessage);
 		if (Sales2Bean_list.isEmpty() && ErrorMessage.isEmpty()) {
 			ErrorMessage += "検索結果はありません";
 			request.setAttribute("err", ErrorMessage);

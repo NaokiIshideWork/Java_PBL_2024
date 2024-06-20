@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.S0023ConfirmBean;
 import services.SQLServicesPBLsfs;
+import util.CharUtil;
 
 /**
  * Servlet implementation class S0024Servlet
@@ -94,7 +95,7 @@ public class S0024Servlet extends HttpServlet {
 		if (note.length() > 400) {
 			error_message += "備考が長すぎます,";
 		}
-		
+
 		if (error_message.isEmpty()) {
 			S0023Confirmlist = new S0023ConfirmBean(Integer.parseInt(up_date_id), sale_date, account_name,
 					Integer.parseInt(account_id), category_name, Integer.parseInt(category_id), trade_name, unit_price,
@@ -102,6 +103,7 @@ public class S0024Servlet extends HttpServlet {
 			request.setAttribute("S0024list", S0023Confirmlist);
 			this.getServletContext().getRequestDispatcher("/S0024.jsp").forward(request, response);
 		} else {
+			error_message = CharUtil.replaceCommaAtEnd(error_message);
 			request.setAttribute("err", error_message);
 			this.getServletContext().getRequestDispatcher("/S0023.jsp").forward(request, response);
 		}

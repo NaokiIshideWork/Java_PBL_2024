@@ -14,6 +14,7 @@ import model.AccountsBean;
 import model.CategoriesBean;
 import model.SalesBean;
 import services.SQLServicesPBLreg;
+import util.CharUtil;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -151,6 +152,7 @@ public class S0010RegisterServlet extends HttpServlet {
 			request.setAttribute("sblist", sblist);
 			this.getServletContext().getRequestDispatcher("/S0011.jsp").forward(request, response);
 		} else {
+			ErrorMessage = CharUtil.replaceCommaAtEnd(ErrorMessage);
 			request.setAttribute("err", ErrorMessage);
 			doGet(request, response);
 		}
@@ -175,5 +177,6 @@ public class S0010RegisterServlet extends HttpServlet {
 
 		return str;
 	}
+	
 
 }

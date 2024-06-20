@@ -151,7 +151,7 @@ if (authority.equals("1")) {
 								<div class="col-sm-8">
 									<button type="submit" class="btn btn-primary"
 										style="margin-left: 30px;">O K</button>
-									<a class="btn btn-outline-secondary" href="S0030.jsp"
+									<a class="btn btn-outline-secondary" href="AccountServlet"
 										role="button">キャンセル</a>
 								</div>
 							</div>
