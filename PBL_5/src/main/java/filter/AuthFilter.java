@@ -176,7 +176,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 					return;
 				}
 			}
-			//追加　アカウントを登録する　権限持ち
+			
 			if (isRefer && hasAccountReg && isEditAccountsServlet) {
 				if (redirected7 == null || !redirected7) {
 					session.setAttribute("redirectedFromRegister7", true);
