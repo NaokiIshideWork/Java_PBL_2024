@@ -81,7 +81,6 @@ if(authority.equals("1")){
 					<div class="col-sm-8 w-50">
 						<input type="text" name="name" class="form-control bg-secondary-subtle" value="${name}"
 							 readonly>
-						
 					</div>
 				</div>
 
@@ -97,6 +96,7 @@ if(authority.equals("1")){
 							placeholder="メールアドレス" readonly>
 					</div>
 				</div>
+				
 				<div class="row mt-3">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -109,6 +109,7 @@ if(authority.equals("1")){
 							placeholder="パスワード" readonly>
 					</div>
 				</div>
+				
 				<div class="row mt-3">
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label"
@@ -129,7 +130,6 @@ if(authority.equals("1")){
 							権限<span class="badge rounded-pill bg-secondary">必須</span>
 						</h3>
 					</div>
-					
 					<div class="col-sm-8" style="margin-top: 10px;">
 						<input type="checkbox" name="authority" value="1" id="flexRadioDefault1" <%= salesSelected ? "checked" : "" %> disabled>
 						<label for="flexRadioDefault1"> 売上登録 </label> 
@@ -144,8 +144,7 @@ if(authority.equals("1")){
 				<div class="row mt-3">
 					<div class="col-sm-3"></div>
 					<div class="col-sm-8">
-						<button type="submit" class="btn btn-primary" 
-							style="margin-left: 30px;">O K</button>
+						<button type="submit" class="btn btn-primary" style="margin-left: 30px;">O K</button>
 						<a class="btn btn-outline-secondary" href="S0030.jsp" role="button">キャンセル</a>
 					</div>
 				</div>
