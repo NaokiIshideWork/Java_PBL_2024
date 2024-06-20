@@ -91,6 +91,9 @@ public class AccountRegisterServlet extends HttpServlet {
 	    System.out.println("doPost mail: " + mail);
 	    System.out.println("doPost password: " + password);
 	    System.out.println("doPost authority: " + authority);
+	    
+	    name = sanitizing(name);
+		password = sanitizing(password);
  
 	    // リクエストに属性として設定
 	    AccountRecord.makeaccount(name, mail, password, authority);
@@ -105,6 +108,20 @@ public class AccountRegisterServlet extends HttpServlet {
 	private boolean isEmailAlreadyRegistered(String mail) {
 		// TODO 自動生成されたメソッド・スタブ
 		return false;
+	}
+	
+	public static String sanitizing(String str) {
+		if (null == str || "".equals(str)) {
+			return str;
+		}
+
+		str = str.replaceAll("&", "&amp;");
+		str = str.replaceAll("<", "&lt;");
+		str = str.replaceAll(">", "&gt;");
+		str = str.replaceAll("\"", "&quot;");
+		str = str.replaceAll("'", "&#39;");
+
+		return str;
 	}
  
  

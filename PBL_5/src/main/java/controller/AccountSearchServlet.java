@@ -245,6 +245,16 @@ public class AccountSearchServlet extends HttpServlet {
 
 		return str;
 	}
+	
+	public static String replaceCommaAtEnd(String str) {
+        // 文字列が空でないこと、かつ末尾が「,」であるかを確認
+        if (str != null && !str.isEmpty() && str.charAt(str.length() - 1) == ',') {
+            // 末尾を「.」に置き換える
+            return str.substring(0, str.length() - 1) + ".";
+        }
+        // 条件を満たさない場合は元の文字列を返す
+        return str;
+    }
 }
 
 

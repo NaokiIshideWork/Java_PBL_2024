@@ -137,6 +137,8 @@ public class AccountServlet extends HttpServlet {
 		}
 
 		if (password.equals(confirmpassword)) {
+			name = sanitizing(name);
+			password = sanitizing(password);
 			// パスワードが一致する場合
 			//List<String> authorityList = Arrays.asList(authorities);
 			request.setAttribute("name", name);
@@ -173,6 +175,20 @@ public class AccountServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		return exists;
+	}
+	
+	public static String sanitizing(String str) {
+		if (null == str || "".equals(str)) {
+			return str;
+		}
+
+		str = str.replaceAll("&", "&amp;");
+		str = str.replaceAll("<", "&lt;");
+		str = str.replaceAll(">", "&gt;");
+		str = str.replaceAll("\"", "&quot;");
+		str = str.replaceAll("'", "&#39;");
+
+		return str;
 	}
 
 }

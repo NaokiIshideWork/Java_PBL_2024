@@ -52,32 +52,40 @@ public class LoginServlet extends HttpServlet {
 
 		//メールアドレス未入力
 		if (mail.isEmpty()) {
-			error_display += "メールアドレスを入力して下さい。";
+			error_display += "メールアドレスを入力して下さい,";
 		}
 		//メールアドレス長さチェック
 		if (mail.length() > 100) {
-			error_display += "メールアドレスが長すぎます";
+			error_display += "メールアドレスが長すぎます,";
 		}
 
 		//メールアドレス形式チェック
 		String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
 		boolean result = mail.matches(regex);
 		if (result == false) {
-			error_display += "メールアドレスの形式ではありません";
+			error_display += "メールアドレスの形式ではありません,";
 		}
 
 		//パスワード必須入力チェック
 		if (password.isEmpty()) {
-			error_display += "パスワードを入力して下さい。";
+			error_display += "パスワードを入力して下さい,";
 		}
 
 		//パスワード長さチェック
 		if (mail.length() > 30) {
-			error_display += "パスワードが長すぎます";
+			error_display += "パスワードが長すぎます, ";
 		}
 		if(!sqlserv.SearchMail(mail) || !sqlserv.SearchPassword(password)) {
-			error_display += "メールアドレス、パスワードを正しく入力して下さい。";
+			error_display += "メールアドレス、パスワードを正しく入力して下さい,";
 		}
+		
+		if (error_display.endsWith(",")) {
+            System.out.println("後方一致しました");
+        } else {
+            System.out.println("後方一致しませんでした");
+        }
+		
+        error_display = replaceCommaAtEnd(error_display);
 
 		// このままだと複数でエラーが起きた場合文章が繋がって出てくるかも
 		HttpSession session = request.getSession();
@@ -91,5 +99,15 @@ public class LoginServlet extends HttpServlet {
 			doGet(request, response);
 		}
 	}
+	
+	public static String replaceCommaAtEnd(String str) {
+        // 文字列が空でないこと、かつ末尾が「,」であるかを確認
+        if (str != null && !str.isEmpty() && str.charAt(str.length() - 1) == ',') {
+            // 末尾を「.」に置き換える
+            return str.substring(0, str.length() - 1) + ".";
+        }
+        // 条件を満たさない場合は元の文字列を返す
+        return str;
+    }
 
 }
