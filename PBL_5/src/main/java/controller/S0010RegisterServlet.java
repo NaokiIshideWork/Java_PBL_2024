@@ -136,7 +136,7 @@ public class S0010RegisterServlet extends HttpServlet {
 		if (note.length() > 400) {
 			ErrorMessage += "備考が長すぎます,";
 		}
-		note = sanitizing(note);
+		
 		int subtotal = 0;
 		if (ErrorMessage.isEmpty()) {
 			unit_price = unit_price.replace(",", "");

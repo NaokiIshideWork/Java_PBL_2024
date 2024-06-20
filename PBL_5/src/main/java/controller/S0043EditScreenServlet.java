@@ -64,6 +64,47 @@ public class S0043EditScreenServlet extends HttpServlet {
 		password = sanitizing(password);
 		confirmPassword = sanitizing(confirmPassword);
 		
+		//エラー表示
+		String error_display = "";
+		
+		System.out.println("nameErrortest" + name);
+
+		//氏名
+		if (name.isEmpty() || name.equals("")) {
+			error_display += "氏名を入力して下さい,";//ok
+		} else if (name.length() > 20) {
+			error_display += "氏名が長すぎます,";//ok
+		}
+
+		//メールアドレス
+		String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+		boolean result = mail.matches(regex);
+		if (!result) {
+			error_display += "メールアドレスを正しく入力してください,";
+		} else if (mail.isEmpty()) {
+			error_display += "メールアドレスを入力して下さい,";
+		} else if (mail.length() > 100) {
+			error_display += "メールアドレスが長すぎます,";
+		}
+
+		//パスワード
+		if (password.isEmpty()) {
+			error_display += "パスワードを入力して下さい,";//ok
+		} else if (password.length() > 30) {
+			error_display += "パスワードが長すぎます,";//ok} 
+		} else if (confirmPassword.isEmpty()) {
+			error_display += "パスワード（確認）を入力してください,";
+		} else if (!password.equals(confirmPassword)) {
+			error_display += "パスワード又はパスワード（確認）の入力内容が異なっています,";
+		}
+
+		if (!error_display.equals("")) {
+			request.setAttribute("err", error_display);
+			request.getRequestDispatcher("/S0042.jsp").forward(request, response);
+			return;
+		}
+		
+		
 		request.setAttribute("id", id);
 		request.setAttribute("name", name); //文字化け
 		request.setAttribute("mail", mail);

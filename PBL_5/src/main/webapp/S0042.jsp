@@ -3,27 +3,35 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 // 今は片方の権限しか受け取れない
-String authorityStr = (String) request.getAttribute("authority");
-int authority = Integer.parseInt(authorityStr);
+Object authorityObj = request.getAttribute("authority");
+String authority = (authorityObj != null) ? authorityObj.toString() : "";
 
+
+/*
+この例では、request.getAttribute("authority") から取得したオブジェクトを Object 型の変数 authorityObj に格納し、その後 toString() メソッドを使って文字列に変換しています。toString() メソッドは、Object クラスのメソッドであり、オブジェクトの文字列表現を返します。
+
+また、authorityObj が null の場合に備えて三項演算子を使用しています。これにより、null の場合に空の文字列 "" を代入しています。
+*/
 boolean salesSelected = false;
 boolean accountSelected = false;
 boolean noneSelected = false;
 
-if (authority == 0) {
+// 文字列が一致しているかの比較なのに == になってた（参照先比較になってた）
+if (authority.equals("0")) {
     noneSelected = true;
 }
-if (authority == 1) {
+if (authority.equals("1")) {
     salesSelected = true;
 }
-if (authority == 10) {
+if (authority.equals("10")) {
     accountSelected = true;
 }
-if (authority == 11) {
+if (authority.equals("11")) {
     salesSelected = true;
     accountSelected = true;
 }
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,6 +59,13 @@ if (authority == 11) {
             </ul>
         </div>
     </nav>
+    
+    <c:if test="${not empty err}">
+		<div
+			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
+			role="alert">${err}</div>
+	</c:if>
+    
     <c:choose>
         <c:when test="${sessionScope.LoginUser.getAuthority() eq 10 or sessionScope.LoginUser.getAuthority() eq 11}">
             <div class="container position-absolute">

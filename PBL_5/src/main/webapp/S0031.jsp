@@ -79,7 +79,7 @@ if(authority.equals("1")){
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="text" name="name" class="form-control" value="${name}"
+						<input type="text" name="name" class="form-control bg-secondary-subtle" value="${name}"
 							 readonly>
 						
 					</div>
@@ -93,7 +93,7 @@ if(authority.equals("1")){
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="email" name="mail" class="form-control" value="${mail}"
+						<input type="email" name="mail" class="form-control bg-secondary-subtle" value="${mail}"
 							placeholder="メールアドレス" readonly>
 					</div>
 				</div>
@@ -105,7 +105,7 @@ if(authority.equals("1")){
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="password" name="password" class="form-control" value="${password}"
+						<input type="password" name="password" class="form-control bg-secondary-subtle" value="${password}"
 							placeholder="パスワード" readonly>
 					</div>
 				</div>
@@ -117,7 +117,7 @@ if(authority.equals("1")){
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<input type="password" name="password" class="form-control" value="${password}"
+						<input type="password" name="password" class="form-control bg-secondary-subtle" value="${password}"
 							placeholder="パスワード" readonly>
 					</div>
 				</div>

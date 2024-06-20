@@ -94,8 +94,7 @@ public class S0024Servlet extends HttpServlet {
 		if (note.length() > 400) {
 			error_message += "備考が長すぎます,";
 		}
-		note = sanitizing(note);
-
+		
 		if (error_message.isEmpty()) {
 			S0023Confirmlist = new S0023ConfirmBean(Integer.parseInt(up_date_id), sale_date, account_name,
 					Integer.parseInt(account_id), category_name, Integer.parseInt(category_id), trade_name, unit_price,

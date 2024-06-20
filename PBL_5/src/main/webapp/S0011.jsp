@@ -65,7 +65,7 @@
 								<input type="text" value="${sblist.getAccout()}"
 									class="form-control  bg-secondary-subtle"
 									aria-label="Last name" readonly> <input type="hidden"
-									name="account_id" value="${list.getAccout_id()}"
+									name="account_id" value="${sblist.getAccout_id()}"
 									class="form-control  bg-secondary-subtle"
 									aria-label="Last name" readonly>
 							</div>
