@@ -92,8 +92,7 @@
 							<div class="col-sm-8 w-50">
 								<input type="text" name="trade_name"
 									value="${sblist.getTrade_name()}"
-									class="form-control bg-secondary-subtle" 
-									readonly>
+									class="form-control bg-secondary-subtle" readonly>
 							</div>
 						</div>
 						<div class="row mt-3">
@@ -104,8 +103,7 @@
 							<div class="col-sm-8">
 								<input type="text" name="unit_price"
 									value="${sblist.getUnit_price()}"
-									class="form-control w-25 bg-secondary-subtle" 
-									readonly>
+									class="form-control w-25 bg-secondary-subtle" readonly>
 							</div>
 						</div>
 						<div class="row mt-3">
@@ -116,8 +114,7 @@
 							<div class="col-sm-8">
 								<input type="text" name="sale_number"
 									value="${sblist.getSale_number()}"
-									class="form-control w-25 bg-secondary-subtle" 
-									readonly>
+									class="form-control w-25 bg-secondary-subtle" readonly>
 							</div>
 						</div>
 						<div class="row mt-3">
@@ -126,7 +123,8 @@
 									style="text-align: end;">小計</h3>
 							</div>
 							<div class="col-sm-8">
-								<input type="text" name="subtotal" value="${sblist.getSubtotal()}"
+								<input type="text" name="subtotal"
+									value="${sblist.getSubtotal()}"
 									class="form-control w-25 bg-secondary-subtle" readonly>
 							</div>
 						</div>

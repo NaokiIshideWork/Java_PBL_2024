@@ -53,6 +53,9 @@ public class S0011RegisterSalesServlet extends HttpServlet {
 		sale_number = sale_number.replace(",", "");
 		String note = request.getParameter("note");//備考
 		
+		System.out.println(account_id+category_id);
+		
+		
 		mts.insert(sales_date, Integer.parseInt(account_id), Integer.parseInt(category_id), trade_name, Integer.parseInt(unit_price), Integer.parseInt(sale_number), note);
 		response.sendRedirect("RegisterServlet");
 	}
