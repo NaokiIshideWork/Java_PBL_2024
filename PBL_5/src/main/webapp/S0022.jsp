@@ -9,10 +9,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./css/bootstrap.min.css" text="text/css">
 <title>売上詳細表示</title>
+<style>
+body {
+	overflow-x: hidden;
+}
+
+.sp-left {
+	margin-left: 100px;
+}
+
+@media screen and (max-width:500px) {
+	.sp-left {
+		margin-left: 0 !important;
+	}
+}
+@media screen and (min-width:800px) {
+	.pc-right {
+		margin-right:300px;
+	}
+}
+@media screen and (min-width:400px) {
+	.pc-right {
+		margin-right:100px;
+	}
+}
+</style>
 </head>
 <body>
-
-<
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
@@ -38,72 +61,66 @@
 		</nav>
 	</header>
 
-	<div class="container position-absolute">
-		<h2 class="mt-5" style="margin-left: 100px;">売上詳細表示</h2>
-		<div class="" style="margin-left: 100px">
-			<form class="text-right" action="EditSalesDetails" method="get">
+	<div class="container">
+		<h2 class="mt-5 sp-left">売上詳細表示</h2>
+		<div class="sp-left">
+			<form action="EditSalesDetails" method="get">
 				<div class="row ">
 					<div class="col-sm-3">
-						<h3 for="inputEmail" class="col-form-label"
-							style="text-align: end;">販売日</h3>
+						<h3 for="inputEmail" class="col-form-label text-sm-end">販売日</h3>
 					</div>
 					<div class="col-sm-8">
-						<p class="text-start" style="margin-top: 5px">
+						<p class="mt-1">
 							<c:out value="${list.getSale_date()}" />
 						</p>
 					</div>
 				</div>
 				<div class="row mt-3">
 					<div class="col-sm-3">
-						<h3 for="inputEmail" class="col-form-label"
-							style="text-align: end;">担当</h3>
+						<h3 for="inputEmail" class="col-form-label text-sm-end">担当</h3>
 					</div>
 					<div class="col-sm-8">
-						<p class="text-start" style="margin-top: 5px">
+						<p class="mt-1">
 							<c:out value="${list.getAccount()}" />
 						</p>
 					</div>
 				</div>
 				<div class="row mt-3">
 					<div class="col-sm-3">
-						<h3 for="inputEmail" class="col-form-label"
-							style="text-align: end;">商品カテゴリー</h3>
+						<h3 for="inputEmail" class="col-form-label text-sm-end">商品カテゴリー</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<p class="text-start" style="margin-top: 5px">
+						<p class="mt-1">
 							<c:out value="${list.getCategory()}" />
 						</p>
 					</div>
 				</div>
 				<div class="row mt-3">
 					<div class="col-sm-3">
-						<h3 for="inputEmail" class="col-form-label"
-							style="text-align: end;">商品名</h3>
+						<h3 for="inputEmail" class="col-form-label text-sm-end">商品名</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<p class="text-start" style="margin-top: 5px">
+						<p class="mt-1">
 							<c:out value="${list.getTrade_name()}" />
 						</p>
 					</div>
 				</div>
 				<div class="row mt-3">
 					<div class="col-sm-3">
-						<h3 for="inputEmail" class="col-form-label"
-							style="text-align: end;">単価</h3>
+						<h3 for="inputEmail" class="col-form-label text-sm-end">単価</h3>
 					</div>
 					<div class="col-sm-8 w-50">
-						<p class="text-start" style="margin-top: 5px">
+						<p class="mt-1">
 							<c:out value="${list.getUnit_price()}" />
 						</p>
 					</div>
 				</div>
 				<div class="row mt-3">
 					<div class="col-sm-3">
-						<h3 for="inputEmail" class="col-form-label"
-							style="text-align: end;">個数</h3>
+						<h3 for="inputEmail" class="col-form-label text-sm-end">個数</h3>
 					</div>
 					<div class="col-sm-8">
-						<p class="text-start" style="margin-top: 5px">
+						<p class="mt-1">
 							<c:out value="${list.getSale_number()}" />
 						</p>
 					</div>
@@ -111,22 +128,20 @@
 
 				<div class="row mt-3">
 					<div class="col-sm-3">
-						<h3 for="inputEmail" class="col-form-label"
-							style="text-align: end;">備考</h3>
+						<h3 for="inputEmail" class="col-form-label text-sm-end">備考</h3>
 					</div>
 					<div class="col-sm-8">
-						<p class="text-start" style="margin-top: 5px">
+						<p class="mt-1">
 							<c:out value="${list.getNote()}" />
 						</p>
 					</div>
 				</div>
-				<div
-					style="display: flex; justify-content: center; margin-top: 15px;">
-					<form method="post" action="EditSaleServlet"
-						style="margin-right: 10px;">
+				<div class="d-flex justify-content-center mt-3 pc-right"
+					>
+					<form method="post" action="EditSaleServlet" style="">
 						<button type="submit" class="btn btn-primary" name="sale_id"
 							value="${list.getSale_id()}" style="margin-right: 10px;">
-							<span style="margin-right: 5px;">✔</span>編集
+							<span style="margin-right: 5px;">✔<span>編集 
 						</button>
 					</form>
 					<form method="get" action="ConfirmationSalesDeletion"
@@ -137,7 +152,7 @@
 						</button>
 					</form>
 					<a class="btn btn-outline-secondary" href="SearchSalesServlet"
-						role="button">キャンセル</a>	
+						role="button">キャンセル</a>
 				</div>
 		</div>
 </body>
