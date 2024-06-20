@@ -12,7 +12,7 @@
 </head>
 <body>
 
-
+<
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
@@ -137,7 +137,7 @@
 						</button>
 					</form>
 					<a class="btn btn-outline-secondary" href="SearchSalesServlet"
-						role="button">キャンセル</a>
+						role="button">キャンセル</a>	
 				</div>
 		</div>
 </body>
