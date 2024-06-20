@@ -131,7 +131,7 @@ if (authority.equals("1")) {
 								<div class="col-sm-3">
 									<h3 for="inputEmail" class="col-form-label"
 										style="text-align: end;">
-										権限<span class="badge rounded-pill bg-secondary">必須</span>
+										権限 <span class="badge rounded-pill bg-secondary">必須</span>
 									</h3>
 								</div>
 								<div class="col-sm-8" style="margin-top: 10px;">
