@@ -93,13 +93,13 @@ public class AuthFilter extends HttpFilter implements Filter {
 
 			boolean isEditAccountsServlet = path.equals("/EditAccountServlet") || path.equals("/EditScreenServlet") ||
 					path.equals("/DeleteAccountServlet") || path.equals("/AccountSearchServlet");
-			//権限なしflag
+			//権限なし
 			Boolean redirected = (Boolean) session.getAttribute("redirectedFromRegister");
 			Boolean redirected1 = (Boolean) session.getAttribute("redirectedFromRegister1");
 			Boolean redirected2 = (Boolean) session.getAttribute("redirectedFromRegister2");
 			Boolean redirected3 = (Boolean) session.getAttribute("redirectedFromRegister3");
 
-			//権限ありflag
+			//権限あり
 			Boolean redirected4 = (Boolean) session.getAttribute("redirectedFromRegister4");
 			Boolean redirected5 = (Boolean) session.getAttribute("redirectedFromRegister5");
 			Boolean redirected7 = (Boolean) session.getAttribute("redirectedFromRegister7");
