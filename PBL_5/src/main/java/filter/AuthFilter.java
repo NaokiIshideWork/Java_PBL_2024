@@ -58,6 +58,12 @@ public class AuthFilter extends HttpFilter implements Filter {
 		} catch (Exception e) {
 			referer = null;
 		}
+		if (path.endsWith(".jsp")) {
+			session.invalidate();
+			res.sendRedirect("LoginServlet");
+			return;
+		}
+
 		if (session.getAttribute("LoginUser") == null) {
 			if (!path.equals("/LoginServlet")) {
 				res.sendRedirect("LoginServlet");
@@ -70,6 +76,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 			boolean hasSalesReg = ab.getAuthority() == 1 || ab.getAuthority() == 11;//売上登録権限を所持
 			boolean hasAccountReg = ab.getAuthority() == 10 || ab.getAuthority() == 11;//アカウント登録権限を所持
 
+			//権限がない
 			boolean isRegSales = path.equals("/RegisterServlet") || path.equals("/RegisterSalesServlet");
 			boolean isEditSale = path.equals("/SalesDetailsDisplayServlet") || path.equals("/EditSalesDetails")
 					|| path.equals("/ConfirmationSalesDeletion") || path.equals("/ConfirmationSalesEdit");
@@ -78,11 +85,14 @@ public class AuthFilter extends HttpFilter implements Filter {
 			boolean isEditAccount = path.equals("/EditAccountServlet") || path.equals("/EditScreenServlet") ||
 					path.equals("/DeleteAccountServlet");
 
+			//権限がある
 			boolean isRegisterSalesServlet = path.equals("/RegisterSalesServlet");
 			boolean isEditSalesServlet = path.equals("/SearchSalesServlet")
 					|| path.equals("/SalesDetailsDisplayServlet") || path.equals("/EditSalesDetails")
 					|| path.equals("/ConfirmationSalesDeletion") || path.equals("/ConfirmationSalesEdit");
 
+			boolean isEditAccountsServlet = path.equals("/EditAccountServlet") || path.equals("/EditScreenServlet") ||
+					path.equals("/DeleteAccountServlet") || path.equals("/AccountSearchServlet");
 			//権限なしflag
 			Boolean redirected = (Boolean) session.getAttribute("redirectedFromRegister");
 			Boolean redirected1 = (Boolean) session.getAttribute("redirectedFromRegister1");
@@ -92,6 +102,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 			//権限ありflag
 			Boolean redirected4 = (Boolean) session.getAttribute("redirectedFromRegister4");
 			Boolean redirected5 = (Boolean) session.getAttribute("redirectedFromRegister5");
+			Boolean redirected7 = (Boolean) session.getAttribute("redirectedFromRegister7");
 
 			//売上登録権限なし
 			if (isRefer && hasnotSalesReg && isRegSales) {
@@ -162,6 +173,18 @@ public class AuthFilter extends HttpFilter implements Filter {
 				} else {
 					session.removeAttribute("redirectedFromRegister3");
 					res.sendRedirect("AccountSearchServlet");
+					return;
+				}
+			}
+			//追加　アカウントを登録する　権限持ち
+			if (isRefer && hasAccountReg && isEditAccountsServlet) {
+				if (redirected7 == null || !redirected7) {
+					session.setAttribute("redirectedFromRegister7", true);
+					res.sendRedirect("AccountSearchServlet");
+					return;
+				} else {
+					session.removeAttribute("redirectedFromRegister7");
+					request.getRequestDispatcher("/S0030.jsp").forward(request, response);
 					return;
 				}
 			}
