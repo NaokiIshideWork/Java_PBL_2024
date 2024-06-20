@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
 
 		//メールアドレス未入力
 		if (mail.isEmpty()) {
-			error_display += "メールアドレスを入力して下さい。";
+			error_display += "メールアドレスを入力して下さい,";
 		}
 		//メールアドレス長さチェック
 		if (mail.length() > 100) {
