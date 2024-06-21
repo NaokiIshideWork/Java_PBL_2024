@@ -68,6 +68,7 @@
 						</div>
 						<div class="col-sm-6">
 							<select class="form-control" id="salesPerson" name="salesPerson">
+							<option value="選択して下さい。"><c:out value="選択して下さい。"></c:out></option>
 								<c:forEach var="obj" items="${accounts}">
 									<option value="${obj.getAccount_id()}"><c:out
 											value="${obj.getName()}" /></option>
@@ -82,6 +83,7 @@
 						<div class="col-sm-6">
 							<select class="form-control" id="productCategory"
 								name="productCategory">
+								<option value="選択して下さい。"><c:out value="選択して下さい。"></c:out></option>
 								<c:forEach var="obj" items="${cate}">
 								<option value="${obj.getCategory_id()}"><c:out
 										value="${obj.getCategory_name()}" /></option>
