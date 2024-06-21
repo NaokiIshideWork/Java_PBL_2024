@@ -47,16 +47,17 @@ public class SQLServicesPBLsfs {
 
 	public String Select_account_id() {
 		String sql = "SELECT account_id FROM accounts;";
-		String strid = "(";
+		String strid = "";
 		try (
 				Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
 			// PreparedStatementがクローズされるタイミングでクローズされる
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				strid += rs.getInt("account_id");
+				strid += rs.getInt("account_id")+",";
 			}
-			strid += ")";
+			strid = strid.replaceAll(",$", "");
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -64,16 +65,17 @@ public class SQLServicesPBLsfs {
 	}
 	public String Select_category_id() {
 		String sql = "SELECT category_id FROM categories;";
-		String strid = "(";
+		String strid = "";
 		try (
 				Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
 			// PreparedStatementがクローズされるタイミングでクローズされる
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				strid += rs.getInt("category_id");
+				strid += rs.getInt("category_id")+",";
 			}
-			strid += ")";
+			strid = strid.replaceAll(",$", "");
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -107,7 +109,7 @@ public class SQLServicesPBLsfs {
 	public ArrayList<Sales2Bean> selectAllSales(String salesDateB, String salesDateA, String salesPerson,
 			String productCategory,
 			String productName, String remarks) {
-		String sql = "SELECT * FROM sales WHERE sale_date >=? and sale_date <= ? and account_id IN ? and category_id IN ? and trade_name LIKE ? AND note LIKE ?;";
+		String sql = "SELECT * FROM sales WHERE sale_date >=? and sale_date <= ? and account_id IN (?) and category_id IN (?) and trade_name LIKE ? AND note LIKE ?;";
 		ArrayList<Sales2Bean> account_list = new ArrayList<Sales2Bean>();
 		try (
 				Connection con = DbUtil.open();
@@ -148,7 +150,7 @@ public class SQLServicesPBLsfs {
 				+ "LEFT OUTER JOIN accounts a ON s.account_id = a.account_id\n"
 				+ "LEFT OUTER JOIN categories c ON s.category_id = c.category_id \n"
 				+ "WHERE sale_date >= ? and sale_date <= ? AND\n"
-				+ "s.account_id IN ? AND s.category_id IN ? AND trade_name LIKE ? AND note LIKE ?;";
+				+ "s.account_id IN (?) AND s.category_id IN (?) AND trade_name LIKE ? AND note LIKE ?;";
 		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
 		try (
 				Connection con = DbUtil.open();
@@ -351,7 +353,7 @@ public class SQLServicesPBLsfs {
 		return name;
 	}
 
-	public void insert(int up_date_id, String sale_date, int account_id, int category_id, String trade_name,
+	public void update(int up_date_id, String sale_date, int account_id, int category_id, String trade_name,
 			String unit_price, String sale_number, String note) {
 		String sql = "UPDATE sales SET sale_date = ?,account_id = ?,\n"
 				+ "			     category_id =?, \n"
@@ -365,6 +367,7 @@ public class SQLServicesPBLsfs {
 
 			unit_price = unit_price.replace(",", "");
 			sale_number = sale_number.replace(",", "");
+			trade_name = unescapeHtml(trade_name);
 			ps.setString(1, sale_date);
 			ps.setInt(2, account_id);
 			ps.setInt(3, category_id);
