@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="header.jsp" flush="true" />
 
-
 <header>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
@@ -26,6 +25,7 @@
 		</div>
 	</nav>
 </header>
+
 <c:if test="${not empty err}">
 	<div
 		class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
