@@ -40,7 +40,7 @@ public class S0021SalesDetailsDisplayServlet extends HttpServlet {
 		//salesのsale_idをもとに詳細内容を取得
 		SalesDeetail_list = mts.SalesDetailsDisplay(Integer.parseInt(sale_id));
 		
-		request.setAttribute("list", SalesDeetail_list);
+		request.setAttribute("s22list", SalesDeetail_list);
 		this.getServletContext().getRequestDispatcher("/S0022.jsp").forward(request, response);
 	}
 

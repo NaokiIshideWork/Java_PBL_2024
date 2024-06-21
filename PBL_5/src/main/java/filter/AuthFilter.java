@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.AccountsBean;
-
 /**
  * Servlet Filter implementation class AuthFilter
  */
@@ -48,8 +46,6 @@ public class AuthFilter extends HttpFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 
-		AccountsBean ab = (AccountsBean) req.getSession().getAttribute("LoginUser");
-
 		String path = req.getServletPath();
 		String referer = "";
 
@@ -71,41 +67,25 @@ public class AuthFilter extends HttpFilter implements Filter {
 			}
 		} else {
 			boolean isRefer = referer == null;//参照元がない
-			boolean hasnotSalesReg = ab.getAuthority() == 0 || ab.getAuthority() == 10;//売上登録権限がない人
-			boolean hasnotAccountReg = ab.getAuthority() == 0 || ab.getAuthority() == 1;//アカウント登録がない人
-			boolean hasSalesReg = ab.getAuthority() == 1 || ab.getAuthority() == 11;//売上登録権限を所持
-			boolean hasAccountReg = ab.getAuthority() == 10 || ab.getAuthority() == 11;//アカウント登録権限を所持
 
 			//権限がない
-			boolean isRegSales = path.equals("/RegisterServlet") || path.equals("/RegisterSalesServlet");
+			boolean isRegSales = path.equals("/RegisterSalesServlet");//path.equals("/RegisterServlet") ||
 			boolean isEditSale = path.equals("/SalesDetailsDisplayServlet") || path.equals("/EditSalesDetails")
-					|| path.equals("/ConfirmationSalesDeletion") || path.equals("/ConfirmationSalesEdit");
+					|| path.equals("/ConfirmationSalesDeletion") || path.equals("/ConfirmationSalesEdit")
+					|| path.equals("/SearchSalesServlet");
 
-			boolean isRegAccount = path.equals("/AccountServlet") || path.equals("/AccountRegisterServlet");
+			boolean isRegAccount = path.equals("/AccountRegisterServlet");
 			boolean isEditAccount = path.equals("/EditAccountServlet") || path.equals("/EditScreenServlet") ||
-					path.equals("/DeleteAccountServlet");
-
-			//権限がある
-			boolean isRegisterSalesServlet = path.equals("/RegisterSalesServlet");
-			boolean isEditSalesServlet = path.equals("/SearchSalesServlet")
-					|| path.equals("/SalesDetailsDisplayServlet") || path.equals("/EditSalesDetails")
-					|| path.equals("/ConfirmationSalesDeletion") || path.equals("/ConfirmationSalesEdit");
-
-			boolean isEditAccountsServlet = path.equals("/EditAccountServlet") || path.equals("/EditScreenServlet") ||
 					path.equals("/DeleteAccountServlet") || path.equals("/AccountSearchServlet");
+
 			//権限なし
 			Boolean redirected = (Boolean) session.getAttribute("redirectedFromRegister");
 			Boolean redirected1 = (Boolean) session.getAttribute("redirectedFromRegister1");
 			Boolean redirected2 = (Boolean) session.getAttribute("redirectedFromRegister2");
 			Boolean redirected3 = (Boolean) session.getAttribute("redirectedFromRegister3");
 
-			//権限あり
-			Boolean redirected4 = (Boolean) session.getAttribute("redirectedFromRegister4");
-			Boolean redirected5 = (Boolean) session.getAttribute("redirectedFromRegister5");
-			Boolean redirected7 = (Boolean) session.getAttribute("redirectedFromRegister7");
-
-			//売上登録権限なし
-			if (isRefer && hasnotSalesReg && isRegSales) {
+			//売上登録画面 ok
+			if (isRefer && isRegSales) {
 
 				if (redirected == null || !redirected) {
 					session.setAttribute("redirectedFromRegister", true);
@@ -113,81 +93,46 @@ public class AuthFilter extends HttpFilter implements Filter {
 					return;
 				} else {
 					session.removeAttribute("redirectedFromRegister");
-					request.getRequestDispatcher("/S0010.jsp").forward(request, response);
+					//					request.getRequestDispatcher("/S0010.jsp").forward(request, response);
+					res.sendRedirect("RegisterServlet");
 					return;
 				}
 			}
-			if (isRefer && hasnotSalesReg && isEditSale) {
+			//売上編集画面　ok
+			if (isRefer && isEditSale) {
 				if (redirected1 == null || !redirected1) {
 					session.setAttribute("redirectedFromRegister1", true);
-					res.sendRedirect("SearchSalesServlet");
+					res.sendRedirect("SearchSales");//修正
 					return;
 				} else {
 					session.removeAttribute("redirectedFromRegister1");
-					res.sendRedirect("SearchSalesServlet");
+					res.sendRedirect("SearchSales");//修正
 					return;
 				}
 			}
-			//売上登録権限あり
-			if (isRefer && hasSalesReg && isRegisterSalesServlet) {
-				if (redirected4 == null || !redirected4) {
-					session.setAttribute("redirectedFromRegister4", true);
-					res.sendRedirect("RegisterServlet");
-					return;
-				} else {
-					session.removeAttribute("redirectedFromRegister4");
-					res.sendRedirect("RegisterServlet");
-					return;
-				}
-			}
-			if (isRefer && hasSalesReg && isEditSalesServlet)
-				if (redirected5 == null || !redirected5) {
-					session.setAttribute("redirectedFromRegister5", true);
-					res.sendRedirect("SearchSales");
-					return;
-				} else {
-					session.removeAttribute("redirectedFromRegister5");
-					res.sendRedirect("SearchSales");
-					return;
-				}
-
-			//アカウント登録権限関連
-			if (isRefer && hasnotAccountReg && isRegAccount) {
-
+			if (isRefer && isRegAccount) {
 				if (redirected2 == null || !redirected2) {
 					session.setAttribute("redirectedFromRegister2", true);
 					res.sendRedirect("AccountServlet");
 					return;
 				} else {
 					session.removeAttribute("redirectedFromRegister2");
-					request.getRequestDispatcher("/S0030.jsp").forward(request, response);
+					//					request.getRequestDispatcher("/S0010.jsp").forward(request, response);
+					res.sendRedirect("AccountServlet");
 					return;
 				}
 			}
-			if (isRefer && hasnotAccountReg && isEditAccount) {
 
+			if (isRefer && isEditAccount)
 				if (redirected3 == null || !redirected3) {
 					session.setAttribute("redirectedFromRegister3", true);
-					res.sendRedirect("AccountSearchServlet");
+					request.getRequestDispatcher("/S0040.jsp").forward(request, response);
 					return;
 				} else {
 					session.removeAttribute("redirectedFromRegister3");
 					res.sendRedirect("AccountSearchServlet");
 					return;
 				}
-			}
-			
-			if (isRefer && hasAccountReg && isEditAccountsServlet) {
-				if (redirected7 == null || !redirected7) {
-					session.setAttribute("redirectedFromRegister7", true);
-					res.sendRedirect("AccountSearchServlet");
-					return;
-				} else {
-					session.removeAttribute("redirectedFromRegister7");
-					request.getRequestDispatcher("/S0030.jsp").forward(request, response);
-					return;
-				}
-			}
 		}
 
 		chain.doFilter(request, response);

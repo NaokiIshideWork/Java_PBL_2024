@@ -73,8 +73,8 @@ public class S0024InsertServlet extends HttpServlet {
 		account_list =mts.SalesSearchDisplay(ssb_list.getSalesDateB(),
 				ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),ssb_list.getProductName(), ssb_list.getRemarks());	
 		
-		session.removeAttribute("list");
-		session.setAttribute("list", account_list);
+		session.removeAttribute("slist");
+		session.setAttribute("slist", account_list);
 		response.sendRedirect("SearchSalesServlet");
 	}
 

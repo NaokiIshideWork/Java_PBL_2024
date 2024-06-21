@@ -35,12 +35,7 @@
 			</div>
 		</nav>
 	</header>
-	<c:if
-		test="${sessionScope.LoginUser.getAuthority() eq 0 or sessionScope.LoginUser.getAuthority() eq 10}">
-		<div
-			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
-			role="alert">売上編集権限はありません</div>
-	</c:if>
+	
 	<div class="container" class="text-left">
 		<h2 class="mt-3">売上検索結果表示</h2>
 	</div>
