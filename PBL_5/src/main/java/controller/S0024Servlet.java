@@ -79,7 +79,7 @@ public class S0024Servlet extends HttpServlet {
 		} else if (unit_price.length() > 9) {
 			error_message += "単価の桁数が長すぎます,";
 		} else if (!unit_price.matches("\\d{1,3}(,\\d{3})*")) {
-			error_message += "単価を正しく入力して下さい,";
+			error_message += "4桁以上の場合は3桁ごとに,を入力して下さい,";
 
 		}
 		//個数
@@ -89,7 +89,7 @@ public class S0024Servlet extends HttpServlet {
 		} else if (sale_number.length() > 9) {
 			error_message += "個数の桁数が長すぎます,";
 		} else if (!sale_number.matches("\\d{1,3}(,\\d{3})*")) {
-			error_message += "個数を正しく入力して下さい,";
+			error_message += "4桁以上の場合は3桁ごとに,を入力して下さい,";
 		}
 		//備考
 		String note = request.getParameter("note");

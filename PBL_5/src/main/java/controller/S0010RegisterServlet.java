@@ -120,7 +120,7 @@ public class S0010RegisterServlet extends HttpServlet {
 		} else if (unit_price.length() > 10) {
 			ErrorMessage += "単価が長すぎます,";//ok
 		} else if (!unit_price.matches("\\d{1,3}(,\\d{3})*")) {
-			ErrorMessage += "単価を正しく入力して下さい,";//ok
+			ErrorMessage += "4桁以上の場合は3桁ごとに,を入力して下さい,";//ok
 		}
 
 		//個数
@@ -130,7 +130,7 @@ public class S0010RegisterServlet extends HttpServlet {
 		} else if (sale_number.length() > 10) {
 			ErrorMessage += "個数が長すぎます,";//ok
 		} else if (!sale_number.matches("\\d{1,3}(,\\d{3})*")) {
-			ErrorMessage += "個数を正しく入力して下さい,";//ok
+			ErrorMessage += "4桁以上の場合は3桁ごとに,を入力して下さい,";//ok
 		}
 
 		//備考

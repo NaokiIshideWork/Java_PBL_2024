@@ -69,20 +69,30 @@ public class S0020SearchSalesServlet extends HttpServlet {
 
 		String salesDateB = request.getParameter("salesDateB");
 		if (salesDateB.isEmpty()) {
-			ErrorMessage += "販売日(検索開始日)を入力して下さい,";//ok
+			salesDateB  = "0000-00-00";//ok
 		} else {
 			salesDateB = salesDateB.replace("-", "/");
 		}
 
 		String salesDateA = request.getParameter("salesDateA");
 		if (salesDateA.isEmpty()) {
-			ErrorMessage += "販売日(検索終了日)を入力して下さい,";//ok
+			salesDateA = "9999-12-31";//ok
 		} else {
 			salesDateA = salesDateA.replace("-", "/");
 		}
 
 		String salesPerson = request.getParameter("salesPerson");//担当者id
+		if (salesPerson.equals("選択して下さい。")) {
+			//id検索
+			salesPerson = mts.Select_account_id();
+		}
+		
 		String productCategory = request.getParameter("productCategory");//商品カテゴリーid
+		if (productCategory.equals("選択して下さい。")) {
+			//category_id検索
+			productCategory = mts.Select_category_id();
+		}
+		
 		String productName = request.getParameter("productName");//商品名
 		String remarks = request.getParameter("remarks");//備考
 

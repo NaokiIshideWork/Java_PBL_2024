@@ -36,7 +36,50 @@ public class SQLServicesPBLsfs {
 
 		return str;
 	}
+	public static String unescapeHtml(String escapedString) {
+        return escapedString
+                .replace("&lt;", "<")
+                .replace("&gt;", ">")
+                .replace("&amp;", "&")
+                .replace("&quot;", "\"")
+                .replace("&apos;", "'");
+    }
 
+	public String Select_account_id() {
+		String sql = "SELECT account_id FROM accounts;";
+		String strid = "(";
+		try (
+				Connection con = DbUtil.open();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+			// PreparedStatementがクローズされるタイミングでクローズされる
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				strid += rs.getInt("account_id");
+			}
+			strid += ")";
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return strid;
+	}
+	public String Select_category_id() {
+		String sql = "SELECT category_id FROM categories;";
+		String strid = "(";
+		try (
+				Connection con = DbUtil.open();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+			// PreparedStatementがクローズされるタイミングでクローズされる
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				strid += rs.getInt("category_id");
+			}
+			strid += ")";
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return strid;
+	}
+	
 	public ArrayList<AccountsBean> SelectAllAcount() {
 		String sql = "SELECT * FROM accounts where;";
 		ArrayList<AccountsBean> account_list = new ArrayList<AccountsBean>();
@@ -64,7 +107,7 @@ public class SQLServicesPBLsfs {
 	public ArrayList<Sales2Bean> selectAllSales(String salesDateB, String salesDateA, String salesPerson,
 			String productCategory,
 			String productName, String remarks) {
-		String sql = "SELECT * FROM sales WHERE sale_date >=? and sale_date <= ? and account_id = ? and category_id = ? and trade_name LIKE ? AND note LIKE ?;";
+		String sql = "SELECT * FROM sales WHERE sale_date >=? and sale_date <= ? and account_id IN ? and category_id IN ? and trade_name LIKE ? AND note LIKE ?;";
 		ArrayList<Sales2Bean> account_list = new ArrayList<Sales2Bean>();
 		try (
 				Connection con = DbUtil.open();
@@ -105,7 +148,7 @@ public class SQLServicesPBLsfs {
 				+ "LEFT OUTER JOIN accounts a ON s.account_id = a.account_id\n"
 				+ "LEFT OUTER JOIN categories c ON s.category_id = c.category_id \n"
 				+ "WHERE sale_date >= ? and sale_date <= ? AND\n"
-				+ "s.account_id = ? AND s.category_id = ? AND trade_name LIKE ? AND note LIKE ?;";
+				+ "s.account_id IN ? AND s.category_id IN ? AND trade_name LIKE ? AND note LIKE ?;";
 		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
 		try (
 				Connection con = DbUtil.open();
@@ -125,7 +168,7 @@ public class SQLServicesPBLsfs {
 				String name = rs.getString("name");
 				String category_name = rs.getString("category_name");
 				String trade_name = rs.getString("trade_name");
-//				trade_name = sanitizing(trade_name);
+				trade_name = unescapeHtml(trade_name);
 				int unit_price = rs.getInt("unit_price");
 				int sale_number = rs.getInt("sale_number");
 				int subtotal = rs.getInt("subtotal");
