@@ -1,16 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./css/bootstrap.min.css" text="text/css">
+<jsp:include page="header.jsp" flush="true" />
 
-<title>アカウント検索結果表示画面</title>
-</head>
-<body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">物品売上管理システム</a>
@@ -92,8 +84,7 @@
 			</c:forEach>
 		</table>
 	</div>
-</body>
-</html>
+<jsp:include page="footer.jsp" flush="true" />
 
 
 

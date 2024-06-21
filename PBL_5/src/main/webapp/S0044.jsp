@@ -25,16 +25,8 @@ if (authority == 11) {
 	accountSelected = true;
 }
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./css/bootstrap.min.css" text="text/css">
-<title>アカウント詳細削除確認</title>
-</head>
-<body>
+<jsp:include page="header.jsp" flush="true" />
+
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">物品売上管理システム</a>
@@ -157,5 +149,4 @@ if (authority == 11) {
 				role="alert">アカウント編集権限がありません</div>
 		</c:otherwise>
 	</c:choose>
-</body>
-</html>
+<jsp:include page="footer.jsp" flush="true" />

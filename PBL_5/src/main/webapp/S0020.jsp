@@ -3,8 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="header.jsp" flush="true" />
 
-
-
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
@@ -125,7 +123,5 @@
 	</div>
 
 	<!-- Bootstrap JS (Optional) -->
-	
-
 
 <jsp:include page="footer.jsp" flush="true" />

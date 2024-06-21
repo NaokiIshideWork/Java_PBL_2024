@@ -1,14 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./css/bootstrap.min.css" text="text/css">
-<title>売上詳細表示</title>
 <style>
 body {
 	overflow-x: hidden;
@@ -34,8 +26,8 @@ body {
 	}
 }
 </style>
-</head>
-<body>
+<jsp:include page="header.jsp" flush="true" />
+
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
@@ -155,5 +147,4 @@ body {
 						role="button">キャンセル</a>
 				</div>
 		</div>
-</body>
-</html>
+<jsp:include page="footer.jsp" flush="true" />

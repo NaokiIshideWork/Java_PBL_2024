@@ -20,4 +20,5 @@
 			<button id="btn" class="btn btn-primary btn-rounded mt-1  w-50 ">ログイン</button>
 		</form>
 	</div>
+	
 <jsp:include page="footer.jsp" flush="true" />
