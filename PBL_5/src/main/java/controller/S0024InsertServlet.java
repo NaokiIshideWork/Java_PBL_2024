@@ -62,7 +62,7 @@ public class S0024InsertServlet extends HttpServlet {
 		
 		
 		
-		mts.insert(up_date_id, sale_date, account_id, category_id, trade_name,
+		mts.update(up_date_id, sale_date, account_id, category_id, trade_name,
 				unit_price, sale_number, note);
 		
 		

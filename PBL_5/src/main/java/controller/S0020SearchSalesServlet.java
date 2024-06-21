@@ -86,7 +86,7 @@ public class S0020SearchSalesServlet extends HttpServlet {
 			//id検索
 			salesPerson = mts.Select_account_id();
 		}
-		
+
 		String productCategory = request.getParameter("productCategory");//商品カテゴリーid
 		if (productCategory.equals("選択して下さい。")) {
 			//category_id検索
