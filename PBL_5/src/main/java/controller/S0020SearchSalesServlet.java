@@ -46,8 +46,8 @@ public class S0020SearchSalesServlet extends HttpServlet {
 				ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
 				ssb_list.getProductName(), ssb_list.getRemarks());
 	
-		session.removeAttribute("list");
-		session.setAttribute("list", account_list);
+		session.removeAttribute("slist");
+		session.setAttribute("slist", account_list);
 		
 
 		this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
@@ -105,7 +105,7 @@ public class S0020SearchSalesServlet extends HttpServlet {
 
 			account_list = mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName,
 					remarks);
-			session.setAttribute("slist", account_list);
+			request.setAttribute("slist", account_list);
 			SalesSearchBean ssb = new SalesSearchBean(salesDateB, salesDateA, salesPerson, productCategory, productName,
 					remarks);
 			session.setAttribute("ssb", ssb);

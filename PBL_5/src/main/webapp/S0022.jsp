@@ -71,7 +71,7 @@ body {
 					</div>
 					<div class="col-sm-8">
 						<p class="mt-1">
-							<c:out value="${list.getSale_date()}" />
+							<c:out value="${s22list.getSale_date()}" />
 						</p>
 					</div>
 				</div>
@@ -81,7 +81,7 @@ body {
 					</div>
 					<div class="col-sm-8">
 						<p class="mt-1">
-							<c:out value="${list.getAccount()}" />
+							<c:out value="${s22list.getAccount()}" />
 						</p>
 					</div>
 				</div>
@@ -91,7 +91,7 @@ body {
 					</div>
 					<div class="col-sm-8 w-50">
 						<p class="mt-1">
-							<c:out value="${list.getCategory()}" />
+							<c:out value="${s22list.getCategory()}" />
 						</p>
 					</div>
 				</div>
@@ -101,7 +101,7 @@ body {
 					</div>
 					<div class="col-sm-8 w-50">
 						<p class="mt-1">
-							<c:out value="${list.getTrade_name()}" />
+							<c:out value="${s22list.getTrade_name()}" />
 						</p>
 					</div>
 				</div>
@@ -111,7 +111,7 @@ body {
 					</div>
 					<div class="col-sm-8 w-50">
 						<p class="mt-1">
-							<c:out value="${list.getUnit_price()}" />
+							<c:out value="${s22list.getUnit_price()}" />
 						</p>
 					</div>
 				</div>
@@ -121,7 +121,7 @@ body {
 					</div>
 					<div class="col-sm-8">
 						<p class="mt-1">
-							<c:out value="${list.getSale_number()}" />
+							<c:out value="${s22list.getSale_number()}" />
 						</p>
 					</div>
 				</div>
@@ -132,7 +132,7 @@ body {
 					</div>
 					<div class="col-sm-8">
 						<p class="mt-1">
-							<c:out value="${list.getNote()}" />
+							<c:out value="${s22list.getNote()}" />
 						</p>
 					</div>
 				</div>
@@ -140,14 +140,14 @@ body {
 					>
 					<form method="post" action="EditSaleServlet" style="">
 						<button type="submit" class="btn btn-primary" name="sale_id"
-							value="${list.getSale_id()}" style="margin-right: 10px;">
+							value="${s22list.getSale_id()}" style="margin-right: 10px;">
 							<span style="margin-right: 5px;">✔<span>編集 
 						</button>
 					</form>
 					<form method="get" action="ConfirmationSalesDeletion"
 						style="margin-right: 10px;">
 						<button type="submit" class="btn btn-danger" name="sale_id"
-							value="${list.getSale_id()}">
+							value="${s22list.getSale_id()}">
 							<span style="margin-right: 5px;">✕</span>削除
 						</button>
 					</form>
