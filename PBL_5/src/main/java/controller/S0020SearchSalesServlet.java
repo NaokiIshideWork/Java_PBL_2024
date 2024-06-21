@@ -45,10 +45,9 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		account_list = mts.SalesSearchDisplay(ssb_list.getSalesDateB(),
 				ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
 				ssb_list.getProductName(), ssb_list.getRemarks());
-	
+
 		session.removeAttribute("slist");
 		session.setAttribute("slist", account_list);
-		
 
 		this.getServletContext().getRequestDispatcher("/S0021.jsp").forward(request, response);
 
@@ -68,8 +67,9 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		String ErrorMessage = "";
 
 		String salesDateB = request.getParameter("salesDateB");
+
 		if (salesDateB.isEmpty()) {
-			salesDateB  = "0000-00-00";//ok
+			salesDateB = "0000-00-00";//ok
 		} else {
 			salesDateB = salesDateB.replace("-", "/");
 		}
@@ -82,39 +82,68 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		}
 
 		String salesPerson = request.getParameter("salesPerson");//担当者id
-		if (salesPerson.equals("選択して下さい。")) {
-			//id検索
-			salesPerson = mts.Select_account_id();
-		}
 
 		String productCategory = request.getParameter("productCategory");//商品カテゴリーid
-		if (productCategory.equals("選択して下さい。")) {
-			//category_id検索
-			productCategory = mts.Select_category_id();
-		}
-		
+
 		String productName = request.getParameter("productName");//商品名
 		String remarks = request.getParameter("remarks");//備考
 
 		HttpSession session = request.getSession();
 
 		//検索結果が0件か?
-		Sales2Bean_list = mts.selectAllSales(salesDateB, salesDateA, salesPerson, productCategory, productName,
-				remarks);
+		if (salesPerson.equals("選択して下さい。") && productCategory.equals("選択して下さい。")) {
+			Sales2Bean_list = mts.selectAllSales3(salesDateB, salesDateA, productName,
+					remarks);
+		} else if (salesPerson.equals("選択して下さい。") && !productCategory.equals("選択して下さい。")) {
+			Sales2Bean_list = mts.selectAllSales1(salesDateB, salesDateA, productCategory, productName,
+					remarks);
+		} else if (!salesPerson.equals("選択して下さい。") && productCategory.equals("選択して下さい。")) {
+			Sales2Bean_list = mts.selectAllSales2(salesDateB, salesDateA, salesPerson, productName,
+					remarks);
+		} else {
+			Sales2Bean_list = mts.selectAllSales(salesDateB, salesDateA, salesPerson, productCategory, productName,
+					remarks);
+		}
+
 		ErrorMessage = CharUtil.replaceCommaAtEnd(ErrorMessage);
+
 		if (Sales2Bean_list.isEmpty() && ErrorMessage.isEmpty()) {
 			ErrorMessage += "検索結果はありません";
 			request.setAttribute("err", ErrorMessage);
 			this.getServletContext().getRequestDispatcher("/S0020.jsp").forward(request, response);
-		}
-		else if(!ErrorMessage.isEmpty()) {
+		} else if (!ErrorMessage.isEmpty()) {
 			request.setAttribute("err", ErrorMessage);
 			this.getServletContext().getRequestDispatcher("/S0020.jsp").forward(request, response);
-		}
-		else {
+		} else {
+			if (salesPerson.equals("選択して下さい。") && productCategory.equals("選択して下さい。")) {
+				account_list = mts.SalesSearchDisplay1(salesDateB, salesDateA, salesPerson, productCategory,
+						productName,
+						remarks);
+				System.out.println(3);
+				//sessionをつけてそれによって検索結果を振り分ける
+				session.setAttribute("search", "3");
+			} else if (salesPerson.equals("選択して下さい。") && !productCategory.equals("選択して下さい。")) {
+				account_list = mts.SalesSearchDisplay2(salesDateB, salesDateA, salesPerson, productCategory,
+						productName,
+						remarks);
+				System.out.println(4);
+				session.setAttribute("search", "4");
+				//sessionをつけてそれによって検索結果を振り分ける
+			} else if (!salesPerson.equals("選択して下さい。") && productCategory.equals("選択して下さい。")) {
+				account_list = mts.SalesSearchDisplay3(salesDateB, salesDateA, salesPerson, productCategory,
+						productName,
+						remarks);//これ
+				System.out.println(1);
+				session.setAttribute("search", "1");
+				//sessionをつけてそれによって検索結果を振り分ける
+			} else {
+				account_list = mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName,
+						remarks);//これ
+				System.out.println(2);
+				session.setAttribute("search", "2");
+				//sessionをつけてそれによって検索結果を振り分ける
+			}
 
-			account_list = mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName,
-					remarks);
 			request.setAttribute("slist", account_list);
 			SalesSearchBean ssb = new SalesSearchBean(salesDateB, salesDateA, salesPerson, productCategory, productName,
 					remarks);
