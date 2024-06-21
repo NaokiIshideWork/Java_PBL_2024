@@ -1,16 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="header.jsp" flush="true" />
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" href="./css/bootstrap.min.css"  text="text/css">
-<title>ログイン</title>
-</head>
 <body class="bg-secondary-subtle">
 	
 	<c:if test="${not empty error_display}">
@@ -28,5 +20,4 @@
 			<button id="btn" class="btn btn-primary btn-rounded mt-1  w-50 ">ログイン</button>
 		</form>
 	</div>
-</body>
-</html>
+<jsp:include page="footer.jsp" flush="true" />
