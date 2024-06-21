@@ -1,18 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="header.jsp" flush="true" />
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./css/bootstrap.min.css" text="text/css">
-<title>売上検索条件入力</title>
-</head>
-<body>
+
 
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -129,9 +120,7 @@
 	</div>
 
 	<!-- Bootstrap JS (Optional) -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-33L5K/ez9oWsKy8jxQv0IUpSAXS2tkF/EAK+TM8f6L2sz/GbUqG+1uQuBkPWZhQz"
-		crossorigin="anonymous"></script>
-</body>
-</html>
+	
+
+
+<jsp:include page="footer.jsp" flush="true" />
