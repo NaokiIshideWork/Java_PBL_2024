@@ -15,7 +15,6 @@ import model.SalesDetailsDisplayBean;
 import model.SalesSearchDisplayBean;
 import util.DbUtil;
 
-
 //S0020用のSQLファイル
 public class SQLServicesPBLsfs {
 	//三桁区切り表示用
@@ -23,6 +22,7 @@ public class SQLServicesPBLsfs {
 		NumberFormat nf = NumberFormat.getNumberInstance();
 		return nf.format(num);
 	}
+
 	public static String sanitizing(String str) {
 		if (null == str || "".equals(str)) {
 			return str;
@@ -69,7 +69,7 @@ public class SQLServicesPBLsfs {
 		try (
 				Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
-		
+
 			ps.setString(1, salesDateB);
 			ps.setString(2, salesDateA);
 			ps.setString(3, salesPerson);
@@ -89,7 +89,6 @@ public class SQLServicesPBLsfs {
 				int sale_number = rs.getInt("sale_number");
 				String note = rs.getString("note");
 
-				
 				account_list.add(new Sales2Bean(sale_id, sale_date, account_id,
 						category_id, trade_name, unit_price, sale_number, note));
 			}
@@ -126,11 +125,12 @@ public class SQLServicesPBLsfs {
 				String name = rs.getString("name");
 				String category_name = rs.getString("category_name");
 				String trade_name = rs.getString("trade_name");
+//				trade_name = sanitizing(trade_name);
 				int unit_price = rs.getInt("unit_price");
 				int sale_number = rs.getInt("sale_number");
 				int subtotal = rs.getInt("subtotal");
 
-				sale_date= sale_date.replace("-", "/");
+				sale_date = sale_date.replace("-", "/");
 				account_list.add(new SalesSearchDisplayBean(sale_id, sale_date, name, category_name,
 						trade_name, formatNumber(unit_price), formatNumber(sale_number), formatNumber(subtotal)));
 			}
@@ -139,6 +139,7 @@ public class SQLServicesPBLsfs {
 		}
 		return account_list;
 	}
+
 	//詳細内容表示
 	public SalesDetailsDisplayBean SalesDetailsDisplay(int salesearch_id) {
 		String sql = "SELECT s.sale_id, s.sale_date,a.name,c.category_name,s.trade_name,s.unit_price,s.sale_number,\n"
@@ -174,6 +175,7 @@ public class SQLServicesPBLsfs {
 		}
 		return SalesDeetail_list;
 	}
+
 	//詳細内容削除
 	public S0025Bean SalesDetailsDelete(int salesearch_id) {
 		String sql = "SELECT s.sale_id,s.sale_date,a.name,c.category_name,s.trade_name,s.unit_price,s.sale_number,\n"
@@ -196,7 +198,7 @@ public class SQLServicesPBLsfs {
 				String name = rs.getString("name");
 				String category_name = rs.getString("category_name");
 				String trade_name = rs.getString("trade_name");
-				
+
 				int unit_price = rs.getInt("unit_price");
 				int sale_number = rs.getInt("sale_number");
 				int subtotal = rs.getInt("subtotal");
@@ -204,7 +206,7 @@ public class SQLServicesPBLsfs {
 
 				sale_date = sale_date.replace("-", "/");
 				trade_name = sanitizing(trade_name);
-				S0025Bean_list = new S0025Bean(sale_id,sale_date, name, category_name, trade_name,
+				S0025Bean_list = new S0025Bean(sale_id, sale_date, name, category_name, trade_name,
 						formatNumber(unit_price), formatNumber(sale_number), formatNumber(subtotal), note);
 			}
 		} catch (SQLException e) {
@@ -212,7 +214,7 @@ public class SQLServicesPBLsfs {
 		}
 		return S0025Bean_list;
 	}
-	
+
 	//削除	
 	public void delete(int delete_id) {
 		String sql = "DELETE FROM sales WHERE sale_id = ?";
@@ -226,7 +228,7 @@ public class SQLServicesPBLsfs {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public S0023Bean SalesEdit(int sales_id) {
 		String sql = "SELECT s.sale_id,s.sale_date,a.name,c.category_name,s.trade_name,s.unit_price,s.sale_number,\n"
 				+ " (s.unit_price*s.sale_number)AS subtotal ,s.note from sales s \n"
@@ -234,7 +236,7 @@ public class SQLServicesPBLsfs {
 				+ "LEFT OUTER JOIN categories c ON s.category_id = c.category_id \n"
 				+ "WHERE s.sale_id  =? ;";
 
-		S0023Bean  S0023Bean_list = null;
+		S0023Bean S0023Bean_list = null;
 		try (
 				Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
@@ -248,11 +250,12 @@ public class SQLServicesPBLsfs {
 				String name = rs.getString("name");
 				String category_name = rs.getString("category_name");
 				String trade_name = rs.getString("trade_name");
+				trade_name = sanitizing(trade_name);
 				int unit_price = rs.getInt("unit_price");
 				int sale_number = rs.getInt("sale_number");
 				String note = rs.getString("note");
 
-				S0023Bean_list = new S0023Bean (sale_id,sale_date, name, category_name, trade_name,
+				S0023Bean_list = new S0023Bean(sale_id, sale_date, name, category_name, trade_name,
 						formatNumber(unit_price), formatNumber(sale_number), note);
 			}
 		} catch (SQLException e) {
@@ -260,7 +263,7 @@ public class SQLServicesPBLsfs {
 		}
 		return S0023Bean_list;
 	}
-	
+
 	public String SearchName(int accounts_id) {
 		String sql = "SELECT name FROM accounts WHERE account_id = ?;";
 
@@ -276,14 +279,13 @@ public class SQLServicesPBLsfs {
 				String account_name = rs.getString("name");
 				name = account_name;
 
-				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return name;
 	}
-	
+
 	public String SearchCategory_name(int category_id) {
 		String sql = "SELECT category_name FROM categories WHERE category_id = ?;";
 
@@ -299,16 +301,13 @@ public class SQLServicesPBLsfs {
 				String category_name = rs.getString("category_name");
 				name = category_name;
 
-				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return name;
 	}
-	
-	
-	
+
 	public void insert(int up_date_id, String sale_date, int account_id, int category_id, String trade_name,
 			String unit_price, String sale_number, String note) {
 		String sql = "UPDATE sales SET sale_date = ?,account_id = ?,\n"
@@ -322,7 +321,7 @@ public class SQLServicesPBLsfs {
 				PreparedStatement ps = con.prepareStatement(sql);) {
 
 			unit_price = unit_price.replace(",", "");
-			sale_number = sale_number.replace(",","");
+			sale_number = sale_number.replace(",", "");
 			ps.setString(1, sale_date);
 			ps.setInt(2, account_id);
 			ps.setInt(3, category_id);

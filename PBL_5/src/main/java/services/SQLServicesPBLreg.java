@@ -12,6 +12,15 @@ import util.DbUtil;
 
 public class SQLServicesPBLreg {
 
+	public static String unescapeHtml(String escapedString) {
+        return escapedString
+                .replace("&lt;", "<")
+                .replace("&gt;", ">")
+                .replace("&amp;", "&")
+                .replace("&quot;", "\"")
+                .replace("&apos;", "'");
+    }
+	
 	public ArrayList<CategoriesBean> canSelectAllCategory() {
 		String sql = "SELECT * FROM categories WHERE active_flg = 1;";
 		ArrayList<CategoriesBean> categories_list = new ArrayList<CategoriesBean>();
@@ -103,7 +112,7 @@ public class SQLServicesPBLreg {
 			ps.setString(1, sale_date);
 			ps.setInt(2,account_id);
 			ps.setInt(3, category_id);
-			ps.setString(4, trade_name);
+			ps.setString(4, unescapeHtml(trade_name));
 			ps.setInt(5, unit_price);
 			ps.setInt(6, sale_number);
 			ps.setString(7, note);

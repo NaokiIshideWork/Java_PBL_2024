@@ -45,7 +45,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 		HttpSession session = ((HttpServletRequest) request).getSession();
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
-	
+
 		String path = req.getServletPath();
 		String referer = "";
 
@@ -74,6 +74,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 					|| path.equals("/ConfirmationSalesDeletion") || path.equals("/ConfirmationSalesEdit")
 					|| path.equals("/SearchSalesServlet");
 
+			boolean isRegAccount = path.equals("/AccountRegisterServlet");
 			boolean isEditAccount = path.equals("/EditAccountServlet") || path.equals("/EditScreenServlet") ||
 					path.equals("/DeleteAccountServlet") || path.equals("/AccountSearchServlet");
 
@@ -81,7 +82,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 			Boolean redirected = (Boolean) session.getAttribute("redirectedFromRegister");
 			Boolean redirected1 = (Boolean) session.getAttribute("redirectedFromRegister1");
 			Boolean redirected2 = (Boolean) session.getAttribute("redirectedFromRegister2");
-		
+			Boolean redirected3 = (Boolean) session.getAttribute("redirectedFromRegister3");
 
 			//売上登録画面 ok
 			if (isRefer && isRegSales) {
@@ -92,7 +93,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 					return;
 				} else {
 					session.removeAttribute("redirectedFromRegister");
-//					request.getRequestDispatcher("/S0010.jsp").forward(request, response);
+					//					request.getRequestDispatcher("/S0010.jsp").forward(request, response);
 					res.sendRedirect("RegisterServlet");
 					return;
 				}
@@ -109,14 +110,26 @@ public class AuthFilter extends HttpFilter implements Filter {
 					return;
 				}
 			}
-
-			if (isRefer && isEditAccount)
+			if (isRefer && isRegAccount) {
 				if (redirected2 == null || !redirected2) {
 					session.setAttribute("redirectedFromRegister2", true);
-					request.getRequestDispatcher("/S0040.jsp").forward(request, response);
+					res.sendRedirect("AccountServlet");
 					return;
 				} else {
 					session.removeAttribute("redirectedFromRegister2");
+					//					request.getRequestDispatcher("/S0010.jsp").forward(request, response);
+					res.sendRedirect("AccountServlet");
+					return;
+				}
+			}
+
+			if (isRefer && isEditAccount)
+				if (redirected3 == null || !redirected3) {
+					session.setAttribute("redirectedFromRegister3", true);
+					request.getRequestDispatcher("/S0040.jsp").forward(request, response);
+					return;
+				} else {
+					session.removeAttribute("redirectedFromRegister3");
 					res.sendRedirect("AccountSearchServlet");
 					return;
 				}
