@@ -48,6 +48,13 @@ public class AccountServlet extends HttpServlet {
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
 		String confirmpassword = request.getParameter("confirmPassword");
+<<<<<<< HEAD
+=======
+	
+		
+		// authority_salesとauthority_accountの値を受け取る
+
+>>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
 		String[] authorities = request.getParameterValues("authority");
 		String authority = null;
 
@@ -75,13 +82,6 @@ public class AccountServlet extends HttpServlet {
 		        authority = "11";
 		    }
 		}
-		
-		System.out.println("氏名:" + name);
-		System.out.println("メールアドレス:" + mail);
-		System.out.println("パスワード:" + password);
-		System.out.println("確認用パスワード:" + confirmpassword);
-		System.out.println("権限:" + authority);
-
 
 		
 		String unit_price = request.getParameter("unit_price");
@@ -154,7 +154,6 @@ public class AccountServlet extends HttpServlet {
 			stmt.setString(1, mail);
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next() && rs.getInt(1) > 0) {
-				System.out.println("重複あり");
 				exists = true; // メールアドレスが既に登録されている場合
 			}
 		} catch (SQLException e) {

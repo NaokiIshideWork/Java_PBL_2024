@@ -60,11 +60,6 @@ public class AccountRecord {
 					ps.setInt(5, id);			
 					int rowsUpdated = ps.executeUpdate();
 					
-					if (rowsUpdated > 0) {
-			            System.out.println("Update successful. " + "更新された行数は" + rowsUpdated);
-			        } else {
-			            System.out.println("Update failed. No rows updated.");
-			        }
 				}catch(SQLException e) {
 					e.printStackTrace();
 				}
@@ -120,10 +115,7 @@ public class AccountRecord {
 			}
 			
 			if(accountsList.size() != 0 && name != null) {
-				System.out.println("accountsList.size() != 0 && name != null");
 				for(AccountsBean ab : accountsList) {
-					System.out.println("name" + name);
-					System.out.println("name2" + ab.getName());
 					if(ab.getName() != null && ab.getName().contains(name)) {
 						accountsList2.add(ab);
 					}
@@ -133,7 +125,6 @@ public class AccountRecord {
 			}
 			
 			if(accountsList.size() != 0 && mail != null) {
-				System.out.println("accountsList.size() != 0 && mail != null");
 				for(AccountsBean ab : accountsList2) {
 					if(ab.getMail() != null && ab.getMail().equals(mail)) {
 						accountsList3.add(ab);
@@ -144,7 +135,6 @@ public class AccountRecord {
 			}
 			
 			if(accountsList.size() != 0 && authority != 99) {
-				System.out.println("accountsList.size() != 0 && authority != 99");
 				for(AccountsBean ab : accountsList3) {
 					if(ab.getAuthority() != 99 && ab.getAuthority() == authority) {
 						accountsList4.add(ab);
@@ -221,10 +211,7 @@ public class AccountRecord {
 			}
 			
 			if(accountsList.size() != 0 && name != null) {
-				System.out.println("accountsList.size() != 0 && name != null");
 				for(AccountsBean ab : accountsList) {
-					System.out.println("name" + name);
-					System.out.println("name2" + ab.getName());
 					if(ab.getName() != null && ab.getName().contains(name)) {
 						accountsList2.add(ab);
 					}
@@ -234,7 +221,6 @@ public class AccountRecord {
 			}
 			
 			if(accountsList.size() != 0 && mail != null) {
-				System.out.println("accountsList.size() != 0 && mail != null");
 				for(AccountsBean ab : accountsList2) {
 					if(ab.getMail() != null && ab.getMail().equals(mail)) {
 						accountsList3.add(ab);
@@ -245,7 +231,6 @@ public class AccountRecord {
 			}
 			
 			if(accountsList.size() != 0 && authority1 != 999 && authority2 != 999) {
-				System.out.println("accountsList.size() != 0 && authority != 99");
 				for(AccountsBean ab : accountsList3) {
 					if(ab.getAuthority() != 99 && (ab.getAuthority() == authority1 || ab.getAuthority() == authority2)) {
 						accountsList4.add(ab);

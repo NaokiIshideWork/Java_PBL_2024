@@ -80,11 +80,6 @@ public class LoginServlet extends HttpServlet {
 			error_display += "メールアドレス、パスワードを正しく入力して下さい,";
 		}
 		
-		if (error_display.endsWith(",")) {
-            System.out.println("後方一致しました");
-        } else {
-            System.out.println("後方一致しませんでした");
-        }
 		
         error_display = CharUtil.replaceCommaAtEnd(error_display);
 
