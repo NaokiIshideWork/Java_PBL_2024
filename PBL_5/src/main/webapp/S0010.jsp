@@ -13,29 +13,27 @@
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+			<div class="collapse navbar-collapse justify-content-between"
+				id="navbarNav">
 				<ul class="navbar-nav mt-2">
-					<li class="nav-item ">
-						<a class="nav-link" aria-current="page" href="DashboardServlet">ダッシュボード</a>
+					<li class="nav-item "><a class="nav-link" aria-current="page"
+						href="DashboardServlet">ダッシュボード</a></li>
+					<li class="nav-item bg-dark-subtle"><a class="nav-link"
+						href="RegisterServlet">売上登録</a></li>
+					<li class="nav-item"><a class="nav-link" href="SearchSales">売上検索</a>
 					</li>
-					<li class="nav-item bg-dark-subtle">
-						<a class="nav-link" href="RegisterServlet">売上登録</a>
+					<li class="nav-item"><a class="nav-link" href="AccountServlet">アカウント登録</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="SearchSales">売上検索</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="AccountServlet">アカウント登録</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="AccountSearchServlet">アカウント検索</a>
-					</li>
+					<li class="nav-item"><a class="nav-link"
+						href="AccountSearchServlet">アカウント検索</a></li>
 				</ul>
-					<div class="navbar-nav">
-						<form action="LogoutServlet" method="post">
-							<button class="nav-link" type="submit">ログアウト</butn>
-						</form>
-					</div>
+				<div class="navbar-nav">
+					<form action="LogoutServlet" method="post">
+						<button class="nav-link" type="submit">
+							ログアウト
+							</butn>
+					</form>
+				</div>
 			</div>
 		</div>
 	</nav>
@@ -65,7 +63,8 @@
 						</div>
 						<div class="col-sm-8">
 							<input type="date" name="sale_date" class="form-control w-25"
-								aria-label="Last name" placeholder="年/月/日">
+								aria-label="Last name" placeholder="年/月/日"
+								value="${empty sblist.getSale_date() ? '' :sblist.getSale_date()}">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -78,11 +77,35 @@
 						<div class="col-sm-8 w-50">
 							<select name="account" class="form-select"
 								aria-label="Default select example">
-								<option value="選択して下さい。"><c:out value="選択して下さい。"></c:out></option>
-								<c:forEach var="obj" items="${accounts}">
-									<option value="${obj.getAccount_id()}"><c:out
-											value="${obj.getName()}" /></option>
-								</c:forEach>
+								<c:choose>
+									<c:when test="${sblist.getAccout() == '選択して下さい。'}">
+
+										<option value="選択して下さい。"><c:out value="選択して下さい。"></c:out></option>
+
+										<c:forEach var="obj" items="${accounts}">
+											<option value="${obj.getAccount_id()}"><c:out
+													value="${obj.getName()}" /></option>
+										</c:forEach>
+									</c:when>
+									<c:otherwise>
+
+										<option value="選択して下さい。"><c:out value="選択して下さい。"></c:out></option>
+										<c:forEach var="obj" items="${accounts}">
+
+											<c:choose>
+												<c:when test="${obj.getName() == sblist.getAccout()}">
+													<option value="${obj.getAccount_id()}" selected><c:out
+															value="${obj.getName()}" /></option>
+												</c:when>
+												<c:otherwise>
+													<option value="${obj.getAccount_id()}"><c:out
+															value="${obj.getName()}" /></option>
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
+									</c:otherwise>
+								</c:choose>
+
 							</select>
 						</div>
 					</div>
@@ -96,11 +119,31 @@
 						<div class="col-sm-8 w-50">
 							<select name="item_category" class="form-select"
 								aria-label="Default select example">
-								<option value="選択して下さい。"><c:out value="選択して下さい。"></c:out></option>
-								<c:forEach var="obj" items="${cate}">
-									<option value="${obj.getCategory_id()}"><c:out
-											value="${obj.getCategory_name()}" /></option>
-								</c:forEach>
+								
+								<c:choose>
+									<c:when test="${sblist.getItem_category() == '選択して下さい。'}">
+										<option value="選択して下さい。"><c:out value="選択して下さい。"></c:out></option>
+										<c:forEach var="obj" items="${cate}">
+											<option value="${obj.getCategory_id()}"><c:out
+													value="${obj.getCategory_name()}" /></option>
+										</c:forEach>
+									</c:when>
+									<c:otherwise>
+										<option value="選択して下さい。"><c:out value="選択して下さい。"></c:out></option>
+										<c:forEach var="obj" items="${cate}">
+											<c:choose>
+												<c:when test="${obj.getCategory_name() == sblist.getItem_category()}">
+													<option value="${obj.getCategory_id()}" selected><c:out
+															value="${obj.getCategory_name()}" /></option>
+												</c:when>
+												<c:otherwise>
+													<option value="${obj.getCategory_id()}"><c:out
+															value="${obj.getCategory_name()}" /></option>
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
+									</c:otherwise>
+								</c:choose>
 							</select>
 						</div>
 					</div>
@@ -113,7 +156,8 @@
 						</div>
 						<div class="col-sm-8 w-50">
 							<input type="text" name="trade_name" class="form-control"
-								placeholder="商品名">
+								placeholder="商品名"
+								value="${empty sblist.getTrade_name() ? '' :sblist.getTrade_name()}">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -125,7 +169,8 @@
 						</div>
 						<div class="col-sm-8">
 							<input type="text" name="unit_price" class="form-control w-25"
-								placeholder="単価">
+								placeholder="単価"
+								value="${empty sblist.getUnit_price() ? '' :sblist.getUnit_price()}">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -137,7 +182,8 @@
 						</div>
 						<div class="col-sm-8">
 							<input type="text" name="sale_number" class="form-control w-25"
-								placeholder="個数">
+								placeholder="個数"
+								value="${empty sblist.getSale_number() ? '' : sblist.getSale_number()}">
 						</div>
 					</div>
 					<div class="row mt-3">
@@ -149,6 +195,7 @@
 
 							<textarea name="note" class="form-control w-75"
 								id="exampleFormControlTextarea1" rows="5" placeholder="備考">
+								<c:out value="${empty sblist.getNote() ? '' :sblist.getNote()}" />
 								</textarea>
 						</div>
 					</div>

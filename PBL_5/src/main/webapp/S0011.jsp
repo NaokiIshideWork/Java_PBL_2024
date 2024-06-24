@@ -54,7 +54,7 @@
 									style="text-align: end;">販売日</h3>
 							</div>
 							<div class="col-sm-8">
-								<input type="text" value="${sblist.getSale_date()}"
+								<input type="date" value="${sblist.getSale_date()}"
 									class="form-control w-25 bg-secondary-subtle"
 									placeholder="Last name" aria-label="Last name" readonly>
 							</div>

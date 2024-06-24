@@ -41,6 +41,7 @@ public class S0010RegisterServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLreg sqlserv = new SQLServicesPBLreg();
 		String ErrorMessage = "";
+		HttpSession session = request.getSession();
 		
 		//担当表示用
 		ArrayList<AccountsBean> account_list = null;
@@ -62,7 +63,8 @@ public class S0010RegisterServlet extends HttpServlet {
 		} else {
 			request.setAttribute("cate", categories_list);
 		}
-
+		
+//		
 		this.getServletContext().getRequestDispatcher("/S0010.jsp").forward(request, response);
 	}
 
@@ -81,8 +83,6 @@ public class S0010RegisterServlet extends HttpServlet {
 		String salesDate = request.getParameter("sale_date");
 		if (salesDate.isEmpty()) {
 			ErrorMessage += "販売日を入力して下さい,";//ok
-		} else {
-			salesDate = salesDate.replace("-", "/");
 		}
 
 		//担当に対するName
@@ -90,6 +90,7 @@ public class S0010RegisterServlet extends HttpServlet {
 		String accountName = "";
 		if (account_id.equals("選択して下さい。")) {
 			ErrorMessage += "担当が未選択です,";
+			account_id = "0";
 		} else {
 			accountName = sqlreg.SelectRegName(Integer.parseInt(account_id));//担当名
 		}
@@ -99,10 +100,11 @@ public class S0010RegisterServlet extends HttpServlet {
 		String item_category_name = "";
 		if (item_category_id.equals("選択して下さい。")) {
 			ErrorMessage += "商品カテゴリーが未選択です,";
+			item_category_id = "0";
 		} else {
 			item_category_name = sqlreg.SelectCategory_Name(Integer.parseInt(item_category_id));
 		}
-
+		//選択して下再修正
 		//商品名
 		String trade_name = request.getParameter("trade_name");
 		if (trade_name.isEmpty()) {
@@ -138,6 +140,7 @@ public class S0010RegisterServlet extends HttpServlet {
 		if (note.length() > 400) {
 			ErrorMessage += "備考が長すぎます,";
 		}
+		note = note.trim();
 		
 		int subtotal = 0;
 		if (ErrorMessage.isEmpty()) {
@@ -147,18 +150,26 @@ public class S0010RegisterServlet extends HttpServlet {
 		}
 
 		if (ErrorMessage.isEmpty()) {
+			//登録確認
 			sblist = new SalesBean(salesDate, accountName, Integer.parseInt(account_id), item_category_name,
 					Integer.parseInt(item_category_id), trade_name, formatNumber(Integer.parseInt(unit_price)),
 					formatNumber(Integer.parseInt(sale_number)), formatNumber(subtotal), note);
 			session.setAttribute("sblist", sblist);
+			session.setAttribute("sbflag", 0);
+			
 			this.getServletContext().getRequestDispatcher("/S0011.jsp").forward(request, response);
 		} else {
+			//何かしらエラーがあった際の
+
 			ErrorMessage = CharUtil.replaceCommaAtEnd(ErrorMessage);
 			request.setAttribute("err", ErrorMessage);
+						
 			sblist = new SalesBean(salesDate, accountName, Integer.parseInt(account_id), item_category_name,
 					Integer.parseInt(item_category_id), trade_name, unit_price,
 					sale_number, formatNumber(subtotal), note);
-			session.setAttribute("sblist", sblist);
+			
+			session.setAttribute("sblist", sblist);		
+			session.setAttribute("sbflag", 0);
 			doGet(request, response);
 		}
 
