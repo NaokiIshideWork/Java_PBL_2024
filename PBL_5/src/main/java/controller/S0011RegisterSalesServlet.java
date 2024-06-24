@@ -62,6 +62,7 @@ public class S0011RegisterSalesServlet extends HttpServlet {
 		String note = sb.getNote();//備考
 		
 		mts.insert(sales_date, account_id, category_id, trade_name, Integer.parseInt(unit_price), Integer.parseInt(sale_number), note);
+		session.removeAttribute("sblist");	
 		response.sendRedirect("RegisterServlet");
 	}
 

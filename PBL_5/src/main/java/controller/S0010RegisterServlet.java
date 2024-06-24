@@ -64,7 +64,7 @@ public class S0010RegisterServlet extends HttpServlet {
 			request.setAttribute("cate", categories_list);
 		}
 		
-//		
+		
 		this.getServletContext().getRequestDispatcher("/S0010.jsp").forward(request, response);
 	}
 
@@ -155,7 +155,7 @@ public class S0010RegisterServlet extends HttpServlet {
 					Integer.parseInt(item_category_id), trade_name, formatNumber(Integer.parseInt(unit_price)),
 					formatNumber(Integer.parseInt(sale_number)), formatNumber(subtotal), note);
 			session.setAttribute("sblist", sblist);
-			session.setAttribute("sbflag", 0);
+			
 			
 			this.getServletContext().getRequestDispatcher("/S0011.jsp").forward(request, response);
 		} else {
@@ -169,7 +169,7 @@ public class S0010RegisterServlet extends HttpServlet {
 					sale_number, formatNumber(subtotal), note);
 			
 			session.setAttribute("sblist", sblist);		
-			session.setAttribute("sbflag", 0);
+			
 			doGet(request, response);
 		}
 

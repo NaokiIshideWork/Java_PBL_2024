@@ -19,7 +19,7 @@
 						<a class="nav-link" aria-current="page" href="DashboardServlet">ダッシュボード</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="RegisterServlet">売上登録</a>
+						<a class="nav-link" href="RegisterServlet">売上登録<input type="hidden" name="reset" value="999"></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="SearchSales">売上検索</a>

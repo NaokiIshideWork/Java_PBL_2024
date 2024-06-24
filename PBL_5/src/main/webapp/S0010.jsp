@@ -18,8 +18,10 @@
 				<ul class="navbar-nav mt-2">
 					<li class="nav-item "><a class="nav-link" aria-current="page"
 						href="DashboardServlet">ダッシュボード</a></li>
+					
 					<li class="nav-item bg-dark-subtle"><a class="nav-link"
-						href="RegisterServlet">売上登録</a></li>
+						href="RegisterServlet" onclick="clearText()">売上登録</a></li>
+						</form>
 					<li class="nav-item"><a class="nav-link" href="SearchSales">売上検索</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="AccountServlet">アカウント登録</a>
@@ -63,7 +65,7 @@
 						</div>
 						<div class="col-sm-8">
 							<input type="date" name="sale_date" class="form-control w-25"
-								aria-label="Last name" placeholder="年/月/日"
+								aria-label="Last name" placeholder="年/月/日" id="sale_date"
 								value="${empty sblist.getSale_date() ? '' :sblist.getSale_date()}">
 						</div>
 					</div>
