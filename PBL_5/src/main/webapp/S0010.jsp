@@ -148,7 +148,8 @@
 						<div class="col-sm-8">
 
 							<textarea name="note" class="form-control w-75"
-								id="exampleFormControlTextarea1" rows="5" placeholder="備考"></textarea>
+								id="exampleFormControlTextarea1" rows="5" placeholder="備考">
+								</textarea>
 						</div>
 					</div>
 					<div class="row mt-3">

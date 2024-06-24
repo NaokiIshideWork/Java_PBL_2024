@@ -42,9 +42,26 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		SalesSearchBean ssb_list = (SalesSearchBean) session.getAttribute("ssb");
 		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
 
-		account_list = mts.SalesSearchDisplay(ssb_list.getSalesDateB(),
-				ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
-				ssb_list.getProductName(), ssb_list.getRemarks());
+		String search = (String) session.getAttribute("search");
+
+		if (search.equals("1")) {
+			account_list = mts.SalesSearchDisplay3(ssb_list.getSalesDateB(),
+					ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
+					ssb_list.getProductName(), ssb_list.getRemarks());//これ
+		} else if (search.equals("2")){
+			account_list = mts.SalesSearchDisplay(ssb_list.getSalesDateB(),
+					ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
+					ssb_list.getProductName(), ssb_list.getRemarks());//これ
+			
+		} else if (search.equals("3")) {
+			account_list = mts.SalesSearchDisplay1(ssb_list.getSalesDateB(),
+					ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
+					ssb_list.getProductName(), ssb_list.getRemarks());
+		} else if (search.equals("4")) {
+			account_list = mts.SalesSearchDisplay2(ssb_list.getSalesDateB(),
+					ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
+					ssb_list.getProductName(), ssb_list.getRemarks());
+		}
 
 		session.removeAttribute("slist");
 		session.setAttribute("slist", account_list);
@@ -69,22 +86,20 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		String salesDateB = request.getParameter("salesDateB");
 
 		if (salesDateB.isEmpty()) {
-			salesDateB = "0000-00-00";//ok
+			salesDateB = "0000-00-00";
 		} else {
 			salesDateB = salesDateB.replace("-", "/");
 		}
 
 		String salesDateA = request.getParameter("salesDateA");
 		if (salesDateA.isEmpty()) {
-			salesDateA = "9999-12-31";//ok
+			salesDateA = "9999-12-31";
 		} else {
 			salesDateA = salesDateA.replace("-", "/");
 		}
 
 		String salesPerson = request.getParameter("salesPerson");//担当者id
-
 		String productCategory = request.getParameter("productCategory");//商品カテゴリーid
-
 		String productName = request.getParameter("productName");//商品名
 		String remarks = request.getParameter("remarks");//備考
 
@@ -120,7 +135,7 @@ public class S0020SearchSalesServlet extends HttpServlet {
 						productName,
 						remarks);
 				System.out.println(3);
-				//sessionをつけてそれによって検索結果を振り分ける
+				
 				session.setAttribute("search", "3");
 			} else if (salesPerson.equals("選択して下さい。") && !productCategory.equals("選択して下さい。")) {
 				account_list = mts.SalesSearchDisplay2(salesDateB, salesDateA, salesPerson, productCategory,
@@ -128,22 +143,21 @@ public class S0020SearchSalesServlet extends HttpServlet {
 						remarks);
 				System.out.println(4);
 				session.setAttribute("search", "4");
-				//sessionをつけてそれによって検索結果を振り分ける
+				
 			} else if (!salesPerson.equals("選択して下さい。") && productCategory.equals("選択して下さい。")) {
 				account_list = mts.SalesSearchDisplay3(salesDateB, salesDateA, salesPerson, productCategory,
 						productName,
 						remarks);//これ
 				System.out.println(1);
 				session.setAttribute("search", "1");
-				//sessionをつけてそれによって検索結果を振り分ける
+				
 			} else {
 				account_list = mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName,
 						remarks);//これ
 				System.out.println(2);
 				session.setAttribute("search", "2");
-				//sessionをつけてそれによって検索結果を振り分ける
+			
 			}
-
 			request.setAttribute("slist", account_list);
 			SalesSearchBean ssb = new SalesSearchBean(salesDateB, salesDateA, salesPerson, productCategory, productName,
 					remarks);

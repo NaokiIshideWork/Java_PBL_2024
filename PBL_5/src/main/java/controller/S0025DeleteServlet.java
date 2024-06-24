@@ -1,17 +1,13 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import model.SalesSearchBean;
-import model.SalesSearchDisplayBean;
 import services.SQLServicesPBLsfs;
 
 /**
@@ -47,17 +43,7 @@ public class S0025DeleteServlet extends HttpServlet {
 		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
 		String delete_id = request.getParameter("delete_id");
 		mts.delete(Integer.parseInt(delete_id));
-		
-		HttpSession session = request.getSession();
-		SalesSearchBean ssb_list =(SalesSearchBean) session.getAttribute("ssb");
-		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
-		
-		account_list =mts.SalesSearchDisplay(ssb_list.getSalesDateB(),
-				ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),ssb_list.getProductName(), ssb_list.getRemarks());	
-		
-		session.removeAttribute("slist");
-		session.setAttribute("slist", account_list);
-		
+			
 		response.sendRedirect("SearchSalesServlet");
 	}
 

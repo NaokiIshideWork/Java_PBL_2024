@@ -124,7 +124,6 @@ public class SQLServicesPBLsfs {
 			ps.setString(5, "%" + productName + "%");
 			ps.setString(6, "%" + remarks + "%");
 
-			System.out.println(ps.toString());
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -161,7 +160,6 @@ public class SQLServicesPBLsfs {
 			ps.setString(4, "%" + productName + "%");
 			ps.setString(5, "%" + remarks + "%");
 
-			System.out.println(ps.toString());
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -199,7 +197,7 @@ public class SQLServicesPBLsfs {
 			ps.setString(4, "%" + productName + "%");
 			ps.setString(5, "%" + remarks + "%");
 
-			System.out.println(ps.toString());
+			
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -233,7 +231,6 @@ public class SQLServicesPBLsfs {
 			ps.setString(3, "%" + productName + "%");
 			ps.setString(4, "%" + remarks + "%");
 
-			System.out.println(ps.toString());
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
