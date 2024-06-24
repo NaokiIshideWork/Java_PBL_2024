@@ -47,7 +47,6 @@ public class AccountRecord {
 	}
 	
 	public void updateAccount(int id, String name, String mail, String password, int authority) {
-		// とりあえず常に全ての値updateしちゃう 変わってなくても
 				String sql = "UPDATE accounts SET name=?, mail=?, password=?, authority=? WHERE account_id = ?";
 				try{
 					Connection con = DbUtil.open();
@@ -58,7 +57,6 @@ public class AccountRecord {
 					ps.setString(3, password);
 					ps.setInt(4, authority);
 					ps.setInt(5, id);			
-					int rowsUpdated = ps.executeUpdate();
 					
 				}catch(SQLException e) {
 					e.printStackTrace();
@@ -66,7 +64,6 @@ public class AccountRecord {
 	}
 	
 	public void deleteAccount(String id) {
-		// idで消せるようにしちゃう？
 		String sql = "DELETE FROM accounts WHERE account_id = ?";
 		try{
 			Connection con = DbUtil.open();

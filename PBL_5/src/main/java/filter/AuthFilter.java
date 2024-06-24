@@ -60,10 +60,11 @@ public class AuthFilter extends HttpFilter implements Filter {
 			return;
 		}
 
-		if (session.getAttribute("LoginUser") == null) {
+		if (session.getAttribute("LoginUser") == null && !path.contains("css")) {
 			if (!path.equals("/LoginServlet")) {
-				res.sendRedirect("LoginServlet");
+				request.getRequestDispatcher("/C0010.jsp").forward(request, response);
 				return;
+				
 			}
 		} else {
 			boolean isRefer = referer == null;//参照元がない

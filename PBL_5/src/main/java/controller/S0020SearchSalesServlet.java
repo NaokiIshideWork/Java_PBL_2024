@@ -109,19 +109,15 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		if (salesPerson.equals("選択して下さい。") && productCategory.equals("選択して下さい。")) {
 			Sales2Bean_list = mts.selectAllSales(salesDateB, salesDateA, productName,
 					remarks);
-			System.out.println(3);
 		} else if (salesPerson.equals("選択して下さい。") && !productCategory.equals("選択して下さい。")) {
 			Sales2Bean_list = mts.selectAllSalesProductCategory(salesDateB, salesDateA, productCategory, productName,
 					remarks);
-			System.out.println(4);
 		} else if (!salesPerson.equals("選択して下さい。") && productCategory.equals("選択して下さい。")) {
 			Sales2Bean_list = mts.selectAllSalesSalesPerson(salesDateB, salesDateA, salesPerson, productName,
 					remarks);
-			System.out.println(1);
 		} else {
 			Sales2Bean_list = mts.selectAllSalesProductAndSales(salesDateB, salesDateA, salesPerson, productCategory, productName,
 					remarks);
-			System.out.println(2);
 		}
 
 		ErrorMessage = CharUtil.replaceCommaAtEnd(ErrorMessage);
@@ -138,27 +134,22 @@ public class S0020SearchSalesServlet extends HttpServlet {
 				account_list = mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory,
 						productName,
 						remarks);
-				System.out.println(3);
-				
 				session.setAttribute("search", "3");
 			} else if (salesPerson.equals("選択して下さい。") && !productCategory.equals("選択して下さい。")) {
 				account_list = mts.SalesSearchDisplayProductCategory(salesDateB, salesDateA, salesPerson, productCategory,
 						productName,
 						remarks);
-				System.out.println(4);
 				session.setAttribute("search", "4");
 				
 			} else if (!salesPerson.equals("選択して下さい。") && productCategory.equals("選択して下さい。")) {
 				account_list = mts.SalesSearchDisplaySalesPerson(salesDateB, salesDateA, salesPerson, productCategory,
 						productName,
 						remarks);//これ
-				System.out.println(1);
 				session.setAttribute("search", "1");
 				
 			} else {
 				account_list = mts.SalesSearchDisplayProductAndSales(salesDateB, salesDateA, salesPerson, productCategory, productName,
 						remarks);//これ
-				System.out.println(2);
 				session.setAttribute("search", "2");
 			
 			}
