@@ -57,7 +57,7 @@ public class S0024InsertServlet extends HttpServlet {
 		String sale_number = s023cfb.getSale_number();
 		String note = s023cfb.getNote();
 		
-		
+		//コメント
 		
 		mts.update(up_date_id, sale_date, account_id, category_id, trade_name,
 				unit_price, sale_number, note);

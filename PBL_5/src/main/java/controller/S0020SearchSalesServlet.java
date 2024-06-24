@@ -43,7 +43,7 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
 
 		String search = (String) session.getAttribute("search");
-		//コメント
+		//コメントアウト
 		if (search.equals("1")) {
 			account_list = mts.SalesSearchDisplay3(ssb_list.getSalesDateB(),
 					ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
