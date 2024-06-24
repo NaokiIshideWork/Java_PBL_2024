@@ -150,7 +150,7 @@ body {
 						</button>
 					</form>
 					<form method="get" action="ConfirmationSalesDeletion"
-						style="margin-right: 10px;">
+						style="margin: 0 10px 0 0">
 						<button type="submit" class="btn btn-danger" name="sale_id"
 							value="${s22list.getSale_id()}">
 							<span style="margin-right: 5px;">✕</span>削除
