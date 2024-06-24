@@ -49,19 +49,12 @@ public class AccountServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String confirmpassword = request.getParameter("confirmPassword");
 	
-		System.out.println(name);
-		System.out.println(mail);
-		System.out.println("パスワード" + password);
-		System.out.println("確認用パスワード" + confirmpassword);
 		
 		// authority_salesとauthority_accountの値を受け取る
 
 		String[] authorities = request.getParameterValues("authority");
 		String authority = null;
 
-		for (String auth : authorities) {
-		    System.out.println(auth); // コンソールに出力
-		}
 
 		if (authorities.length == 1) {
 		    authority = "0";
@@ -86,13 +79,6 @@ public class AccountServlet extends HttpServlet {
 		        authority = "11";
 		    }
 		}
-		
-		System.out.println("氏名:" + name);
-		System.out.println("メールアドレス:" + mail);
-		System.out.println("パスワード:" + password);
-		System.out.println("確認用パスワード:" + confirmpassword);
-		System.out.println("権限:" + authority);
-
 
 		
 		String unit_price = request.getParameter("unit_price");
@@ -165,7 +151,6 @@ public class AccountServlet extends HttpServlet {
 			stmt.setString(1, mail);
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next() && rs.getInt(1) > 0) {
-				System.out.println("重複あり");
 				exists = true; // メールアドレスが既に登録されている場合
 			}
 		} catch (SQLException e) {

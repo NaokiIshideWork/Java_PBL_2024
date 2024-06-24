@@ -81,7 +81,7 @@ if (authority.equals("1")) {
 								<div class="col-sm-3">
 									<h3 for="inputEmail" class="col-form-label"
 										style="text-align: end;">
-										氏名<span class="badge rounded-pill bg-secondary">必須</span>
+										氏名 <span class="badge rounded-pill bg-secondary">必須</span>
 									</h3>
 								</div>
 								<div class="col-sm-8 w-50">
@@ -95,7 +95,7 @@ if (authority.equals("1")) {
 								<div class="col-sm-3">
 									<h3 for="inputEmail" class="col-form-label"
 										style="text-align: end;">
-										メールアドレス<span class="badge rounded-pill bg-secondary">必須</span>
+										メールアドレス <span class="badge rounded-pill bg-secondary">必須</span>
 									</h3>
 								</div>
 								<div class="col-sm-8 w-50">
@@ -109,7 +109,7 @@ if (authority.equals("1")) {
 								<div class="col-sm-3">
 									<h3 for="inputEmail" class="col-form-label"
 										style="text-align: end;">
-										パスワード<span class="badge rounded-pill bg-secondary">必須</span>
+										パスワード <span class="badge rounded-pill bg-secondary">必須</span>
 									</h3>
 								</div>
 								<div class="col-sm-8 w-50">

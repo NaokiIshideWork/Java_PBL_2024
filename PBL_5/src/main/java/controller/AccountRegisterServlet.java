@@ -45,9 +45,6 @@ public class AccountRegisterServlet extends HttpServlet {
 	    String[] authorities = request.getParameterValues("submitAuthority");
 		String strAuthority = null;
 
-		for (String auth : authorities) {
-		    System.out.println(auth); // コンソールに出力
-		}
 
 		if (authorities != null) {
 		    if (authorities.length == 1) {
@@ -77,20 +74,13 @@ public class AccountRegisterServlet extends HttpServlet {
 	        } catch (NumberFormatException e) {
 	            // authority パラメータが数値でない場合のエラーハンドリング
 	            // 例外処理の内容は、適切なものに置き換えてください
-	            System.err.println("権限値が不正です。デフォルト値を使用します。");
 	            authority = DEFAULT_AUTHORITY; // デフォルトの権限値を設定
 	        }
 	    } else {
 	        // authority パラメータが null もしくは空文字列の場合のエラーハンドリング
-	        System.err.println("権限値が指定されていません。デフォルト値を使用します。");
 	        authority = DEFAULT_AUTHORITY; // デフォルトの権限値を設定
 	    }
 
- 
-	    System.out.println("doPost name: " + name);
-	    System.out.println("doPost mail: " + mail);
-	    System.out.println("doPost password: " + password);
-	    System.out.println("doPost authority: " + authority);
 	    
 	    name = sanitizing(name);
 		password = sanitizing(password);
@@ -100,7 +90,7 @@ public class AccountRegisterServlet extends HttpServlet {
  
 	    // 追加 AccountServletにリダイレクト
 	    response.sendRedirect("AccountServlet");
-	    System.out.println("登録しました");
+	 
  
 	    // どこかでパスワードチェック
 	}
