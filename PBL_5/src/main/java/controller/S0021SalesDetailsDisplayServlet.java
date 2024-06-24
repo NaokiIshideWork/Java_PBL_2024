@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.SalesDetailsDisplayBean;
 import services.SQLServicesPBLsfs;
@@ -36,11 +37,12 @@ public class S0021SalesDetailsDisplayServlet extends HttpServlet {
 		SalesDetailsDisplayBean SalesDeetail_list =null;
 		
 		String sale_id = request.getParameter("sale_id");
-		
+		HttpSession session = request.getSession();
 		//salesのsale_idをもとに詳細内容を取得
+		
 		SalesDeetail_list = mts.SalesDetailsDisplay(Integer.parseInt(sale_id));
 		
-		request.setAttribute("s22list", SalesDeetail_list);
+		session.setAttribute("s22list", SalesDeetail_list);
 		this.getServletContext().getRequestDispatcher("/S0022.jsp").forward(request, response);
 	}
 
