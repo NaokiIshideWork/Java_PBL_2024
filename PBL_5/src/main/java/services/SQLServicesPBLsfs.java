@@ -77,7 +77,7 @@ public class SQLServicesPBLsfs {
 				strid += rs.getInt("category_id") + ",";
 			}
 			strid = strid.replaceAll(",$", "");
-
+			//
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
