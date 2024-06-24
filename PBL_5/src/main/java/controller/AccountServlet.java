@@ -48,13 +48,7 @@ public class AccountServlet extends HttpServlet {
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
 		String confirmpassword = request.getParameter("confirmPassword");
-<<<<<<< HEAD
-=======
-	
-		
-		// authority_salesとauthority_accountの値を受け取る
 
->>>>>>> branch 'main' of https://github.com/NaokiIshideWork/Java_PBL_2024.git
 		String[] authorities = request.getParameterValues("authority");
 		String authority = null;
 
