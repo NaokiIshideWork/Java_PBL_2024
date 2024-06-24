@@ -15,7 +15,7 @@
 			</button>
 			<div class="collapse navbar-collapse justify-content-between" id="navbarNav">
 				<ul class="navbar-nav mt-2">
-					<li class="nav-item bg-dark-subtle">
+					<li class="nav-item">
 						<a class="nav-link" aria-current="page" href="DashboardServlet">ダッシュボード</a>
 					</li>
 					<li class="nav-item">
@@ -24,7 +24,7 @@
 					<li class="nav-item">
 						<a class="nav-link" href="SearchSales">売上検索</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item  bg-dark-subtle">
 						<a class="nav-link" href="AccountServlet">アカウント登録</a>
 					</li>
 					<li class="nav-item">

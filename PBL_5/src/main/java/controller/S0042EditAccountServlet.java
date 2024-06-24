@@ -46,12 +46,6 @@ public class S0042EditAccountServlet extends HttpServlet {
 		name = sanitizing(name);
 		password = sanitizing(password);
 		
-		System.out.println("S0042EditAccountServlet");
-		System.out.println(id);
-		System.out.println(name);
-		System.out.println(mail);
-		System.out.println("権限: " + authority);
-		
 		request.setAttribute("id", id);
 		request.setAttribute("name", name);
 		request.setAttribute("mail", mail);

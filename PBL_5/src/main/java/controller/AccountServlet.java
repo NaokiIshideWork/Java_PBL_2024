@@ -48,20 +48,9 @@ public class AccountServlet extends HttpServlet {
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
 		String confirmpassword = request.getParameter("confirmPassword");
-	
-		System.out.println(name);
-		System.out.println(mail);
-		System.out.println("パスワード" + password);
-		System.out.println("確認用パスワード" + confirmpassword);
-		
-		// authority_salesとauthority_accountの値を受け取る
-
 		String[] authorities = request.getParameterValues("authority");
 		String authority = null;
 
-		for (String auth : authorities) {
-		    System.out.println(auth); // コンソールに出力
-		}
 
 		if (authorities.length == 1) {
 		    authority = "0";

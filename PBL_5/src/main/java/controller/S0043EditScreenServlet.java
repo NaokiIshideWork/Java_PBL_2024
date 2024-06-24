@@ -46,18 +46,7 @@ public class S0043EditScreenServlet extends HttpServlet {
 		String[] authorities = request.getParameterValues("authority");
 		String authority = assignAuthority(authorities);
 		
-		System.out.println("Received authorityValue: " + authority);
-		
-		
 		request.setCharacterEncoding("UTF-8");
-		
-		System.out.println("43EditScreenServlet ");
-		System.out.println(id);
-		System.out.println(name);
-		System.out.println(mail);
-		System.out.println(password);
-		System.out.println(confirmPassword);
-		System.out.println(authority);
 		
 		// VARCHAR型のnameとpasswordにサニタイジング
 		name = sanitizing(name);
@@ -67,8 +56,6 @@ public class S0043EditScreenServlet extends HttpServlet {
 		//エラー表示
 		String error_display = "";
 		
-		System.out.println("nameErrortest" + name);
-
 		//氏名
 		if (name.isEmpty() || name.equals("")) {
 			error_display += "氏名を入力して下さい,";//ok
