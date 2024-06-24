@@ -14,17 +14,13 @@ boolean noneSelected = false;
 
 // 受け取った値がnullでない場合、それぞれの値に対応する変数をtrueに設定する
 if (authority.equals("1")) {
-	System.out.println("Authority==1");
 	salesSelected = true;
 } else if (authority.equals("10")) {
-	System.out.println("Authority==10");
 	accountSelected = true;
 } else if (authority.equals("11")) {
-	System.out.println("Authority==11");
 	salesSelected = true;
 	accountSelected = true;
 } else if (authority.equals("0")) {
-	System.out.println("Authority==0");
 	noneSelected = true;
 }
 %>

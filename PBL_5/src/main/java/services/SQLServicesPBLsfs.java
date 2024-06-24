@@ -108,7 +108,7 @@ public class SQLServicesPBLsfs {
 		return account_list;
 	}
 
-	public ArrayList<Sales2Bean> selectAllSales(String salesDateB, String salesDateA, String salesPerson,
+	public ArrayList<Sales2Bean> selectAllSalesProductAndSales(String salesDateB, String salesDateA, String salesPerson,
 			String productCategory,
 			String productName, String remarks) {
 		String sql = "SELECT * FROM sales WHERE sale_date >=? and sale_date <= ? and account_id = ? and category_id =? and trade_name LIKE ? AND note LIKE ?;";
@@ -145,10 +145,10 @@ public class SQLServicesPBLsfs {
 		return account_list;
 	}
 
-	public ArrayList<Sales2Bean> selectAllSales1(String salesDateB, String salesDateA,
+	public ArrayList<Sales2Bean> selectAllSalesProductCategory(String salesDateB, String salesDateA,
 			String productCategory,
 			String productName, String remarks) {
-		String sql = "SELECT * FROM sales WHERE sale_date >=? and sale_date <= ? and category_id =?  and trade_name LIKE ? AND note LIKE ?;";
+		String sql = "SELECT * FROM sales WHERE sale_date >=? and sale_date <= ? and category_id = ?  and trade_name LIKE ? AND note LIKE ?;";
 		ArrayList<Sales2Bean> account_list = new ArrayList<Sales2Bean>();
 		try (
 				Connection con = DbUtil.open();
@@ -181,7 +181,7 @@ public class SQLServicesPBLsfs {
 		return account_list;
 	}
 
-	public ArrayList<Sales2Bean> selectAllSales2(String salesDateB, String salesDateA, String salesPerson,
+	public ArrayList<Sales2Bean> selectAllSalesSalesPerson(String salesDateB, String salesDateA, String salesPerson,
 
 			String productName, String remarks) {
 		String sql = "SELECT * FROM sales WHERE sale_date >=? and sale_date <= ? and account_id = ?  and trade_name LIKE ? AND note LIKE ?;";
@@ -218,9 +218,9 @@ public class SQLServicesPBLsfs {
 		}
 		return account_list;
 	}
-	public ArrayList<Sales2Bean> selectAllSales3(String salesDateB, String salesDateA, 
+	public ArrayList<Sales2Bean> selectAllSales(String salesDateB, String salesDateA, 
 			String productName, String remarks) {
-		String sql = "SELECT * FROM sales WHERE sale_date >=? and sale_date <= ?  and trade_name LIKE ? AND note LIKE ?;";
+		String sql = "SELECT * FROM sales WHERE sale_date >=? and sale_date <= ? and trade_name LIKE ? AND note LIKE ?;";
 		ArrayList<Sales2Bean> account_list = new ArrayList<Sales2Bean>();
 		try (
 				Connection con = DbUtil.open();
@@ -254,7 +254,7 @@ public class SQLServicesPBLsfs {
 	
 	
 
-	public ArrayList<SalesSearchDisplayBean> SalesSearchDisplay(String salesDateB, String salesDateA,
+	public ArrayList<SalesSearchDisplayBean> SalesSearchDisplayProductAndSales(String salesDateB, String salesDateA,
 			String salesPerson, String productCategory,
 			String productName, String remarks) {
 		String sql = "SELECT s.sale_id, s.sale_date,a.name,c.category_name,s.trade_name,s.unit_price,s.sale_number,(s.unit_price*s.sale_number)AS subtotal FROM sales s \n"
@@ -296,7 +296,7 @@ public class SQLServicesPBLsfs {
 		}
 		return account_list;
 	}
-	public ArrayList<SalesSearchDisplayBean> SalesSearchDisplay1(String salesDateB, String salesDateA,
+	public ArrayList<SalesSearchDisplayBean> SalesSearchDisplay(String salesDateB, String salesDateA,
 			String salesPerson, String productCategory,
 			String productName, String remarks) {
 		String sql = "SELECT s.sale_id, s.sale_date,a.name,c.category_name,s.trade_name,s.unit_price,s.sale_number,(s.unit_price*s.sale_number)AS subtotal FROM sales s \n"
@@ -336,7 +336,7 @@ public class SQLServicesPBLsfs {
 		}
 		return account_list;
 	}
-	public ArrayList<SalesSearchDisplayBean> SalesSearchDisplay2(String salesDateB, String salesDateA,
+	public ArrayList<SalesSearchDisplayBean> SalesSearchDisplayProductCategory(String salesDateB, String salesDateA,
 			String salesPerson, String productCategory,
 			String productName, String remarks) {
 		String sql = "SELECT s.sale_id, s.sale_date,a.name,c.category_name,s.trade_name,s.unit_price,s.sale_number,(s.unit_price*s.sale_number)AS subtotal FROM sales s \n"
@@ -378,7 +378,7 @@ public class SQLServicesPBLsfs {
 		}
 		return account_list;
 	}
-	public ArrayList<SalesSearchDisplayBean> SalesSearchDisplay3(String salesDateB, String salesDateA,
+	public ArrayList<SalesSearchDisplayBean> SalesSearchDisplaySalesPerson(String salesDateB, String salesDateA,
 			String salesPerson, String productCategory,
 			String productName, String remarks) {
 		String sql = "SELECT s.sale_id, s.sale_date,a.name,c.category_name,s.trade_name,s.unit_price,s.sale_number,(s.unit_price*s.sale_number)AS subtotal FROM sales s \n"

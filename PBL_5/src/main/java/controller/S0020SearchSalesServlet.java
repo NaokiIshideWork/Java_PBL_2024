@@ -45,20 +45,20 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		String search = (String) session.getAttribute("search");
 		//コメントアウト
 		if (search.equals("1")) {
-			account_list = mts.SalesSearchDisplay3(ssb_list.getSalesDateB(),
+			account_list = mts.SalesSearchDisplaySalesPerson(ssb_list.getSalesDateB(),
 					ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
 					ssb_list.getProductName(), ssb_list.getRemarks());//これ
 		} else if (search.equals("2")){
-			account_list = mts.SalesSearchDisplay(ssb_list.getSalesDateB(),
+			account_list = mts.SalesSearchDisplayProductAndSales(ssb_list.getSalesDateB(),
 					ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
 					ssb_list.getProductName(), ssb_list.getRemarks());//これ
 			
 		} else if (search.equals("3")) {
-			account_list = mts.SalesSearchDisplay1(ssb_list.getSalesDateB(),
+			account_list = mts.SalesSearchDisplay(ssb_list.getSalesDateB(),
 					ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
 					ssb_list.getProductName(), ssb_list.getRemarks());
 		} else if (search.equals("4")) {
-			account_list = mts.SalesSearchDisplay2(ssb_list.getSalesDateB(),
+			account_list = mts.SalesSearchDisplayProductCategory(ssb_list.getSalesDateB(),
 					ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
 					ssb_list.getProductName(), ssb_list.getRemarks());
 		}
@@ -104,20 +104,24 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		String remarks = request.getParameter("remarks");//備考
 
 		HttpSession session = request.getSession();
-
+	
 		//検索結果が0件か?
 		if (salesPerson.equals("選択して下さい。") && productCategory.equals("選択して下さい。")) {
-			Sales2Bean_list = mts.selectAllSales3(salesDateB, salesDateA, productName,
+			Sales2Bean_list = mts.selectAllSales(salesDateB, salesDateA, productName,
 					remarks);
+			System.out.println(3);
 		} else if (salesPerson.equals("選択して下さい。") && !productCategory.equals("選択して下さい。")) {
-			Sales2Bean_list = mts.selectAllSales1(salesDateB, salesDateA, productCategory, productName,
+			Sales2Bean_list = mts.selectAllSalesProductCategory(salesDateB, salesDateA, productCategory, productName,
 					remarks);
+			System.out.println(4);
 		} else if (!salesPerson.equals("選択して下さい。") && productCategory.equals("選択して下さい。")) {
-			Sales2Bean_list = mts.selectAllSales2(salesDateB, salesDateA, salesPerson, productName,
+			Sales2Bean_list = mts.selectAllSalesSalesPerson(salesDateB, salesDateA, salesPerson, productName,
 					remarks);
+			System.out.println(1);
 		} else {
-			Sales2Bean_list = mts.selectAllSales(salesDateB, salesDateA, salesPerson, productCategory, productName,
+			Sales2Bean_list = mts.selectAllSalesProductAndSales(salesDateB, salesDateA, salesPerson, productCategory, productName,
 					remarks);
+			System.out.println(2);
 		}
 
 		ErrorMessage = CharUtil.replaceCommaAtEnd(ErrorMessage);
@@ -131,28 +135,28 @@ public class S0020SearchSalesServlet extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/S0020.jsp").forward(request, response);
 		} else {
 			if (salesPerson.equals("選択して下さい。") && productCategory.equals("選択して下さい。")) {
-				account_list = mts.SalesSearchDisplay1(salesDateB, salesDateA, salesPerson, productCategory,
+				account_list = mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory,
 						productName,
 						remarks);
 				System.out.println(3);
 				
 				session.setAttribute("search", "3");
 			} else if (salesPerson.equals("選択して下さい。") && !productCategory.equals("選択して下さい。")) {
-				account_list = mts.SalesSearchDisplay2(salesDateB, salesDateA, salesPerson, productCategory,
+				account_list = mts.SalesSearchDisplayProductCategory(salesDateB, salesDateA, salesPerson, productCategory,
 						productName,
 						remarks);
 				System.out.println(4);
 				session.setAttribute("search", "4");
 				
 			} else if (!salesPerson.equals("選択して下さい。") && productCategory.equals("選択して下さい。")) {
-				account_list = mts.SalesSearchDisplay3(salesDateB, salesDateA, salesPerson, productCategory,
+				account_list = mts.SalesSearchDisplaySalesPerson(salesDateB, salesDateA, salesPerson, productCategory,
 						productName,
 						remarks);//これ
 				System.out.println(1);
 				session.setAttribute("search", "1");
 				
 			} else {
-				account_list = mts.SalesSearchDisplay(salesDateB, salesDateA, salesPerson, productCategory, productName,
+				account_list = mts.SalesSearchDisplayProductAndSales(salesDateB, salesDateA, salesPerson, productCategory, productName,
 						remarks);//これ
 				System.out.println(2);
 				session.setAttribute("search", "2");

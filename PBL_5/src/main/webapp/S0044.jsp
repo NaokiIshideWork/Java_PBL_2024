@@ -132,7 +132,6 @@ if (authority == 11) {
 							String mail = (String) request.getAttribute("mail");
 							String confirm_authority = (String) request.getAttribute("authority");
 							String password = (String) request.getAttribute("password");
-							System.out.println("S0044jsp id: " + id);
 							%>
 							<input type="hidden" name="tmpId" value="<%=id%>" /> <input
 								type="hidden" name="tmpName" value="<%=name%>" /> <input
