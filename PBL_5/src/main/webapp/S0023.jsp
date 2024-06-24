@@ -43,6 +43,7 @@
 		class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
 		role="alert">${err}</div>
 </c:if>
+<%--コメント --%>
 <div class="container position-absolute">
 	<h2 class="mt-5" style="margin-left: 30px;">売上詳細編集</h2>
 	<div class="" style="margin-left: 100px">
