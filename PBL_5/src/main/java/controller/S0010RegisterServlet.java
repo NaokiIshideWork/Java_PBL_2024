@@ -155,6 +155,10 @@ public class S0010RegisterServlet extends HttpServlet {
 		} else {
 			ErrorMessage = CharUtil.replaceCommaAtEnd(ErrorMessage);
 			request.setAttribute("err", ErrorMessage);
+			sblist = new SalesBean(salesDate, accountName, Integer.parseInt(account_id), item_category_name,
+					Integer.parseInt(item_category_id), trade_name, unit_price,
+					sale_number, formatNumber(subtotal), note);
+			session.setAttribute("sblist", sblist);
 			doGet(request, response);
 		}
 
