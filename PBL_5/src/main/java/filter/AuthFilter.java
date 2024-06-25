@@ -48,12 +48,15 @@ public class AuthFilter extends HttpFilter implements Filter {
 
 		String path = req.getServletPath();
 		String referer = "";
-
+		
 		try {
 			referer = req.getHeader("referer").replaceAll(".*/([^/?]+).*", "$1");
 		} catch (Exception e) {
 			referer = null;
 		}
+		
+		
+
 		if (path.endsWith(".jsp")) {
 			session.invalidate();
 			res.sendRedirect("LoginServlet");
@@ -152,9 +155,9 @@ public class AuthFilter extends HttpFilter implements Filter {
 		long currentTime = System.currentTimeMillis(); //現在時刻の取得:
 		int sessionTimeoutSeconds = session.getMaxInactiveInterval(); // セッションの有効期限（秒）
 
-		System.out.println(lastAccessedTime);
-		System.out.println(currentTime);
-		System.out.println(sessionTimeoutSeconds);
+		//		System.out.println(lastAccessedTime);
+		//		System.out.println(currentTime);
+		//		System.out.println(sessionTimeoutSeconds);
 		// 最終アクセスからセッションの有効期限を超えているか判定
 		return (currentTime - lastAccessedTime) >= (sessionTimeoutSeconds * 1000);
 	}

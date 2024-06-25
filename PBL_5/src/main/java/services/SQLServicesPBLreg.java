@@ -42,7 +42,7 @@ public class SQLServicesPBLreg {
 	}
 
 	public ArrayList<AccountsBean> canSelectAllAcount() {
-		String sql = "SELECT * FROM accounts WHERE authority = 1 OR authority =11 ; ";
+		String sql = "SELECT * FROM accounts; ";
 		ArrayList<AccountsBean> account_list = new ArrayList<AccountsBean>();
 		try (
 				Connection con = DbUtil.open();

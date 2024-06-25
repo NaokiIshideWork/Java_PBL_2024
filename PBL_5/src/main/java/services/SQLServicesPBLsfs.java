@@ -32,7 +32,7 @@ public class SQLServicesPBLsfs {
 		str = str.replaceAll("<", "&lt;");
 		str = str.replaceAll(">", "&gt;");
 		str = str.replaceAll("\"", "&quot;");
-		str = str.replaceAll("'", "&#39;");
+		str = str.replaceAll("'", "&apos;");
 
 		return str;
 	}
@@ -83,7 +83,7 @@ public class SQLServicesPBLsfs {
 	}
 
 	public ArrayList<AccountsBean> SelectAllAcount() {
-		String sql = "SELECT * FROM accounts where;";
+		String sql = "SELECT * FROM accounts;";
 		ArrayList<AccountsBean> account_list = new ArrayList<AccountsBean>();
 		try (
 				Connection con = DbUtil.open();
