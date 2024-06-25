@@ -28,7 +28,7 @@ body {
 		margin-right: 100px;
 	}
 }
-</style>
+</style>	
 
 	<header>
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">

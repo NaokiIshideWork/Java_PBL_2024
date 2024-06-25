@@ -7,7 +7,7 @@ body {
 }
 
 .sp-left {
-	margin-left: 100px;
+	margin-left: 10%;
 }
 
 @media screen and (max-width:500px) {
@@ -68,8 +68,8 @@ body {
 	<h2 class="mt-5 sp-left">売上詳細削除確認</h2>
 	<div class="sp-left">
 		<form class="text-right" action="DeleteServlet" method="post">
-			<div class="row ">
-				<div class="col-sm-2">
+			<div class="row mt-3">
+				<div class="col-sm-3">
 					<h3 for="inputEmail" class="col-form-label text-sm-end">販売日</h3>
 				</div>
 				<div class="col-sm-8">
@@ -79,7 +79,7 @@ body {
 				</div>
 			</div>
 			<div class="row mt-3">
-				<div class="col-sm-2">
+				<div class="col-sm-3">
 					<h3 for="inputEmail" class="col-form-label text-sm-end">担当</h3>
 				</div>
 				<div class="col-sm-8 w-50">
@@ -89,7 +89,7 @@ body {
 				</div>
 			</div>
 			<div class="row mt-3">
-				<div class="col-sm-2">
+				<div class="col-sm-3">
 					<h3 for="inputEmail" class="col-form-label text-sm-end">商品カテゴリー</h3>
 				</div>
 				<div class="col-sm-8 w-50">
@@ -99,7 +99,7 @@ body {
 				</div>
 			</div>
 			<div class="row mt-3">
-				<div class="col-sm-2">
+				<div class="col-sm-3">
 					<h3 for="inputEmail" class="col-form-label text-sm-end">商品名</h3>
 				</div>
 				<div class="col-sm-8 w-50">
@@ -109,7 +109,7 @@ body {
 				</div>
 			</div>
 			<div class="row mt-3">
-				<div class="col-sm-2">
+				<div class="col-sm-3">
 					<h3 for="inputEmail" class="col-form-label text-sm-end">単価</h3>
 				</div>
 				<div class="col-sm-8">
@@ -119,7 +119,7 @@ body {
 				</div>
 			</div>
 			<div class="row mt-3">
-				<div class="col-sm-2">
+				<div class="col-sm-3">
 					<h3 for="inputEmail" class="col-form-label text-sm-end">個数</h3>
 				</div>
 				<div class="col-sm-8">
@@ -129,7 +129,7 @@ body {
 				</div>
 			</div>
 			<div class="row mt-3">
-				<div class="col-sm-2">
+				<div class="col-sm-3">
 					<h3 for="inputEmail" class="col-form-label text-sm-end">小計</h3>
 				</div>
 				<div class="col-sm-8">
@@ -139,7 +139,7 @@ body {
 				</div>
 			</div>
 			<div class="row mt-3">
-				<div class="col-sm-2">
+				<div class="col-sm-3">
 					<h3 for="inputEmail" class="col-form-label text-sm-end">備考</h3>
 				</div>
 				<div class="col-sm-8">
@@ -150,7 +150,7 @@ body {
 				</div>
 			</div>
 			<div class="row mt-3">
-				<div class="col-sm-2"></div>
+				<div class="col-sm-3"></div>
 				<div class="col-sm-8" style="padding-left: 15%;">
 					<button type="submit" class="btn btn-danger" name="delete_id"
 						value="${list.getSale_id()}">✕ O K</button>
