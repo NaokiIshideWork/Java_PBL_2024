@@ -45,7 +45,7 @@ if (authority == 11) {
 
 <jsp:include page="header.jsp"/>
 
-
+<jsp:include page="dashboard.jsp"/>
 	
 	<c:if test="${not empty err}">
 		<div
