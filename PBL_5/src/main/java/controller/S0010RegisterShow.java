@@ -180,7 +180,7 @@ public class S0010RegisterShow extends HttpServlet {
 		str = str.replaceAll("<", "&lt;");
 		str = str.replaceAll(">", "&gt;");
 		str = str.replaceAll("\"", "&quot;");
-		str = str.replaceAll("'", "&#39;");
+		str = str.replaceAll("'", "&apos;");
 
 		return str;
 	}

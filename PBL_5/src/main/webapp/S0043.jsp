@@ -3,8 +3,7 @@
 <%@ page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-// 今は片方の権限しか受け取れない
-// 10, 11でも受け取って 11なら両方ちぇっくずみにｓて　10でも反応するように
+
 String authorityStr = (String) request.getAttribute("authority");
 int authority = Integer.parseInt(authorityStr);
 

@@ -17,9 +17,6 @@ if (authorityStr != null && tmpName != null && tmpMail != null && tmpPassword !=
     name = tmpName;
     mail = tmpMail;
     password = tmpPassword;
-    System.out.println("S0030最初name" + name);
-} else {
-    System.out.println("authorityがsetされていません");
 }
 
 

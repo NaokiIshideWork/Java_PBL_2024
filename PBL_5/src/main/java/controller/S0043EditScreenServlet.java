@@ -53,17 +53,14 @@ public class S0043EditScreenServlet extends HttpServlet {
 		password = sanitizing(password);
 		confirmPassword = sanitizing(confirmPassword);
 		
-		//エラー表示
 		String error_display = "";
 		
-		//氏名
 		if (name.isEmpty() || name.equals("")) {
 			error_display += "氏名を入力して下さい,";//ok
 		} else if (name.length() > 20) {
 			error_display += "氏名が長すぎます,";//ok
 		}
 
-		//メールアドレス
 		String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
 		boolean result = mail.matches(regex);
 		if (!result) {
@@ -74,11 +71,10 @@ public class S0043EditScreenServlet extends HttpServlet {
 			error_display += "メールアドレスが長すぎます,";
 		}
 
-		//パスワード
 		if (password.isEmpty()) {
-			error_display += "パスワードを入力して下さい,";//ok
+			error_display += "パスワードを入力して下さい,";
 		} else if (password.length() > 30) {
-			error_display += "パスワードが長すぎます,";//ok} 
+			error_display += "パスワードが長すぎます,"; 
 		} else if (confirmPassword.isEmpty()) {
 			error_display += "パスワード（確認）を入力してください,";
 		} else if (!password.equals(confirmPassword)) {
@@ -91,16 +87,12 @@ public class S0043EditScreenServlet extends HttpServlet {
 			return;
 		}
 		
-		
 		request.setAttribute("id", id);
-		request.setAttribute("name", name); //文字化け
+		request.setAttribute("name", name);
 		request.setAttribute("mail", mail);
 		request.setAttribute("password", password);
 		request.setAttribute("confirmPassword", confirmPassword);
 		request.setAttribute("authority", authority);
-		
-		
-		
 		request.getRequestDispatcher("/S0043.jsp").forward(request, response);
 	}
 	
@@ -145,7 +137,6 @@ public class S0043EditScreenServlet extends HttpServlet {
         return false;
     }
     
-    // サニタイジング用メソッド
 	public static String sanitizing(String str) {
 		if (null == str || "".equals(str)) {
 			return str;

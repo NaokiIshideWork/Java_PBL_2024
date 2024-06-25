@@ -48,23 +48,30 @@ public class AuthFilter extends HttpFilter implements Filter {
 
 		String path = req.getServletPath();
 		String referer = "";
-
+		
 		try {
 			referer = req.getHeader("referer").replaceAll(".*/([^/?]+).*", "$1");
 		} catch (Exception e) {
 			referer = null;
 		}
+		
+		
+
 		if (path.endsWith(".jsp")) {
 			session.invalidate();
 			res.sendRedirect("LoginServlet");
 			return;
 		}
-
+		if (session != null && isSessionExpired(session)) {
+			session.invalidate(); // セッションを無効化してログアウト
+			res.sendRedirect("LoginServlet"); // ログイン画面にリダイレクト
+			return;
+		}
 		if (session.getAttribute("LoginUser") == null && !path.contains("css")) {
 			if (!path.equals("/LoginServlet")) {
 				request.getRequestDispatcher("/C0010.jsp").forward(request, response);
 				return;
-				
+
 			}
 		} else {
 			boolean isRefer = referer == null;//参照元
@@ -141,6 +148,18 @@ public class AuthFilter extends HttpFilter implements Filter {
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
 		super.init(fConfig);
+	}
+
+	private boolean isSessionExpired(HttpSession session) {
+		long lastAccessedTime = session.getLastAccessedTime();//セッション開始以降に最後にアクセスしたきた日時	   
+		long currentTime = System.currentTimeMillis(); //現在時刻の取得:
+		int sessionTimeoutSeconds = session.getMaxInactiveInterval(); // セッションの有効期限（秒）
+
+		//		System.out.println(lastAccessedTime);
+		//		System.out.println(currentTime);
+		//		System.out.println(sessionTimeoutSeconds);
+		// 最終アクセスからセッションの有効期限を超えているか判定
+		return (currentTime - lastAccessedTime) >= (sessionTimeoutSeconds * 1000);
 	}
 
 }

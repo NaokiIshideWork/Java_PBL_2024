@@ -33,6 +33,7 @@ public class S0030AccountServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// キャンセルボタンが押された際の処理
 		if ("true".equals(request.getParameter("S0031Cancel"))) {
 			String name = (String) request.getParameter("tmpName");
 			String mail = (String) request.getParameter("tmpMail");
@@ -97,15 +98,14 @@ public class S0030AccountServlet extends HttpServlet {
 		}
 
 		
-		String unit_price = request.getParameter("unit_price");
 		String error_message = "";
 		String error_display = "";
 
 		//氏名
 		if (name.isEmpty()) {
-			error_display += "氏名を入力して下さい。";//ok
+			error_display += "氏名を入力して下さい。";
 		} else if (name.length() > 20) {
-			error_display += "氏名が長すぎます。";//ok
+			error_display += "氏名が長すぎます。";
 		}
 
 		//メールアドレス

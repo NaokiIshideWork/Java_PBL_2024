@@ -63,8 +63,6 @@ public class S0031AccountRegisterServlet extends HttpServlet {
 		        }
 		    }
 		}
-
-		
 		
 	    // authority パラメータの取得と解析
 	    String authorityParam = strAuthority;
@@ -80,7 +78,6 @@ public class S0031AccountRegisterServlet extends HttpServlet {
 	        authority = DEFAULT_AUTHORITY; // デフォルトの権限値を設定
 	    }
 
-	    
 	    name = sanitizing(name);
 		password = sanitizing(password);
  
@@ -90,7 +87,6 @@ public class S0031AccountRegisterServlet extends HttpServlet {
 	    // 追加 AccountServletにリダイレクト
 	    response.sendRedirect("AccountServlet");
 	 
- 
 	}
  	
 	public static String sanitizing(String str) {

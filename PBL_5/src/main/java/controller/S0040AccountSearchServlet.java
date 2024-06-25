@@ -162,24 +162,16 @@ public class S0040AccountSearchServlet extends HttpServlet {
     		}
         }
 		
-
-		//メールアドレス 正しい正規表現でないかも　一応AccountServletと同じ
         String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
 		boolean result = true;
 		if(mail != null) {
 			result = mail.matches(regex);
-		
-			// error
 			if (!result) {
 				error_display += "メールアドレスを正しく入力してください。";
 			} else if (mail.length() > 100) {
 				error_display += "メールアドレスが長すぎます。";
 			}
 		}
-		
-		
-		
-		
 
 		if (!error_display.equals("")) {
 			request.setAttribute("err", error_display);
