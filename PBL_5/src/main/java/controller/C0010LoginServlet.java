@@ -80,10 +80,8 @@ public class C0010LoginServlet extends HttpServlet {
 			error_display += "メールアドレス、パスワードを正しく入力して下さい,";
 		}
 		
-		
         error_display = CharUtil.replaceCommaAtEnd(error_display);
-
-		// このままだと複数でエラーが起きた場合文章が繋がって出てくるかも
+        
 		HttpSession session = request.getSession();
 		AccountsBean ab = sqlserv.Login(mail, password);
 			

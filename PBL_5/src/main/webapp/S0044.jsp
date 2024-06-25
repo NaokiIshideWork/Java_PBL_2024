@@ -3,7 +3,7 @@
 <%@ page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-// 今は片方の権限しか受け取れない
+
 String authorityStr = (String) request.getAttribute("authority");
 int authority = Integer.parseInt(authorityStr);
 
