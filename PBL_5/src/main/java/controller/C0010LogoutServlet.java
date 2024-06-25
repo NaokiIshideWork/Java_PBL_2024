@@ -13,14 +13,14 @@ import javax.servlet.http.HttpSession;
  * Servlet implementation class LogoutServlet
  */
 @WebServlet("/LogoutServlet")
-public class LogoutServlet extends HttpServlet {
+public class C0010LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogoutServlet() {
+    public C0010LogoutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

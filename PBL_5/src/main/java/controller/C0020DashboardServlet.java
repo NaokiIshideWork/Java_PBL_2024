@@ -12,13 +12,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class DashboardServlet
  */
 @WebServlet("/DashboardServlet")
-public class DashboardServlet extends HttpServlet {
+public class C0020DashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DashboardServlet() {
+    public C0020DashboardServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

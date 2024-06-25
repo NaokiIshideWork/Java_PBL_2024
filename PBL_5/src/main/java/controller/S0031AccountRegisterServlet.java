@@ -14,13 +14,13 @@ import services.AccountRecord;
 * Servlet implementation class AccountRegisterServlet
 */
 @WebServlet("/AccountRegisterServlet")
-public class AccountRegisterServlet extends HttpServlet {
+public class S0031AccountRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final int DEFAULT_AUTHORITY = 0;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AccountRegisterServlet() {
+    public S0031AccountRegisterServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -73,7 +73,6 @@ public class AccountRegisterServlet extends HttpServlet {
 	            authority = Integer.parseInt(authorityParam);
 	        } catch (NumberFormatException e) {
 	            // authority パラメータが数値でない場合のエラーハンドリング
-	            // 例外処理の内容は、適切なものに置き換えてください
 	            authority = DEFAULT_AUTHORITY; // デフォルトの権限値を設定
 	        }
 	    } else {
@@ -92,14 +91,8 @@ public class AccountRegisterServlet extends HttpServlet {
 	    response.sendRedirect("AccountServlet");
 	 
  
-	    // どこかでパスワードチェック
 	}
- 
-	private boolean isEmailAlreadyRegistered(String mail) {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
-	}
-	
+ 	
 	public static String sanitizing(String str) {
 		if (null == str || "".equals(str)) {
 			return str;

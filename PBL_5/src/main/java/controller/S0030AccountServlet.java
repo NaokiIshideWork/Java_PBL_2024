@@ -17,13 +17,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class AccountServlet
  */
 @WebServlet("/AccountServlet")
-public class AccountServlet extends HttpServlet {
+public class S0030AccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public AccountServlet() {
+	public S0030AccountServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -102,13 +102,12 @@ public class AccountServlet extends HttpServlet {
 			error_display += "メールアドレスが長すぎます。";
 		}
 
-		//パスワード
 		if (password.isEmpty()) {
-			error_display += "パスワードを入力して下さい。";//ok
+			error_display += "パスワードを入力して下さい。";
 		} else if (confirmpassword.isEmpty()) {
 			error_display += "パスワード（確認）を入力してください。";
 		} else if (password.length() > 30) {
-			error_display += "パスワードが長すぎます。";//ok
+			error_display += "パスワードが長すぎます。";
 		} else if (!password.equals(confirmpassword)) {
 			error_display += "パスワード又はパスワード（確認）の入力内容が異なっています。";
 		}
@@ -123,7 +122,6 @@ public class AccountServlet extends HttpServlet {
 			name = sanitizing(name);
 			password = sanitizing(password);
 			// パスワードが一致する場合
-			//List<String> authorityList = Arrays.asList(authorities);
 			request.setAttribute("name", name);
 			request.setAttribute("mail", mail);
 			request.setAttribute("password", password);
