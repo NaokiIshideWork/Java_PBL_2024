@@ -42,8 +42,7 @@ public class S0025DeleteServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
 		String delete_id = request.getParameter("delete_id");
-		mts.delete(Integer.parseInt(delete_id));
-		//コメント	
+		mts.delete(Integer.parseInt(delete_id));	
 		response.sendRedirect("SearchSalesServlet");
 	}
 

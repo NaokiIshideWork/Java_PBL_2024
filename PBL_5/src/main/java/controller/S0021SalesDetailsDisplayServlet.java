@@ -33,15 +33,13 @@ public class S0021SalesDetailsDisplayServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
 		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
 		SalesDetailsDisplayBean SalesDeetail_list =null;
 		
 		String sale_id = request.getParameter("sale_id");
-		HttpSession session = request.getSession();
-		//salesのsale_idをもとに詳細内容を取得
-		
 		SalesDeetail_list = mts.SalesDetailsDisplay(Integer.parseInt(sale_id));
-		//コメント
+		
 		session.setAttribute("s22list", SalesDeetail_list);
 		this.getServletContext().getRequestDispatcher("/S0022.jsp").forward(request, response);
 	}
