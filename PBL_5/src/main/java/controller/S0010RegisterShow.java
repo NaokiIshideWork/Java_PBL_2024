@@ -62,10 +62,6 @@ public class S0010RegisterShow extends HttpServlet {
 		} else {
 			request.setAttribute("cate", categories_list);
 		}
-		String dataValue = (String) request.getAttribute("err");
-		System.out.println(dataValue);
-	
-		
 		this.getServletContext().getRequestDispatcher("/S0010.jsp").forward(request, response);
 	}
 
@@ -83,10 +79,10 @@ public class S0010RegisterShow extends HttpServlet {
 		HttpSession session = request.getSession();
 		String salesDate = request.getParameter("sale_date");
 		if (salesDate.isEmpty()) {
-			ErrorMessage += "販売日を入力して下さい,";//ok
+			ErrorMessage += "販売日を入力して下さい,";
 		}
 
-		//担当に対するName
+		//担当
 		String account_id = request.getParameter("account");//id
 		String accountName = "";
 		if (account_id.equals("選択して下さい。")) {
@@ -96,7 +92,7 @@ public class S0010RegisterShow extends HttpServlet {
 			accountName = sqlreg.SelectRegName(Integer.parseInt(account_id));//担当名
 		}
 
-		//商品カテゴリーに対する
+		//商品カテゴリー
 		String item_category_id = request.getParameter("item_category");//id
 		String item_category_name = "";
 		if (item_category_id.equals("選択して下さい。")) {
@@ -105,13 +101,13 @@ public class S0010RegisterShow extends HttpServlet {
 		} else {
 			item_category_name = sqlreg.SelectCategory_Name(Integer.parseInt(item_category_id));
 		}
-		//選択して下再修正
+
 		//商品名
 		String trade_name = request.getParameter("trade_name");
 		if (trade_name.isEmpty()) {
-			ErrorMessage += "商品名を入力して下さい,";//ok
+			ErrorMessage += "商品名を入力して下さい,";
 		} else if (trade_name.length() > 100) {
-			ErrorMessage += "商品名が長すぎます,";//ok
+			ErrorMessage += "商品名が長すぎます,";
 		}
 
 		trade_name = sanitizing(trade_name);
@@ -119,21 +115,21 @@ public class S0010RegisterShow extends HttpServlet {
 		//単価
 		String unit_price = request.getParameter("unit_price");
 		if (unit_price.isEmpty()) {
-			ErrorMessage += "単価を入力して下さい,";//ok
+			ErrorMessage += "単価を入力して下さい,";
 		} else if (unit_price.length() > 10) {
-			ErrorMessage += "単価が長すぎます,";//ok
+			ErrorMessage += "単価が長すぎます,";
 		} else if (!unit_price.matches("\\d{1,3}(,\\d{3})*")) {
-			ErrorMessage += "4桁以上の場合は3桁ごとに,を入力して下さい,";//ok
+			ErrorMessage += "4桁以上の場合は3桁ごとに,を入力して下さい,";
 		}
 
 		//個数
 		String sale_number = request.getParameter("sale_number");
 		if (sale_number.isEmpty()) {
-			ErrorMessage += "個数を入力して下さい,";//ok
+			ErrorMessage += "個数を入力して下さい,";
 		} else if (sale_number.length() > 10) {
-			ErrorMessage += "個数が長すぎます,";//ok
+			ErrorMessage += "個数が長すぎます,";
 		} else if (!sale_number.matches("\\d{1,3}(,\\d{3})*")) {
-			ErrorMessage += "4桁以上の場合は3桁ごとに,を入力して下さい,";//ok
+			ErrorMessage += "4桁以上の場合は3桁ごとに,を入力して下さい,";
 		}
 
 		//備考
@@ -159,17 +155,12 @@ public class S0010RegisterShow extends HttpServlet {
 
 			this.getServletContext().getRequestDispatcher("/S0011.jsp").forward(request, response);
 		} else {
-			//何かしらエラーがあった際の
-
 			ErrorMessage = CharUtil.replaceCommaAtEnd(ErrorMessage);
 			request.setAttribute("err", ErrorMessage);
-
 			sblist = new SalesBean(salesDate, accountName, Integer.parseInt(account_id), item_category_name,
 					Integer.parseInt(item_category_id), trade_name, unit_price,
 					sale_number, formatNumber(subtotal), note);
-
 			session.setAttribute("sblist", sblist);
-			
 			doGet(request, response);
 		}
 

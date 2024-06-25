@@ -60,16 +60,10 @@ public class S0010RegisterServlet extends HttpServlet {
 		} else {
 			request.setAttribute("cate", categories_list);
 		}
-//		String datavalue = request.getParameter("cancel");
-//		System.out.println("cancel: " + datavalue);
 
 		String queryString = request.getQueryString();
-		if (queryString != null && !queryString.isEmpty()) {
-			
-		} else {
-			// クエリ文字列がない場合の処理
+		if (queryString == null || queryString.isEmpty()) {
 			session.removeAttribute("sblist");
-			System.out.println("クエリ文字列は存在しません");
 		}
 
 		this.getServletContext().getRequestDispatcher("/S0010.jsp").forward(request, response);
