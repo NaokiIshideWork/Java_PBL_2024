@@ -43,7 +43,7 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
 
 		String search = (String) session.getAttribute("search");
-		//コメントアウト
+		
 		if (search.equals("1")) {
 			account_list = mts.SalesSearchDisplaySalesPerson(ssb_list.getSalesDateB(),
 					ssb_list.getSalesDateA(), ssb_list.getPersonName(), ssb_list.getItem_category(),
@@ -78,6 +78,7 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
+		HttpSession session = request.getSession();
 		ArrayList<Sales2Bean> Sales2Bean_list = new ArrayList<Sales2Bean>();
 		ArrayList<SalesSearchDisplayBean> account_list = new ArrayList<SalesSearchDisplayBean>();
 
@@ -103,9 +104,9 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		String productName = request.getParameter("productName");//商品名
 		String remarks = request.getParameter("remarks");//備考
 
-		HttpSession session = request.getSession();
+		
 	
-		//検索結果が0件か?
+		//検索結果 0件か?
 		if (salesPerson.equals("選択して下さい。") && productCategory.equals("選択して下さい。")) {
 			Sales2Bean_list = mts.selectAllSales(salesDateB, salesDateA, productName,
 					remarks);
@@ -144,12 +145,12 @@ public class S0020SearchSalesServlet extends HttpServlet {
 			} else if (!salesPerson.equals("選択して下さい。") && productCategory.equals("選択して下さい。")) {
 				account_list = mts.SalesSearchDisplaySalesPerson(salesDateB, salesDateA, salesPerson, productCategory,
 						productName,
-						remarks);//これ
+						remarks);
 				session.setAttribute("search", "1");
 				
 			} else {
 				account_list = mts.SalesSearchDisplayProductAndSales(salesDateB, salesDateA, salesPerson, productCategory, productName,
-						remarks);//これ
+						remarks);
 				session.setAttribute("search", "2");
 			
 			}

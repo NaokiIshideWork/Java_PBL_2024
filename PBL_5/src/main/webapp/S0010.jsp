@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="header.jsp" flush="true" />
+<jsp:include page="header.jsp" />
 
 <header>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">物品売上管理システム</a>
+			<span class="navbar-brand" >物品売上管理システム</span>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarNav"
 				aria-controls="navbarNav" aria-expanded="false"
@@ -20,7 +20,7 @@
 						href="DashboardServlet">ダッシュボード</a></li>
 					
 					<li class="nav-item bg-dark-subtle"><a class="nav-link"
-						href="RegisterServlet" data-value="sample">売上登録</a></li>
+						href="RegisterServlet">売上登録</a></li>
 						</form>
 					<li class="nav-item"><a class="nav-link" href="SearchSales">売上検索</a>
 					</li>
@@ -55,7 +55,7 @@
 		<div class="container position-absolute">
 			<h2 class="mt-5" style="margin-left: 30px;">売上登録</h2>
 			<div class="" style="margin-left: 100px">
-				<form class="text-right" action="RegisterServlet" method="post">
+				<form class="text-right" action="RegisterConfirm" method="post">
 					<div class="row ">
 						<div class="col-sm-3">
 							<h3 for="inputEmail" class="col-form-label"
@@ -218,4 +218,4 @@
 			role="alert">売上登録権限がありません</div>
 	</c:otherwise>
 </c:choose>
-<jsp:include page="footer.jsp" flush="true" />
+<jsp:include page="footer.jsp"/>

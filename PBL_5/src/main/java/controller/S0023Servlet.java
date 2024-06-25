@@ -37,6 +37,7 @@ public class S0023Servlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
 		SQLServicesPBLsfs mts = new SQLServicesPBLsfs();
 		SQLServicesPBLreg sqlserv = new SQLServicesPBLreg();
 		String sale_id = request.getParameter("sale_id");
@@ -46,11 +47,11 @@ public class S0023Servlet extends HttpServlet {
 		
 		ArrayList<AccountsBean> account_list = null;
 		account_list = sqlserv.canSelectAllAcount();
-		//商品カテゴリー表示用
+		
 		ArrayList<CategoriesBean> categories_list = null;
 		categories_list = sqlserv.canSelectAllCategory();
 
-		HttpSession session = request.getSession();
+		
 		session.setAttribute("accounts", account_list);
 		session.setAttribute("cate", categories_list);
 		

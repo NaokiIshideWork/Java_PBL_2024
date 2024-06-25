@@ -67,10 +67,10 @@ public class AuthFilter extends HttpFilter implements Filter {
 				
 			}
 		} else {
-			boolean isRefer = referer == null;//参照元がない
+			boolean isRefer = referer == null;//参照元
 
 			//権限がない
-			boolean isRegSales = path.equals("/RegisterSalesServlet");//path.equals("/RegisterServlet") ||
+			boolean isRegSales = path.equals("/RegisterConfirm");
 			boolean isEditSale = path.equals("/SalesDetailsDisplayServlet") || path.equals("/EditSalesDetails")
 					|| path.equals("/ConfirmationSalesDeletion") || path.equals("/ConfirmationSalesEdit")
 					|| path.equals("/SearchSalesServlet");
@@ -85,29 +85,27 @@ public class AuthFilter extends HttpFilter implements Filter {
 			Boolean redirected2 = (Boolean) session.getAttribute("redirectedFromRegister2");
 			Boolean redirected3 = (Boolean) session.getAttribute("redirectedFromRegister3");
 
-			//売上登録画面 ok
+			//売上登録画面 
 			if (isRefer && isRegSales) {
-
 				if (redirected == null || !redirected) {
 					session.setAttribute("redirectedFromRegister", true);
 					res.sendRedirect("RegisterServlet");
 					return;
 				} else {
 					session.removeAttribute("redirectedFromRegister");
-					//					request.getRequestDispatcher("/S0010.jsp").forward(request, response);
 					res.sendRedirect("RegisterServlet");
 					return;
 				}
 			}
-			//売上編集画面　ok
+			//売上編集画面
 			if (isRefer && isEditSale) {
 				if (redirected1 == null || !redirected1) {
 					session.setAttribute("redirectedFromRegister1", true);
-					res.sendRedirect("SearchSales");//修正
+					res.sendRedirect("SearchSales");
 					return;
 				} else {
 					session.removeAttribute("redirectedFromRegister1");
-					res.sendRedirect("SearchSales");//修正
+					res.sendRedirect("SearchSales");
 					return;
 				}
 			}
@@ -118,7 +116,6 @@ public class AuthFilter extends HttpFilter implements Filter {
 					return;
 				} else {
 					session.removeAttribute("redirectedFromRegister2");
-					//					request.getRequestDispatcher("/S0010.jsp").forward(request, response);
 					res.sendRedirect("AccountServlet");
 					return;
 				}
@@ -135,7 +132,6 @@ public class AuthFilter extends HttpFilter implements Filter {
 					return;
 				}
 		}
-
 		chain.doFilter(request, response);
 	}
 

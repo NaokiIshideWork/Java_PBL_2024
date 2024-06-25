@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="header.jsp" flush="true" />
+<jsp:include page="header.jsp"/>
 
 	<header>
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">物品売上管理システム</a>
+			<span class="navbar-brand">物品売上管理システム</span>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarNav"
 				aria-controls="navbarNav" aria-expanded="false"
@@ -15,11 +15,11 @@
 			</button>
 			<div class="collapse navbar-collapse justify-content-between" id="navbarNav">
 				<ul class="navbar-nav mt-2">
-					<li class="nav-item bg-dark-subtle">
+					<li class="nav-item">
 						<a class="nav-link" aria-current="page" href="DashboardServlet">ダッシュボード</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="RegisterServlet" data-value="sample">売上登録</a>
+					<li class="nav-item bg-dark-subtle">
+						<a class="nav-link" href="RegisterServlet" >売上登録</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="SearchSales">売上検索</a>
@@ -139,7 +139,7 @@
 							<div class="col-sm-2"></div>
 							<div class="col-sm-8" style="margin-left: 30px;">
 								<button type="submit" class="btn btn-primary">✔OK</button>
-								<a class="btn btn-outline-secondary" href="RegisterServlet"
+								<a class="btn btn-outline-secondary" href="RegisterServlet?cancel=true"
 									role="button">キャンセル</a>
 							</div>
 						</div>
@@ -154,4 +154,4 @@
 		</c:otherwise>
 	</c:choose>
 	
-<jsp:include page="footer.jsp" flush="true" />
+<jsp:include page="footer.jsp"/>

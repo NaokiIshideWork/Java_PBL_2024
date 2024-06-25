@@ -33,7 +33,26 @@ public class S0030AccountServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getServletContext().getRequestDispatcher("/S0030.jsp").forward(request, response);
+		if ("true".equals(request.getParameter("S0031Cancel"))) {
+			String name = (String) request.getParameter("tmpName");
+			String mail = (String) request.getParameter("tmpMail");
+			String confirm_authority = (String) request.getParameter("tmpAuthority");
+			String password = (String) request.getParameter("tmpPassword");
+			
+			request.setAttribute("name", name);
+			request.setAttribute("mail", mail);
+			request.setAttribute("password", password);
+			request.setAttribute("authority", confirm_authority);
+			System.out.println("30getname: " + name);
+			System.out.println("30getmail: " + mail);
+			System.out.println("authority: " + confirm_authority);
+			System.out.println("pass: " + password);
+			request.getRequestDispatcher("/S0030.jsp").forward(request, response);
+        } else {
+        	// 通常時の処理
+        	request.getServletContext().getRequestDispatcher("/S0030.jsp").forward(request, response);
+        }
+		
 	}
 
 	/**

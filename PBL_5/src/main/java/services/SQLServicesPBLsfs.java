@@ -52,7 +52,6 @@ public class SQLServicesPBLsfs {
 		try (
 				Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
-			// PreparedStatementがクローズされるタイミングでクローズされる
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				strid += rs.getInt("account_id") + ",";
@@ -71,7 +70,6 @@ public class SQLServicesPBLsfs {
 		try (
 				Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
-			// PreparedStatementがクローズされるタイミングでクローズされる
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				strid += rs.getInt("category_id") + ",";
@@ -90,7 +88,6 @@ public class SQLServicesPBLsfs {
 		try (
 				Connection con = DbUtil.open();
 				PreparedStatement ps = con.prepareStatement(sql);) {
-			// PreparedStatementがクローズされるタイミングでクローズされる
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				int account_id = rs.getInt("account_id");

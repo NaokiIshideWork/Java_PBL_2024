@@ -38,8 +38,7 @@ public class S0025Servlet extends HttpServlet {
 		String sale_id = request.getParameter("sale_id");
 		S0025Bean_list= mts.SalesDetailsDelete(Integer.parseInt(sale_id));		
 		request.setAttribute("list", S0025Bean_list);
-			
-		
+				
 		this.getServletContext().getRequestDispatcher("/S0025.jsp").forward(request, response);
 	}
 
