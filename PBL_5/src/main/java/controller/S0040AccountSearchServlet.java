@@ -12,10 +12,10 @@ import javax.servlet.http.HttpSession;
 import services.AccountRecord;
 
 @WebServlet("/AccountSearchServlet")
-public class AccountSearchServlet extends HttpServlet {
+public class S0040AccountSearchServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public AccountSearchServlet() {
+    public S0040AccountSearchServlet() {
         super();
     }
 
@@ -32,26 +32,12 @@ public class AccountSearchServlet extends HttpServlet {
         
         if ("true".equals(request.getParameter("deleteOK"))) {
         	AccountRecord ar = new AccountRecord();
-    		
     		String str_id = request.getParameter("tmpId");
     		String name = request.getParameter("tmpName");
-    		String mail = request.getParameter("tmpMail");
-    		String password = request.getParameter("tmpPassword");
-    		String str_authority = request.getParameter("tmpAuthority");
-    		
     		name = sanitizing(name);
-    		
-    		
-    		
-    		
-    		
-    		int authority = Integer.parseInt(str_authority);
-    		
-    		
     		ar.deleteAccount(str_id);
     		boolDelete = true;
         }
-        
         if ("true".equals(request.getParameter("editOK"))) {
         	request.setCharacterEncoding("UTF-8");
     		
@@ -66,18 +52,13 @@ public class AccountSearchServlet extends HttpServlet {
     		name = sanitizing(name);
     		password = sanitizing(password);
     		
-    		
-    		
     		int id = Integer.parseInt(str_id);
     		int authority = Integer.parseInt(str_authority);
     		
-    		
     		ar.updateAccount(id, name, mail, password, authority);
-    		
     		
     		boolEdit = true;
         }
-        
         
         // キャンセルボタンが押されたかどうかを確認
         if ("true".equals(request.getParameter("cancel")) || boolEdit == true || boolDelete == true) {

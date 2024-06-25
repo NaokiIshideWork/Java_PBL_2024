@@ -17,13 +17,13 @@ import util.CharUtil;
  * Servlet implementation class LoginServlet
  */
 @WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+public class C0010LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public LoginServlet() {
+	public C0010LoginServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
