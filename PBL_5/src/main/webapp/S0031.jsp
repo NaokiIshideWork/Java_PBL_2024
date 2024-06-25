@@ -24,11 +24,11 @@ if (authority.equals("1")) {
 	noneSelected = true;
 }
 %>
-<jsp:include page="header.jsp" flush="true" />
+<jsp:include page="header.jsp"/>
 
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">物品売上管理システム</a>
+			<a class="navbar-brand" href="">物品売上管理システム</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarNav"
 				aria-controls="navbarNav" aria-expanded="false"
@@ -167,4 +167,4 @@ if (authority.equals("1")) {
 				role="alert">売上登録権限がありません</div>
 		</c:otherwise>
 	</c:choose>
-<jsp:include page="footer.jsp" flush="true" />
+<jsp:include page="footer.jsp"/>
