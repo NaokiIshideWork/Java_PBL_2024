@@ -4,7 +4,6 @@
 <%@ page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-// String[] authorities = request.getParameterValues("authorities");
 String authority = (String) request.getAttribute("authority");
 System.out.println("S0031 あたま　Authority: " + authority);
 
@@ -23,6 +22,19 @@ if (authority.equals("1")) {
 } else if (authority.equals("0")) {
 	noneSelected = true;
 }
+
+
+String id = (String) request.getAttribute("id");
+String name = (String) request.getAttribute("name");
+String mail = (String) request.getAttribute("mail");
+String confirm_authority = (String) request.getAttribute("authority");
+String password = (String) request.getAttribute("password");
+System.out.println("S0031jsp authority: " + authority);
+System.out.println("S0031jsp name: " + name);
+System.out.println("S0031jsp mail: " + mail);
+System.out.println("S0031jsp confirm_authoity: " + confirm_authority);
+System.out.println("S0031jsp password: " + password);
+
 %>
 <jsp:include page="header.jsp"/>
 
@@ -149,17 +161,26 @@ if (authority.equals("1")) {
 							</div>
 
 							<div class="row mt-3">
-								<div class="col-sm-3"></div>
-								<div class="col-sm-8">
-									<button type="submit" class="btn btn-primary"
-										style="margin-left: 30px;">O K</button>
-									<a class="btn btn-outline-secondary" href="AccountServlet"
-										role="button">キャンセル</a>
-								</div>
-							</div>
+					<div class="col-sm-3"></div>
+					<div class="col-sm-8 d-flex align-items-center">
+						<button type="submit" class="btn btn-primary"
+							style="margin-left: 50px;">✓OK</button>
 						</form>
+						
+						<form action="AccountServlet" method="get"style="margin-left: 8px;">
+						
+							<input type="hidden" name="tmpName" value="${name}" /> 
+							<input type="hidden" name="tmpMail" value="${mail}" /> 
+							<input type="hidden" name="tmpPassword" value="${password}" />
+							<input type="hidden" name="tmpAuthority" value="${authority}" />
+							<input type="hidden" name="S0031Cancel" value="true">
+							<button class="btn btn-outline-secondary" type="submit"
+								role="button">キャンセル</button>
+						</form>
+					</div>
 				</div>
 			</div>
+
 		</c:when>
 		<c:otherwise>
 			<div
