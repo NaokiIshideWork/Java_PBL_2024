@@ -151,7 +151,7 @@ body {
 			</div>
 			<div class="row mt-3">
 				<div class="col-sm-2"></div>
-				<div class="col-sm-8" style="margin-left: 30%;">
+				<div class="col-sm-8" style="padding-left: 15%;">
 					<button type="submit" class="btn btn-danger" name="delete_id"
 						value="${list.getSale_id()}">✕ O K</button>
 					<a class="btn btn-outline-secondary"
