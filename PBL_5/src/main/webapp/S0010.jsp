@@ -20,7 +20,7 @@
 						href="DashboardServlet">ダッシュボード</a></li>
 					
 					<li class="nav-item bg-dark-subtle"><a class="nav-link"
-						href="RegisterServlet" data-value="sample">売上登録</a></li>
+						href="RegisterServlet">売上登録</a></li>
 						</form>
 					<li class="nav-item"><a class="nav-link" href="SearchSales">売上検索</a>
 					</li>
@@ -55,7 +55,7 @@
 		<div class="container position-absolute">
 			<h2 class="mt-5" style="margin-left: 30px;">売上登録</h2>
 			<div class="" style="margin-left: 100px">
-				<form class="text-right" action="RegisterServlet" method="post">
+				<form class="text-right" action="RegisterConfirm" method="post">
 					<div class="row ">
 						<div class="col-sm-3">
 							<h3 for="inputEmail" class="col-form-label"

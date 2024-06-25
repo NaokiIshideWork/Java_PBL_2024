@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -13,9 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import model.AccountsBean;
 import model.CategoriesBean;
-import model.SalesBean;
 import services.SQLServicesPBLreg;
-import util.CharUtil;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -42,7 +39,7 @@ public class S0010RegisterServlet extends HttpServlet {
 		SQLServicesPBLreg sqlserv = new SQLServicesPBLreg();
 		String ErrorMessage = "";
 		HttpSession session = request.getSession();
-		
+
 		//担当表示用
 		ArrayList<AccountsBean> account_list = null;
 		account_list = sqlserv.canSelectAllAcount();
@@ -63,9 +60,18 @@ public class S0010RegisterServlet extends HttpServlet {
 		} else {
 			request.setAttribute("cate", categories_list);
 		}
-		String datavalue = request.getParameter("data-value");
-		System.out.println("data-valueの値は: " +datavalue);
-		
+//		String datavalue = request.getParameter("cancel");
+//		System.out.println("cancel: " + datavalue);
+
+		String queryString = request.getQueryString();
+		if (queryString != null && !queryString.isEmpty()) {
+			
+		} else {
+			// クエリ文字列がない場合の処理
+			session.removeAttribute("sblist");
+			System.out.println("クエリ文字列は存在しません");
+		}
+
 		this.getServletContext().getRequestDispatcher("/S0010.jsp").forward(request, response);
 	}
 
@@ -76,124 +82,6 @@ public class S0010RegisterServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		request.setCharacterEncoding("UTF-8");
-		SQLServicesPBLreg sqlreg = new SQLServicesPBLreg();
-		SalesBean sblist = null;
-		String ErrorMessage = "";
-		HttpSession session = request.getSession();
-		String salesDate = request.getParameter("sale_date");
-		if (salesDate.isEmpty()) {
-			ErrorMessage += "販売日を入力して下さい,";//ok
-		}
-
-		//担当に対するName
-		String account_id = request.getParameter("account");//id
-		String accountName = "";
-		if (account_id.equals("選択して下さい。")) {
-			ErrorMessage += "担当が未選択です,";
-			account_id = "0";
-		} else {
-			accountName = sqlreg.SelectRegName(Integer.parseInt(account_id));//担当名
-		}
-
-		//商品カテゴリーに対する
-		String item_category_id = request.getParameter("item_category");//id
-		String item_category_name = "";
-		if (item_category_id.equals("選択して下さい。")) {
-			ErrorMessage += "商品カテゴリーが未選択です,";
-			item_category_id = "0";
-		} else {
-			item_category_name = sqlreg.SelectCategory_Name(Integer.parseInt(item_category_id));
-		}
-		//選択して下再修正
-		//商品名
-		String trade_name = request.getParameter("trade_name");
-		if (trade_name.isEmpty()) {
-			ErrorMessage += "商品名を入力して下さい,";//ok
-		} else if (trade_name.length() > 100) {
-			ErrorMessage += "商品名が長すぎます,";//ok
-		}
-
-		trade_name = sanitizing(trade_name);
-
-		//単価
-		String unit_price = request.getParameter("unit_price");
-		if (unit_price.isEmpty()) {
-			ErrorMessage += "単価を入力して下さい,";//ok
-		} else if (unit_price.length() > 10) {
-			ErrorMessage += "単価が長すぎます,";//ok
-		} else if (!unit_price.matches("\\d{1,3}(,\\d{3})*")) {
-			ErrorMessage += "4桁以上の場合は3桁ごとに,を入力して下さい,";//ok
-		}
-
-		//個数
-		String sale_number = request.getParameter("sale_number");
-		if (sale_number.isEmpty()) {
-			ErrorMessage += "個数を入力して下さい,";//ok
-		} else if (sale_number.length() > 10) {
-			ErrorMessage += "個数が長すぎます,";//ok
-		} else if (!sale_number.matches("\\d{1,3}(,\\d{3})*")) {
-			ErrorMessage += "4桁以上の場合は3桁ごとに,を入力して下さい,";//ok
-		}
-
-		//備考
-		String note = request.getParameter("note");
-		if (note.length() > 400) {
-			ErrorMessage += "備考が長すぎます,";
-		}
-		note = note.trim();
-		
-		int subtotal = 0;
-		if (ErrorMessage.isEmpty()) {
-			unit_price = unit_price.replace(",", "");
-			sale_number = sale_number.replace(",", "");
-			subtotal = Integer.parseInt(unit_price) * Integer.parseInt(sale_number);
-		}
-
-		if (ErrorMessage.isEmpty()) {
-			//登録確認
-			sblist = new SalesBean(salesDate, accountName, Integer.parseInt(account_id), item_category_name,
-					Integer.parseInt(item_category_id), trade_name, formatNumber(Integer.parseInt(unit_price)),
-					formatNumber(Integer.parseInt(sale_number)), formatNumber(subtotal), note);
-			session.setAttribute("sblist", sblist);
-			
-			
-			this.getServletContext().getRequestDispatcher("/S0011.jsp").forward(request, response);
-		} else {
-			//何かしらエラーがあった際の
-
-			ErrorMessage = CharUtil.replaceCommaAtEnd(ErrorMessage);
-			request.setAttribute("err", ErrorMessage);
-						
-			sblist = new SalesBean(salesDate, accountName, Integer.parseInt(account_id), item_category_name,
-					Integer.parseInt(item_category_id), trade_name, unit_price,
-					sale_number, formatNumber(subtotal), note);
-			
-			session.setAttribute("sblist", sblist);		
-			
-			doGet(request, response);
-		}
-
 	}
-
-	public static final String formatNumber(long num) {
-		NumberFormat nf = NumberFormat.getNumberInstance();
-		return nf.format(num);
-	}
-
-	public static String sanitizing(String str) {
-		if (null == str || "".equals(str)) {
-			return str;
-		}
-
-		str = str.replaceAll("&", "&amp;");
-		str = str.replaceAll("<", "&lt;");
-		str = str.replaceAll(">", "&gt;");
-		str = str.replaceAll("\"", "&quot;");
-		str = str.replaceAll("'", "&#39;");
-
-		return str;
-	}
-	
 
 }
