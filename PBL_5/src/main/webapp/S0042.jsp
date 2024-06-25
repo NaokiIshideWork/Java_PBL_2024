@@ -2,21 +2,14 @@
 <%@ page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-// 今は片方の権限しか受け取れない
+
 Object authorityObj = request.getAttribute("authority");
 String authority = (authorityObj != null) ? authorityObj.toString() : "";
 
-
-/*
-この例では、request.getAttribute("authority") から取得したオブジェクトを Object 型の変数 authorityObj に格納し、その後 toString() メソッドを使って文字列に変換しています。toString() メソッドは、Object クラスのメソッドであり、オブジェクトの文字列表現を返します。
-
-また、authorityObj が null の場合に備えて三項演算子を使用しています。これにより、null の場合に空の文字列 "" を代入しています。
-*/
 boolean salesSelected = false;
 boolean accountSelected = false;
 boolean noneSelected = false;
 
-// 文字列が一致しているかの比較なのに == になってた（参照先比較になってた）
 if (authority.equals("0")) {
     noneSelected = true;
 }
@@ -30,6 +23,7 @@ if (authority.equals("11")) {
     salesSelected = true;
     accountSelected = true;
 }
+
 %>
 
 <jsp:include page="header.jsp"/>

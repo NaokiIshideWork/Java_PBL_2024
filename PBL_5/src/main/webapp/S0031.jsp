@@ -5,7 +5,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String authority = (String) request.getAttribute("authority");
-System.out.println("S0031 あたま　Authority: " + authority);
 
 boolean salesSelected = false;
 boolean accountSelected = false;
