@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="header.jsp" flush="true" />
+<jsp:include page="header.jsp" />
 
 <header>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">物品売上管理システム</a>
+			<span class="navbar-brand" >物品売上管理システム</span>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarNav"
 				aria-controls="navbarNav" aria-expanded="false"
@@ -218,4 +218,4 @@
 			role="alert">売上登録権限がありません</div>
 	</c:otherwise>
 </c:choose>
-<jsp:include page="footer.jsp" flush="true" />
+<jsp:include page="footer.jsp"/>
