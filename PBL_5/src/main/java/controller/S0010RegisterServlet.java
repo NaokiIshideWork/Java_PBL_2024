@@ -63,7 +63,8 @@ public class S0010RegisterServlet extends HttpServlet {
 		} else {
 			request.setAttribute("cate", categories_list);
 		}
-		
+		String datavalue = request.getParameter("data-value");
+		System.out.println("data-valueの値は: " +datavalue);
 		
 		this.getServletContext().getRequestDispatcher("/S0010.jsp").forward(request, response);
 	}

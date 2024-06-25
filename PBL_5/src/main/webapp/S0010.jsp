@@ -20,7 +20,7 @@
 						href="DashboardServlet">ダッシュボード</a></li>
 					
 					<li class="nav-item bg-dark-subtle"><a class="nav-link"
-						href="RegisterServlet" onclick="clearText()">売上登録</a></li>
+						href="RegisterServlet" data-value="sample">売上登録</a></li>
 						</form>
 					<li class="nav-item"><a class="nav-link" href="SearchSales">売上検索</a>
 					</li>
