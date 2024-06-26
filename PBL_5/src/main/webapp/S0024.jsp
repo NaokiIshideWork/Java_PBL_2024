@@ -85,8 +85,8 @@
 								</div>
 							</div>
 							<div class="row mt-3">
-								<div class="col-sm-2"></div>
-								<div class="col-sm-8" style="margin-left: 30px;">
+								<div class="col-sm-4"></div>
+								<div class="col-sm-8">
 									<button type="submit" class="btn btn-primary" 
 										value="${S0024list.getSale_id()}">✔O K</button>
 									<a class="btn btn-outline-secondary"

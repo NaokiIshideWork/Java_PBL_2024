@@ -39,7 +39,7 @@ if (authority == 11) {
 }
 
 %>
-
+<title>アカウント登録|物品売上管理システム</title>
 <jsp:include page="header.jsp">
 <jsp:param name="currentPage" value="registerAccount" />
 </jsp:include>

@@ -35,6 +35,7 @@ System.out.println("S0031jsp confirm_authoity: " + confirm_authority);
 System.out.println("S0031jsp password: " + password);
 
 %>
+<title>アカウント登録確認|物品売上管理システム</title>
 <jsp:include page="header.jsp">
 <jsp:param name="currentPage" value="registerAccount" />
 </jsp:include>
