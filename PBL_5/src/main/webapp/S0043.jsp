@@ -103,7 +103,6 @@ if (authority == 11) {
 						String confirm_authority = (String) request.getAttribute("authority");
 						String password = (String) request.getAttribute("password");
 						String confirmPassword = (String) request.getAttribute("password");
-						System.out.println("S0043jsp authority: " + authority);
 						%>
 						<input type="hidden" name="tmpId" value="<%=id%>" /> <input
 							type="hidden" name="tmpName" value="<%=name%>" /> <input

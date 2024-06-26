@@ -44,7 +44,6 @@ if (authority.equals("11")) {
                     <form class="text-right" action="EditScreenServlet" method="POST">
                         <%
                         String id = (String) request.getAttribute("id");
-                        System.out.println("S0042jsp id: " + id);
                         %>
                         <input type="hidden" name="id" value="<%=id%>" />
                         <div class="row ">
