@@ -56,7 +56,8 @@ public class AccountRecord {
 					ps.setString(2,mail);			
 					ps.setString(3, password);
 					ps.setInt(4, authority);
-					ps.setInt(5, id);			
+					ps.setInt(5, id);
+					ps.executeUpdate();
 					
 				}catch(SQLException e) {
 					e.printStackTrace();
