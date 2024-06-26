@@ -52,14 +52,13 @@ if (authority == 11) {
 	
 <c:choose>	
 	<c:when test="${sessionScope.LoginUser.getAuthority() eq 10 or sessionScope.LoginUser.getAuthority() eq 11}">
-	<div class="container position-absolute">
-		<h1 class="mt-5" style="margin-left: 50px;">アカウント登録</h1>
-		<div class="" style="margin-left: 10px">
+	<div class="container">
+		<h2 class="mt-5" style="margin-left: 150px;">アカウント登録</h2>
+		<div style="margin-left: 100px">
 			<form class="text-right" action="AccountServlet" method="post">
 				<div class="row ">
 					<div class="col-sm-3">
-						<h3 for="inputEmail"  class="col-form-label"
-							style="text-align: end;">氏名 <span class="badge rounded-pill bg-secondary">必須</span>
+						<h3 for="inputEmail"  class="col-form-label text-sm-end">氏名 <span class="badge rounded-pill bg-secondary">必須</span>
 						</h3>
 					</div>
 					<div class="col-sm-8 w-50">
@@ -68,8 +67,8 @@ if (authority == 11) {
 				</div>
 
 				<div class="row mt-3">
-					<div class="col-sm-3">
-						<h3 for="inputEmail" class="col-form-label" style="text-align: end;">
+					<div class="col-sm-3">	
+						<h3 for="inputEmail" class="col-form-label text-sm-end">
 							メールアドレス <span class="badge rounded-pill bg-secondary">必須</span>
 						</h3>
 					</div>
@@ -80,7 +79,7 @@ if (authority == 11) {
 				
 				<div class="row mt-3">
 					<div class="col-sm-3">
-						<h3 for="inputEmail" value="${not empty password ? password : ''}" class="col-form-label" style="text-align: end;">
+						<h3 for="inputEmail" value="${not empty password ? password : ''}" class="col-form-label text-sm-end">
 							パスワード <span class="badge rounded-pill bg-secondary">必須</span>
 						</h3>
 					</div>
@@ -91,7 +90,7 @@ if (authority == 11) {
 				
 				<div class="row mt-3">
 					<div class="col-sm-3">
-						<h3 for="inputEmail" class="col-form-label" style="text-align: end;">
+						<h3 for="inputEmail" class="col-form-label text-sm-end">
 							パスワード確認 <span class="badge rounded-pill bg-secondary">必須</span>
 						</h3>
 					</div>
@@ -103,8 +102,7 @@ if (authority == 11) {
 				
 				<div class="row mt-3">
 					<div class="col-sm-3">
-						<h3 for="inputEmail" class="col-form-label"
-							style="text-align: end;">
+						<h3 for="inputEmail" class="col-form-label text-sm-end">
 							権限 <span class="badge rounded-pill bg-secondary">必須</span>
 						</h3>
 					</div>
@@ -124,7 +122,7 @@ if (authority == 11) {
 				</div>
 
 				<div class="row mt-3">
-					<div class="col-sm-3"></div>
+					<div class="col-sm-4"></div>
 					<div class="col-sm-8">
 						<button type="submit" class="btn btn-primary" style="margin-left: 30px;">
 						✓登録
