@@ -52,12 +52,9 @@
 			role="alert">売上編集権限はありません</div>
 	</c:if>
 	<div class="container">
-		<h1 class="ml-5 mt-5 mb-4">売上検索条件入力</h1>
-
+		<h2 class="mt-5" style="margin-left: 150px;">売上検索</h2>
 		<div class="row" style="padding-right: 350px;">
-			<div class="col-12 ">
-				<form class="text-center" style="
-					margin-left: -15px;"action="SearchSalesServlet" method="post">
+				<form class="text-center" action="SearchSalesServlet" method="post">
 					<div class="row mb-3 justify-content-center">
 						<div class="col-sm-4" style="text-align: right">
 							<label for="salesDate" class="col-form-label ">販売日</label>
@@ -122,12 +119,12 @@
 								name="remarks" placeholder="備考">
 						</div>
 					</div>
-					<div class="row mb-3 justify-content-center">
-						<div class="col-sm-2"></div>
-						<div class="col-sm-4">
+					<div class="row mb-3 ">
+						<div class="col-sm-4"></div>
+						<div class="col-sm-8">
 							<button type="submit" class="btn btn-primary btn-search me-1">
-								🔍検索</a>
-								<button type="reset" class="btn btn-outline-secondary btn-clear">クリア</button>
+								🔍検索</a>	
+						<button type="reset" class="btn btn-outline-secondary btn-clear">クリア</button>
 						</div>
 					</div>
 				</form>
