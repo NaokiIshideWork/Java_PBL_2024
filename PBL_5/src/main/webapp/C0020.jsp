@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<jsp:include page="header.jsp"/>
+<jsp:include page="header.jsp" flush="true" />
 	<!-- 遷移先未作成  -->
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container-fluid">
-			<span class="navbar-brand">物品売上管理システム</span>
+			<a class="navbar-brand" href="#">物品売上管理システム</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarNav"
 				aria-controls="navbarNav" aria-expanded="false"
@@ -18,7 +18,7 @@
 						<a class="nav-link" aria-current="page" href="DashboardServlet">ダッシュボード</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="RegisterServlet"data-value="sample">売上登録</a>
+						<a class="nav-link" href="RegisterServlet">売上登録</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="SearchSales">売上検索</a>
@@ -40,4 +40,4 @@
 	</nav>
 
 
-<jsp:include page="footer.jsp"/>
+<jsp:include page="footer.jsp" flush="true" />
