@@ -30,7 +30,7 @@ public class S0020SearchSalesServlet extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+//コメント
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
