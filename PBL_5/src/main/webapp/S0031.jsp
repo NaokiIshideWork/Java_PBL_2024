@@ -35,9 +35,9 @@ System.out.println("S0031jsp confirm_authoity: " + confirm_authority);
 System.out.println("S0031jsp password: " + password);
 
 %>
-<jsp:include page="header.jsp"/>
-
-<jsp:include page="dashboard.jsp"/>
+<jsp:include page="header.jsp">
+<jsp:param name="currentPage" value="registerAccount" />
+</jsp:include>
 	
 	<c:choose>
 		<c:when

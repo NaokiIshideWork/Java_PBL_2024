@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-	<div class="container-fluid">
+	<div class="container-fluid">a
 		<a class="navbar-brand" href="#">物品売上管理システム</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarNav" aria-controls="navbarNav"

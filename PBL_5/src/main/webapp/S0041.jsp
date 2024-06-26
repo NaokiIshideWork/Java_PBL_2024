@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="header.jsp"/>
-
-<jsp:include page="dashboard.jsp"/>
+<jsp:include page="header.jsp">
+<jsp:param name="currentPage" value="searchAccounts" />
+</jsp:include>
 	
 	<div class="container" class="text-left">
 		<h2 class="mt-3">アカウント検索結果表示</h2>

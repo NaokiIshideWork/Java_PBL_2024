@@ -26,9 +26,9 @@ if (authority.equals("11")) {
 
 %>
 
-<jsp:include page="header.jsp"/>
-
-<jsp:include page="dashboard.jsp"/>    
+<jsp:include page="header.jsp">
+<jsp:param name="currentPage" value="searchAccounts" />
+</jsp:include>
     
     <c:if test="${not empty err}">
 		<div
