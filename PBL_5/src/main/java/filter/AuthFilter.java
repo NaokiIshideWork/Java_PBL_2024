@@ -148,19 +148,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 		// TODO Auto-generated method stub
 		super.init(fConfig);
 	}
-	public static String sanitizing(String str) {
-		if (null == str || "".equals(str)) {
-			return str;
-		}
-
-		str = str.replaceAll("&", "&amp;");
-		str = str.replaceAll("<", "&lt;");
-		str = str.replaceAll(">", "&gt;");
-		str = str.replaceAll("\"", "&quot;");
-		str = str.replaceAll("'", "&apos;");
-
-		return str;
-	}
+	
 
 	private boolean isSessionExpired(HttpSession session) {
 		long lastAccessedTime = session.getLastAccessedTime();//セッション開始以降に最後にアクセスしたきた日時	   
