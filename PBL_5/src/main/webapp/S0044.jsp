@@ -25,6 +25,7 @@ if (authority == 11) {
 	accountSelected = true;
 }
 %>
+<title>アカウント詳細削除確認|物品売上管理システム</title>
 <jsp:include page="header.jsp">
 <jsp:param name="currentPage" value="searchAccounts" />
 </jsp:include>

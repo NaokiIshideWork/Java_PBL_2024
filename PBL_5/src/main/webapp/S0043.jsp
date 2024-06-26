@@ -26,6 +26,7 @@ if (authority == 11) {
 }
 
 %>
+<title>アカウント詳細編集確認|物品売上管理システム</title>
 <jsp:include page="header.jsp">
 <jsp:param name="currentPage" value="searchAccounts" />
 </jsp:include>
