@@ -43,8 +43,8 @@ System.out.println("S0031jsp password: " + password);
 	<c:choose>
 		<c:when
 			test="${sessionScope.LoginUser.getAuthority() eq 10 or sessionScope.LoginUser.getAuthority() eq 11}">
-			<div class="container position-absolute">
-				<h2 class="mt-5" style="margin-left: 150px;">アカウントを登録してよろしいですか?</h2>
+			<div class="container">
+				<h2 class="mt-5" style="margin-left: 100px;">アカウントを登録してよろしいですか?</h2>
 				<div style="margin-left: 100px">
 					<form class="text-right" action="AccountRegisterServlet"
 						method="post">
