@@ -20,7 +20,7 @@
 	</c:if>
 	<div class="container">
 		<h2 class="mt-5" style="margin-left: 150px;">アカウント検索条件入力</h2>
-		<div class="" style="margin-left: 100px">
+		<div style="margin-left: 100px">
 			<form class="text-right" action="AccountSearchServlet" method="POST">
 				<div class="row ">
 					<div class="col-sm-3">

@@ -33,9 +33,9 @@ if (authority == 11) {
 <c:choose>
 	<c:when
 		test="${sessionScope.LoginUser.getAuthority() eq 10 or sessionScope.LoginUser.getAuthority() eq 11}">
-		<div class="container position-absolute">
+		<div class="container">
 			<h2 class="mt-5" style="margin-left: 100px;">アカウント詳細削除確認</h2>
-			<div class="" style="margin-left: 100px">
+			<div style="margin-left: 100px">
 				<form class="text-right" action="AccountSearchServlet" method="POST">
 					<div class="row ">
 						<div class="col-sm-3">

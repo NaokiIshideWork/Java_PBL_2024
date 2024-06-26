@@ -6,9 +6,9 @@
 <jsp:param name="currentPage" value="searchSales" />
 </jsp:include>
 
-	<div class="container position-absolute">
+	<div class="container">
 				<h2 class="mt-5" style="margin-left: 150px;">売上詳細編集確認</h2>
-				<div class="" style="margin-left: 100px">
+				<div style="margin-left: 100px">
 					<form class="text-right" action="InsertServlet" method="post">
 						<div class="row ">
 							<div class="col-sm-2">
