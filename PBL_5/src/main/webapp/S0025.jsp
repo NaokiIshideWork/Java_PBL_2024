@@ -28,7 +28,7 @@ body {
 	}
 }
 </style>
-
+<title>売上詳細削除確認|物品売上管理システム</title>
 <jsp:include page="header.jsp">
 <jsp:param name="currentPage" value="searchSales" />
 </jsp:include>
