@@ -10,6 +10,8 @@
 		<h2 class="mt-3">アカウント検索結果表示</h2>
 	</div>
 	<div class="container text-left" style="overflow: auto;">
+	<div class="container text-left" style="
+    overflow: auto;">
 		<table class="table table-hover">
 			<thead>
 				<tr>
