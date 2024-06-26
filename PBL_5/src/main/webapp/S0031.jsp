@@ -35,6 +35,7 @@ System.out.println("S0031jsp confirm_authoity: " + confirm_authority);
 System.out.println("S0031jsp password: " + password);
 
 %>
+<title>アカウント登録確認|物品売上管理システム</title>
 <jsp:include page="header.jsp">
 <jsp:param name="currentPage" value="registerAccount" />
 </jsp:include>
@@ -43,18 +44,14 @@ System.out.println("S0031jsp password: " + password);
 		<c:when
 			test="${sessionScope.LoginUser.getAuthority() eq 10 or sessionScope.LoginUser.getAuthority() eq 11}">
 			<div class="container position-absolute">
-				<h2 class="mt-5" style="margin-left: 40px;">アカウントを登録してよろしいですか?</h2>
-				<div class="" style="margin-left: 100px">
-
+				<h2 class="mt-5" style="margin-left: 100px;">アカウントを登録してよろしいですか?</h2>
+				<div style="margin-left: 100px">
 					<form class="text-right" action="AccountRegisterServlet"
 						method="post">
-
 						<form class="text-right">
-
 							<div class="row ">
 								<div class="col-sm-3">
-									<h3 for="inputEmail" class="col-form-label"
-										style="text-align: end;">
+									<h3 for="inputEmail" class="col-form-label text-sm-end">
 										氏名 <span class="badge rounded-pill bg-secondary">必須</span>
 									</h3>
 								</div>
@@ -67,8 +64,7 @@ System.out.println("S0031jsp password: " + password);
 
 							<div class="row mt-3">
 								<div class="col-sm-3">
-									<h3 for="inputEmail" class="col-form-label"
-										style="text-align: end;">
+									<h3 for="inputEmail" class="col-form-label text-sm-end">
 										メールアドレス <span class="badge rounded-pill bg-secondary">必須</span>
 									</h3>
 								</div>
@@ -81,8 +77,7 @@ System.out.println("S0031jsp password: " + password);
 
 							<div class="row mt-3">
 								<div class="col-sm-3">
-									<h3 for="inputEmail" class="col-form-label"
-										style="text-align: end;">
+									<h3 for="inputEmail" class="col-form-label text-sm-end">
 										パスワード <span class="badge rounded-pill bg-secondary">必須</span>
 									</h3>
 								</div>
@@ -95,8 +90,7 @@ System.out.println("S0031jsp password: " + password);
 
 							<div class="row mt-3">
 								<div class="col-sm-3">
-									<h3 for="inputEmail" class="col-form-label"
-										style="text-align: end;">
+									<h3 for="inputEmail" class="col-form-label text-sm-end">
 										パスワード（確認）<span class="badge rounded-pill bg-secondary">必須</span>
 									</h3>
 								</div>
@@ -109,8 +103,7 @@ System.out.println("S0031jsp password: " + password);
 
 							<div class="row mt-3">
 								<div class="col-sm-3">
-									<h3 for="inputEmail" class="col-form-label"
-										style="text-align: end;">
+									<h3 for="inputEmail" class="col-form-label text-sm-end">
 										権限 <span class="badge rounded-pill bg-secondary">必須</span>
 									</h3>
 								</div>
@@ -127,9 +120,9 @@ System.out.println("S0031jsp password: " + password);
 							</div>
 
 							<div class="row mt-3">
-					<div class="col-sm-3"></div>
+					<div class="col-sm-4"></div>
 					<div class="col-sm-8 d-flex align-items-center">
-						<button type="submit" class="btn btn-primary"
+						<button type="submit" class="btn btn-primary mb-3"
 							style="margin-left: 50px;">✓OK</button>
 						</form>
 						

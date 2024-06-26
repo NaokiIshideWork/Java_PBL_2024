@@ -55,8 +55,6 @@ public class AuthFilter extends HttpFilter implements Filter {
 			referer = null;
 		}
 		
-		
-
 		if (path.endsWith(".jsp")) {
 			session.invalidate();
 			res.sendRedirect("LoginServlet");
@@ -64,7 +62,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 		}
 		if (session != null && isSessionExpired(session)) {
 			session.invalidate(); // セッションを無効化してログアウト
-			res.sendRedirect("LoginServlet"); // ログイン画面にリダイレクト
+			res.sendRedirect("LoginServlet"); 			
 			return;
 		}
 		if (session.getAttribute("LoginUser") == null && !path.contains("css")) {

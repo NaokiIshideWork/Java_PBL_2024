@@ -30,7 +30,6 @@ public class S0031AccountRegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getServletContext().getRequestDispatcher("/S0031.jsp").forward(request, response);
-		System.out.println(request.getAttribute("name"));
 	}
  
 	/**

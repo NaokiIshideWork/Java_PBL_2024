@@ -44,10 +44,6 @@ public class S0030AccountServlet extends HttpServlet {
 			request.setAttribute("mail", mail);
 			request.setAttribute("password", password);
 			request.setAttribute("authority", confirm_authority);
-			System.out.println("30getname: " + name);
-			System.out.println("30getmail: " + mail);
-			System.out.println("authority: " + confirm_authority);
-			System.out.println("pass: " + password);
 			request.getRequestDispatcher("/S0030.jsp").forward(request, response);
         } else {
         	// 通常時の処理

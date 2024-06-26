@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<title>売上詳細編集確認|物品売上管理システム</title>
 <jsp:include page="header.jsp">
 <jsp:param name="currentPage" value="searchSales" />
 </jsp:include>
@@ -85,8 +85,8 @@
 								</div>
 							</div>
 							<div class="row mt-3">
-								<div class="col-sm-2"></div>
-								<div class="col-sm-8" style="margin-left: 30px;">
+								<div class="col-sm-4"></div>
+								<div class="col-sm-8">
 									<button type="submit" class="btn btn-primary" 
 										value="${S0024list.getSale_id()}">✔O K</button>
 									<a class="btn btn-outline-secondary"
