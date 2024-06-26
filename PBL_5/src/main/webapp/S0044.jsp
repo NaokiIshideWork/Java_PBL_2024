@@ -30,12 +30,68 @@ if (authority == 11) {
 <jsp:param name="currentPage" value="searchAccounts" />
 </jsp:include>
 
+<style>
+body {
+	overflow-x: hidden;
+}
+
+.sp-left {
+	margin-left: 150px;
+}
+
+.sp-center {
+		text-align: center;
+	}
+
+@media screen and (min-width:320px) {
+	.sp-left {
+		margin-left: 0 !important;
+		
+	}
+}
+
+@media screen and (min-width:375px) {
+	.sp-left {
+		margin-left: 20px;
+	}
+}
+
+@media screen and (min-width:500px) {
+	.sp-left {
+		margin-left: 30 ;
+	}
+}
+
+@media screen and (min-width:767px) {
+
+	.sp-left {
+		margin-left: 50px;
+	}
+	
+	
+	
+}
+@media screen and (min-width:991px) {
+
+	.sp-left {
+		margin-left: 150px;
+	}
+	
+}
+
+@media screen and (min-width:1024px) {
+	.sp-left {
+		margin-left: 150px;
+	}
+}
+</style>
+
 
 <c:choose>
 	<c:when
 		test="${sessionScope.LoginUser.getAuthority() eq 10 or sessionScope.LoginUser.getAuthority() eq 11}">
 		<div class="container">
-			<h2 class="mt-5" style="margin-left: 100px;">アカウント詳細削除確認</h2>
+			<h2 class="mt-5 sp-left" style="white-space:nowrap;">アカウント詳細削除確認</h2>
 			<div style="margin-left: 100px">
 				<form class="text-right" action="AccountSearchServlet" method="POST">
 					<div class="row ">

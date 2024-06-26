@@ -43,6 +43,51 @@ if (authority == 11) {
 <jsp:include page="header.jsp">
 <jsp:param name="currentPage" value="registerAccount" />
 </jsp:include>
+
+<style>
+body {
+	overflow-x: hidden;
+}
+
+.sp-left {
+	margin-left: 100px;
+}
+
+.sp-center {
+		text-align: center;
+	}
+
+@media screen and (min-width:500px) {
+	.sp-left {
+		margin-left: 0 !important;
+	}
+}
+
+@media screen and (min-width:767px) {
+
+	.sp-left {
+		margin-left: 50px;
+	}
+	
+	.sp-center {
+		text-align: center;
+	}
+	
+}
+@media screen and (min-width:991px) {
+
+	.sp-left {
+		margin-left: 100px;
+	}
+	
+}
+
+@media screen and (min-width:1024px) {
+	.sp-left {
+		margin-left: 150px;
+	}
+}
+</style>
 	
 	<c:if test="${not empty err}">
 		<div
@@ -53,7 +98,7 @@ if (authority == 11) {
 <c:choose>	
 	<c:when test="${sessionScope.LoginUser.getAuthority() eq 10 or sessionScope.LoginUser.getAuthority() eq 11}">
 	<div class="container">
-		<h2 class="mt-5" style="margin-left: 150px;">アカウント登録</h2>
+		<h2 class="mt-5 sp-left">アカウント登録</h2>
 		<div style="margin-left: 100px">
 			<form class="text-right" action="AccountServlet" method="post">
 				<div class="row ">
@@ -122,12 +167,13 @@ if (authority == 11) {
 				</div>
 
 				<div class="row mt-3">
-					<div class="col-sm-4"></div>
-					<div class="col-sm-8">
-						<button type="submit" class="btn btn-primary" style="margin-left: 30px;">
+					<div class="col-sm-5"></div>
+					<div class="col-sm-2 text-center">
+						<button type="submit" class="btn btn-primary" style="text-align: center; white-space:nowrap; ">
 						✓登録
 						</button>
 					</div>
+					<div class="col-sm-5"></div>
 				</div>
 				
 			</form>

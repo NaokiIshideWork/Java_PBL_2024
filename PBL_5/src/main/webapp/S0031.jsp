@@ -22,29 +22,76 @@ if (authority.equals("1")) {
 	noneSelected = true;
 }
 
-
-String id = (String) request.getAttribute("id");
-String name = (String) request.getAttribute("name");
-String mail = (String) request.getAttribute("mail");
-String confirm_authority = (String) request.getAttribute("authority");
-String password = (String) request.getAttribute("password");
-System.out.println("S0031jsp authority: " + authority);
-System.out.println("S0031jsp name: " + name);
-System.out.println("S0031jsp mail: " + mail);
-System.out.println("S0031jsp confirm_authoity: " + confirm_authority);
-System.out.println("S0031jsp password: " + password);
-
 %>
+
+
 <title>アカウント登録確認|物品売上管理システム</title>
 <jsp:include page="header.jsp">
 <jsp:param name="currentPage" value="registerAccount" />
 </jsp:include>
+
+
+<style>
+body {
+	overflow-x: hidden;
+}
+
+.sp-left {
+	margin-left: 100px;
+}
+
+.sp-center {
+		text-align: center;
+	}
+	
+	
+
+@media screen and (min-width:500px) {
+	.sp-left {
+		margin-left: 30 !important;
+		
+	}
+}
+
+@media screen and (min-width:375px) {
+	.sp-left {
+		margin-left: 20 !important;
+		
+	}
+}
+
+@media screen and (min-width:767px) {
+
+	.sp-left {
+		margin-left: 50px;
+	}
+	
+	.sp-center {
+		text-align: center;
+	}
+	
+}
+@media screen and (min-width:991px) {
+
+	.sp-left {
+		margin-left: 100px;
+	}
+	
+}
+
+@media screen and (min-width:1024px) {
+	.sp-left {
+		margin-left: 150px;
+	}
+}
+</style>
+
 	
 	<c:choose>
 		<c:when
 			test="${sessionScope.LoginUser.getAuthority() eq 10 or sessionScope.LoginUser.getAuthority() eq 11}">
 			<div class="container">
-				<h2 class="mt-5" style="margin-left: 100px;">アカウントを登録してよろしいですか?</h2>
+				<h2 class="mt-5 sp-left">アカウントを登録してよろしいですか?</h2>
 				<div style="margin-left: 100px">
 					<form class="text-right" action="AccountRegisterServlet"
 						method="post">
@@ -119,11 +166,11 @@ System.out.println("S0031jsp password: " + password);
 								</div>
 							</div>
 
-							<div class="row mt-3">
+							<div class="row mt-4">
 					<div class="col-sm-4"></div>
-					<div class="col-sm-8 d-flex align-items-center">
+					<div class="col-sm-4 d-flex sp-center">
 						<button type="submit" class="btn btn-primary mb-3"
-							style="margin-left: 50px;">✓OK</button>
+							style="margin-left: 0px">✓OK</button>
 						</form>
 						
 						<form action="AccountServlet" method="get"style="margin-left: 8px;">
@@ -137,6 +184,7 @@ System.out.println("S0031jsp password: " + password);
 								role="button">キャンセル</button>
 						</form>
 					</div>
+					<div class="col-sm-3"></div>
 				</div>
 			</div>
 

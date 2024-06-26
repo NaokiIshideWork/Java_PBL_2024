@@ -50,10 +50,11 @@ public class AuthFilter extends HttpFilter implements Filter {
 		String referer = "";
 	
 		try {
-			referer = req.getHeader("referer").replaceAll(".*/([^/?]+).*", "$1");
+			referer = req.getHeader("referer").replaceAll(".*/([^/?]+).*", "$1");// /servletのservlet部分
 		} catch (Exception e) {
 			referer = null;
 		}
+		
 		
 		if (path.endsWith(".jsp")) {
 			session.invalidate();
@@ -61,8 +62,12 @@ public class AuthFilter extends HttpFilter implements Filter {
 			return;
 		}
 		if (session != null && isSessionExpired(session)) {
-			session.invalidate(); // セッションを無効化してログアウト
+			session.invalidate(); 
 			res.sendRedirect("LoginServlet"); 			
+			return;
+		}
+		
+		if(referer == "") {	
 			return;
 		}
 		if (session.getAttribute("LoginUser") == null && !path.contains("css")) {
@@ -74,7 +79,6 @@ public class AuthFilter extends HttpFilter implements Filter {
 		} else {
 			
 			boolean isRefer = referer == null;//参照元
-
 			//権限がない
 			boolean isRegSales = path.equals("/RegisterConfirm");
 			boolean isEditSale = path.equals("/SalesDetailsDisplayServlet") || path.equals("/EditSalesDetails")
@@ -91,6 +95,8 @@ public class AuthFilter extends HttpFilter implements Filter {
 			Boolean redirected2 = (Boolean) session.getAttribute("redirectedFromRegister2");
 			Boolean redirected3 = (Boolean) session.getAttribute("redirectedFromRegister3");
 
+			
+			
 			//売上登録画面 
 			if (isRefer && isRegSales) {
 				if (redirected == null || !redirected) {
@@ -154,10 +160,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 		long lastAccessedTime = session.getLastAccessedTime();//セッション開始以降に最後にアクセスしたきた日時	   
 		long currentTime = System.currentTimeMillis(); //現在時刻の取得:
 		int sessionTimeoutSeconds = session.getMaxInactiveInterval(); // セッションの有効期限（秒）
-
-		//		System.out.println(lastAccessedTime);
-		//		System.out.println(currentTime);
-		//		System.out.println(sessionTimeoutSeconds);
+	
 		// 最終アクセスからセッションの有効期限を超えているか判定
 		return (currentTime - lastAccessedTime) >= (sessionTimeoutSeconds * 1000);
 	}
