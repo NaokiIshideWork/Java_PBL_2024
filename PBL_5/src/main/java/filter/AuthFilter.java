@@ -48,7 +48,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 
 		String path = req.getServletPath();
 		String referer = "";
-		
+	
 		try {
 			referer = req.getHeader("referer").replaceAll(".*/([^/?]+).*", "$1");
 		} catch (Exception e) {
@@ -72,6 +72,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 
 			}
 		} else {
+			
 			boolean isRefer = referer == null;//参照元
 
 			//権限がない
@@ -146,6 +147,19 @@ public class AuthFilter extends HttpFilter implements Filter {
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
 		super.init(fConfig);
+	}
+	public static String sanitizing(String str) {
+		if (null == str || "".equals(str)) {
+			return str;
+		}
+
+		str = str.replaceAll("&", "&amp;");
+		str = str.replaceAll("<", "&lt;");
+		str = str.replaceAll(">", "&gt;");
+		str = str.replaceAll("\"", "&quot;");
+		str = str.replaceAll("'", "&apos;");
+
+		return str;
 	}
 
 	private boolean isSessionExpired(HttpSession session) {
