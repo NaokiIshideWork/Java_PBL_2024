@@ -93,7 +93,5 @@ public class C0010LoginServlet extends HttpServlet {
 			doGet(request, response);
 		}
 	}
-	
-	
 
 }
