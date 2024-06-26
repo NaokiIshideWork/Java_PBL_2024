@@ -97,10 +97,12 @@ if (authority.equals("11")) {
                             <div class="col-sm-8">
                                 <div class="btn-group" role="group">
                                     <!-- Update Button Form -->
-                                    <form class="d-inline" action="EditScreenServlet" method="POST">
+                                    
                                         <input type="hidden" name="id" value="<%=id%>" />
-                                        <button type="submit" class="btn btn-primary rounded" style="margin-right: 10px;">✔更 新</button>
+                                        <button type="submit" class="btn btn-primary rounded" style="margin-right: 10px; margin-bottom: 16px">✔更 新</button>
                                     </form>
+                                    
+                                    
                                     
                                     <!-- Cancel Button Form -->
                                     <form class="d-inline" action="AccountSearchServlet" method="post">
