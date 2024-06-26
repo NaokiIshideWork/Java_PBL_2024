@@ -7,7 +7,7 @@ body {
 }
 
 .sp-left {
-	margin-left: 10%;
+	margin-left: 10%;	
 }
 
 @media screen and (max-width:500px) {
@@ -151,7 +151,7 @@ body {
 			</div>
 			<div class="row mt-3">
 				<div class="col-sm-3"></div>
-				<div class="col-sm-8" style="padding-left: 15%;">
+				<div class="col-sm-9" style="padding-left: 15%;">
 					<button type="submit" class="btn btn-danger" name="delete_id"
 						value="${list.getSale_id()}">✕ O K</button>
 					<a class="btn btn-outline-secondary"

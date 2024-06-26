@@ -44,14 +44,13 @@
 		role="alert">${err}</div>
 </c:if>
 <%--コメント --%>
-<div class="container position-absolute">
-	<h2 class="mt-5" style="margin-left: 30px;">売上詳細編集</h2>
-	<div class="" style="margin-left: 100px">
+<div class="container">
+	<h2 class="mt-5" style="margin-left: 150px;">売上詳細編集</h2>
+	<div style="margin-left: 100px">
 		<form class="text-right" action="ConfirmationSalesEdit" method="get">
 			<div class="row ">
-				<div class="col-sm-3">
-					<h3 for="inputEmail" class="col-form-label"
-						style="text-align: end;">
+				<div class="col-sm-3">	
+					<h3 for="inputEmail" class="col-form-label text-sm-end">
 						販売日 <span class="badge rounded-pill bg-secondary">必須</span>
 					</h3>
 				</div>
@@ -62,8 +61,7 @@
 			</div>
 			<div class="row mt-3">
 				<div class="col-sm-3">
-					<h3 for="inputEmail" class="col-form-label"
-						style="text-align: end;">
+					<h3 for="inputEmail" class="col-form-label text-sm-end">
 						担当 <span class="badge rounded-pill bg-secondary">必須</span>
 					</h3>
 				</div>
@@ -90,8 +88,7 @@
 			</div>
 			<div class="row mt-3">
 				<div class="col-sm-3">
-					<h3 for="inputEmail" class="col-form-label"
-						style="text-align: end;">
+					<h3 for="inputEmail" class="col-form-label text-sm-end">
 						商品カテゴリー <span class="badge rounded-pill bg-secondary">必須</span>
 					</h3>
 				</div>
@@ -119,8 +116,7 @@
 			</div>
 			<div class="row mt-3">
 				<div class="col-sm-3">
-					<h3 for="inputEmail" class="col-form-label"
-						style="text-align: end;">
+					<h3 for="inputEmail" class="col-form-label text-sm-end">
 						商品名 <span class="badge rounded-pill bg-secondary">必須</span>
 					</h3>
 				</div>
@@ -131,8 +127,7 @@
 			</div>
 			<div class="row mt-3">
 				<div class="col-sm-3">
-					<h3 for="inputEmail" class="col-form-label"
-						style="text-align: end;">
+					<h3 for="inputEmail" class="col-form-label text-sm-end">
 						単価 <span class="badge rounded-pill bg-secondary">必須</span>
 					</h3>
 				</div>
@@ -143,8 +138,7 @@
 			</div>
 			<div class="row mt-3">
 				<div class="col-sm-3">
-					<h3 for="inputEmail" class="col-form-label"
-						style="text-align: end;">
+					<h3 for="inputEmail" class="col-form-label text-sm-end">
 						個数 <span class="badge rounded-pill bg-secondary">必須</span>
 					</h3>
 				</div>
@@ -155,8 +149,7 @@
 			</div>
 			<div class="row mt-3">
 				<div class="col-sm-3">
-					<h3 for="inputEmail" class="col-form-label"
-						style="text-align: end;">備考</h3>
+					<h3 for="inputEmail" class="col-form-label text-sm-end">備考</h3>
 				</div>
 				<div class="col-sm-8">
 
@@ -167,7 +160,7 @@
 			</div>
 			<div class="row mt-3">
 				<div class="col-sm-3"></div>
-				<div class="col-sm-8" style="margin-left: 30px;">
+				<div class="col-sm-8" style="margin-left: 50px;">
 					<button type="submit" class="btn btn-primary" name="up_date_id"
 						value="${S0023list.getSale_id()}">✔更 新</button>
 					<a class="btn btn-outline-secondary"

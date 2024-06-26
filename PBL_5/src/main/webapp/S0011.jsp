@@ -43,15 +43,14 @@
 	<c:choose>
 		<c:when
 			test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
-			<div class="container position-absolute">
-				<h2 class="mt-5" style="margin-left: 30px;">売上登録確認</h2>
-				<div class="" style="margin-left: 100px">
+			<div class="container ">
+				<h2 class="mt-5" style="margin-left: 150px;">売上登録確認</h2>
+				<div  style="margin-left: 100px">
 					<form class="text-right" action="RegisterSalesServlet"
 						method="post">
 						<div class="row ">
 							<div class="col-sm-2">
-								<h3 for="inputEmail" class="col-form-label"
-									style="text-align: end;">販売日</h3>
+								<h3 for="inputEmail" class="col-form-label text-sm-end">販売日</h3>
 							</div>
 							<div class="col-sm-8">
 								<input type="date" value="${sblist.getSale_date()}"
@@ -61,8 +60,7 @@
 						</div>
 						<div class="row mt-3">
 							<div class="col-sm-2">
-								<h3 for="inputEmail" class="col-form-label"
-									style="text-align: end;">担当</h3>
+								<h3 for="inputEmail" class="col-form-label text-sm-end">担当</h3>
 							</div>
 							<div class="col-sm-8 w-50">
 								<input type="text" value="${sblist.getAccout()}"
@@ -72,8 +70,7 @@
 						</div>
 						<div class="row mt-3">
 							<div class="col-sm-2">
-								<h3 for="inputEmail" class="col-form-label"
-									style="text-align: end;">商品カテゴリー</h3>
+								<h3 for="inputEmail" class="col-form-label text-sm-end">商品カテゴリー</h3>
 							</div>
 							<div class="col-sm-8 w-50">
 								<input type="text" value="${sblist.getItem_category()}"
@@ -83,8 +80,7 @@
 						</div>
 						<div class="row mt-3">
 							<div class="col-sm-2">
-								<h3 for="inputEmail" class="col-form-label"
-									style="text-align: end;">商品名</h3>
+								<h3 for="inputEmail" class="col-form-label text-sm-end">商品名</h3>
 							</div>
 							<div class="col-sm-8 w-50">
 								<input type="text" value="${sblist.getTrade_name()}"
@@ -93,8 +89,7 @@
 						</div>
 						<div class="row mt-3">
 							<div class="col-sm-2">
-								<h3 for="inputEmail" class="col-form-label"
-									style="text-align: end;">単価</h3>
+								<h3 for="inputEmail" class="col-form-label text-sm-end">単価</h3>
 							</div>
 							<div class="col-sm-8">
 								<input type="text" value="${sblist.getUnit_price()}"
@@ -103,8 +98,7 @@
 						</div>
 						<div class="row mt-3">
 							<div class="col-sm-2">
-								<h3 for="inputEmail" class="col-form-label"
-									style="text-align: end;">個数</h3>
+								<h3 for="inputEmail" class="col-form-label text-sm-end">個数</h3>
 							</div>
 							<div class="col-sm-8">
 								<input type="text" value="${sblist.getSale_number()}"
@@ -113,8 +107,7 @@
 						</div>
 						<div class="row mt-3">
 							<div class="col-sm-2">
-								<h3 for="inputEmail" class="col-form-label"
-									style="text-align: end;">小計</h3>
+								<h3 for="inputEmail" class="col-form-label text-sm-end">小計</h3>
 							</div>
 							<div class="col-sm-8">
 								<input type="text" name="subtotal"
@@ -124,8 +117,7 @@
 						</div>
 						<div class="row mt-3">
 							<div class="col-sm-2">
-								<h3 for="inputEmail" class="col-form-label"
-									style="text-align: end;">備考</h3>
+								<h3 for="inputEmail" class="col-form-label text-sm-end">備考</h3>
 							</div>
 							<div class="col-sm-8">
 
@@ -137,7 +129,7 @@
 						</div>
 						<div class="row mt-3">
 							<div class="col-sm-2"></div>
-							<div class="col-sm-8" style="margin-left: 30px;">
+							<div class="col-sm-8" style="margin-left: 100px;">
 								<button type="submit" class="btn btn-primary">✔OK</button>
 								<a class="btn btn-outline-secondary" href="RegisterServlet?cancel=true"
 									role="button">キャンセル</a>

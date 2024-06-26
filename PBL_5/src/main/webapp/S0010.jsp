@@ -52,14 +52,13 @@
 <c:choose>
 	<c:when
 		test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
-		<div class="container position-absolute">
-			<h2 class="mt-5" style="margin-left: 30px;">売上登録</h2>
-			<div class="" style="margin-left: 100px">
+		<div class="container">
+			<h2 class="mt-5" style="margin-left: 150px;">売上登録</h2>
+			<div style="margin-left: 100px">
 				<form class="text-right" action="RegisterConfirm" method="post">
 					<div class="row ">
 						<div class="col-sm-3">
-							<h3 for="inputEmail" class="col-form-label"
-								style="text-align: end;">
+							<h3 for="inputEmail" class="col-form-label text-sm-end">
 								販売日 <span class="badge rounded-pill bg-secondary">必須</span>
 							</h3>
 						</div>
@@ -71,8 +70,7 @@
 					</div>
 					<div class="row mt-3">
 						<div class="col-sm-3">
-							<h3 for="inputEmail" class="col-form-label"
-								style="text-align: end;">
+							<h3 for="inputEmail" class="col-form-label text-sm-end">
 								担当 <span class="badge rounded-pill bg-secondary">必須</span>
 							</h3>
 						</div>
@@ -113,8 +111,7 @@
 					</div>
 					<div class="row mt-3">
 						<div class="col-sm-3">
-							<h3 for="inputEmail" class="col-form-label"
-								style="text-align: end;">
+							<h3 for="inputEmail" class="col-form-label text-sm-end">
 								商品カテゴリー <span class="badge rounded-pill bg-secondary">必須</span>
 							</h3>
 						</div>
@@ -151,8 +148,7 @@
 					</div>
 					<div class="row mt-3">
 						<div class="col-sm-3">
-							<h3 for="inputEmail" class="col-form-label"
-								style="text-align: end;">
+							<h3 for="inputEmail" class="col-form-label text-sm-end">
 								商品名 <span class="badge rounded-pill bg-secondary">必須</span>
 							</h3>
 						</div>
@@ -164,8 +160,7 @@
 					</div>
 					<div class="row mt-3">
 						<div class="col-sm-3">
-							<h3 for="inputEmail" class="col-form-label"
-								style="text-align: end;">
+							<h3 for="inputEmail" class="col-form-label text-sm-end">
 								単価 <span class="badge rounded-pill bg-secondary">必須</span>
 							</h3>
 						</div>
@@ -177,8 +172,7 @@
 					</div>
 					<div class="row mt-3">
 						<div class="col-sm-3">
-							<h3 for="inputEmail" class="col-form-label"
-								style="text-align: end;">
+							<h3 for="inputEmail" class="col-form-label text-sm-end">
 								個数 <span class="badge rounded-pill bg-secondary">必須</span>
 							</h3>
 						</div>
@@ -190,8 +184,7 @@
 					</div>
 					<div class="row mt-3">
 						<div class="col-sm-3">
-							<h3 for="inputEmail" class="col-form-label"
-								style="text-align: end;">備考</h3>
+							<h3 for="inputEmail" class="col-form-label text-sm-end">備考</h3>
 						</div>
 						<div class="col-sm-8">
 
@@ -202,10 +195,10 @@
 						</div>
 					</div>
 					<div class="row mt-3">
-						<div class="col-sm-3"></div>
+						<div class="col-sm-4"></div>
 						<div class="col-sm-8">
 							<button type="submit" class="btn btn-primary"
-								style="margin-left: 30px;">✔登 録</button>
+								style="margin-left: 100px;">✔登 録</button>
 						</div>
 					</div>
 				</form>
