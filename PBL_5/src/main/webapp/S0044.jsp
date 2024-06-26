@@ -34,13 +34,12 @@ if (authority == 11) {
 	<c:when
 		test="${sessionScope.LoginUser.getAuthority() eq 10 or sessionScope.LoginUser.getAuthority() eq 11}">
 		<div class="container position-absolute">
-			<h2 class="mt-5" style="margin-left: 80px;">アカウント詳細削除確認</h2>
+			<h2 class="mt-5" style="margin-left: 100px;">アカウント詳細削除確認</h2>
 			<div class="" style="margin-left: 100px">
 				<form class="text-right" action="AccountSearchServlet" method="POST">
 					<div class="row ">
 						<div class="col-sm-3">
-							<h3 for="inputEmail" class="col-form-label"
-								style="text-align: end;">氏名</h3>
+							<h3 for="inputEmail" class="col-form-label text-sm-end">氏名</h3>
 						</div>
 						<div class="col-sm-8 w-50">
 							<input type="text" name="#" class="form-control" value="${name}"
@@ -49,8 +48,7 @@ if (authority == 11) {
 					</div>
 					<div class="row mt-3">
 						<div class="col-sm-3">
-							<h3 for="inputEmail" class="col-form-label"
-								style="text-align: end;">メールアドレス</h3>
+							<h3 for="inputEmail" class="col-form-label text-sm-end">メールアドレス</h3>
 						</div>
 						<div class="col-sm-8 w-50">
 							<input type="email" name="#" class="form-control" value="${mail}"
@@ -59,8 +57,7 @@ if (authority == 11) {
 					</div>
 					<div class="row mt-3">
 						<div class="col-sm-3">
-							<h3 for="inputEmail" class="col-form-label"
-								style="text-align: end;">パスワード</h3>
+							<h3 for="inputEmail" class="col-form-label text-sm-end">パスワード</h3>
 						</div>
 						<div class="col-sm-8 w-50">
 							<input type="password" name="#" class="form-control "
@@ -69,8 +66,7 @@ if (authority == 11) {
 					</div>
 					<div class="row mt-3">
 						<div class="col-sm-3">
-							<h3 for="inputEmail" class="col-form-label"
-								style="text-align: end;">パスワード（確認）</h3>
+							<h3 for="inputEmail" class="col-form-label text-sm-end"">パスワード（確認）</h3>
 						</div>
 						<div class="col-sm-8 w-50">
 							<input type="password" name="#" class="form-control "
@@ -79,8 +75,7 @@ if (authority == 11) {
 					</div>
 					<div class="row mt-3">
 						<div class="col-sm-3">
-							<h3 for="inputEmail" class="col-form-label"
-								style="text-align: end;">権限</h3>
+							<h3 for="inputEmail" class="col-form-label text-sm-end">権限</h3>
 						</div>
 						<div class="col-sm-8" style="margin-top: 10px;">
 							<input type="checkbox" name="authority" value="1"
