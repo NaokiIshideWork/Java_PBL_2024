@@ -22,7 +22,7 @@ body {
 
 @media screen and (min-width:320px) {
 	.sp-left {
-		margin-left: 0px;
+		margin-left: 0;
 		
 	}
 }

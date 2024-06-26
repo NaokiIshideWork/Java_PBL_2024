@@ -14,7 +14,7 @@
 
 @media screen and (max-width:500px) {
 	.sp-left {
-		margin-left: 0 !important;
+		margin-left: 0;
 	}
 }
 

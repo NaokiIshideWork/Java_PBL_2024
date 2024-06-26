@@ -17,13 +17,13 @@ body {
 
 @media screen and (min-width:320px) {
 	.sp-left {
-		margin-left: 0 !important;
+		margin-left: 0;
 	}
 }
 
 @media screen and (min-width:375px) {
 	.sp-left {
-		margin-right: 30 !important;
+		margin-right: 30;
 	}
 }
 @media screen and (min-width:576px) {
@@ -48,38 +48,7 @@ body {
 	}
 }
 
-@media screen and (min-width:320px) {
-	.sp-left {
-		margin-left: 0 !important;
-	}
-}
 
-@media screen and (min-width:375px) {
-	.sp2-left {
-		margin-right: 30 !important;
-	}
-}
-@media screen and (min-width:576px) {
-	.sp2-left {
-		margin-left: 50px;
-	}
-}
-
-@media screen and (min-width:768px) {
-	.sp2-left {
-		margin-left: 70px;
-	}
-}
-@media screen and (min-width:992px) {
-	.sp2-left {
-		margin-left: 80px;
-	}
-}
-@media screen and (min-width:1024px) {
-	.sp2-left {
-		margin-left: 0px;
-	}
-}
 </style>	
 
 	<c:if test="${not empty err}">
