@@ -6,6 +6,34 @@
 <jsp:param name="currentPage" value="searchSales" />
 </jsp:include>
 
+<style>
+body {
+	overflow-x: hidden;
+}
+
+.sp-left {
+	margin-left: 100px;
+}
+
+@media screen and (max-width:500px) {
+	.sp-left {
+		margin-left: 0 !important;
+	}
+}
+
+@media screen and (min-width:800px) {
+	.pc-right {
+		margin-right: 300px;
+	}
+}
+
+@media screen and (min-width:400px) {
+	.pc-right {
+		margin-right: 30%;
+	}
+}
+</style>	
+
 	<div class="container">
 				<h2 class="mt-5" style="margin-left: 150px;">売上詳細編集確認</h2>
 				<div style="margin-left: 100px">

@@ -6,6 +6,31 @@
 <jsp:param name="currentPage" value="searchSales" />
 </jsp:include>	
 
+<style>
+
+.sp-left {
+	margin-left: 100px;
+}
+
+@media screen and (max-width:500px) {
+	.sp-left {
+		margin-left: 0 !important;
+	}
+}
+
+@media screen and (min-width:800px) {
+	.pc-right {
+		margin-right: 300px;
+	}
+}
+
+@media screen and (min-width:400px) {
+	.pc-right {
+		margin-right: 30%;
+	}
+}
+</style>	
+
 	<div class="container" class="text-left">
 		<h2 class="mt-3">売上検索結果表示</h2>
 	</div>

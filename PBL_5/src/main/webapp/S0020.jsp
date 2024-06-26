@@ -6,6 +6,82 @@
 <jsp:param name="currentPage" value="searchSales" />
 </jsp:include>
 
+<style>
+body {
+	overflow-x: hidden;
+}
+
+.sp-left {
+	margin-left: 100px;
+}
+
+@media screen and (min-width:320px) {
+	.sp-left {
+		margin-left: 0 !important;
+	}
+}
+
+@media screen and (min-width:375px) {
+	.sp-left {
+		margin-right: 30 !important;
+	}
+}
+@media screen and (min-width:576px) {
+	.sp-left {
+		margin-left: 50px;
+	}
+}
+
+@media screen and (min-width:768px) {
+	.sp-left {
+		margin-left: 130px;
+	}
+}
+@media screen and (min-width:992px) {
+	.sp-left {
+		margin-left: 130px;
+	}
+}
+@media screen and (min-width:1024px) {
+	.sp-left {
+		margin-left: 150px;
+	}
+}
+
+@media screen and (min-width:320px) {
+	.sp-left {
+		margin-left: 0 !important;
+	}
+}
+
+@media screen and (min-width:375px) {
+	.sp2-left {
+		margin-right: 30 !important;
+	}
+}
+@media screen and (min-width:576px) {
+	.sp2-left {
+		margin-left: 50px;
+	}
+}
+
+@media screen and (min-width:768px) {
+	.sp2-left {
+		margin-left: 70px;
+	}
+}
+@media screen and (min-width:992px) {
+	.sp2-left {
+		margin-left: 80px;
+	}
+}
+@media screen and (min-width:1024px) {
+	.sp2-left {
+		margin-left: 0px;
+	}
+}
+</style>	
+
 	<c:if test="${not empty err}">
 		<div
 			class="alert alert-danger animate__animated animate__fadeOut animate__delay-3s"
@@ -18,11 +94,11 @@
 			role="alert">売上編集権限はありません</div>
 	</c:if>
 	<div class="container">
-		<h2 class="mt-5" style="margin-left: 150px;">売上検索</h2>
-		<div class="row" style="padding-right: 350px;">
-				<form class="text-center" action="SearchSalesServlet" method="post">
+		<h2 class="mt-5 sp-left">売上検索</h2>
+		<div class="row " style="padding-right: 350px;">
+				<form class="text-center  sp2-left" action="SearchSalesServlet" method="post">
 					<div class="row mb-3 justify-content-center">
-						<div class="col-sm-4" style="text-align: right">
+						<div class="col-sm-4 " style="text-align: right">
 							<label for="salesDate" class="col-form-label ">販売日</label>
 						</div>
 
@@ -85,7 +161,7 @@
 								name="remarks" placeholder="備考">
 						</div>
 					</div>
-					<div class="row mb-3 ">
+					<div class="row mb-3">
 						<div class="col-sm-4"></div>
 						<div class="col-sm-8">
 							<button type="submit" class="btn btn-primary btn-search me-1">

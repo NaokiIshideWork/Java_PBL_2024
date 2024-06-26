@@ -6,11 +6,48 @@
 <jsp:param name="currentPage" value="registerSales" />
 </jsp:include>
 
+<style>
+body {
+	overflow-x: hidden;
+}
+
+.sp-left {
+	margin-left: 100px;
+}
+@media screen and (min-width:320px) {
+	.sp-left {
+		margin-left: 0 !important;
+	}
+}
+
+@media screen and (min-width:375px) {
+	.sp-left {
+		margin-left: 0 !important;
+	}
+}
+
+@media screen and (min-width:425px) {
+	.sp-left {
+		margin-left: 30px;
+	}
+}
+
+@media screen and (min-width:768px) {
+	.sp-left {
+		margin-left: 50px;
+	}
+}@media screen and (min-width:1024px) {
+	.sp-left {
+		margin-left: 150px;
+	}
+}
+</style>	
+
 	<c:choose>
 		<c:when
 			test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
 			<div class="container ">
-				<h2 class="mt-5" style="margin-left: 150px;">売上登録確認</h2>
+				<h2 class="mt-5 sp-left">売上登録確認</h2>
 				<div  style="margin-left: 100px">
 					<form class="text-right" action="RegisterSalesServlet"
 						method="post">
