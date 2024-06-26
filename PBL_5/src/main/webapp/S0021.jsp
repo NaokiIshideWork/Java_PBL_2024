@@ -17,14 +17,14 @@
 						test="${sessionScope.LoginUser.getAuthority() eq 1 or sessionScope.LoginUser.getAuthority() eq 11}">
 						<th scope="col" class="col-md-1">操作</th>
 					</c:if>
-					<th scope="col" class="col-md-1">No</th>
-					<th scope="col" class="col-md-1">販売日</th>
-					<th scope="col" class="col-md-1">担当</th>
-					<th scope="col" class="col-md-2">商品カテゴリー</th>
-					<th scope="col" class="col-md-3">商品名</th>
-					<th scope="col" class="col-md-1">単価</th>
-					<th scope="col" class="col-md-1">個数</th>
-					<th scope="col" class="col-md-1">小計</th>
+					<th scope="col" class="col-md-1" style="white-space:nowrap;">No</th>
+					<th scope="col" class="col-md-1" style="white-space:nowrap;">販売日</th>
+					<th scope="col" class="col-md-1" style="white-space:nowrap;">担当</th>
+					<th scope="col" class="col-md-2" style="white-space:nowrap;">商品カテゴリー</th>
+					<th scope="col" class="col-md-3" style="white-space:nowrap;">商品名</th>
+					<th scope="col" class="col-md-1" style="white-space:nowrap;">単価</th>
+					<th scope="col" class="col-md-1" style="white-space:nowrap;">個数</th>
+					<th scope="col" class="col-md-1" style="white-space:nowrap;">小計</th>
 				</tr>
 			</thead>
 			<c:forEach var="obj" items="${slist}">
@@ -36,14 +36,14 @@
 									class="btn btn-primary" name="sale_id"
 									value="${obj.getSale_id()}" style="white-space:nowrap;">✓ 詳細</button></td>
 						</c:if>
-						<td class="col-md-1"><c:out value="${obj.getSale_id()}" /></td>
-						<td class="col-md-1"><c:out value="${obj.getSale_date()}" /></td>
-						<td class="col-md-1"><c:out value="${obj.getName()}" /></td>
-						<td class="col-md-2"><c:out value="${obj.getCategory_name()}" /></td>
-						<td class="col-md-3"><c:out value="${obj.getTrade_name()}" /></td>
-						<td class="col-md-1"><c:out value="${obj.getUnit_price()}" /></td>
-						<td class="col-md-1"><c:out value="${obj.getSale_number()}" /></td>
-						<td class="col-md-1"><c:out value="${obj.getSubtotal()}" /></td>
+						<td class="col-md-1" style="white-space:nowrap;"><c:out value="${obj.getSale_id()}" /></td>
+						<td class="col-md-1" style="white-space:nowrap;"><c:out value="${obj.getSale_date()}" /></td>
+						<td class="col-md-1" style="white-space:nowrap;"><c:out value="${obj.getName()}" /></td>
+						<td class="col-md-2" style="white-space:nowrap;"><c:out value="${obj.getCategory_name()}" /></td>
+						<td class="col-md-3" style="white-space:nowrap;"><c:out value="${obj.getTrade_name()}" /></td>
+						<td class="col-md-1" style="white-space:nowrap;"><c:out value="${obj.getUnit_price()}" /></td>
+						<td class="col-md-1" style="white-space:nowrap;"><c:out value="${obj.getSale_number()}" /></td>
+						<td class="col-md-1" style="white-space:nowrap;"><c:out value="${obj.getSubtotal()}" /></td>
 					</tr>
 				</form>
 			</c:forEach>
