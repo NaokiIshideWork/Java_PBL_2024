@@ -7,6 +7,64 @@
 <jsp:param name="currentPage" value="searchAccounts" />
 </jsp:include>
 
+<style>
+body {
+	overflow-x: hidden;
+}
+
+.sp-left {
+	margin-left: 150px;
+}
+
+.sp-center {
+		text-align: center;
+	}
+
+@media screen and (min-width:320px) {
+	.sp-left {
+		margin-left: 0 !important;
+		
+	}
+}
+
+@media screen and (min-width:375px) {
+	.sp-left {
+		margin-left: 20px;
+	}
+}
+
+@media screen and (min-width:500px) {
+	.sp-left {
+		margin-left: 30 ;
+	}
+}
+
+@media screen and (min-width:767px) {
+
+	.sp-left {
+		margin-left: 50px;
+	}
+	
+	.sp-center {
+		text-align: center;
+	}
+	
+}
+@media screen and (min-width:991px) {
+
+	.sp-left {
+		margin-left: 100px;
+	}
+	
+}
+
+@media screen and (min-width:1024px) {
+	.sp-left {
+		margin-left: 150px;
+	}
+}
+</style>
+
 
 	<c:if test="${not empty err}">
 		<div
@@ -20,7 +78,7 @@
 			role="alert">アカウント編集権限はありません</div>
 	</c:if>
 	<div class="container">
-		<h2 class="mt-5" style="margin-left: 150px;">アカウント検索条件入力</h2>
+		<h2 class="mt-5 sp-left" style="white-space:nowrap;">アカウント検索条件入力</h2>
 		<div style="margin-left: 100px">
 			<form class="text-right" action="AccountSearchServlet" method="POST">
 				<div class="row ">
@@ -47,7 +105,7 @@
 					<div class="col-sm-3">
 						<h3 for="inputEmail" class="col-form-label text-sm-end">権限</h3>
 					</div>
-					<div class="col-sm-8" style="margin-top: 10px;">
+					<div class="col-sm-8" style="margin-top: 10px; white-space:nowrap;">
 						<input type="checkbox" name="authority" value="0"
 							id="authorityNone"> <label for="authorityNone">
 							権限なし </label> <input type="checkbox" name="authority" value="1"
@@ -60,11 +118,12 @@
 		</div>
 		<div class="row mt-3">
 			<div class="col-sm-4"></div>
-			<div class="col-sm-8">
+			<div class="col-sm-4 sp-center">
 				<button type="submit" class="btn btn-primary me-2"
 					href="AccountSearchServlet">🔍検 索</button>
 				<button type="reset" class="btn btn-outline-secondary">クリア</button>
 			</div>
+			<div class="col-sm-4"></div>
 			</form>
 		</div>
 	</div>

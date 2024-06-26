@@ -18,7 +18,7 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between"
             id="navbarNav">
-            <ul class="navbar-nav mt-2">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <c:choose>
                         <c:when test="${param['currentPage'] == 'dashboard'}">
@@ -71,7 +71,7 @@
                 </li>
             </ul>
             <div class="navbar-nav">
-                <form action="LogoutServlet" method="post">
+                <form action="LogoutServlet" method="post" style="margin-bottom:0;">
                     <button class="nav-link" type="submit">
                         ログアウト
                     </button>
@@ -80,3 +80,10 @@
         </div>
     </div>
 </nav>
+<style>
+button,a{
+white-space: nowrap;
+}
+body{
+    overflow-x: hidden;}
+</style>

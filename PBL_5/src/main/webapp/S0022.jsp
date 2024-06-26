@@ -29,7 +29,7 @@ body {
 
 @media screen and (min-width:400px) {
 	.pc-right {
-		margin-right: 30%;
+		margin-right: 120px;
 	}
 }
 </style>	
