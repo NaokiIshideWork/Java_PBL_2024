@@ -62,7 +62,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 			return;
 		}
 		if (session != null && isSessionExpired(session)) {
-			session.invalidate(); // セッションを無効化してログアウト
+			session.invalidate(); 
 			res.sendRedirect("LoginServlet"); 			
 			return;
 		}
