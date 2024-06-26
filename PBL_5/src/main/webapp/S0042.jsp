@@ -38,9 +38,9 @@ if (authority.equals("11")) {
     
     <c:choose>
         <c:when test="${sessionScope.LoginUser.getAuthority() eq 10 or sessionScope.LoginUser.getAuthority() eq 11}">
-            <div class="container position-absolute">
-                <h2 class="mt-5" style="margin-left: 80px;">アカウント詳細編集</h2>
-                <div class="" style="margin-left: 100px">
+            <div class="container">
+                <h2 class="mt-5" style="margin-left: 100px;">アカウント詳細編集</h2>
+                <div style="margin-left: 100px">
                     <form class="text-right" action="EditScreenServlet" method="POST">
                         <%
                         String id = (String) request.getAttribute("id");
@@ -49,7 +49,7 @@ if (authority.equals("11")) {
                         <input type="hidden" name="id" value="<%=id%>" />
                         <div class="row ">
                             <div class="col-sm-3">
-                                <h3 for="inputEmail" class="col-form-label" style="text-align: end;">氏名</h3>
+                                <h3 for="inputEmail" class="col-form-label text-sm-end">氏名</h3>
                             </div>
                             <div class="col-sm-8 w-50">
                                 <input type="text" name="name" class="form-control" value="${name}">
@@ -57,7 +57,7 @@ if (authority.equals("11")) {
                         </div>
                         <div class="row mt-3">
                             <div class="col-sm-3">
-                                <h3 for="inputEmail" class="col-form-label" style="text-align: end;">メールアドレス</h3>
+                                <h3 for="inputEmail" class="col-form-label text-sm-end">メールアドレス</h3>
                             </div>
                             <div class="col-sm-8 w-50">
                                 <input type="email" name="mail" class="form-control" value="${mail}">
@@ -65,7 +65,7 @@ if (authority.equals("11")) {
                         </div>
                         <div class="row mt-3">
                             <div class="col-sm-3">
-                                <h3 for="inputEmail" class="col-form-label" style="text-align: end;">パスワード</h3>
+                                <h3 for="inputEmail" class="col-form-label text-sm-end">パスワード</h3>
                             </div>
                             <div class="col-sm-8 w-50">
                                 <input type="password" name="password" class="form-control " value="${password}">
@@ -73,7 +73,7 @@ if (authority.equals("11")) {
                         </div>
                         <div class="row mt-3">
                             <div class="col-sm-3">
-                                <h3 for="inputEmail" class="col-form-label" style="text-align: end;">パスワード（確認）</h3>
+                                <h3 for="inputEmail" class="col-form-label text-sm-end">パスワード（確認）</h3>
                             </div>
                             <div class="col-sm-8 w-50">
                                 <input type="password" name="confirmPassword" class="form-control " value="${password}">
@@ -81,7 +81,7 @@ if (authority.equals("11")) {
                         </div>
                         <div class="row mt-3">
                             <div class="col-sm-3">
-                                <h3 for="inputEmail" class="col-form-label" style="text-align: end;">権限</h3>
+                                <h3 for="inputEmail" class="col-form-label text-sm-end">権限</h3>
                             </div>
                             <div class="col-sm-8" style="margin-top: 10px;">
                                 <input type="checkbox" name="authority" value="1" id="authoritySale" <%=salesSelected ? "checked" : ""%>>
@@ -93,13 +93,13 @@ if (authority.equals("11")) {
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-sm-3"></div>
+                            <div class="col-sm-4"></div>
                             <div class="col-sm-8">
                                 <div class="btn-group" role="group">
                                     <!-- Update Button Form -->
                                     
                                         <input type="hidden" name="id" value="<%=id%>" />
-                                        <button type="submit" class="btn btn-primary rounded" style="margin-right: 10px; margin-bottom: 16px">✔更 新</button>
+                                        <button type="submit" class="btn btn-primary rounded mb-3" style="margin-right: 10px;">✔更 新</button>
                                     </form>
                                     
                                     
