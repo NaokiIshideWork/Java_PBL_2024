@@ -23,7 +23,7 @@ body {
 
 @media screen and (min-width:375px) {
 	.sp-left {
-		margin-right: 30;
+		margin-right: 30px;
 	}
 }
 @media screen and (min-width:576px) {
