@@ -95,7 +95,7 @@ public class S0040AccountSearchServlet extends HttpServlet {
                 request.setAttribute("AccountSearch", ar.AccountMultiSearchCriteria(name, mail, intAuthorityOne, intAuthorityTwo));
             }
             
-            // 一応false もし不要だったら消す
+            
             boolEdit = false;
             boolDelete = false;
 
@@ -155,7 +155,6 @@ public class S0040AccountSearchServlet extends HttpServlet {
         // エラーチェック
         String error_display = "";
 
-		//氏名
         if(name!=null) {
         	if (name.length() > 20) {
     			error_display += "氏名が長すぎます。";//ok

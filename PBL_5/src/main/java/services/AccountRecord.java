@@ -20,7 +20,6 @@ public class AccountRecord {
 	        ps = con.prepareStatement(sql);
 	        ps.setString(1, name);
 	        ps.setString(2, mail);
-	        // パスワードをハッシュ化するなどのセキュリティ処理を追加することが推奨されます
 	        ps.setString(3, password);
 	        ps.setInt(4, authority);
 	        ps.executeUpdate();
@@ -91,7 +90,7 @@ public class AccountRecord {
 		ArrayList<AccountsBean> accountsList2 = new ArrayList<AccountsBean>();
 		// 氏名絞り込み後、メアド絞り込み
 		ArrayList<AccountsBean> accountsList3 = new ArrayList<AccountsBean>();
-		// 最後にチェックボックスでの絞り込み
+		// 最後に権限での絞り込み
 		ArrayList<AccountsBean> accountsList4 = new ArrayList<AccountsBean>();
 		
 		Connection con = null;
@@ -187,7 +186,7 @@ public class AccountRecord {
 		ArrayList<AccountsBean> accountsList2 = new ArrayList<AccountsBean>();
 		// 氏名絞り込み後、メアド絞り込み
 		ArrayList<AccountsBean> accountsList3 = new ArrayList<AccountsBean>();
-		// 最後にチェックボックスでの絞り込み
+		// 最後に権限での絞り込み
 		ArrayList<AccountsBean> accountsList4 = new ArrayList<AccountsBean>();
 		
 		Connection con = null;
