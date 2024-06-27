@@ -157,7 +157,7 @@ public class S0040AccountSearchServlet extends HttpServlet {
 
         if(name!=null) {
         	if (name.length() > 20) {
-    			error_display += "氏名が長すぎます。";//ok
+    			error_display += "氏名が長すぎます。";
     		}
         }
 		
